@@ -20,4 +20,3 @@ Route::post('/register',[SiteController::class ,'registerPost']) -> name('regist
 Route::get('/welcome', function () {
     return view('welcome');
 }) ->name('welcome');
-

@@ -1,0 +1,5 @@
+        @foreach ($record as $el)
+        <h5>{{$el->email}}</h5>
+        <h5>{{$el->password}}</h5>
+        <h5>{{$el->name}}</h5>
+        @endforeach
