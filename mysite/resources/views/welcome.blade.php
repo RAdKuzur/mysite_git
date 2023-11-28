@@ -8,13 +8,19 @@
     <title>Главная</title>
 </head>
 <body>
+    
     <div align="center"> Вход в учётную запись произведён успешно </div>
     <div class="data-profile">
         <h1> Данные пользователя </h1>
-        @foreach ($record = Session::get('record') as $el)
-        <h5>email:    {{$el->email}}</h5>
-        <h5>name:    {{$el->name}}</h5>
+        @foreach ($record as $el)
+        <h5>Email: {{$el->email}}</h5>
+        <h5>Name: {{$el->name}}</h5>
         @endforeach
+        
+        
+        
+        
+        
     </div>
 </body>
 </html>

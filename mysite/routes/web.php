@@ -1,7 +1,8 @@
 <?php
-
+use App\Models\User;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SiteController;
+use Illuminate\Support\Facades\Request;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,6 +18,7 @@ Route::get('/login',[SiteController::class ,'login']) -> name('login');
 Route::post('/login',[SiteController::class ,'loginPost']) -> name('login.post');
 Route::get('/register',[SiteController::class ,'register']) -> name('register');
 Route::post('/register',[SiteController::class ,'registerPost']) -> name('register.post');
-Route::get('/welcome', function () {
-    return view('welcome');
-}) ->name('welcome');
+//Route::get('/welcome', function () {
+ //   return view('welcome');
+//}) ->name('welcome');
+Route::get('/welcome/{id}',[SiteController::class ,'welcome']) -> name('welcome');
