@@ -1,0 +1,26 @@
+.body-1 {
+    background-color: #e9ebf0;
+}
+.img {
+    margin-top: 2%;
+    margin-left: 35%;
+    display: flex;
+    width: 100%;
+    margin-bottom: 5%;
+}
+.img-olymp {
+    margin-right: 7%;
+    height: 10%;
+    width: 10%;
+    
+}
+.img-gerb {
+    width: 4%;
+    height: 10%;
+    margin-right: 7%;
+
+}
+.text-1 {
+    font-size:220%;
+    vertical-align: middle;
+}
