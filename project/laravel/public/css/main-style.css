@@ -24,3 +24,16 @@
     font-size:220%;
     vertical-align: middle;
 }
+.box-1 {
+    background-color: white;
+    border-radius: 3%;
+    padding: 50px;
+}
+.button-1 {
+    float:right;
+}
+#div-1 {
+    display:none;
+
+
+}

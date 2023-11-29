@@ -13,9 +13,6 @@ use App\Http\Controllers\SiteController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-Route::get('/', function () {
-    return view('welcome');
-});
 /*Route::get('/', function () {
   // Сохраняем время перехода пользователя по ссылке
     session(['link_clicked_at' => now()]);
@@ -23,6 +20,6 @@ Route::get('/', function () {
   // Возвращает ваши представления или перенаправляет пользователя на другую страницу
 })->middleware('link.expiration');
 */
-Route::get('/temp', function () {
-       return view('welcome');
-});
+Route::post('/{id}',[SiteController::class ,'registerPost']) -> name('register.post');
+Route::get('/temp',  [SiteController::class, 'table_process']);
+Route::get('/{id}',  [SiteController::class, 'table_process'])->name('table.process');

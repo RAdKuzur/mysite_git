@@ -8,10 +8,10 @@
     <title>Главная</title>
 </head>
 <body>
-    
+@csrf
     <div align="center">временная страница</div>
     <div class="data-profile">
-        <h1 align = "center"> Данные пользователя {{$unavailableTime}}</h1>
+        <h1 align = "center"> Данные пользователя </h1>
     </div>
 </body>
 </html>
