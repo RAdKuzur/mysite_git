@@ -1,5 +1,6 @@
 <?php
 use Carbon\Carbon;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\URL;
 use App\Http\Controllers\SiteController;
@@ -13,13 +14,26 @@ use App\Http\Controllers\SiteController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-/*Route::get('/', function () {
-  // Сохраняем время перехода пользователя по ссылке
-    session(['link_clicked_at' => now()]);
-    return view('welcome');
-  // Возвращает ваши представления или перенаправляет пользователя на другую страницу
-})->middleware('link.expiration');
-*/
-Route::post('/{id}',[SiteController::class ,'registerPost']) -> name('register.post');
-Route::get('/temp',  [SiteController::class, 'table_process']);
-Route::get('/{id}',  [SiteController::class, 'table_process'])->name('table.process');
+
+
+
+
+
+Route::post('/id/{id}',[SiteController::class ,'registerPost']) -> name('register.post');
+Route::get('/giveurl', function () {
+  $url = URL::temporarySignedRoute('table.process', now()->addSeconds(1000), ['id' => 1]);
+  $url2 = URL::temporarySignedRoute('table.process', now()->addSeconds(1000), ['id' => 2]);
+  $url3 = URL::temporarySignedRoute('table.process', now()->addSeconds(1000), ['id' => 3]);
+  return view('giveurl')->with('url', $url)->with('url2', $url2)->with('url3', $url3);
+});
+Route::get('/main',  [SiteController::class, 'main'])->name('main');
+Route::get('/id/{id}',  [SiteController::class, 'table_process'])->name('table.process');
+Route::get('/test', function () {
+    return view('test');
+
+
+});
+
+
+
+

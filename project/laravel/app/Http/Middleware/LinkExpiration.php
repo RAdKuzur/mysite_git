@@ -24,13 +24,15 @@ class LinkExpiration
     {
         // Получаем время перехода пользователя по ссылке
         $linkClickedAt = session('link_clicked_at');
-
-        // Проверяем, прошло ли 1 день с момента перехода по ссылке
+       // echo "session now: " ,  now(), "\n";
+       /// echo "session in middleware: ", Carbon::parse($linkClickedAt);
+        
+        //echo(Carbon::parse($linkClickedAt)->addSeconds(10));
+        // Проверяем, прошло ли 10 секунд с момента перехода по ссылке
         if ($linkClickedAt && Carbon::parse($linkClickedAt)->addSeconds(10)->isPast()) {
-            // Если прошло 1 день, делаем сайт недоступным
             abort(403, 'Ссылка больше недействительна.');
         }
-
         return $next($request);
     }
 }
+

@@ -1,6 +1,4 @@
-.body-1 {
-    background-color: #e9ebf0;
-}
+
 .img {
     margin-top: 2%;
     margin-left: 35%;
@@ -34,6 +32,9 @@
 }
 #div-1 {
     display:none;
-
-
+}
+#playpen { 
+    background-color: grey;
+    height: 3000px; 
+    line-height: 100%;
 }

@@ -8,10 +8,11 @@
     <link rel = "stylesheet" type="text/css" href="../css/main-style.css">
     <link rel = "stylesheet" type="text/css" href="../css/bootstrap.css">
     <link rel="shortcut icon" href="/img/flag.png" type="image/png"> 
+    <script src='../js/jquery.js'></script>
+	<script src = '../js/gradient.js'></script>
     <title>Страница подтверждения</title>
 </head>
-<body class = "body-1">
-
+<body class = "body-1" id = playpen>                                                                        
     <div class = "img">
         <img src = "/img/olymp.png" class = "img-olymp">
         <img src = "/img/gerb.png" class = "img-gerb">
@@ -49,16 +50,10 @@
                     @endforeach
                 </tbody>
             </table>
-            <script>
-                var table = document.getElementById("myTable");
-                var checkboxes = table.getElementsByTagName("input");
-                for (var i = 0; i < checkboxes.length; i++) {
-                    checkboxes[i].id = "checkbox" + (i + 1);
-                    checkboxes[i].name = "checkbox" + (i + 1);
-                }
+            <script src = "../js/checkbox.js">
             </script>
             <button type="button submit" class="btn btn-primary button-1" id = "button-1">
-                <script src="../js/script.js"></script>
+                <script src="../js/empty.js"></script>
                 Подтвердить участие
             </button>
         </form>
