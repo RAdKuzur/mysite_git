@@ -12,9 +12,9 @@
     <div align="center">Раздача ссылок</div>
     <div class="data-profile">
         <h1> Ссылки </h1>
-        <div>URL учителя 1: {{$url}}</h2>
-        <div>URL учителя 2: {{$url2}}</h2>
-        <div>URL учителя 3: {{$url3}}</h2>
+        @for ($i = 0; $i < $num; $i++)
+            <div>URL учителя: {{$url[$i]}}</div>
+        @endfor
     </div>
 </body>
 </html>

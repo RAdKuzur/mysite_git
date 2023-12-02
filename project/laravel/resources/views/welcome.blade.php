@@ -33,7 +33,9 @@
                 </tr>
                 </thead>
                 <tbody>
-                {{$number = 1}}
+                @php
+                    $number = 1
+                @endphp
                 @foreach ($record as $element) 
                 <tr>
                     <th scope="row">{{$number}}</th>
@@ -46,7 +48,9 @@
                         <td><input type="checkbox" class="form-check-input" unchecked><label></label></td>
                         @endif
                     </tr>
-                    {{$number = $number + 1}}
+                    @php
+                        $number = $number + 1
+                    @endphp
                     @endforeach
                 </tbody>
             </table>

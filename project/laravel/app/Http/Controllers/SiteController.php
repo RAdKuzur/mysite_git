@@ -16,15 +16,25 @@ class SiteController extends Controller
     public function table_process(Request $request, $id){
         if(!$request->hasValidSignature()){
             abort(403, "Время сеанса истекло" );
-          }
+        }
+        $record = DB::table('teacher')
+        ->where('id', '=', $id)
+        ->get();  
+        if($record[0]->flag != 0) {
+            abort(403, "Вы уже приняли участие в олимпиаде");
+        }
         $record = DB::table('students')
                     ->where('id_teacher', '=', $id)
                     ->get();    
         return view('welcome')->with('record', $record)->with('id_teacher', $id);
     }
     public function registerPost(Request $request, $id){
-
-
+        DB::table('teacher')
+                ->where('id', '=' , $id)
+                ->update(['flag' => 1]);
+        DB::table('teacher')
+                ->where('id', '=' , $id)
+                ->update(['url' => $request->url()]);
         $number = 1; 
         $record = DB::table('students')
                     ->where('id_teacher', '=', $id)
@@ -34,7 +44,6 @@ class SiteController extends Controller
             $id_student = $element->id;
             if ($request->input("checkbox{$number}") == "on"){
                 $var = DB::table('students')->where('id','=', $element->id)->update(['flag' => 1]);
- 
             }
             else {
                 $var = DB::table('students')->where('id','=', $element->id)->update(['flag' => 0]);
@@ -44,8 +53,7 @@ class SiteController extends Controller
         sleep(1);
         return redirect(route('main'));
     }
-    public function main(){
-        
+    public function main(){   
         return view('main');
     }
 }
