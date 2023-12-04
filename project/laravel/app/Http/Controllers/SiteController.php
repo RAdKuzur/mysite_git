@@ -68,6 +68,7 @@ class SiteController extends Controller
 
     //POST METHOD
     public function giveurl(Request $request){
+        
         if($request->name == ""){
             //указание об ошибке
             return redirect(route('giveurl'));
@@ -80,11 +81,14 @@ class SiteController extends Controller
 
             //добавить проверку по url
             $urlfull = ($request->server())["HTTP_REFERER"];
+            if(DB::table('teacher')->where('url', '=' ,$urlfull)->get()->count() != 0){
+                abort(403, "Время сеанса истекло");
+            }
             $record = DB::table('teacher')
                 ->where('school', '=', $id_school)
                 ->where( 'name', '=' ,"{$request->name_teacher}")
                 ->where('surname', '=' ,"{$request->surname_teacher}")
-                ->where('url', '=' ,$urlfull)
+                
                 ->get();
            
             if($record->count() == 0){        
