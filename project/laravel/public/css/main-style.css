@@ -38,3 +38,28 @@
     height: 3000px; 
     line-height: 100%;
 }
+#highlight2 {
+
+    /*background-color: yellow;*/
+
+    background-image: url("../img/background.jpg");
+ 
+    
+}
+#highlight {
+    position: fixed;
+    pointer-events: none;
+    background-color: yellow;
+    opacity: 0.5;
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    transform: translate(-50%, -50%);
+    z-index: 0;
+}
+#list1 {
+    margin-left: 10%;
+}
+.body-2 {
+    background-color: grey;
+}

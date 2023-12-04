@@ -20,12 +20,11 @@ use App\Http\Controllers\SiteController;
 
 
 
-Route::post('/id/{id}',[SiteController::class ,'registerPost']) -> name('register.post');
-Route::get('/giveurl', function () {
+
+/*Route::get('/giveurl', function () {
     $num = DB::table('teacher')->count();
     $urls = array();
     for ($i = 0; $i < $num ; $i++) {
-        
         array_push($urls,URL::temporarySignedRoute('table.process', now()->addSeconds(1000), ['id' => $i+1]));
     }
  // $url = URL::temporarySignedRoute('table.process', now()->addSeconds(1000), ['id' => 1]);
@@ -34,14 +33,18 @@ Route::get('/giveurl', function () {
  // return view('giveurl')->with('url', $url)->with('url2', $url2)->with('url3', $url3);
     return view('giveurl')->with('url', $urls)->with('num', $num);
 });
+*/
+
 Route::get('/main',  [SiteController::class, 'main'])->name('main');
+
 Route::get('/id/{id}',  [SiteController::class, 'table_process'])->name('table.process');
-Route::get('/test', function () {
-    return view('test');
+Route::post('/id/{id}',[SiteController::class ,'registerPost']) -> name('register.post');
+
+Route::get('/giveurl',  [SiteController::class, 'giveurl_get'])->name('giveurl_get');
+Route::post('/giveurl',[SiteController::class ,'giveurl']) -> name('giveurl');
 
 
-});
-
-
-
-
+Route::get('/test', function(){
+    $url = URL::temporarySignedRoute('giveurl_get', now()->addSeconds(1000));
+    return view('teacher')->with('url',$url);
+})->name('test');

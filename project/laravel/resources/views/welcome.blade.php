@@ -10,9 +10,11 @@
     <link rel="shortcut icon" href="/img/flag.png" type="image/png"> 
     <script src='../js/jquery.js'></script>
 	<script src = '../js/gradient.js'></script>
+    <script src = "../js/movemouse.js">   </script> 
     <title>Страница подтверждения</title>
 </head>
-<body class = "body-1" id = playpen>                                                                        
+<body class = "body-1" id = "highlight2">  
+    <div id="highlight"></div>                                                         
     <div class = "img">
         <img src = "/img/olymp.png" class = "img-olymp">
         <img src = "/img/gerb.png" class = "img-gerb">
