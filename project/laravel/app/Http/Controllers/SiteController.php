@@ -19,39 +19,31 @@ class SiteController extends Controller
             abort(403, "Время сеанса истекло");
         }
         $urlfull = ($request->server())["HTTP_REFERER"];
-        if(DB::table('teacher')->where('url', '=' ,$urlfull)->where('flag', '=' , 1)->get()->count() != 0){
-            abort(403, "Время сеанса истекло");
+        if(DB::table('teacher')->where('url', '=' ,$urlfull)->where('flag', '=' , 1)->where('id', '=', $id)->count() != 0){
+            abort(403, "Вы уже приняли участие в олимпиаде1");
         }
-        $record = DB::table('teacher')
-        ->where('id', '=', $id)
-        ->get();  
-        if($record[0]->flag != 0) {
-            abort(403, "Вы уже приняли участие в олимпиаде");
-        } 
-        DB::table('teacher')
-            ->where('id', '=' , $id)
-            ->update(['flag' => 1]);
+ 
         $id2 =  DB::table('teacher')
         ->where('id', '=', $id)
         ->get();    
         $id = $id2[0]->school;
         $record = DB::table('students')
                     ->where('id_teacher', '=', $id)
-                    ->get();    
+                    ->get();  
+
+        $id = $id2[0]->id;
         return view('welcome')->with('record', $record)->with('id_teacher', $id);
     }
-
-    
-
-
     public function registerPost(Request $request, $id){
+    //id здесь - это id учителя
         DB::table('teacher')
                 ->where('id', '=' , $id)
                 ->update(['flag' => 1]);
-        DB::table('teacher')
-                ->where('id', '=' , $id);
-
         $number = 1; 
+        $id2 =  DB::table('teacher')
+        ->where('id', '=' , $id)->get();
+        // теперь id - id школы
+        $id = $id2[0]->school;
         $record = DB::table('students')
                     ->where('id_teacher', '=', $id)
                     ->get();
@@ -69,6 +61,8 @@ class SiteController extends Controller
         sleep(1);
         return redirect(route('main'));
     }
+
+
     public function main(){   
         return view('main');
     }
@@ -86,7 +80,16 @@ class SiteController extends Controller
             $id_school = $id_schools[0]->id;
             $teachers = DB::table('teacher')->where('school', '=', $id_school)->get();
             $num2 = $teachers->count();
+            if (($request->server())["HTTP_REFERER"] == null){
+                abort(403, "Ошибка");
+            }
             $urlfull = ($request->server())["HTTP_REFERER"];
+            $record = DB::table('teacher')
+                ->where('url', '=', $urlfull)
+                ->get();
+            if($record->count()!=0){
+                abort(403, "Время сеанса истекло");
+            }
             $record = DB::table('teacher')
                 ->where('school', '=', $id_school)
                 ->where( 'name', '=' ,"{$request->name_teacher}")
@@ -94,41 +97,38 @@ class SiteController extends Controller
                 ->where( 'flag', '=', 1)
                 ->where('url', '=', $urlfull)
                 ->get();
-           
-            if($record->count() == 0){        
+          
+            if($record->count() == 0){    
                 DB::table('teacher')->insert([
-                    'name' => "{$request->name_teacher}", 
-                    'surname' => "{$request->surname_teacher}",
-                    'flag' => 0,
-                    'school' =>  $id_school,
-                    'url' => ""
+                        'name' => "{$request->name_teacher}", 
+                        'surname' => "{$request->surname_teacher}",
+                        'flag' => 0,
+                        'school' =>  $id_school,
+                        'url' => ""
 
-                ]);  
+                ]);
+                
                 $record = DB::table('teacher')
                         ->where('school', '=', $id_school)
                         ->where( 'name', '=' ,"{$request->name_teacher}")
-                        ->where('surname', '=' ,"{$request->surname_teacher}")->get();  
+                        ->where('surname', '=' ,"{$request->surname_teacher}")->where('url','=',"")->get();  
                 $i = $record[0]->id;
                 $url = URL::temporarySignedRoute('table.process', now()->addSeconds(1000), ['id' => $i]);
                 DB::table('teacher')
                         ->where('school', '=', $id_school)
                         ->where( 'name', '=' ,"{$request->name_teacher}")
                         ->where('surname', '=' ,"{$request->surname_teacher}")
+                        ->where('url','=',"")
                         ->update(['url' => $urlfull]);
                 return Redirect::to($url);
             }
             else {      
-                DB::table('teacher')
-                        ->where('school', '=', $id_school)
-                        ->where( 'name', '=' ,"{$request->name_teacher}")
-                        ->where('surname', '=' ,"{$request->surname_teacher}")
-                        ->where('url', '=' ,$urlfull)
-                        ->update(['flag' => 1]);
-                abort(403, "Вы уже приняли участие в олимпиаде");
+                abort(403, "Вы уже приняли участие в олимпиаде2");
             }
         }
     }
     public function giveurl_get(Request $request){  
+        $record = DB::table('teacher');
         if(!$request->hasValidSignature()){
             abort(403, "Время сеанса истекло");
         }
