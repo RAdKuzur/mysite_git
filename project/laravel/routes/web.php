@@ -14,12 +14,6 @@ use App\Http\Controllers\SiteController;
 | routes are loaded by the RouteServiceProvider and all of them will
 | be assigned to the "web" middleware group. Make something great!
 |
-*/
-
-
-
-
-
 
 /*Route::get('/giveurl', function () {
     $num = DB::table('teacher')->count();

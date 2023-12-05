@@ -18,6 +18,10 @@ class SiteController extends Controller
         if(!$request->hasValidSignature()){
             abort(403, "Время сеанса истекло");
         }
+        $urlfull = ($request->server())["HTTP_REFERER"];
+        if(DB::table('teacher')->where('url', '=' ,$urlfull)->where('flag', '=' , 1)->get()->count() != 0){
+            abort(403, "Время сеанса истекло");
+        }
         $record = DB::table('teacher')
         ->where('id', '=', $id)
         ->get();  
@@ -36,6 +40,10 @@ class SiteController extends Controller
                     ->get();    
         return view('welcome')->with('record', $record)->with('id_teacher', $id);
     }
+
+    
+
+
     public function registerPost(Request $request, $id){
         DB::table('teacher')
                 ->where('id', '=' , $id)
@@ -66,7 +74,7 @@ class SiteController extends Controller
     }
 
 
-    //POST METHOD
+    //POST METHOD register
     public function giveurl(Request $request){
         
         if($request->name == ""){
@@ -78,17 +86,13 @@ class SiteController extends Controller
             $id_school = $id_schools[0]->id;
             $teachers = DB::table('teacher')->where('school', '=', $id_school)->get();
             $num2 = $teachers->count();
-
-            //добавить проверку по url
             $urlfull = ($request->server())["HTTP_REFERER"];
-            if(DB::table('teacher')->where('url', '=' ,$urlfull)->get()->count() != 0){
-                abort(403, "Время сеанса истекло");
-            }
             $record = DB::table('teacher')
                 ->where('school', '=', $id_school)
                 ->where( 'name', '=' ,"{$request->name_teacher}")
                 ->where('surname', '=' ,"{$request->surname_teacher}")
-                
+                ->where( 'flag', '=', 1)
+                ->where('url', '=', $urlfull)
                 ->get();
            
             if($record->count() == 0){        
@@ -122,18 +126,7 @@ class SiteController extends Controller
                         ->update(['flag' => 1]);
                 abort(403, "Вы уже приняли участие в олимпиаде");
             }
-            //return view('teacher')->with('record',$teachers)->with('num2',$num2);
         }
-       /* if($request->name == ""){
-            //указание об ошибке
-            return redirect(route('giveurl'));
-        }
-        else {
-
-            
-            return view('teacher')->with('record',$teachers)->with('num2',$num2);
-        }
-        */
     }
     public function giveurl_get(Request $request){  
         if(!$request->hasValidSignature()){

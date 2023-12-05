@@ -11,6 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
+        /*
         Schema::create('students', function (Blueprint $table) {
             $table->id();
             $table->integer('id_teacher');
@@ -19,7 +20,7 @@ return new class extends Migration
             $table->string('email');
             $table->integer('flag');
             $table->timestamps();
-        });
+        });*/
         Schema::create('teacher', function (Blueprint $table) {
             $table->id();
             $table->string('name');
@@ -30,11 +31,11 @@ return new class extends Migration
             $table->string('url');
             $table->timestamps();
         });
-       /* Schema::create('school', function (Blueprint $table) {
+       Schema::create('school', function (Blueprint $table) {
             $table->id();
             $table->string('name');
             $table->timestamps();
-        });*/
+        });
     }
 
     /**
