@@ -1,5 +1,6 @@
 <?php
 namespace App\Http\Controllers;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Resources\studentsResource;
 use App\Http\Requests\studentRequest;
 use App\Models\students;
@@ -7,6 +8,8 @@ use App\Models\teacher;
 use App\Models\school;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Str;
 
 class ApiController extends Controller
 {
@@ -55,5 +58,19 @@ class ApiController extends Controller
     {
         $student->where('id', '=', $request->id)->delete();
         return new studentsResource($student);
+    }
+    public function getData(Request $request)
+    {
+        $token = "";
+        if ($request->token != null){
+            $token = Str::random(80);
+            echo($token);
+        }
+        $data = students::all();
+        return response()->json(['data' => $data, 'token'=>$token]);
+    }
+    public function postData()
+    {
+
     }
 }
