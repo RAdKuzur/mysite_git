@@ -3,6 +3,7 @@ use App\Models\User;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SiteController;
 use Illuminate\Support\Facades\Request;
+use App\Http\Controllers\apicontroller;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -21,4 +22,5 @@ Route::post('/register',[SiteController::class ,'registerPost']) -> name('regist
 //Route::get('/welcome', function () {
  //   return view('welcome');
 //}) ->name('welcome');
-Route::get('/welcome/{id}',[SiteController::class ,'welcome']) -> name('welcome');
+Route::get('/welcome',[SiteController::class ,'welcome']) -> name('welcome');
+Route::get('/data', [apicontroller::class, 'getData']);
