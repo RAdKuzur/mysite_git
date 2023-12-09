@@ -16,6 +16,7 @@ return new class extends Migration
             $table->integer('id_teacher');
             $table->string('name');
             $table->string('surname');
+            $table->string('token');
             $table->string('email');
             $table->integer('flag');
             $table->timestamps();

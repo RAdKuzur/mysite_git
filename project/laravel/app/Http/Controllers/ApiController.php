@@ -61,16 +61,24 @@ class ApiController extends Controller
     }
     public function getData(Request $request)
     {
-        $token = "";
+        /*$token = "";
         if ($request->token != null){
             $token = Str::random(80);
-            echo($token);
         }
         $data = students::all();
         return response()->json(['data' => $data, 'token'=>$token]);
-    }
-    public function postData()
-    {
+        $response = Http::post("http://127.0.0.1:8001/api/data/12", ['token3' => '10101010']);
+        return $response->json();*/
 
+    }
+
+    public function postData(Request $request, $token)
+    {
+        if(DB::table('students')->where('token', '=' ,$token)->count() == 0){
+            abort(401);
+        };
+        $token = Str::random(80);
+        $data = students::all();
+        return response()->json(['data' => $data, 'token'=>$token]);
     }
 }

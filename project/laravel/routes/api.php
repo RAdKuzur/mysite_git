@@ -23,7 +23,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 //Route::get('/data/{token}', [ApiController::class, 'getData'])->name('getData');
 //Route::post('/data', [ApiController::class, 'postData'])->name('posrData');
 Route::get('/data', [ApiController::class, 'getData'])->name('getData');
-
+Route::post('/data/{token}', [ApiController::class, 'postData'])->name('postData');
 
 
 
