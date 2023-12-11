@@ -21,7 +21,7 @@
         <h3 class = "text-1"> </br>Астраханская</br>область</h3>    
     </div>
     <div class="container box-1" id = "table-1"> 
-        <form action="{{route('register.post', $id_teacher)}}" method = "POST">  
+        <form action="{{route('register.post', $id_t)}}" method = "POST">  
             @csrf
             <h2>Ваш класс:</h2>
             <table class="table table-bordered"  id="myTable">
@@ -38,13 +38,14 @@
                 @php
                     $number = 1
                 @endphp
-                @foreach ($record as $element) 
+                @foreach ($record["data"] as $element) 
+                
                 <tr>
                     <th scope="row">{{$number}}</th>
-                        <td>{{$element->name}}</td>
-                        <td>{{$element->surname}}</td>
-                        <td>{{$element->email}}</td>
-                        @if($element->flag)
+                        <td>{{$element['name']}}</td>
+                        <td>{{$element['surname']}}</td>
+                        <td>{{$element['name']}}</td>
+                        @if($element['flag'])
                         <td><input type="checkbox" class="form-check-input" checked><label></label></td>
                         @else
                         <td><input type="checkbox" class="form-check-input" unchecked><label></label></td>
