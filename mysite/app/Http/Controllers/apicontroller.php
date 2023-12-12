@@ -2,7 +2,7 @@
 
 
 namespace App\Http\Controllers;
-
+use GuzzleHttp\Client;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\DB;
 
@@ -28,18 +28,35 @@ class apicontroller extends Controller
         return response()->json(['data' => $data]);
 
     }
-    public function register_teacher($name){
-        $data = DB::table('schools')->where('name', '=', $name)->get();
+    public function register_teacher($name, Request $request){
+        $data = DB::table('schools')->where('name', '=', $name)->get(); 
+        $tname = $request->query('name');
+        $tsurname = $request->query('surname');
         $id_school = $data[0]->id;
-        $data = DB::table('users')->where('id_teacher', '=', $id_school)->get();       
+        $server = $request->query('record');
+        $url_parent = $server["HTTP_REFERER"];
+        $data = DB::table('users')->where('id_teacher', '=', $id_school)->get();    
+        $record = DB::table('teachers')->insert(['name' => "{$tname}", 'surname' => "{$tsurname}", 'flag' => 0, 'school' => "{$id_school}", "url" => "{$url_parent}"]);
         return response()->json(['data' => $data]);
     }
     public function show_students($id){
         $data = DB::table('users')->where('id_teacher', '=', $id)->get();
         return  response()->json(['data' => $data]);
     }
-    public function register_students($id_user){
-        $data = DB::table('users')->where('id_teacher', '=', $id_user)->get();
-        return  response()->json(['data' => $data]);
+    public function register_students(Request $request){
+        $flag = $request->query('flag');
+        $user_id = $request->query('id');
+        $data = DB::table('users')->where('user_id', '=', $user_id)->update(['flag' => $flag]);
+        return  response()->json(['data' => $user_id]);
+    }
+    public function students($id, Request $request){
+        $id_school = $id;
+        $students = array();
+        $record = DB::table('users')->where('id_teacher', '=', $id_school)->get();
+        foreach ($record as $element){
+            $user_id = $element->user_id;
+            array_push($students, $user_id);
+        }
+        return response()->json(['data' => $students, 'num' => $record->count()]);
     }
 }

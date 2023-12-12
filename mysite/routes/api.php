@@ -21,5 +21,7 @@ Route::get('/data/{token}', [apicontroller::class, 'getData']);
 Route::get('/schools', [apicontroller::class, 'schools_get']);
 Route::get('/register/{name}', [apicontroller::class, 'register_teacher']);
 Route::get('/show_students/{id}', [apicontroller::class, 'show_students']);
-Route::get('/register_students/{id_user}', [apicontroller::class, 'register_students']);
+Route::get('/register_students', [apicontroller::class, 'register_students']);
 Route::post('/data/{id_users}', [apicontroller::class, 'postData']);
+
+Route::get('/students/{id_user}', [apicontroller::class, 'students']);
