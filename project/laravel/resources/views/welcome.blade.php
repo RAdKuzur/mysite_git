@@ -55,7 +55,7 @@
                             </datalist> 
                         </td>
 
-                        @if($element['flag'])
+                        @if($element['disability'])
                         <td><input type="checkbox" class="form-check-input" checked><label></label></td>
                         @else
                         <td><input type="checkbox" class="form-check-input" unchecked><label></label></td>
@@ -66,7 +66,7 @@
                         @else
                         <td><input type="checkbox" class="form-check-input" unchecked><label></label></td>
                         @endif
-                        
+
                     </tr>
                     @php
                         $number = $number + 1
