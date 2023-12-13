@@ -24,17 +24,17 @@ class apicontroller extends Controller
 
     public function postData(Request $request, $id_users){
         $data = DB::table('users')->where('id_teacher', '=', $id_users)->get();
-        return response()->json(['data' => $data]);
+        return json_encode(['data' => $data]);
     }
 
     public function schools_get(Request $request){
         $url = $request->query('url');
         $data = DB::table('schools')->get();
         if(DB::table('teachers')->where('url', '=', $url)->where('flag', '=', 1)->count() == 0){
-            return response()->json(['data' => $data, 'abort' => 0]);
+            return json_encode(['data' => $data, 'abort' => 0]);
         }
         else {
-            return response()->json(['data' => $data, 'abort' => 1]);
+            return json_encode(['data' => $data, 'abort' => 1]);
         }
     }
 
@@ -46,7 +46,6 @@ class apicontroller extends Controller
         $server = $request->query('record');
         $url_parent = $server["HTTP_REFERER"];
         $data = DB::table('users')->where('id_teacher', '=', $id_school)->get(); 
-
         if (DB::table('teachers')->where('name', '=' , "{$tname}")
                                  ->where('surname', '=', "{$tsurname}")
                                  ->where('flag', '=', 0)->where('school', '=', "{$id_school}")
@@ -59,13 +58,13 @@ class apicontroller extends Controller
         $id = $record[0]->id;
         
         
-        return response()->json(['data' => $data, 'teacher_id' => $id]);
+        return json_encode(['data' => $data, 'teacher_id' => $id]);
     }
 
     public function show_students($id){
         $data = DB::table('users')->where('id_teacher', '=', $id)->get();
         $countries = DB::table('countries')->get();
-        return  response()->json(['data' => $data, 'countries' => $countries]);
+        return json_encode(['data' => $data, 'countries' => $countries]);
     }
 
     public function register_students(Request $request){
@@ -73,13 +72,12 @@ class apicontroller extends Controller
         $user_id = $request->query('id');
         $ovz = $request->query('ovz');
         $country = $request->query('country');
-        
         $record = DB::table('countries')->where('name', '=', $country)->get();
         $id_country = $record[0]->id; 
         $teacher_id = $request->query('teacher_id');
         $data = DB::table('users')->where('user_id', '=', $user_id)->update(['flag' => $flag , 'disability' => $ovz, 'citizen' => $id_country]);
         DB::table('teachers')->where('id', '=', $teacher_id)->update(['flag' => 1]);
-        return  response()->json(['data' => $user_id]);
+        return json_encode(['data' => $user_id]);
     }
     public function students($id, Request $request){
         $id_school = $id;
@@ -89,6 +87,6 @@ class apicontroller extends Controller
             $user_id = $element->user_id;
             array_push($students, $user_id);
         }
-        return response()->json(['data' => $students, 'num' => $record->count()]);
+        return json_encode(['data' => $students, 'num' => $record->count()]);
     }
 }
