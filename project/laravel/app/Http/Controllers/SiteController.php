@@ -19,8 +19,9 @@ class SiteController extends Controller
             abort(403, "Время сеанса истекло");
         }
         $data = Http::get("http://127.0.0.1:8001/api/show_students/{$id}");
+        $data = json_decode($data, true);
         $number = count($data['data']);
-        $countries = $data->json('countries');
+        $countries = $data['countries'];
         return view('welcome')->with('record', $data)->with('number', $number)->with('id_t', $id)->with('teacher_id',$teacher_id)
                               ->with('countries',$countries)->with('num_count',count($countries));
     }
@@ -28,8 +29,9 @@ class SiteController extends Controller
     public function registerPost(Request $request, $id, $teacher_id){
         $number = 3;
         $data = Http::get("http://127.0.0.1:8001/api/students/{$id}");
-        $data_id = $data->json("data");
-        $num = $data->json("num");
+        $data = json_decode($data, true);
+        $data_id = $data["data"];
+        $num = $data["num"];
         for($i = 0; $i < $num; $i++) {
             $num2 = $number - 1;
             $num3 = $number - 2;
@@ -76,7 +78,8 @@ class SiteController extends Controller
             'surname' => $request -> surname_teacher,
             'record' => $request->server(),
         ]);
-        $data  = $data->json();
+        //$data  = $data->json();
+        $data = json_decode($data, true);
         $id_school = $data['data'][0]['id_teacher'];
         $teacher_id = $data['teacher_id'];
         $url = URL::temporarySignedRoute('table.process', now()->addSeconds(1000), ['id' => $id_school, 'teacher_id' => $teacher_id]);
@@ -91,8 +94,9 @@ class SiteController extends Controller
         [
             'url' => url()->full(),
         ]);
+        $data = json_decode($data, true);
         $num = count($data['data']);
-        if($data->json('abort') == 1)
+        if($data['abort'] == 1)
         {
             abort(403, "Ссылка недействительна");
         }
