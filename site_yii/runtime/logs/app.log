@@ -1,0 +1,1974 @@
+2023-12-26 15:33:35 [127.0.0.1][-][qvjnei1q1pov4671qupa7qqeu6][error][yii\db\Exception] PDOException: SQLSTATE[HY000] [2002] Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение in C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Connection.php:721
+Stack trace:
+#0 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Connection.php(721): PDO->__construct('mysql:host=loca...', 'root', Object(SensitiveParameterValue), NULL)
+#1 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Connection.php(636): yii\db\Connection->createPdoInstance()
+#2 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Connection.php(1066): yii\db\Connection->open()
+#3 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Connection.php(1053): yii\db\Connection->getMasterPdo()
+#4 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Command.php(261): yii\db\Connection->getSlavePdo()
+#5 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Command.php(1163): yii\db\Command->prepare(true)
+#6 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Command.php(410): yii\db\Command->queryInternal('fetchAll', NULL)
+#7 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\mysql\Schema.php(320): yii\db\Command->queryAll()
+#8 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\mysql\Schema.php(125): yii\db\mysql\Schema->findColumns(Object(yii\db\TableSchema))
+#9 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Schema.php(756): yii\db\mysql\Schema->loadTableSchema('user')
+#10 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Schema.php(192): yii\db\Schema->getTableMetadata('user', 'schema', false)
+#11 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\ActiveRecord.php(439): yii\db\Schema->getTableSchema('user')
+#12 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\ActiveRecord.php(266): yii\db\ActiveRecord::getTableSchema()
+#13 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\ActiveRecord.php(238): yii\db\ActiveRecord::filterValidColumnNames(Object(yii\db\Connection), Array)
+#14 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\ActiveRecord.php(195): yii\db\ActiveRecord::filterCondition(Array, Array)
+#15 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\BaseActiveRecord.php(110): yii\db\ActiveRecord::findByCondition(Array)
+#16 C:\Users\Hp\Desktop\site_Yii\site\models\common\User.php(161): yii\db\BaseActiveRecord::findOne(Array)
+#17 C:\Users\Hp\Desktop\site_Yii\site\models\LoginForm.php(78): app\models\common\User::findByUsername('21321')
+#18 C:\Users\Hp\Desktop\site_Yii\site\models\LoginForm.php(49): app\models\LoginForm->getUser()
+#19 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\validators\InlineValidator.php(78): app\models\LoginForm->validatePassword('password', NULL, Object(yii\validators\InlineValidator), '123123')
+#20 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\validators\Validator.php(260): yii\validators\InlineValidator->validateAttribute(Object(app\models\LoginForm), 'password')
+#21 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\base\Model.php(361): yii\validators\Validator->validateAttributes(Object(app\models\LoginForm), Array)
+#22 C:\Users\Hp\Desktop\site_Yii\site\models\LoginForm.php(63): yii\base\Model->validate()
+#23 C:\Users\Hp\Desktop\site_Yii\site\controllers\SiteController.php(144): app\models\LoginForm->login()
+#24 [internal function]: app\controllers\SiteController->actionLogin()
+#25 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\base\InlineAction.php(57): call_user_func_array(Array, Array)
+#26 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\base\Controller.php(178): yii\base\InlineAction->runWithParams(Array)
+#27 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\base\Module.php(552): yii\base\Controller->runAction('login', Array)
+#28 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction('site/login', Array)
+#29 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\base\Application.php(384): yii\web\Application->handleRequest(Object(yii\web\Request))
+#30 C:\Users\Hp\Desktop\site_Yii\site\web\index.php(13): yii\base\Application->run()
+#31 {main}
+
+Next yii\db\Exception: SQLSTATE[HY000] [2002] Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение in C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Connection.php:647
+Stack trace:
+#0 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Connection.php(1066): yii\db\Connection->open()
+#1 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Connection.php(1053): yii\db\Connection->getMasterPdo()
+#2 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Command.php(261): yii\db\Connection->getSlavePdo()
+#3 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Command.php(1163): yii\db\Command->prepare(true)
+#4 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Command.php(410): yii\db\Command->queryInternal('fetchAll', NULL)
+#5 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\mysql\Schema.php(320): yii\db\Command->queryAll()
+#6 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\mysql\Schema.php(125): yii\db\mysql\Schema->findColumns(Object(yii\db\TableSchema))
+#7 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Schema.php(756): yii\db\mysql\Schema->loadTableSchema('user')
+#8 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Schema.php(192): yii\db\Schema->getTableMetadata('user', 'schema', false)
+#9 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\ActiveRecord.php(439): yii\db\Schema->getTableSchema('user')
+#10 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\ActiveRecord.php(266): yii\db\ActiveRecord::getTableSchema()
+#11 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\ActiveRecord.php(238): yii\db\ActiveRecord::filterValidColumnNames(Object(yii\db\Connection), Array)
+#12 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\ActiveRecord.php(195): yii\db\ActiveRecord::filterCondition(Array, Array)
+#13 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\BaseActiveRecord.php(110): yii\db\ActiveRecord::findByCondition(Array)
+#14 C:\Users\Hp\Desktop\site_Yii\site\models\common\User.php(161): yii\db\BaseActiveRecord::findOne(Array)
+#15 C:\Users\Hp\Desktop\site_Yii\site\models\LoginForm.php(78): app\models\common\User::findByUsername('21321')
+#16 C:\Users\Hp\Desktop\site_Yii\site\models\LoginForm.php(49): app\models\LoginForm->getUser()
+#17 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\validators\InlineValidator.php(78): app\models\LoginForm->validatePassword('password', NULL, Object(yii\validators\InlineValidator), '123123')
+#18 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\validators\Validator.php(260): yii\validators\InlineValidator->validateAttribute(Object(app\models\LoginForm), 'password')
+#19 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\base\Model.php(361): yii\validators\Validator->validateAttributes(Object(app\models\LoginForm), Array)
+#20 C:\Users\Hp\Desktop\site_Yii\site\models\LoginForm.php(63): yii\base\Model->validate()
+#21 C:\Users\Hp\Desktop\site_Yii\site\controllers\SiteController.php(144): app\models\LoginForm->login()
+#22 [internal function]: app\controllers\SiteController->actionLogin()
+#23 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\base\InlineAction.php(57): call_user_func_array(Array, Array)
+#24 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\base\Controller.php(178): yii\base\InlineAction->runWithParams(Array)
+#25 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\base\Module.php(552): yii\base\Controller->runAction('login', Array)
+#26 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction('site/login', Array)
+#27 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\base\Application.php(384): yii\web\Application->handleRequest(Object(yii\web\Request))
+#28 C:\Users\Hp\Desktop\site_Yii\site\web\index.php(13): yii\base\Application->run()
+#29 {main}
+Additional Information:
+Array
+(
+    [0] => HY000
+    [1] => 2002
+    [2] => Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение
+)
+
+2023-12-26 15:33:31 [127.0.0.1][-][qvjnei1q1pov4671qupa7qqeu6][info][application] $_GET = [
+    'r' => 'site/login'
+]
+
+$_POST = [
+    '_csrf' => 'kVELIbhf08iNuZCUqUbR6VrFZUss1QouvE6SV2cj-97IE0Fj3yaYkcvp-sPTcJKeDYBTOk-6fWLLI8M2HlSQrg=='
+    'LoginForm' => [
+        'username' => '21321'
+        'password' => '123123'
+        'rememberMe' => '1'
+    ]
+    'login-button' => ''
+]
+
+$_FILES = []
+
+$_COOKIE = [
+    'PHPSESSID' => 'qvjnei1q1pov4671qupa7qqeu6'
+    '_csrf' => '526aac5fc9725c7e21c33726843dfea382e5a37ae9c536baa7dd4ead2fdf0f0aa:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"YBJBgyKYFPjWz6CwWE6qcowLwmQaywkp\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => 'http://localhost:8000/'
+    'userSessionTimeout' => 8640000
+]
+
+$_SERVER = [
+    'DOCUMENT_ROOT' => 'C:\\Users\\Hp\\Desktop\\site_Yii\\site\\web'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'REMOTE_PORT' => '50576'
+    'SERVER_SOFTWARE' => 'PHP 8.2.4 Development Server'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_PORT' => '8000'
+    'REQUEST_URI' => '/index.php?r=site%2Flogin'
+    'REQUEST_METHOD' => 'POST'
+    'SCRIPT_NAME' => '/index.php'
+    'SCRIPT_FILENAME' => 'C:\\Users\\Hp\\Desktop\\site_Yii\\site\\web\\index.php'
+    'PHP_SELF' => '/index.php'
+    'QUERY_STRING' => 'r=site%2Flogin'
+    'HTTP_HOST' => 'localhost:8000'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'CONTENT_LENGTH' => '229'
+    'HTTP_CONTENT_LENGTH' => '229'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_SEC_CH_UA' => '\"Opera\";v=\"105\", \"Chromium\";v=\"119\", \"Not?A_Brand\";v=\"24\"'
+    'HTTP_SEC_CH_UA_MOBILE' => '?0'
+    'HTTP_SEC_CH_UA_PLATFORM' => '\"Windows\"'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_ORIGIN' => 'http://localhost:8000'
+    'CONTENT_TYPE' => 'application/x-www-form-urlencoded'
+    'HTTP_CONTENT_TYPE' => 'application/x-www-form-urlencoded'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36 OPR/105.0.0.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7'
+    'HTTP_SEC_FETCH_SITE' => 'same-origin'
+    'HTTP_SEC_FETCH_MODE' => 'navigate'
+    'HTTP_SEC_FETCH_USER' => '?1'
+    'HTTP_SEC_FETCH_DEST' => 'document'
+    'HTTP_REFERER' => 'http://localhost:8000/index.php?r=site%2Flogin'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7'
+    'HTTP_COOKIE' => 'PHPSESSID=qvjnei1q1pov4671qupa7qqeu6; _csrf=526aac5fc9725c7e21c33726843dfea382e5a37ae9c536baa7dd4ead2fdf0f0aa%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22YBJBgyKYFPjWz6CwWE6qcowLwmQaywkp%22%3B%7D'
+    'REQUEST_TIME_FLOAT' => 1703601210.9962
+    'REQUEST_TIME' => 1703601210
+]
+2023-12-26 16:31:13 [127.0.0.1][-][qvjnei1q1pov4671qupa7qqeu6][error][yii\db\Exception] PDOException: SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: YES) in C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Connection.php:721
+Stack trace:
+#0 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Connection.php(721): PDO->__construct('mysql:host=loca...', 'root', Object(SensitiveParameterValue), NULL)
+#1 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Connection.php(636): yii\db\Connection->createPdoInstance()
+#2 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Connection.php(1066): yii\db\Connection->open()
+#3 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Connection.php(1053): yii\db\Connection->getMasterPdo()
+#4 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Command.php(261): yii\db\Connection->getSlavePdo()
+#5 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Command.php(1163): yii\db\Command->prepare(true)
+#6 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Command.php(410): yii\db\Command->queryInternal('fetchAll', NULL)
+#7 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\mysql\Schema.php(320): yii\db\Command->queryAll()
+#8 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\mysql\Schema.php(125): yii\db\mysql\Schema->findColumns(Object(yii\db\TableSchema))
+#9 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Schema.php(756): yii\db\mysql\Schema->loadTableSchema('user')
+#10 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Schema.php(192): yii\db\Schema->getTableMetadata('user', 'schema', false)
+#11 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\ActiveRecord.php(439): yii\db\Schema->getTableSchema('user')
+#12 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\ActiveRecord.php(266): yii\db\ActiveRecord::getTableSchema()
+#13 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\ActiveRecord.php(238): yii\db\ActiveRecord::filterValidColumnNames(Object(yii\db\Connection), Array)
+#14 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\ActiveRecord.php(195): yii\db\ActiveRecord::filterCondition(Array, Array)
+#15 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\BaseActiveRecord.php(110): yii\db\ActiveRecord::findByCondition(Array)
+#16 C:\Users\Hp\Desktop\site_Yii\site\models\common\User.php(161): yii\db\BaseActiveRecord::findOne(Array)
+#17 C:\Users\Hp\Desktop\site_Yii\site\models\LoginForm.php(78): app\models\common\User::findByUsername('123231')
+#18 C:\Users\Hp\Desktop\site_Yii\site\models\LoginForm.php(49): app\models\LoginForm->getUser()
+#19 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\validators\InlineValidator.php(78): app\models\LoginForm->validatePassword('password', NULL, Object(yii\validators\InlineValidator), '12321312')
+#20 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\validators\Validator.php(260): yii\validators\InlineValidator->validateAttribute(Object(app\models\LoginForm), 'password')
+#21 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\base\Model.php(361): yii\validators\Validator->validateAttributes(Object(app\models\LoginForm), Array)
+#22 C:\Users\Hp\Desktop\site_Yii\site\models\LoginForm.php(63): yii\base\Model->validate()
+#23 C:\Users\Hp\Desktop\site_Yii\site\controllers\SiteController.php(144): app\models\LoginForm->login()
+#24 [internal function]: app\controllers\SiteController->actionLogin()
+#25 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\base\InlineAction.php(57): call_user_func_array(Array, Array)
+#26 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\base\Controller.php(178): yii\base\InlineAction->runWithParams(Array)
+#27 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\base\Module.php(552): yii\base\Controller->runAction('login', Array)
+#28 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction('site/login', Array)
+#29 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\base\Application.php(384): yii\web\Application->handleRequest(Object(yii\web\Request))
+#30 C:\Users\Hp\Desktop\site_Yii\site\web\index.php(13): yii\base\Application->run()
+#31 {main}
+
+Next yii\db\Exception: SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: YES) in C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Connection.php:647
+Stack trace:
+#0 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Connection.php(1066): yii\db\Connection->open()
+#1 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Connection.php(1053): yii\db\Connection->getMasterPdo()
+#2 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Command.php(261): yii\db\Connection->getSlavePdo()
+#3 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Command.php(1163): yii\db\Command->prepare(true)
+#4 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Command.php(410): yii\db\Command->queryInternal('fetchAll', NULL)
+#5 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\mysql\Schema.php(320): yii\db\Command->queryAll()
+#6 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\mysql\Schema.php(125): yii\db\mysql\Schema->findColumns(Object(yii\db\TableSchema))
+#7 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Schema.php(756): yii\db\mysql\Schema->loadTableSchema('user')
+#8 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Schema.php(192): yii\db\Schema->getTableMetadata('user', 'schema', false)
+#9 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\ActiveRecord.php(439): yii\db\Schema->getTableSchema('user')
+#10 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\ActiveRecord.php(266): yii\db\ActiveRecord::getTableSchema()
+#11 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\ActiveRecord.php(238): yii\db\ActiveRecord::filterValidColumnNames(Object(yii\db\Connection), Array)
+#12 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\ActiveRecord.php(195): yii\db\ActiveRecord::filterCondition(Array, Array)
+#13 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\BaseActiveRecord.php(110): yii\db\ActiveRecord::findByCondition(Array)
+#14 C:\Users\Hp\Desktop\site_Yii\site\models\common\User.php(161): yii\db\BaseActiveRecord::findOne(Array)
+#15 C:\Users\Hp\Desktop\site_Yii\site\models\LoginForm.php(78): app\models\common\User::findByUsername('123231')
+#16 C:\Users\Hp\Desktop\site_Yii\site\models\LoginForm.php(49): app\models\LoginForm->getUser()
+#17 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\validators\InlineValidator.php(78): app\models\LoginForm->validatePassword('password', NULL, Object(yii\validators\InlineValidator), '12321312')
+#18 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\validators\Validator.php(260): yii\validators\InlineValidator->validateAttribute(Object(app\models\LoginForm), 'password')
+#19 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\base\Model.php(361): yii\validators\Validator->validateAttributes(Object(app\models\LoginForm), Array)
+#20 C:\Users\Hp\Desktop\site_Yii\site\models\LoginForm.php(63): yii\base\Model->validate()
+#21 C:\Users\Hp\Desktop\site_Yii\site\controllers\SiteController.php(144): app\models\LoginForm->login()
+#22 [internal function]: app\controllers\SiteController->actionLogin()
+#23 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\base\InlineAction.php(57): call_user_func_array(Array, Array)
+#24 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\base\Controller.php(178): yii\base\InlineAction->runWithParams(Array)
+#25 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\base\Module.php(552): yii\base\Controller->runAction('login', Array)
+#26 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction('site/login', Array)
+#27 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\base\Application.php(384): yii\web\Application->handleRequest(Object(yii\web\Request))
+#28 C:\Users\Hp\Desktop\site_Yii\site\web\index.php(13): yii\base\Application->run()
+#29 {main}
+Additional Information:
+Array
+(
+    [0] => HY000
+    [1] => 1045
+    [2] => Access denied for user 'root'@'localhost' (using password: YES)
+)
+
+2023-12-26 16:31:13 [127.0.0.1][-][qvjnei1q1pov4671qupa7qqeu6][info][application] $_GET = [
+    'r' => 'site/login'
+]
+
+$_POST = [
+    '_csrf' => 'C57ZKlT6yvhI3p50wC2vgEwcdUpRpP7IiqICtE-RRw9S3JNoM4OBoQ6O9CO6G-z3G1lDOzLLiYT9z1PVNuYsfw=='
+    'LoginForm' => [
+        'username' => '123231'
+        'password' => '12321312'
+        'rememberMe' => '1'
+    ]
+    'login-button' => ''
+]
+
+$_FILES = []
+
+$_COOKIE = [
+    'PHPSESSID' => 'qvjnei1q1pov4671qupa7qqeu6'
+    '_csrf' => '526aac5fc9725c7e21c33726843dfea382e5a37ae9c536baa7dd4ead2fdf0f0aa:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"YBJBgyKYFPjWz6CwWE6qcowLwmQaywkp\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => 'http://localhost:8000/'
+    'userSessionTimeout' => 8640000
+]
+
+$_SERVER = [
+    'DOCUMENT_ROOT' => 'C:\\Users\\Hp\\Desktop\\site_Yii\\site\\web'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'REMOTE_PORT' => '52171'
+    'SERVER_SOFTWARE' => 'PHP 8.2.4 Development Server'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_PORT' => '8000'
+    'REQUEST_URI' => '/index.php?r=site%2Flogin'
+    'REQUEST_METHOD' => 'POST'
+    'SCRIPT_NAME' => '/index.php'
+    'SCRIPT_FILENAME' => 'C:\\Users\\Hp\\Desktop\\site_Yii\\site\\web\\index.php'
+    'PHP_SELF' => '/index.php'
+    'QUERY_STRING' => 'r=site%2Flogin'
+    'HTTP_HOST' => 'localhost:8000'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'CONTENT_LENGTH' => '232'
+    'HTTP_CONTENT_LENGTH' => '232'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_SEC_CH_UA' => '\"Opera\";v=\"105\", \"Chromium\";v=\"119\", \"Not?A_Brand\";v=\"24\"'
+    'HTTP_SEC_CH_UA_MOBILE' => '?0'
+    'HTTP_SEC_CH_UA_PLATFORM' => '\"Windows\"'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_ORIGIN' => 'http://localhost:8000'
+    'CONTENT_TYPE' => 'application/x-www-form-urlencoded'
+    'HTTP_CONTENT_TYPE' => 'application/x-www-form-urlencoded'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36 OPR/105.0.0.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7'
+    'HTTP_SEC_FETCH_SITE' => 'same-origin'
+    'HTTP_SEC_FETCH_MODE' => 'navigate'
+    'HTTP_SEC_FETCH_USER' => '?1'
+    'HTTP_SEC_FETCH_DEST' => 'document'
+    'HTTP_REFERER' => 'http://localhost:8000/index.php?r=site%2Flogin'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7'
+    'HTTP_COOKIE' => 'PHPSESSID=qvjnei1q1pov4671qupa7qqeu6; _csrf=526aac5fc9725c7e21c33726843dfea382e5a37ae9c536baa7dd4ead2fdf0f0aa%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22YBJBgyKYFPjWz6CwWE6qcowLwmQaywkp%22%3B%7D'
+    'REQUEST_TIME_FLOAT' => 1703604673.3399
+    'REQUEST_TIME' => 1703604673
+]
+2023-12-26 16:33:06 [127.0.0.1][-][qvjnei1q1pov4671qupa7qqeu6][error][yii\db\Exception] PDOException: SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: YES) in C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Connection.php:721
+Stack trace:
+#0 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Connection.php(721): PDO->__construct('mysql:host=loca...', 'root', Object(SensitiveParameterValue), NULL)
+#1 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Connection.php(636): yii\db\Connection->createPdoInstance()
+#2 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Connection.php(1066): yii\db\Connection->open()
+#3 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Connection.php(1053): yii\db\Connection->getMasterPdo()
+#4 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Command.php(261): yii\db\Connection->getSlavePdo()
+#5 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Command.php(1163): yii\db\Command->prepare(true)
+#6 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Command.php(410): yii\db\Command->queryInternal('fetchAll', NULL)
+#7 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\mysql\Schema.php(320): yii\db\Command->queryAll()
+#8 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\mysql\Schema.php(125): yii\db\mysql\Schema->findColumns(Object(yii\db\TableSchema))
+#9 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Schema.php(756): yii\db\mysql\Schema->loadTableSchema('user')
+#10 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Schema.php(192): yii\db\Schema->getTableMetadata('user', 'schema', false)
+#11 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\ActiveRecord.php(439): yii\db\Schema->getTableSchema('user')
+#12 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\ActiveRecord.php(266): yii\db\ActiveRecord::getTableSchema()
+#13 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\ActiveRecord.php(238): yii\db\ActiveRecord::filterValidColumnNames(Object(yii\db\Connection), Array)
+#14 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\ActiveRecord.php(195): yii\db\ActiveRecord::filterCondition(Array, Array)
+#15 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\BaseActiveRecord.php(110): yii\db\ActiveRecord::findByCondition(Array)
+#16 C:\Users\Hp\Desktop\site_Yii\site\models\common\User.php(161): yii\db\BaseActiveRecord::findOne(Array)
+#17 C:\Users\Hp\Desktop\site_Yii\site\models\LoginForm.php(78): app\models\common\User::findByUsername('123231')
+#18 C:\Users\Hp\Desktop\site_Yii\site\models\LoginForm.php(49): app\models\LoginForm->getUser()
+#19 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\validators\InlineValidator.php(78): app\models\LoginForm->validatePassword('password', NULL, Object(yii\validators\InlineValidator), '12321312')
+#20 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\validators\Validator.php(260): yii\validators\InlineValidator->validateAttribute(Object(app\models\LoginForm), 'password')
+#21 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\base\Model.php(361): yii\validators\Validator->validateAttributes(Object(app\models\LoginForm), Array)
+#22 C:\Users\Hp\Desktop\site_Yii\site\models\LoginForm.php(63): yii\base\Model->validate()
+#23 C:\Users\Hp\Desktop\site_Yii\site\controllers\SiteController.php(144): app\models\LoginForm->login()
+#24 [internal function]: app\controllers\SiteController->actionLogin()
+#25 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\base\InlineAction.php(57): call_user_func_array(Array, Array)
+#26 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\base\Controller.php(178): yii\base\InlineAction->runWithParams(Array)
+#27 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\base\Module.php(552): yii\base\Controller->runAction('login', Array)
+#28 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction('site/login', Array)
+#29 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\base\Application.php(384): yii\web\Application->handleRequest(Object(yii\web\Request))
+#30 C:\Users\Hp\Desktop\site_Yii\site\web\index.php(13): yii\base\Application->run()
+#31 {main}
+
+Next yii\db\Exception: SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: YES) in C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Connection.php:647
+Stack trace:
+#0 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Connection.php(1066): yii\db\Connection->open()
+#1 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Connection.php(1053): yii\db\Connection->getMasterPdo()
+#2 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Command.php(261): yii\db\Connection->getSlavePdo()
+#3 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Command.php(1163): yii\db\Command->prepare(true)
+#4 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Command.php(410): yii\db\Command->queryInternal('fetchAll', NULL)
+#5 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\mysql\Schema.php(320): yii\db\Command->queryAll()
+#6 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\mysql\Schema.php(125): yii\db\mysql\Schema->findColumns(Object(yii\db\TableSchema))
+#7 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Schema.php(756): yii\db\mysql\Schema->loadTableSchema('user')
+#8 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Schema.php(192): yii\db\Schema->getTableMetadata('user', 'schema', false)
+#9 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\ActiveRecord.php(439): yii\db\Schema->getTableSchema('user')
+#10 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\ActiveRecord.php(266): yii\db\ActiveRecord::getTableSchema()
+#11 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\ActiveRecord.php(238): yii\db\ActiveRecord::filterValidColumnNames(Object(yii\db\Connection), Array)
+#12 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\ActiveRecord.php(195): yii\db\ActiveRecord::filterCondition(Array, Array)
+#13 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\BaseActiveRecord.php(110): yii\db\ActiveRecord::findByCondition(Array)
+#14 C:\Users\Hp\Desktop\site_Yii\site\models\common\User.php(161): yii\db\BaseActiveRecord::findOne(Array)
+#15 C:\Users\Hp\Desktop\site_Yii\site\models\LoginForm.php(78): app\models\common\User::findByUsername('123231')
+#16 C:\Users\Hp\Desktop\site_Yii\site\models\LoginForm.php(49): app\models\LoginForm->getUser()
+#17 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\validators\InlineValidator.php(78): app\models\LoginForm->validatePassword('password', NULL, Object(yii\validators\InlineValidator), '12321312')
+#18 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\validators\Validator.php(260): yii\validators\InlineValidator->validateAttribute(Object(app\models\LoginForm), 'password')
+#19 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\base\Model.php(361): yii\validators\Validator->validateAttributes(Object(app\models\LoginForm), Array)
+#20 C:\Users\Hp\Desktop\site_Yii\site\models\LoginForm.php(63): yii\base\Model->validate()
+#21 C:\Users\Hp\Desktop\site_Yii\site\controllers\SiteController.php(144): app\models\LoginForm->login()
+#22 [internal function]: app\controllers\SiteController->actionLogin()
+#23 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\base\InlineAction.php(57): call_user_func_array(Array, Array)
+#24 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\base\Controller.php(178): yii\base\InlineAction->runWithParams(Array)
+#25 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\base\Module.php(552): yii\base\Controller->runAction('login', Array)
+#26 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction('site/login', Array)
+#27 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\base\Application.php(384): yii\web\Application->handleRequest(Object(yii\web\Request))
+#28 C:\Users\Hp\Desktop\site_Yii\site\web\index.php(13): yii\base\Application->run()
+#29 {main}
+Additional Information:
+Array
+(
+    [0] => HY000
+    [1] => 1045
+    [2] => Access denied for user 'root'@'localhost' (using password: YES)
+)
+
+2023-12-26 16:33:06 [127.0.0.1][-][qvjnei1q1pov4671qupa7qqeu6][info][application] $_GET = [
+    'r' => 'site/login'
+]
+
+$_POST = [
+    '_csrf' => 'C57ZKlT6yvhI3p50wC2vgEwcdUpRpP7IiqICtE-RRw9S3JNoM4OBoQ6O9CO6G-z3G1lDOzLLiYT9z1PVNuYsfw=='
+    'LoginForm' => [
+        'username' => '123231'
+        'password' => '12321312'
+        'rememberMe' => '1'
+    ]
+    'login-button' => ''
+]
+
+$_FILES = []
+
+$_COOKIE = [
+    'PHPSESSID' => 'qvjnei1q1pov4671qupa7qqeu6'
+    '_csrf' => '526aac5fc9725c7e21c33726843dfea382e5a37ae9c536baa7dd4ead2fdf0f0aa:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"YBJBgyKYFPjWz6CwWE6qcowLwmQaywkp\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => 'http://localhost:8000/'
+    'userSessionTimeout' => 8640000
+]
+
+$_SERVER = [
+    'DOCUMENT_ROOT' => 'C:\\Users\\Hp\\Desktop\\site_Yii\\site\\web'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'REMOTE_PORT' => '52264'
+    'SERVER_SOFTWARE' => 'PHP 8.2.4 Development Server'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_PORT' => '8000'
+    'REQUEST_URI' => '/index.php?r=site%2Flogin'
+    'REQUEST_METHOD' => 'POST'
+    'SCRIPT_NAME' => '/index.php'
+    'SCRIPT_FILENAME' => 'C:\\Users\\Hp\\Desktop\\site_Yii\\site\\web\\index.php'
+    'PHP_SELF' => '/index.php'
+    'QUERY_STRING' => 'r=site%2Flogin'
+    'HTTP_HOST' => 'localhost:8000'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'CONTENT_LENGTH' => '232'
+    'HTTP_CONTENT_LENGTH' => '232'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_SEC_CH_UA' => '\"Opera\";v=\"105\", \"Chromium\";v=\"119\", \"Not?A_Brand\";v=\"24\"'
+    'HTTP_SEC_CH_UA_MOBILE' => '?0'
+    'HTTP_SEC_CH_UA_PLATFORM' => '\"Windows\"'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36 OPR/105.0.0.0'
+    'HTTP_ORIGIN' => 'http://localhost:8000'
+    'CONTENT_TYPE' => 'application/x-www-form-urlencoded'
+    'HTTP_CONTENT_TYPE' => 'application/x-www-form-urlencoded'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7'
+    'HTTP_SEC_FETCH_SITE' => 'same-origin'
+    'HTTP_SEC_FETCH_MODE' => 'navigate'
+    'HTTP_SEC_FETCH_USER' => '?1'
+    'HTTP_SEC_FETCH_DEST' => 'document'
+    'HTTP_REFERER' => 'http://localhost:8000/index.php?r=site%2Flogin'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7'
+    'HTTP_COOKIE' => 'PHPSESSID=qvjnei1q1pov4671qupa7qqeu6; _csrf=526aac5fc9725c7e21c33726843dfea382e5a37ae9c536baa7dd4ead2fdf0f0aa%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22YBJBgyKYFPjWz6CwWE6qcowLwmQaywkp%22%3B%7D'
+    'REQUEST_TIME_FLOAT' => 1703604786.5462
+    'REQUEST_TIME' => 1703604786
+]
+2023-12-26 16:33:08 [127.0.0.1][-][qvjnei1q1pov4671qupa7qqeu6][error][yii\db\Exception] PDOException: SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: YES) in C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Connection.php:721
+Stack trace:
+#0 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Connection.php(721): PDO->__construct('mysql:host=loca...', 'root', Object(SensitiveParameterValue), NULL)
+#1 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Connection.php(636): yii\db\Connection->createPdoInstance()
+#2 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Connection.php(1066): yii\db\Connection->open()
+#3 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Connection.php(1053): yii\db\Connection->getMasterPdo()
+#4 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Command.php(261): yii\db\Connection->getSlavePdo()
+#5 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Command.php(1163): yii\db\Command->prepare(true)
+#6 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Command.php(410): yii\db\Command->queryInternal('fetchAll', NULL)
+#7 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\mysql\Schema.php(320): yii\db\Command->queryAll()
+#8 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\mysql\Schema.php(125): yii\db\mysql\Schema->findColumns(Object(yii\db\TableSchema))
+#9 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Schema.php(756): yii\db\mysql\Schema->loadTableSchema('user')
+#10 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Schema.php(192): yii\db\Schema->getTableMetadata('user', 'schema', false)
+#11 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\ActiveRecord.php(439): yii\db\Schema->getTableSchema('user')
+#12 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\ActiveRecord.php(266): yii\db\ActiveRecord::getTableSchema()
+#13 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\ActiveRecord.php(238): yii\db\ActiveRecord::filterValidColumnNames(Object(yii\db\Connection), Array)
+#14 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\ActiveRecord.php(195): yii\db\ActiveRecord::filterCondition(Array, Array)
+#15 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\BaseActiveRecord.php(110): yii\db\ActiveRecord::findByCondition(Array)
+#16 C:\Users\Hp\Desktop\site_Yii\site\models\common\User.php(161): yii\db\BaseActiveRecord::findOne(Array)
+#17 C:\Users\Hp\Desktop\site_Yii\site\models\LoginForm.php(78): app\models\common\User::findByUsername('123231')
+#18 C:\Users\Hp\Desktop\site_Yii\site\models\LoginForm.php(49): app\models\LoginForm->getUser()
+#19 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\validators\InlineValidator.php(78): app\models\LoginForm->validatePassword('password', NULL, Object(yii\validators\InlineValidator), '12321312')
+#20 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\validators\Validator.php(260): yii\validators\InlineValidator->validateAttribute(Object(app\models\LoginForm), 'password')
+#21 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\base\Model.php(361): yii\validators\Validator->validateAttributes(Object(app\models\LoginForm), Array)
+#22 C:\Users\Hp\Desktop\site_Yii\site\models\LoginForm.php(63): yii\base\Model->validate()
+#23 C:\Users\Hp\Desktop\site_Yii\site\controllers\SiteController.php(144): app\models\LoginForm->login()
+#24 [internal function]: app\controllers\SiteController->actionLogin()
+#25 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\base\InlineAction.php(57): call_user_func_array(Array, Array)
+#26 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\base\Controller.php(178): yii\base\InlineAction->runWithParams(Array)
+#27 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\base\Module.php(552): yii\base\Controller->runAction('login', Array)
+#28 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction('site/login', Array)
+#29 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\base\Application.php(384): yii\web\Application->handleRequest(Object(yii\web\Request))
+#30 C:\Users\Hp\Desktop\site_Yii\site\web\index.php(13): yii\base\Application->run()
+#31 {main}
+
+Next yii\db\Exception: SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: YES) in C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Connection.php:647
+Stack trace:
+#0 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Connection.php(1066): yii\db\Connection->open()
+#1 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Connection.php(1053): yii\db\Connection->getMasterPdo()
+#2 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Command.php(261): yii\db\Connection->getSlavePdo()
+#3 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Command.php(1163): yii\db\Command->prepare(true)
+#4 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Command.php(410): yii\db\Command->queryInternal('fetchAll', NULL)
+#5 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\mysql\Schema.php(320): yii\db\Command->queryAll()
+#6 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\mysql\Schema.php(125): yii\db\mysql\Schema->findColumns(Object(yii\db\TableSchema))
+#7 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Schema.php(756): yii\db\mysql\Schema->loadTableSchema('user')
+#8 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Schema.php(192): yii\db\Schema->getTableMetadata('user', 'schema', false)
+#9 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\ActiveRecord.php(439): yii\db\Schema->getTableSchema('user')
+#10 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\ActiveRecord.php(266): yii\db\ActiveRecord::getTableSchema()
+#11 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\ActiveRecord.php(238): yii\db\ActiveRecord::filterValidColumnNames(Object(yii\db\Connection), Array)
+#12 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\ActiveRecord.php(195): yii\db\ActiveRecord::filterCondition(Array, Array)
+#13 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\BaseActiveRecord.php(110): yii\db\ActiveRecord::findByCondition(Array)
+#14 C:\Users\Hp\Desktop\site_Yii\site\models\common\User.php(161): yii\db\BaseActiveRecord::findOne(Array)
+#15 C:\Users\Hp\Desktop\site_Yii\site\models\LoginForm.php(78): app\models\common\User::findByUsername('123231')
+#16 C:\Users\Hp\Desktop\site_Yii\site\models\LoginForm.php(49): app\models\LoginForm->getUser()
+#17 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\validators\InlineValidator.php(78): app\models\LoginForm->validatePassword('password', NULL, Object(yii\validators\InlineValidator), '12321312')
+#18 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\validators\Validator.php(260): yii\validators\InlineValidator->validateAttribute(Object(app\models\LoginForm), 'password')
+#19 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\base\Model.php(361): yii\validators\Validator->validateAttributes(Object(app\models\LoginForm), Array)
+#20 C:\Users\Hp\Desktop\site_Yii\site\models\LoginForm.php(63): yii\base\Model->validate()
+#21 C:\Users\Hp\Desktop\site_Yii\site\controllers\SiteController.php(144): app\models\LoginForm->login()
+#22 [internal function]: app\controllers\SiteController->actionLogin()
+#23 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\base\InlineAction.php(57): call_user_func_array(Array, Array)
+#24 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\base\Controller.php(178): yii\base\InlineAction->runWithParams(Array)
+#25 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\base\Module.php(552): yii\base\Controller->runAction('login', Array)
+#26 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction('site/login', Array)
+#27 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\base\Application.php(384): yii\web\Application->handleRequest(Object(yii\web\Request))
+#28 C:\Users\Hp\Desktop\site_Yii\site\web\index.php(13): yii\base\Application->run()
+#29 {main}
+Additional Information:
+Array
+(
+    [0] => HY000
+    [1] => 1045
+    [2] => Access denied for user 'root'@'localhost' (using password: YES)
+)
+
+2023-12-26 16:33:08 [127.0.0.1][-][qvjnei1q1pov4671qupa7qqeu6][info][application] $_GET = [
+    'r' => 'site/login'
+]
+
+$_POST = [
+    '_csrf' => 'C57ZKlT6yvhI3p50wC2vgEwcdUpRpP7IiqICtE-RRw9S3JNoM4OBoQ6O9CO6G-z3G1lDOzLLiYT9z1PVNuYsfw=='
+    'LoginForm' => [
+        'username' => '123231'
+        'password' => '12321312'
+        'rememberMe' => '1'
+    ]
+    'login-button' => ''
+]
+
+$_FILES = []
+
+$_COOKIE = [
+    'PHPSESSID' => 'qvjnei1q1pov4671qupa7qqeu6'
+    '_csrf' => '526aac5fc9725c7e21c33726843dfea382e5a37ae9c536baa7dd4ead2fdf0f0aa:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"YBJBgyKYFPjWz6CwWE6qcowLwmQaywkp\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => 'http://localhost:8000/'
+    'userSessionTimeout' => 8640000
+]
+
+$_SERVER = [
+    'DOCUMENT_ROOT' => 'C:\\Users\\Hp\\Desktop\\site_Yii\\site\\web'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'REMOTE_PORT' => '52271'
+    'SERVER_SOFTWARE' => 'PHP 8.2.4 Development Server'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_PORT' => '8000'
+    'REQUEST_URI' => '/index.php?r=site%2Flogin'
+    'REQUEST_METHOD' => 'POST'
+    'SCRIPT_NAME' => '/index.php'
+    'SCRIPT_FILENAME' => 'C:\\Users\\Hp\\Desktop\\site_Yii\\site\\web\\index.php'
+    'PHP_SELF' => '/index.php'
+    'QUERY_STRING' => 'r=site%2Flogin'
+    'HTTP_HOST' => 'localhost:8000'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'CONTENT_LENGTH' => '232'
+    'HTTP_CONTENT_LENGTH' => '232'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_SEC_CH_UA' => '\"Opera\";v=\"105\", \"Chromium\";v=\"119\", \"Not?A_Brand\";v=\"24\"'
+    'HTTP_SEC_CH_UA_MOBILE' => '?0'
+    'HTTP_SEC_CH_UA_PLATFORM' => '\"Windows\"'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36 OPR/105.0.0.0'
+    'HTTP_ORIGIN' => 'http://localhost:8000'
+    'CONTENT_TYPE' => 'application/x-www-form-urlencoded'
+    'HTTP_CONTENT_TYPE' => 'application/x-www-form-urlencoded'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7'
+    'HTTP_SEC_FETCH_SITE' => 'same-origin'
+    'HTTP_SEC_FETCH_MODE' => 'navigate'
+    'HTTP_SEC_FETCH_USER' => '?1'
+    'HTTP_SEC_FETCH_DEST' => 'document'
+    'HTTP_REFERER' => 'http://localhost:8000/index.php?r=site%2Flogin'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7'
+    'HTTP_COOKIE' => 'PHPSESSID=qvjnei1q1pov4671qupa7qqeu6; _csrf=526aac5fc9725c7e21c33726843dfea382e5a37ae9c536baa7dd4ead2fdf0f0aa%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22YBJBgyKYFPjWz6CwWE6qcowLwmQaywkp%22%3B%7D'
+    'REQUEST_TIME_FLOAT' => 1703604788.4905
+    'REQUEST_TIME' => 1703604788
+]
+2023-12-26 16:38:15 [127.0.0.1][-][qvjnei1q1pov4671qupa7qqeu6][error][yii\db\Exception] PDOException: SQLSTATE[HY000] [1045] Access denied for user ''@'localhost' (using password: NO) in C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Connection.php:721
+Stack trace:
+#0 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Connection.php(721): PDO->__construct('mysql:host=loca...', NULL, Object(SensitiveParameterValue), NULL)
+#1 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Connection.php(636): yii\db\Connection->createPdoInstance()
+#2 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Connection.php(1066): yii\db\Connection->open()
+#3 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Connection.php(1053): yii\db\Connection->getMasterPdo()
+#4 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Command.php(261): yii\db\Connection->getSlavePdo()
+#5 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Command.php(1163): yii\db\Command->prepare(true)
+#6 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Command.php(410): yii\db\Command->queryInternal('fetchAll', NULL)
+#7 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\mysql\Schema.php(320): yii\db\Command->queryAll()
+#8 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\mysql\Schema.php(125): yii\db\mysql\Schema->findColumns(Object(yii\db\TableSchema))
+#9 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Schema.php(756): yii\db\mysql\Schema->loadTableSchema('user')
+#10 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Schema.php(192): yii\db\Schema->getTableMetadata('user', 'schema', false)
+#11 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\ActiveRecord.php(439): yii\db\Schema->getTableSchema('user')
+#12 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\ActiveRecord.php(266): yii\db\ActiveRecord::getTableSchema()
+#13 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\ActiveRecord.php(238): yii\db\ActiveRecord::filterValidColumnNames(Object(yii\db\Connection), Array)
+#14 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\ActiveRecord.php(195): yii\db\ActiveRecord::filterCondition(Array, Array)
+#15 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\BaseActiveRecord.php(110): yii\db\ActiveRecord::findByCondition(Array)
+#16 C:\Users\Hp\Desktop\site_Yii\site\models\common\User.php(161): yii\db\BaseActiveRecord::findOne(Array)
+#17 C:\Users\Hp\Desktop\site_Yii\site\models\LoginForm.php(78): app\models\common\User::findByUsername('123231')
+#18 C:\Users\Hp\Desktop\site_Yii\site\models\LoginForm.php(49): app\models\LoginForm->getUser()
+#19 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\validators\InlineValidator.php(78): app\models\LoginForm->validatePassword('password', NULL, Object(yii\validators\InlineValidator), '12321312')
+#20 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\validators\Validator.php(260): yii\validators\InlineValidator->validateAttribute(Object(app\models\LoginForm), 'password')
+#21 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\base\Model.php(361): yii\validators\Validator->validateAttributes(Object(app\models\LoginForm), Array)
+#22 C:\Users\Hp\Desktop\site_Yii\site\models\LoginForm.php(63): yii\base\Model->validate()
+#23 C:\Users\Hp\Desktop\site_Yii\site\controllers\SiteController.php(144): app\models\LoginForm->login()
+#24 [internal function]: app\controllers\SiteController->actionLogin()
+#25 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\base\InlineAction.php(57): call_user_func_array(Array, Array)
+#26 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\base\Controller.php(178): yii\base\InlineAction->runWithParams(Array)
+#27 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\base\Module.php(552): yii\base\Controller->runAction('login', Array)
+#28 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction('site/login', Array)
+#29 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\base\Application.php(384): yii\web\Application->handleRequest(Object(yii\web\Request))
+#30 C:\Users\Hp\Desktop\site_Yii\site\web\index.php(13): yii\base\Application->run()
+#31 {main}
+
+Next yii\db\Exception: SQLSTATE[HY000] [1045] Access denied for user ''@'localhost' (using password: NO) in C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Connection.php:647
+Stack trace:
+#0 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Connection.php(1066): yii\db\Connection->open()
+#1 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Connection.php(1053): yii\db\Connection->getMasterPdo()
+#2 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Command.php(261): yii\db\Connection->getSlavePdo()
+#3 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Command.php(1163): yii\db\Command->prepare(true)
+#4 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Command.php(410): yii\db\Command->queryInternal('fetchAll', NULL)
+#5 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\mysql\Schema.php(320): yii\db\Command->queryAll()
+#6 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\mysql\Schema.php(125): yii\db\mysql\Schema->findColumns(Object(yii\db\TableSchema))
+#7 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Schema.php(756): yii\db\mysql\Schema->loadTableSchema('user')
+#8 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Schema.php(192): yii\db\Schema->getTableMetadata('user', 'schema', false)
+#9 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\ActiveRecord.php(439): yii\db\Schema->getTableSchema('user')
+#10 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\ActiveRecord.php(266): yii\db\ActiveRecord::getTableSchema()
+#11 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\ActiveRecord.php(238): yii\db\ActiveRecord::filterValidColumnNames(Object(yii\db\Connection), Array)
+#12 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\ActiveRecord.php(195): yii\db\ActiveRecord::filterCondition(Array, Array)
+#13 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\BaseActiveRecord.php(110): yii\db\ActiveRecord::findByCondition(Array)
+#14 C:\Users\Hp\Desktop\site_Yii\site\models\common\User.php(161): yii\db\BaseActiveRecord::findOne(Array)
+#15 C:\Users\Hp\Desktop\site_Yii\site\models\LoginForm.php(78): app\models\common\User::findByUsername('123231')
+#16 C:\Users\Hp\Desktop\site_Yii\site\models\LoginForm.php(49): app\models\LoginForm->getUser()
+#17 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\validators\InlineValidator.php(78): app\models\LoginForm->validatePassword('password', NULL, Object(yii\validators\InlineValidator), '12321312')
+#18 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\validators\Validator.php(260): yii\validators\InlineValidator->validateAttribute(Object(app\models\LoginForm), 'password')
+#19 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\base\Model.php(361): yii\validators\Validator->validateAttributes(Object(app\models\LoginForm), Array)
+#20 C:\Users\Hp\Desktop\site_Yii\site\models\LoginForm.php(63): yii\base\Model->validate()
+#21 C:\Users\Hp\Desktop\site_Yii\site\controllers\SiteController.php(144): app\models\LoginForm->login()
+#22 [internal function]: app\controllers\SiteController->actionLogin()
+#23 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\base\InlineAction.php(57): call_user_func_array(Array, Array)
+#24 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\base\Controller.php(178): yii\base\InlineAction->runWithParams(Array)
+#25 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\base\Module.php(552): yii\base\Controller->runAction('login', Array)
+#26 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction('site/login', Array)
+#27 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\base\Application.php(384): yii\web\Application->handleRequest(Object(yii\web\Request))
+#28 C:\Users\Hp\Desktop\site_Yii\site\web\index.php(13): yii\base\Application->run()
+#29 {main}
+Additional Information:
+Array
+(
+    [0] => HY000
+    [1] => 1045
+    [2] => Access denied for user ''@'localhost' (using password: NO)
+)
+
+2023-12-26 16:38:14 [127.0.0.1][-][qvjnei1q1pov4671qupa7qqeu6][info][application] $_GET = [
+    'r' => 'site/login'
+]
+
+$_POST = [
+    '_csrf' => 'C57ZKlT6yvhI3p50wC2vgEwcdUpRpP7IiqICtE-RRw9S3JNoM4OBoQ6O9CO6G-z3G1lDOzLLiYT9z1PVNuYsfw=='
+    'LoginForm' => [
+        'username' => '123231'
+        'password' => '12321312'
+        'rememberMe' => '1'
+    ]
+    'login-button' => ''
+]
+
+$_FILES = []
+
+$_COOKIE = [
+    'PHPSESSID' => 'qvjnei1q1pov4671qupa7qqeu6'
+    '_csrf' => '526aac5fc9725c7e21c33726843dfea382e5a37ae9c536baa7dd4ead2fdf0f0aa:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"YBJBgyKYFPjWz6CwWE6qcowLwmQaywkp\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => 'http://localhost:8000/'
+    'userSessionTimeout' => 8640000
+]
+
+$_SERVER = [
+    'DOCUMENT_ROOT' => 'C:\\Users\\Hp\\Desktop\\site_Yii\\site\\web'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'REMOTE_PORT' => '52465'
+    'SERVER_SOFTWARE' => 'PHP 8.2.4 Development Server'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_PORT' => '8000'
+    'REQUEST_URI' => '/index.php?r=site%2Flogin'
+    'REQUEST_METHOD' => 'POST'
+    'SCRIPT_NAME' => '/index.php'
+    'SCRIPT_FILENAME' => 'C:\\Users\\Hp\\Desktop\\site_Yii\\site\\web\\index.php'
+    'PHP_SELF' => '/index.php'
+    'QUERY_STRING' => 'r=site%2Flogin'
+    'HTTP_HOST' => 'localhost:8000'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'CONTENT_LENGTH' => '232'
+    'HTTP_CONTENT_LENGTH' => '232'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_SEC_CH_UA' => '\"Opera\";v=\"105\", \"Chromium\";v=\"119\", \"Not?A_Brand\";v=\"24\"'
+    'HTTP_SEC_CH_UA_MOBILE' => '?0'
+    'HTTP_SEC_CH_UA_PLATFORM' => '\"Windows\"'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36 OPR/105.0.0.0'
+    'HTTP_ORIGIN' => 'http://localhost:8000'
+    'CONTENT_TYPE' => 'application/x-www-form-urlencoded'
+    'HTTP_CONTENT_TYPE' => 'application/x-www-form-urlencoded'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7'
+    'HTTP_SEC_FETCH_SITE' => 'same-origin'
+    'HTTP_SEC_FETCH_MODE' => 'navigate'
+    'HTTP_SEC_FETCH_USER' => '?1'
+    'HTTP_SEC_FETCH_DEST' => 'document'
+    'HTTP_REFERER' => 'http://localhost:8000/index.php?r=site%2Flogin'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7'
+    'HTTP_COOKIE' => 'PHPSESSID=qvjnei1q1pov4671qupa7qqeu6; _csrf=526aac5fc9725c7e21c33726843dfea382e5a37ae9c536baa7dd4ead2fdf0f0aa%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22YBJBgyKYFPjWz6CwWE6qcowLwmQaywkp%22%3B%7D'
+    'REQUEST_TIME_FLOAT' => 1703605094.6808
+    'REQUEST_TIME' => 1703605094
+]
+2023-12-26 16:38:23 [127.0.0.1][-][qvjnei1q1pov4671qupa7qqeu6][error][yii\db\Exception] PDOException: SQLSTATE[HY000] [1045] Access denied for user ''@'localhost' (using password: NO) in C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Connection.php:721
+Stack trace:
+#0 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Connection.php(721): PDO->__construct('mysql:host=loca...', NULL, Object(SensitiveParameterValue), NULL)
+#1 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Connection.php(636): yii\db\Connection->createPdoInstance()
+#2 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Connection.php(1066): yii\db\Connection->open()
+#3 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Connection.php(1053): yii\db\Connection->getMasterPdo()
+#4 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Command.php(261): yii\db\Connection->getSlavePdo()
+#5 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Command.php(1163): yii\db\Command->prepare(true)
+#6 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Command.php(410): yii\db\Command->queryInternal('fetchAll', NULL)
+#7 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\mysql\Schema.php(320): yii\db\Command->queryAll()
+#8 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\mysql\Schema.php(125): yii\db\mysql\Schema->findColumns(Object(yii\db\TableSchema))
+#9 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Schema.php(756): yii\db\mysql\Schema->loadTableSchema('user')
+#10 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Schema.php(192): yii\db\Schema->getTableMetadata('user', 'schema', false)
+#11 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\ActiveRecord.php(439): yii\db\Schema->getTableSchema('user')
+#12 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\ActiveRecord.php(266): yii\db\ActiveRecord::getTableSchema()
+#13 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\ActiveRecord.php(238): yii\db\ActiveRecord::filterValidColumnNames(Object(yii\db\Connection), Array)
+#14 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\ActiveRecord.php(195): yii\db\ActiveRecord::filterCondition(Array, Array)
+#15 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\BaseActiveRecord.php(110): yii\db\ActiveRecord::findByCondition(Array)
+#16 C:\Users\Hp\Desktop\site_Yii\site\models\common\User.php(161): yii\db\BaseActiveRecord::findOne(Array)
+#17 C:\Users\Hp\Desktop\site_Yii\site\models\LoginForm.php(78): app\models\common\User::findByUsername('1')
+#18 C:\Users\Hp\Desktop\site_Yii\site\models\LoginForm.php(49): app\models\LoginForm->getUser()
+#19 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\validators\InlineValidator.php(78): app\models\LoginForm->validatePassword('password', NULL, Object(yii\validators\InlineValidator), '1')
+#20 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\validators\Validator.php(260): yii\validators\InlineValidator->validateAttribute(Object(app\models\LoginForm), 'password')
+#21 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\base\Model.php(361): yii\validators\Validator->validateAttributes(Object(app\models\LoginForm), Array)
+#22 C:\Users\Hp\Desktop\site_Yii\site\models\LoginForm.php(63): yii\base\Model->validate()
+#23 C:\Users\Hp\Desktop\site_Yii\site\controllers\SiteController.php(144): app\models\LoginForm->login()
+#24 [internal function]: app\controllers\SiteController->actionLogin()
+#25 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\base\InlineAction.php(57): call_user_func_array(Array, Array)
+#26 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\base\Controller.php(178): yii\base\InlineAction->runWithParams(Array)
+#27 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\base\Module.php(552): yii\base\Controller->runAction('login', Array)
+#28 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction('site/login', Array)
+#29 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\base\Application.php(384): yii\web\Application->handleRequest(Object(yii\web\Request))
+#30 C:\Users\Hp\Desktop\site_Yii\site\web\index.php(13): yii\base\Application->run()
+#31 {main}
+
+Next yii\db\Exception: SQLSTATE[HY000] [1045] Access denied for user ''@'localhost' (using password: NO) in C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Connection.php:647
+Stack trace:
+#0 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Connection.php(1066): yii\db\Connection->open()
+#1 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Connection.php(1053): yii\db\Connection->getMasterPdo()
+#2 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Command.php(261): yii\db\Connection->getSlavePdo()
+#3 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Command.php(1163): yii\db\Command->prepare(true)
+#4 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Command.php(410): yii\db\Command->queryInternal('fetchAll', NULL)
+#5 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\mysql\Schema.php(320): yii\db\Command->queryAll()
+#6 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\mysql\Schema.php(125): yii\db\mysql\Schema->findColumns(Object(yii\db\TableSchema))
+#7 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Schema.php(756): yii\db\mysql\Schema->loadTableSchema('user')
+#8 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Schema.php(192): yii\db\Schema->getTableMetadata('user', 'schema', false)
+#9 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\ActiveRecord.php(439): yii\db\Schema->getTableSchema('user')
+#10 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\ActiveRecord.php(266): yii\db\ActiveRecord::getTableSchema()
+#11 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\ActiveRecord.php(238): yii\db\ActiveRecord::filterValidColumnNames(Object(yii\db\Connection), Array)
+#12 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\ActiveRecord.php(195): yii\db\ActiveRecord::filterCondition(Array, Array)
+#13 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\BaseActiveRecord.php(110): yii\db\ActiveRecord::findByCondition(Array)
+#14 C:\Users\Hp\Desktop\site_Yii\site\models\common\User.php(161): yii\db\BaseActiveRecord::findOne(Array)
+#15 C:\Users\Hp\Desktop\site_Yii\site\models\LoginForm.php(78): app\models\common\User::findByUsername('1')
+#16 C:\Users\Hp\Desktop\site_Yii\site\models\LoginForm.php(49): app\models\LoginForm->getUser()
+#17 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\validators\InlineValidator.php(78): app\models\LoginForm->validatePassword('password', NULL, Object(yii\validators\InlineValidator), '1')
+#18 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\validators\Validator.php(260): yii\validators\InlineValidator->validateAttribute(Object(app\models\LoginForm), 'password')
+#19 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\base\Model.php(361): yii\validators\Validator->validateAttributes(Object(app\models\LoginForm), Array)
+#20 C:\Users\Hp\Desktop\site_Yii\site\models\LoginForm.php(63): yii\base\Model->validate()
+#21 C:\Users\Hp\Desktop\site_Yii\site\controllers\SiteController.php(144): app\models\LoginForm->login()
+#22 [internal function]: app\controllers\SiteController->actionLogin()
+#23 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\base\InlineAction.php(57): call_user_func_array(Array, Array)
+#24 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\base\Controller.php(178): yii\base\InlineAction->runWithParams(Array)
+#25 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\base\Module.php(552): yii\base\Controller->runAction('login', Array)
+#26 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction('site/login', Array)
+#27 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\base\Application.php(384): yii\web\Application->handleRequest(Object(yii\web\Request))
+#28 C:\Users\Hp\Desktop\site_Yii\site\web\index.php(13): yii\base\Application->run()
+#29 {main}
+Additional Information:
+Array
+(
+    [0] => HY000
+    [1] => 1045
+    [2] => Access denied for user ''@'localhost' (using password: NO)
+)
+
+2023-12-26 16:38:23 [127.0.0.1][-][qvjnei1q1pov4671qupa7qqeu6][info][application] $_GET = [
+    'r' => 'site/login'
+]
+
+$_POST = [
+    '_csrf' => 'CpIUrdfRJDTSF6bm4TOIUSaQ2P1yhXJLihHWKtQ7PLZT0F7vsKhvbZRHzLGbBcsmcdXujBHqBQf9fIdLrUxXxg=='
+    'LoginForm' => [
+        'username' => '1'
+        'password' => '1'
+        'rememberMe' => '1'
+    ]
+    'login-button' => ''
+]
+
+$_FILES = []
+
+$_COOKIE = [
+    'PHPSESSID' => 'qvjnei1q1pov4671qupa7qqeu6'
+    '_csrf' => '526aac5fc9725c7e21c33726843dfea382e5a37ae9c536baa7dd4ead2fdf0f0aa:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"YBJBgyKYFPjWz6CwWE6qcowLwmQaywkp\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => 'http://localhost:8000/'
+    'userSessionTimeout' => 8640000
+]
+
+$_SERVER = [
+    'DOCUMENT_ROOT' => 'C:\\Users\\Hp\\Desktop\\site_Yii\\site\\web'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'REMOTE_PORT' => '52517'
+    'SERVER_SOFTWARE' => 'PHP 8.2.4 Development Server'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_PORT' => '8000'
+    'REQUEST_URI' => '/index.php?r=site%2Flogin'
+    'REQUEST_METHOD' => 'POST'
+    'SCRIPT_NAME' => '/index.php'
+    'SCRIPT_FILENAME' => 'C:\\Users\\Hp\\Desktop\\site_Yii\\site\\web\\index.php'
+    'PHP_SELF' => '/index.php'
+    'QUERY_STRING' => 'r=site%2Flogin'
+    'HTTP_HOST' => 'localhost:8000'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'CONTENT_LENGTH' => '220'
+    'HTTP_CONTENT_LENGTH' => '220'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_SEC_CH_UA' => '\"Opera\";v=\"105\", \"Chromium\";v=\"119\", \"Not?A_Brand\";v=\"24\"'
+    'HTTP_SEC_CH_UA_MOBILE' => '?0'
+    'HTTP_SEC_CH_UA_PLATFORM' => '\"Windows\"'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_ORIGIN' => 'http://localhost:8000'
+    'CONTENT_TYPE' => 'application/x-www-form-urlencoded'
+    'HTTP_CONTENT_TYPE' => 'application/x-www-form-urlencoded'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36 OPR/105.0.0.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7'
+    'HTTP_SEC_FETCH_SITE' => 'same-origin'
+    'HTTP_SEC_FETCH_MODE' => 'navigate'
+    'HTTP_SEC_FETCH_USER' => '?1'
+    'HTTP_SEC_FETCH_DEST' => 'document'
+    'HTTP_REFERER' => 'http://localhost:8000/index.php?r=site%2Flogin'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7'
+    'HTTP_COOKIE' => 'PHPSESSID=qvjnei1q1pov4671qupa7qqeu6; _csrf=526aac5fc9725c7e21c33726843dfea382e5a37ae9c536baa7dd4ead2fdf0f0aa%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22YBJBgyKYFPjWz6CwWE6qcowLwmQaywkp%22%3B%7D'
+    'REQUEST_TIME_FLOAT' => 1703605103.8745
+    'REQUEST_TIME' => 1703605103
+]
+2023-12-26 16:38:47 [127.0.0.1][-][qvjnei1q1pov4671qupa7qqeu6][error][yii\db\Exception] PDOException: SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: YES) in C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Connection.php:721
+Stack trace:
+#0 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Connection.php(721): PDO->__construct('mysql:host=loca...', 'root', Object(SensitiveParameterValue), NULL)
+#1 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Connection.php(636): yii\db\Connection->createPdoInstance()
+#2 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Connection.php(1066): yii\db\Connection->open()
+#3 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Connection.php(1053): yii\db\Connection->getMasterPdo()
+#4 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Command.php(261): yii\db\Connection->getSlavePdo()
+#5 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Command.php(1163): yii\db\Command->prepare(true)
+#6 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Command.php(410): yii\db\Command->queryInternal('fetchAll', NULL)
+#7 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\mysql\Schema.php(320): yii\db\Command->queryAll()
+#8 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\mysql\Schema.php(125): yii\db\mysql\Schema->findColumns(Object(yii\db\TableSchema))
+#9 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Schema.php(756): yii\db\mysql\Schema->loadTableSchema('user')
+#10 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Schema.php(192): yii\db\Schema->getTableMetadata('user', 'schema', false)
+#11 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\ActiveRecord.php(439): yii\db\Schema->getTableSchema('user')
+#12 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\ActiveRecord.php(266): yii\db\ActiveRecord::getTableSchema()
+#13 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\ActiveRecord.php(238): yii\db\ActiveRecord::filterValidColumnNames(Object(yii\db\Connection), Array)
+#14 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\ActiveRecord.php(195): yii\db\ActiveRecord::filterCondition(Array, Array)
+#15 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\BaseActiveRecord.php(110): yii\db\ActiveRecord::findByCondition(Array)
+#16 C:\Users\Hp\Desktop\site_Yii\site\models\common\User.php(161): yii\db\BaseActiveRecord::findOne(Array)
+#17 C:\Users\Hp\Desktop\site_Yii\site\models\LoginForm.php(78): app\models\common\User::findByUsername('1')
+#18 C:\Users\Hp\Desktop\site_Yii\site\models\LoginForm.php(49): app\models\LoginForm->getUser()
+#19 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\validators\InlineValidator.php(78): app\models\LoginForm->validatePassword('password', NULL, Object(yii\validators\InlineValidator), '1')
+#20 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\validators\Validator.php(260): yii\validators\InlineValidator->validateAttribute(Object(app\models\LoginForm), 'password')
+#21 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\base\Model.php(361): yii\validators\Validator->validateAttributes(Object(app\models\LoginForm), Array)
+#22 C:\Users\Hp\Desktop\site_Yii\site\models\LoginForm.php(63): yii\base\Model->validate()
+#23 C:\Users\Hp\Desktop\site_Yii\site\controllers\SiteController.php(144): app\models\LoginForm->login()
+#24 [internal function]: app\controllers\SiteController->actionLogin()
+#25 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\base\InlineAction.php(57): call_user_func_array(Array, Array)
+#26 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\base\Controller.php(178): yii\base\InlineAction->runWithParams(Array)
+#27 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\base\Module.php(552): yii\base\Controller->runAction('login', Array)
+#28 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction('site/login', Array)
+#29 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\base\Application.php(384): yii\web\Application->handleRequest(Object(yii\web\Request))
+#30 C:\Users\Hp\Desktop\site_Yii\site\web\index.php(13): yii\base\Application->run()
+#31 {main}
+
+Next yii\db\Exception: SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: YES) in C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Connection.php:647
+Stack trace:
+#0 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Connection.php(1066): yii\db\Connection->open()
+#1 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Connection.php(1053): yii\db\Connection->getMasterPdo()
+#2 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Command.php(261): yii\db\Connection->getSlavePdo()
+#3 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Command.php(1163): yii\db\Command->prepare(true)
+#4 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Command.php(410): yii\db\Command->queryInternal('fetchAll', NULL)
+#5 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\mysql\Schema.php(320): yii\db\Command->queryAll()
+#6 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\mysql\Schema.php(125): yii\db\mysql\Schema->findColumns(Object(yii\db\TableSchema))
+#7 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Schema.php(756): yii\db\mysql\Schema->loadTableSchema('user')
+#8 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Schema.php(192): yii\db\Schema->getTableMetadata('user', 'schema', false)
+#9 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\ActiveRecord.php(439): yii\db\Schema->getTableSchema('user')
+#10 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\ActiveRecord.php(266): yii\db\ActiveRecord::getTableSchema()
+#11 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\ActiveRecord.php(238): yii\db\ActiveRecord::filterValidColumnNames(Object(yii\db\Connection), Array)
+#12 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\ActiveRecord.php(195): yii\db\ActiveRecord::filterCondition(Array, Array)
+#13 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\BaseActiveRecord.php(110): yii\db\ActiveRecord::findByCondition(Array)
+#14 C:\Users\Hp\Desktop\site_Yii\site\models\common\User.php(161): yii\db\BaseActiveRecord::findOne(Array)
+#15 C:\Users\Hp\Desktop\site_Yii\site\models\LoginForm.php(78): app\models\common\User::findByUsername('1')
+#16 C:\Users\Hp\Desktop\site_Yii\site\models\LoginForm.php(49): app\models\LoginForm->getUser()
+#17 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\validators\InlineValidator.php(78): app\models\LoginForm->validatePassword('password', NULL, Object(yii\validators\InlineValidator), '1')
+#18 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\validators\Validator.php(260): yii\validators\InlineValidator->validateAttribute(Object(app\models\LoginForm), 'password')
+#19 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\base\Model.php(361): yii\validators\Validator->validateAttributes(Object(app\models\LoginForm), Array)
+#20 C:\Users\Hp\Desktop\site_Yii\site\models\LoginForm.php(63): yii\base\Model->validate()
+#21 C:\Users\Hp\Desktop\site_Yii\site\controllers\SiteController.php(144): app\models\LoginForm->login()
+#22 [internal function]: app\controllers\SiteController->actionLogin()
+#23 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\base\InlineAction.php(57): call_user_func_array(Array, Array)
+#24 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\base\Controller.php(178): yii\base\InlineAction->runWithParams(Array)
+#25 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\base\Module.php(552): yii\base\Controller->runAction('login', Array)
+#26 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction('site/login', Array)
+#27 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\base\Application.php(384): yii\web\Application->handleRequest(Object(yii\web\Request))
+#28 C:\Users\Hp\Desktop\site_Yii\site\web\index.php(13): yii\base\Application->run()
+#29 {main}
+Additional Information:
+Array
+(
+    [0] => HY000
+    [1] => 1045
+    [2] => Access denied for user 'root'@'localhost' (using password: YES)
+)
+
+2023-12-26 16:38:47 [127.0.0.1][-][qvjnei1q1pov4671qupa7qqeu6][info][application] $_GET = [
+    'r' => 'site/login'
+]
+
+$_POST = [
+    '_csrf' => 'CpIUrdfRJDTSF6bm4TOIUSaQ2P1yhXJLihHWKtQ7PLZT0F7vsKhvbZRHzLGbBcsmcdXujBHqBQf9fIdLrUxXxg=='
+    'LoginForm' => [
+        'username' => '1'
+        'password' => '1'
+        'rememberMe' => '1'
+    ]
+    'login-button' => ''
+]
+
+$_FILES = []
+
+$_COOKIE = [
+    'PHPSESSID' => 'qvjnei1q1pov4671qupa7qqeu6'
+    '_csrf' => '526aac5fc9725c7e21c33726843dfea382e5a37ae9c536baa7dd4ead2fdf0f0aa:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"YBJBgyKYFPjWz6CwWE6qcowLwmQaywkp\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => 'http://localhost:8000/'
+    'userSessionTimeout' => 8640000
+]
+
+$_SERVER = [
+    'DOCUMENT_ROOT' => 'C:\\Users\\Hp\\Desktop\\site_Yii\\site\\web'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'REMOTE_PORT' => '52527'
+    'SERVER_SOFTWARE' => 'PHP 8.2.4 Development Server'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_PORT' => '8000'
+    'REQUEST_URI' => '/index.php?r=site%2Flogin'
+    'REQUEST_METHOD' => 'POST'
+    'SCRIPT_NAME' => '/index.php'
+    'SCRIPT_FILENAME' => 'C:\\Users\\Hp\\Desktop\\site_Yii\\site\\web\\index.php'
+    'PHP_SELF' => '/index.php'
+    'QUERY_STRING' => 'r=site%2Flogin'
+    'HTTP_HOST' => 'localhost:8000'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'CONTENT_LENGTH' => '220'
+    'HTTP_CONTENT_LENGTH' => '220'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_SEC_CH_UA' => '\"Opera\";v=\"105\", \"Chromium\";v=\"119\", \"Not?A_Brand\";v=\"24\"'
+    'HTTP_SEC_CH_UA_MOBILE' => '?0'
+    'HTTP_SEC_CH_UA_PLATFORM' => '\"Windows\"'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36 OPR/105.0.0.0'
+    'HTTP_ORIGIN' => 'http://localhost:8000'
+    'CONTENT_TYPE' => 'application/x-www-form-urlencoded'
+    'HTTP_CONTENT_TYPE' => 'application/x-www-form-urlencoded'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7'
+    'HTTP_SEC_FETCH_SITE' => 'same-origin'
+    'HTTP_SEC_FETCH_MODE' => 'navigate'
+    'HTTP_SEC_FETCH_USER' => '?1'
+    'HTTP_SEC_FETCH_DEST' => 'document'
+    'HTTP_REFERER' => 'http://localhost:8000/index.php?r=site%2Flogin'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7'
+    'HTTP_COOKIE' => 'PHPSESSID=qvjnei1q1pov4671qupa7qqeu6; _csrf=526aac5fc9725c7e21c33726843dfea382e5a37ae9c536baa7dd4ead2fdf0f0aa%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22YBJBgyKYFPjWz6CwWE6qcowLwmQaywkp%22%3B%7D'
+    'REQUEST_TIME_FLOAT' => 1703605127.5207
+    'REQUEST_TIME' => 1703605127
+]
+2023-12-26 16:44:09 [127.0.0.1][-][qvjnei1q1pov4671qupa7qqeu6][error][yii\db\Exception] PDOException: SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: YES) in C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Connection.php:721
+Stack trace:
+#0 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Connection.php(721): PDO->__construct('mysql:host=loca...', 'root', Object(SensitiveParameterValue), NULL)
+#1 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Connection.php(636): yii\db\Connection->createPdoInstance()
+#2 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Connection.php(1066): yii\db\Connection->open()
+#3 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Connection.php(1053): yii\db\Connection->getMasterPdo()
+#4 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Command.php(261): yii\db\Connection->getSlavePdo()
+#5 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Command.php(1163): yii\db\Command->prepare(true)
+#6 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Command.php(410): yii\db\Command->queryInternal('fetchAll', NULL)
+#7 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\mysql\Schema.php(320): yii\db\Command->queryAll()
+#8 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\mysql\Schema.php(125): yii\db\mysql\Schema->findColumns(Object(yii\db\TableSchema))
+#9 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Schema.php(756): yii\db\mysql\Schema->loadTableSchema('user')
+#10 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Schema.php(192): yii\db\Schema->getTableMetadata('user', 'schema', false)
+#11 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\ActiveRecord.php(439): yii\db\Schema->getTableSchema('user')
+#12 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\ActiveRecord.php(266): yii\db\ActiveRecord::getTableSchema()
+#13 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\ActiveRecord.php(238): yii\db\ActiveRecord::filterValidColumnNames(Object(yii\db\Connection), Array)
+#14 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\ActiveRecord.php(195): yii\db\ActiveRecord::filterCondition(Array, Array)
+#15 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\BaseActiveRecord.php(110): yii\db\ActiveRecord::findByCondition(Array)
+#16 C:\Users\Hp\Desktop\site_Yii\site\models\common\User.php(161): yii\db\BaseActiveRecord::findOne(Array)
+#17 C:\Users\Hp\Desktop\site_Yii\site\models\LoginForm.php(78): app\models\common\User::findByUsername('1')
+#18 C:\Users\Hp\Desktop\site_Yii\site\models\LoginForm.php(49): app\models\LoginForm->getUser()
+#19 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\validators\InlineValidator.php(78): app\models\LoginForm->validatePassword('password', NULL, Object(yii\validators\InlineValidator), '1')
+#20 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\validators\Validator.php(260): yii\validators\InlineValidator->validateAttribute(Object(app\models\LoginForm), 'password')
+#21 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\base\Model.php(361): yii\validators\Validator->validateAttributes(Object(app\models\LoginForm), Array)
+#22 C:\Users\Hp\Desktop\site_Yii\site\models\LoginForm.php(63): yii\base\Model->validate()
+#23 C:\Users\Hp\Desktop\site_Yii\site\controllers\SiteController.php(144): app\models\LoginForm->login()
+#24 [internal function]: app\controllers\SiteController->actionLogin()
+#25 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\base\InlineAction.php(57): call_user_func_array(Array, Array)
+#26 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\base\Controller.php(178): yii\base\InlineAction->runWithParams(Array)
+#27 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\base\Module.php(552): yii\base\Controller->runAction('login', Array)
+#28 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction('site/login', Array)
+#29 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\base\Application.php(384): yii\web\Application->handleRequest(Object(yii\web\Request))
+#30 C:\Users\Hp\Desktop\site_Yii\site\web\index.php(13): yii\base\Application->run()
+#31 {main}
+
+Next yii\db\Exception: SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: YES) in C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Connection.php:647
+Stack trace:
+#0 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Connection.php(1066): yii\db\Connection->open()
+#1 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Connection.php(1053): yii\db\Connection->getMasterPdo()
+#2 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Command.php(261): yii\db\Connection->getSlavePdo()
+#3 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Command.php(1163): yii\db\Command->prepare(true)
+#4 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Command.php(410): yii\db\Command->queryInternal('fetchAll', NULL)
+#5 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\mysql\Schema.php(320): yii\db\Command->queryAll()
+#6 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\mysql\Schema.php(125): yii\db\mysql\Schema->findColumns(Object(yii\db\TableSchema))
+#7 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Schema.php(756): yii\db\mysql\Schema->loadTableSchema('user')
+#8 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Schema.php(192): yii\db\Schema->getTableMetadata('user', 'schema', false)
+#9 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\ActiveRecord.php(439): yii\db\Schema->getTableSchema('user')
+#10 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\ActiveRecord.php(266): yii\db\ActiveRecord::getTableSchema()
+#11 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\ActiveRecord.php(238): yii\db\ActiveRecord::filterValidColumnNames(Object(yii\db\Connection), Array)
+#12 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\ActiveRecord.php(195): yii\db\ActiveRecord::filterCondition(Array, Array)
+#13 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\BaseActiveRecord.php(110): yii\db\ActiveRecord::findByCondition(Array)
+#14 C:\Users\Hp\Desktop\site_Yii\site\models\common\User.php(161): yii\db\BaseActiveRecord::findOne(Array)
+#15 C:\Users\Hp\Desktop\site_Yii\site\models\LoginForm.php(78): app\models\common\User::findByUsername('1')
+#16 C:\Users\Hp\Desktop\site_Yii\site\models\LoginForm.php(49): app\models\LoginForm->getUser()
+#17 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\validators\InlineValidator.php(78): app\models\LoginForm->validatePassword('password', NULL, Object(yii\validators\InlineValidator), '1')
+#18 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\validators\Validator.php(260): yii\validators\InlineValidator->validateAttribute(Object(app\models\LoginForm), 'password')
+#19 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\base\Model.php(361): yii\validators\Validator->validateAttributes(Object(app\models\LoginForm), Array)
+#20 C:\Users\Hp\Desktop\site_Yii\site\models\LoginForm.php(63): yii\base\Model->validate()
+#21 C:\Users\Hp\Desktop\site_Yii\site\controllers\SiteController.php(144): app\models\LoginForm->login()
+#22 [internal function]: app\controllers\SiteController->actionLogin()
+#23 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\base\InlineAction.php(57): call_user_func_array(Array, Array)
+#24 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\base\Controller.php(178): yii\base\InlineAction->runWithParams(Array)
+#25 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\base\Module.php(552): yii\base\Controller->runAction('login', Array)
+#26 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction('site/login', Array)
+#27 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\base\Application.php(384): yii\web\Application->handleRequest(Object(yii\web\Request))
+#28 C:\Users\Hp\Desktop\site_Yii\site\web\index.php(13): yii\base\Application->run()
+#29 {main}
+Additional Information:
+Array
+(
+    [0] => HY000
+    [1] => 1045
+    [2] => Access denied for user 'root'@'localhost' (using password: YES)
+)
+
+2023-12-26 16:44:09 [127.0.0.1][-][qvjnei1q1pov4671qupa7qqeu6][info][application] $_GET = [
+    'r' => 'site/login'
+]
+
+$_POST = [
+    '_csrf' => 'CpIUrdfRJDTSF6bm4TOIUSaQ2P1yhXJLihHWKtQ7PLZT0F7vsKhvbZRHzLGbBcsmcdXujBHqBQf9fIdLrUxXxg=='
+    'LoginForm' => [
+        'username' => '1'
+        'password' => '1'
+        'rememberMe' => '1'
+    ]
+    'login-button' => ''
+]
+
+$_FILES = []
+
+$_COOKIE = [
+    'PHPSESSID' => 'qvjnei1q1pov4671qupa7qqeu6'
+    '_csrf' => '526aac5fc9725c7e21c33726843dfea382e5a37ae9c536baa7dd4ead2fdf0f0aa:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"YBJBgyKYFPjWz6CwWE6qcowLwmQaywkp\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => 'http://localhost:8000/'
+    'userSessionTimeout' => 8640000
+]
+
+$_SERVER = [
+    'DOCUMENT_ROOT' => 'C:\\Users\\Hp\\Desktop\\site_Yii\\site\\web'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'REMOTE_PORT' => '52831'
+    'SERVER_SOFTWARE' => 'PHP 8.2.4 Development Server'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_PORT' => '8000'
+    'REQUEST_URI' => '/index.php?r=site%2Flogin'
+    'REQUEST_METHOD' => 'POST'
+    'SCRIPT_NAME' => '/index.php'
+    'SCRIPT_FILENAME' => 'C:\\Users\\Hp\\Desktop\\site_Yii\\site\\web\\index.php'
+    'PHP_SELF' => '/index.php'
+    'QUERY_STRING' => 'r=site%2Flogin'
+    'HTTP_HOST' => 'localhost:8000'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'CONTENT_LENGTH' => '220'
+    'HTTP_CONTENT_LENGTH' => '220'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_SEC_CH_UA' => '\"Opera\";v=\"105\", \"Chromium\";v=\"119\", \"Not?A_Brand\";v=\"24\"'
+    'HTTP_SEC_CH_UA_MOBILE' => '?0'
+    'HTTP_SEC_CH_UA_PLATFORM' => '\"Windows\"'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36 OPR/105.0.0.0'
+    'HTTP_ORIGIN' => 'http://localhost:8000'
+    'CONTENT_TYPE' => 'application/x-www-form-urlencoded'
+    'HTTP_CONTENT_TYPE' => 'application/x-www-form-urlencoded'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7'
+    'HTTP_SEC_FETCH_SITE' => 'same-origin'
+    'HTTP_SEC_FETCH_MODE' => 'navigate'
+    'HTTP_SEC_FETCH_USER' => '?1'
+    'HTTP_SEC_FETCH_DEST' => 'document'
+    'HTTP_REFERER' => 'http://localhost:8000/index.php?r=site%2Flogin'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7'
+    'HTTP_COOKIE' => 'PHPSESSID=qvjnei1q1pov4671qupa7qqeu6; _csrf=526aac5fc9725c7e21c33726843dfea382e5a37ae9c536baa7dd4ead2fdf0f0aa%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22YBJBgyKYFPjWz6CwWE6qcowLwmQaywkp%22%3B%7D'
+    'REQUEST_TIME_FLOAT' => 1703605449.1767
+    'REQUEST_TIME' => 1703605449
+]
+2023-12-26 18:34:01 [127.0.0.1][-][qvjnei1q1pov4671qupa7qqeu6][error][yii\db\Exception] PDOException: SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: YES) in C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Connection.php:721
+Stack trace:
+#0 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Connection.php(721): PDO->__construct('mysql:host=loca...', 'root', Object(SensitiveParameterValue), NULL)
+#1 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Connection.php(636): yii\db\Connection->createPdoInstance()
+#2 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Connection.php(1066): yii\db\Connection->open()
+#3 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Connection.php(1053): yii\db\Connection->getMasterPdo()
+#4 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Command.php(261): yii\db\Connection->getSlavePdo()
+#5 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Command.php(1163): yii\db\Command->prepare(true)
+#6 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Command.php(410): yii\db\Command->queryInternal('fetchAll', NULL)
+#7 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\mysql\Schema.php(320): yii\db\Command->queryAll()
+#8 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\mysql\Schema.php(125): yii\db\mysql\Schema->findColumns(Object(yii\db\TableSchema))
+#9 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Schema.php(756): yii\db\mysql\Schema->loadTableSchema('user')
+#10 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Schema.php(192): yii\db\Schema->getTableMetadata('user', 'schema', false)
+#11 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\ActiveRecord.php(439): yii\db\Schema->getTableSchema('user')
+#12 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\ActiveRecord.php(266): yii\db\ActiveRecord::getTableSchema()
+#13 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\ActiveRecord.php(238): yii\db\ActiveRecord::filterValidColumnNames(Object(yii\db\Connection), Array)
+#14 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\ActiveRecord.php(195): yii\db\ActiveRecord::filterCondition(Array, Array)
+#15 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\BaseActiveRecord.php(110): yii\db\ActiveRecord::findByCondition(Array)
+#16 C:\Users\Hp\Desktop\site_Yii\site\models\common\User.php(161): yii\db\BaseActiveRecord::findOne(Array)
+#17 C:\Users\Hp\Desktop\site_Yii\site\models\LoginForm.php(78): app\models\common\User::findByUsername('1')
+#18 C:\Users\Hp\Desktop\site_Yii\site\models\LoginForm.php(49): app\models\LoginForm->getUser()
+#19 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\validators\InlineValidator.php(78): app\models\LoginForm->validatePassword('password', NULL, Object(yii\validators\InlineValidator), '1')
+#20 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\validators\Validator.php(260): yii\validators\InlineValidator->validateAttribute(Object(app\models\LoginForm), 'password')
+#21 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\base\Model.php(361): yii\validators\Validator->validateAttributes(Object(app\models\LoginForm), Array)
+#22 C:\Users\Hp\Desktop\site_Yii\site\models\LoginForm.php(63): yii\base\Model->validate()
+#23 C:\Users\Hp\Desktop\site_Yii\site\controllers\SiteController.php(144): app\models\LoginForm->login()
+#24 [internal function]: app\controllers\SiteController->actionLogin()
+#25 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\base\InlineAction.php(57): call_user_func_array(Array, Array)
+#26 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\base\Controller.php(178): yii\base\InlineAction->runWithParams(Array)
+#27 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\base\Module.php(552): yii\base\Controller->runAction('login', Array)
+#28 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction('site/login', Array)
+#29 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\base\Application.php(384): yii\web\Application->handleRequest(Object(yii\web\Request))
+#30 C:\Users\Hp\Desktop\site_Yii\site\web\index.php(13): yii\base\Application->run()
+#31 {main}
+
+Next yii\db\Exception: SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: YES) in C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Connection.php:647
+Stack trace:
+#0 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Connection.php(1066): yii\db\Connection->open()
+#1 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Connection.php(1053): yii\db\Connection->getMasterPdo()
+#2 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Command.php(261): yii\db\Connection->getSlavePdo()
+#3 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Command.php(1163): yii\db\Command->prepare(true)
+#4 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Command.php(410): yii\db\Command->queryInternal('fetchAll', NULL)
+#5 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\mysql\Schema.php(320): yii\db\Command->queryAll()
+#6 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\mysql\Schema.php(125): yii\db\mysql\Schema->findColumns(Object(yii\db\TableSchema))
+#7 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Schema.php(756): yii\db\mysql\Schema->loadTableSchema('user')
+#8 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Schema.php(192): yii\db\Schema->getTableMetadata('user', 'schema', false)
+#9 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\ActiveRecord.php(439): yii\db\Schema->getTableSchema('user')
+#10 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\ActiveRecord.php(266): yii\db\ActiveRecord::getTableSchema()
+#11 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\ActiveRecord.php(238): yii\db\ActiveRecord::filterValidColumnNames(Object(yii\db\Connection), Array)
+#12 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\ActiveRecord.php(195): yii\db\ActiveRecord::filterCondition(Array, Array)
+#13 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\BaseActiveRecord.php(110): yii\db\ActiveRecord::findByCondition(Array)
+#14 C:\Users\Hp\Desktop\site_Yii\site\models\common\User.php(161): yii\db\BaseActiveRecord::findOne(Array)
+#15 C:\Users\Hp\Desktop\site_Yii\site\models\LoginForm.php(78): app\models\common\User::findByUsername('1')
+#16 C:\Users\Hp\Desktop\site_Yii\site\models\LoginForm.php(49): app\models\LoginForm->getUser()
+#17 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\validators\InlineValidator.php(78): app\models\LoginForm->validatePassword('password', NULL, Object(yii\validators\InlineValidator), '1')
+#18 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\validators\Validator.php(260): yii\validators\InlineValidator->validateAttribute(Object(app\models\LoginForm), 'password')
+#19 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\base\Model.php(361): yii\validators\Validator->validateAttributes(Object(app\models\LoginForm), Array)
+#20 C:\Users\Hp\Desktop\site_Yii\site\models\LoginForm.php(63): yii\base\Model->validate()
+#21 C:\Users\Hp\Desktop\site_Yii\site\controllers\SiteController.php(144): app\models\LoginForm->login()
+#22 [internal function]: app\controllers\SiteController->actionLogin()
+#23 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\base\InlineAction.php(57): call_user_func_array(Array, Array)
+#24 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\base\Controller.php(178): yii\base\InlineAction->runWithParams(Array)
+#25 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\base\Module.php(552): yii\base\Controller->runAction('login', Array)
+#26 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction('site/login', Array)
+#27 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\base\Application.php(384): yii\web\Application->handleRequest(Object(yii\web\Request))
+#28 C:\Users\Hp\Desktop\site_Yii\site\web\index.php(13): yii\base\Application->run()
+#29 {main}
+Additional Information:
+Array
+(
+    [0] => HY000
+    [1] => 1045
+    [2] => Access denied for user 'root'@'localhost' (using password: YES)
+)
+
+2023-12-26 18:34:01 [127.0.0.1][-][qvjnei1q1pov4671qupa7qqeu6][info][application] $_GET = [
+    'r' => 'site/login'
+]
+
+$_POST = [
+    '_csrf' => 'CUace3tPfS0eU_fOVBxtCP-EnKRiMwmYeKWmDNWNbMdQBNY5HDY2dFgDnZkuKi5_qMGq1QFcftQPyPdtrPoHtw=='
+    'LoginForm' => [
+        'username' => '1'
+        'password' => '1'
+        'rememberMe' => '1'
+    ]
+    'login-button' => ''
+]
+
+$_FILES = []
+
+$_COOKIE = [
+    'PHPSESSID' => 'qvjnei1q1pov4671qupa7qqeu6'
+    '_csrf' => '526aac5fc9725c7e21c33726843dfea382e5a37ae9c536baa7dd4ead2fdf0f0aa:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"YBJBgyKYFPjWz6CwWE6qcowLwmQaywkp\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => 'http://localhost:8000/'
+    'userSessionTimeout' => 8640000
+]
+
+$_SERVER = [
+    'DOCUMENT_ROOT' => 'C:\\Users\\Hp\\Desktop\\site_Yii\\site\\web'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'REMOTE_PORT' => '55598'
+    'SERVER_SOFTWARE' => 'PHP 8.2.12 Development Server'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_PORT' => '8000'
+    'REQUEST_URI' => '/index.php?r=site%2Flogin'
+    'REQUEST_METHOD' => 'POST'
+    'SCRIPT_NAME' => '/index.php'
+    'SCRIPT_FILENAME' => 'C:\\Users\\Hp\\Desktop\\site_Yii\\site\\web\\index.php'
+    'PHP_SELF' => '/index.php'
+    'QUERY_STRING' => 'r=site%2Flogin'
+    'HTTP_HOST' => 'localhost:8000'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'CONTENT_LENGTH' => '220'
+    'HTTP_CONTENT_LENGTH' => '220'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_SEC_CH_UA' => '\"Opera\";v=\"105\", \"Chromium\";v=\"119\", \"Not?A_Brand\";v=\"24\"'
+    'HTTP_SEC_CH_UA_MOBILE' => '?0'
+    'HTTP_SEC_CH_UA_PLATFORM' => '\"Windows\"'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_ORIGIN' => 'http://localhost:8000'
+    'CONTENT_TYPE' => 'application/x-www-form-urlencoded'
+    'HTTP_CONTENT_TYPE' => 'application/x-www-form-urlencoded'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36 OPR/105.0.0.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7'
+    'HTTP_SEC_FETCH_SITE' => 'same-origin'
+    'HTTP_SEC_FETCH_MODE' => 'navigate'
+    'HTTP_SEC_FETCH_USER' => '?1'
+    'HTTP_SEC_FETCH_DEST' => 'document'
+    'HTTP_REFERER' => 'http://localhost:8000/index.php?r=site%2Flogin'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7'
+    'HTTP_COOKIE' => 'PHPSESSID=qvjnei1q1pov4671qupa7qqeu6; _csrf=526aac5fc9725c7e21c33726843dfea382e5a37ae9c536baa7dd4ead2fdf0f0aa%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22YBJBgyKYFPjWz6CwWE6qcowLwmQaywkp%22%3B%7D'
+    'REQUEST_TIME_FLOAT' => 1703612041.6492
+    'REQUEST_TIME' => 1703612041
+]
+2023-12-26 18:39:11 [127.0.0.1][-][qvjnei1q1pov4671qupa7qqeu6][error][yii\db\Exception] PDOException: SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: YES) in C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Connection.php:721
+Stack trace:
+#0 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Connection.php(721): PDO->__construct('mysql:host=loca...', 'root', Object(SensitiveParameterValue), NULL)
+#1 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Connection.php(636): yii\db\Connection->createPdoInstance()
+#2 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Connection.php(1066): yii\db\Connection->open()
+#3 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Connection.php(1053): yii\db\Connection->getMasterPdo()
+#4 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Command.php(261): yii\db\Connection->getSlavePdo()
+#5 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Command.php(1163): yii\db\Command->prepare(true)
+#6 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Command.php(410): yii\db\Command->queryInternal('fetchAll', NULL)
+#7 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\mysql\Schema.php(320): yii\db\Command->queryAll()
+#8 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\mysql\Schema.php(125): yii\db\mysql\Schema->findColumns(Object(yii\db\TableSchema))
+#9 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Schema.php(756): yii\db\mysql\Schema->loadTableSchema('user')
+#10 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Schema.php(192): yii\db\Schema->getTableMetadata('user', 'schema', false)
+#11 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\ActiveRecord.php(439): yii\db\Schema->getTableSchema('user')
+#12 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\ActiveRecord.php(266): yii\db\ActiveRecord::getTableSchema()
+#13 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\ActiveRecord.php(238): yii\db\ActiveRecord::filterValidColumnNames(Object(yii\db\Connection), Array)
+#14 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\ActiveRecord.php(195): yii\db\ActiveRecord::filterCondition(Array, Array)
+#15 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\BaseActiveRecord.php(110): yii\db\ActiveRecord::findByCondition(Array)
+#16 C:\Users\Hp\Desktop\site_Yii\site\models\common\User.php(161): yii\db\BaseActiveRecord::findOne(Array)
+#17 C:\Users\Hp\Desktop\site_Yii\site\models\LoginForm.php(78): app\models\common\User::findByUsername('1')
+#18 C:\Users\Hp\Desktop\site_Yii\site\models\LoginForm.php(49): app\models\LoginForm->getUser()
+#19 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\validators\InlineValidator.php(78): app\models\LoginForm->validatePassword('password', NULL, Object(yii\validators\InlineValidator), '1')
+#20 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\validators\Validator.php(260): yii\validators\InlineValidator->validateAttribute(Object(app\models\LoginForm), 'password')
+#21 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\base\Model.php(361): yii\validators\Validator->validateAttributes(Object(app\models\LoginForm), Array)
+#22 C:\Users\Hp\Desktop\site_Yii\site\models\LoginForm.php(63): yii\base\Model->validate()
+#23 C:\Users\Hp\Desktop\site_Yii\site\controllers\SiteController.php(144): app\models\LoginForm->login()
+#24 [internal function]: app\controllers\SiteController->actionLogin()
+#25 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\base\InlineAction.php(57): call_user_func_array(Array, Array)
+#26 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\base\Controller.php(178): yii\base\InlineAction->runWithParams(Array)
+#27 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\base\Module.php(552): yii\base\Controller->runAction('login', Array)
+#28 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction('site/login', Array)
+#29 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\base\Application.php(384): yii\web\Application->handleRequest(Object(yii\web\Request))
+#30 C:\Users\Hp\Desktop\site_Yii\site\web\index.php(13): yii\base\Application->run()
+#31 {main}
+
+Next yii\db\Exception: SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: YES) in C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Connection.php:647
+Stack trace:
+#0 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Connection.php(1066): yii\db\Connection->open()
+#1 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Connection.php(1053): yii\db\Connection->getMasterPdo()
+#2 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Command.php(261): yii\db\Connection->getSlavePdo()
+#3 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Command.php(1163): yii\db\Command->prepare(true)
+#4 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Command.php(410): yii\db\Command->queryInternal('fetchAll', NULL)
+#5 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\mysql\Schema.php(320): yii\db\Command->queryAll()
+#6 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\mysql\Schema.php(125): yii\db\mysql\Schema->findColumns(Object(yii\db\TableSchema))
+#7 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Schema.php(756): yii\db\mysql\Schema->loadTableSchema('user')
+#8 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Schema.php(192): yii\db\Schema->getTableMetadata('user', 'schema', false)
+#9 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\ActiveRecord.php(439): yii\db\Schema->getTableSchema('user')
+#10 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\ActiveRecord.php(266): yii\db\ActiveRecord::getTableSchema()
+#11 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\ActiveRecord.php(238): yii\db\ActiveRecord::filterValidColumnNames(Object(yii\db\Connection), Array)
+#12 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\ActiveRecord.php(195): yii\db\ActiveRecord::filterCondition(Array, Array)
+#13 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\BaseActiveRecord.php(110): yii\db\ActiveRecord::findByCondition(Array)
+#14 C:\Users\Hp\Desktop\site_Yii\site\models\common\User.php(161): yii\db\BaseActiveRecord::findOne(Array)
+#15 C:\Users\Hp\Desktop\site_Yii\site\models\LoginForm.php(78): app\models\common\User::findByUsername('1')
+#16 C:\Users\Hp\Desktop\site_Yii\site\models\LoginForm.php(49): app\models\LoginForm->getUser()
+#17 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\validators\InlineValidator.php(78): app\models\LoginForm->validatePassword('password', NULL, Object(yii\validators\InlineValidator), '1')
+#18 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\validators\Validator.php(260): yii\validators\InlineValidator->validateAttribute(Object(app\models\LoginForm), 'password')
+#19 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\base\Model.php(361): yii\validators\Validator->validateAttributes(Object(app\models\LoginForm), Array)
+#20 C:\Users\Hp\Desktop\site_Yii\site\models\LoginForm.php(63): yii\base\Model->validate()
+#21 C:\Users\Hp\Desktop\site_Yii\site\controllers\SiteController.php(144): app\models\LoginForm->login()
+#22 [internal function]: app\controllers\SiteController->actionLogin()
+#23 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\base\InlineAction.php(57): call_user_func_array(Array, Array)
+#24 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\base\Controller.php(178): yii\base\InlineAction->runWithParams(Array)
+#25 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\base\Module.php(552): yii\base\Controller->runAction('login', Array)
+#26 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction('site/login', Array)
+#27 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\base\Application.php(384): yii\web\Application->handleRequest(Object(yii\web\Request))
+#28 C:\Users\Hp\Desktop\site_Yii\site\web\index.php(13): yii\base\Application->run()
+#29 {main}
+Additional Information:
+Array
+(
+    [0] => HY000
+    [1] => 1045
+    [2] => Access denied for user 'root'@'localhost' (using password: YES)
+)
+
+2023-12-26 18:39:11 [127.0.0.1][-][qvjnei1q1pov4671qupa7qqeu6][info][application] $_GET = [
+    'r' => 'site/login'
+]
+
+$_POST = [
+    '_csrf' => 'CUace3tPfS0eU_fOVBxtCP-EnKRiMwmYeKWmDNWNbMdQBNY5HDY2dFgDnZkuKi5_qMGq1QFcftQPyPdtrPoHtw=='
+    'LoginForm' => [
+        'username' => '1'
+        'password' => '1'
+        'rememberMe' => '1'
+    ]
+    'login-button' => ''
+]
+
+$_FILES = []
+
+$_COOKIE = [
+    'PHPSESSID' => 'qvjnei1q1pov4671qupa7qqeu6'
+    '_csrf' => '526aac5fc9725c7e21c33726843dfea382e5a37ae9c536baa7dd4ead2fdf0f0aa:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"YBJBgyKYFPjWz6CwWE6qcowLwmQaywkp\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => 'http://localhost:8000/'
+    'userSessionTimeout' => 8640000
+]
+
+$_SERVER = [
+    'DOCUMENT_ROOT' => 'C:\\Users\\Hp\\Desktop\\site_Yii\\site\\web'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'REMOTE_PORT' => '55882'
+    'SERVER_SOFTWARE' => 'PHP 8.2.12 Development Server'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_PORT' => '8000'
+    'REQUEST_URI' => '/index.php?r=site%2Flogin'
+    'REQUEST_METHOD' => 'POST'
+    'SCRIPT_NAME' => '/index.php'
+    'SCRIPT_FILENAME' => 'C:\\Users\\Hp\\Desktop\\site_Yii\\site\\web\\index.php'
+    'PHP_SELF' => '/index.php'
+    'QUERY_STRING' => 'r=site%2Flogin'
+    'HTTP_HOST' => 'localhost:8000'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'CONTENT_LENGTH' => '220'
+    'HTTP_CONTENT_LENGTH' => '220'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_SEC_CH_UA' => '\"Opera\";v=\"105\", \"Chromium\";v=\"119\", \"Not?A_Brand\";v=\"24\"'
+    'HTTP_SEC_CH_UA_MOBILE' => '?0'
+    'HTTP_SEC_CH_UA_PLATFORM' => '\"Windows\"'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36 OPR/105.0.0.0'
+    'HTTP_ORIGIN' => 'http://localhost:8000'
+    'CONTENT_TYPE' => 'application/x-www-form-urlencoded'
+    'HTTP_CONTENT_TYPE' => 'application/x-www-form-urlencoded'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7'
+    'HTTP_SEC_FETCH_SITE' => 'same-origin'
+    'HTTP_SEC_FETCH_MODE' => 'navigate'
+    'HTTP_SEC_FETCH_USER' => '?1'
+    'HTTP_SEC_FETCH_DEST' => 'document'
+    'HTTP_REFERER' => 'http://localhost:8000/index.php?r=site%2Flogin'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7'
+    'HTTP_COOKIE' => 'PHPSESSID=qvjnei1q1pov4671qupa7qqeu6; _csrf=526aac5fc9725c7e21c33726843dfea382e5a37ae9c536baa7dd4ead2fdf0f0aa%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22YBJBgyKYFPjWz6CwWE6qcowLwmQaywkp%22%3B%7D'
+    'REQUEST_TIME_FLOAT' => 1703612351.648
+    'REQUEST_TIME' => 1703612351
+]
+2023-12-26 18:39:13 [127.0.0.1][-][qvjnei1q1pov4671qupa7qqeu6][error][yii\db\Exception] PDOException: SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: YES) in C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Connection.php:721
+Stack trace:
+#0 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Connection.php(721): PDO->__construct('mysql:host=loca...', 'root', Object(SensitiveParameterValue), NULL)
+#1 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Connection.php(636): yii\db\Connection->createPdoInstance()
+#2 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Connection.php(1066): yii\db\Connection->open()
+#3 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Connection.php(1053): yii\db\Connection->getMasterPdo()
+#4 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Command.php(261): yii\db\Connection->getSlavePdo()
+#5 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Command.php(1163): yii\db\Command->prepare(true)
+#6 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Command.php(410): yii\db\Command->queryInternal('fetchAll', NULL)
+#7 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\mysql\Schema.php(320): yii\db\Command->queryAll()
+#8 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\mysql\Schema.php(125): yii\db\mysql\Schema->findColumns(Object(yii\db\TableSchema))
+#9 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Schema.php(756): yii\db\mysql\Schema->loadTableSchema('user')
+#10 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Schema.php(192): yii\db\Schema->getTableMetadata('user', 'schema', false)
+#11 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\ActiveRecord.php(439): yii\db\Schema->getTableSchema('user')
+#12 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\ActiveRecord.php(266): yii\db\ActiveRecord::getTableSchema()
+#13 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\ActiveRecord.php(238): yii\db\ActiveRecord::filterValidColumnNames(Object(yii\db\Connection), Array)
+#14 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\ActiveRecord.php(195): yii\db\ActiveRecord::filterCondition(Array, Array)
+#15 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\BaseActiveRecord.php(110): yii\db\ActiveRecord::findByCondition(Array)
+#16 C:\Users\Hp\Desktop\site_Yii\site\models\common\User.php(161): yii\db\BaseActiveRecord::findOne(Array)
+#17 C:\Users\Hp\Desktop\site_Yii\site\models\LoginForm.php(78): app\models\common\User::findByUsername('1')
+#18 C:\Users\Hp\Desktop\site_Yii\site\models\LoginForm.php(49): app\models\LoginForm->getUser()
+#19 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\validators\InlineValidator.php(78): app\models\LoginForm->validatePassword('password', NULL, Object(yii\validators\InlineValidator), '1')
+#20 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\validators\Validator.php(260): yii\validators\InlineValidator->validateAttribute(Object(app\models\LoginForm), 'password')
+#21 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\base\Model.php(361): yii\validators\Validator->validateAttributes(Object(app\models\LoginForm), Array)
+#22 C:\Users\Hp\Desktop\site_Yii\site\models\LoginForm.php(63): yii\base\Model->validate()
+#23 C:\Users\Hp\Desktop\site_Yii\site\controllers\SiteController.php(144): app\models\LoginForm->login()
+#24 [internal function]: app\controllers\SiteController->actionLogin()
+#25 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\base\InlineAction.php(57): call_user_func_array(Array, Array)
+#26 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\base\Controller.php(178): yii\base\InlineAction->runWithParams(Array)
+#27 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\base\Module.php(552): yii\base\Controller->runAction('login', Array)
+#28 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction('site/login', Array)
+#29 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\base\Application.php(384): yii\web\Application->handleRequest(Object(yii\web\Request))
+#30 C:\Users\Hp\Desktop\site_Yii\site\web\index.php(13): yii\base\Application->run()
+#31 {main}
+
+Next yii\db\Exception: SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: YES) in C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Connection.php:647
+Stack trace:
+#0 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Connection.php(1066): yii\db\Connection->open()
+#1 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Connection.php(1053): yii\db\Connection->getMasterPdo()
+#2 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Command.php(261): yii\db\Connection->getSlavePdo()
+#3 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Command.php(1163): yii\db\Command->prepare(true)
+#4 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Command.php(410): yii\db\Command->queryInternal('fetchAll', NULL)
+#5 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\mysql\Schema.php(320): yii\db\Command->queryAll()
+#6 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\mysql\Schema.php(125): yii\db\mysql\Schema->findColumns(Object(yii\db\TableSchema))
+#7 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Schema.php(756): yii\db\mysql\Schema->loadTableSchema('user')
+#8 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Schema.php(192): yii\db\Schema->getTableMetadata('user', 'schema', false)
+#9 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\ActiveRecord.php(439): yii\db\Schema->getTableSchema('user')
+#10 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\ActiveRecord.php(266): yii\db\ActiveRecord::getTableSchema()
+#11 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\ActiveRecord.php(238): yii\db\ActiveRecord::filterValidColumnNames(Object(yii\db\Connection), Array)
+#12 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\ActiveRecord.php(195): yii\db\ActiveRecord::filterCondition(Array, Array)
+#13 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\BaseActiveRecord.php(110): yii\db\ActiveRecord::findByCondition(Array)
+#14 C:\Users\Hp\Desktop\site_Yii\site\models\common\User.php(161): yii\db\BaseActiveRecord::findOne(Array)
+#15 C:\Users\Hp\Desktop\site_Yii\site\models\LoginForm.php(78): app\models\common\User::findByUsername('1')
+#16 C:\Users\Hp\Desktop\site_Yii\site\models\LoginForm.php(49): app\models\LoginForm->getUser()
+#17 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\validators\InlineValidator.php(78): app\models\LoginForm->validatePassword('password', NULL, Object(yii\validators\InlineValidator), '1')
+#18 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\validators\Validator.php(260): yii\validators\InlineValidator->validateAttribute(Object(app\models\LoginForm), 'password')
+#19 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\base\Model.php(361): yii\validators\Validator->validateAttributes(Object(app\models\LoginForm), Array)
+#20 C:\Users\Hp\Desktop\site_Yii\site\models\LoginForm.php(63): yii\base\Model->validate()
+#21 C:\Users\Hp\Desktop\site_Yii\site\controllers\SiteController.php(144): app\models\LoginForm->login()
+#22 [internal function]: app\controllers\SiteController->actionLogin()
+#23 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\base\InlineAction.php(57): call_user_func_array(Array, Array)
+#24 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\base\Controller.php(178): yii\base\InlineAction->runWithParams(Array)
+#25 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\base\Module.php(552): yii\base\Controller->runAction('login', Array)
+#26 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction('site/login', Array)
+#27 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\base\Application.php(384): yii\web\Application->handleRequest(Object(yii\web\Request))
+#28 C:\Users\Hp\Desktop\site_Yii\site\web\index.php(13): yii\base\Application->run()
+#29 {main}
+Additional Information:
+Array
+(
+    [0] => HY000
+    [1] => 1045
+    [2] => Access denied for user 'root'@'localhost' (using password: YES)
+)
+
+2023-12-26 18:39:13 [127.0.0.1][-][qvjnei1q1pov4671qupa7qqeu6][info][application] $_GET = [
+    'r' => 'site/login'
+]
+
+$_POST = [
+    '_csrf' => 'CUace3tPfS0eU_fOVBxtCP-EnKRiMwmYeKWmDNWNbMdQBNY5HDY2dFgDnZkuKi5_qMGq1QFcftQPyPdtrPoHtw=='
+    'LoginForm' => [
+        'username' => '1'
+        'password' => '1'
+        'rememberMe' => '1'
+    ]
+    'login-button' => ''
+]
+
+$_FILES = []
+
+$_COOKIE = [
+    'PHPSESSID' => 'qvjnei1q1pov4671qupa7qqeu6'
+    '_csrf' => '526aac5fc9725c7e21c33726843dfea382e5a37ae9c536baa7dd4ead2fdf0f0aa:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"YBJBgyKYFPjWz6CwWE6qcowLwmQaywkp\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => 'http://localhost:8000/'
+    'userSessionTimeout' => 8640000
+]
+
+$_SERVER = [
+    'DOCUMENT_ROOT' => 'C:\\Users\\Hp\\Desktop\\site_Yii\\site\\web'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'REMOTE_PORT' => '55889'
+    'SERVER_SOFTWARE' => 'PHP 8.2.12 Development Server'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_PORT' => '8000'
+    'REQUEST_URI' => '/index.php?r=site%2Flogin'
+    'REQUEST_METHOD' => 'POST'
+    'SCRIPT_NAME' => '/index.php'
+    'SCRIPT_FILENAME' => 'C:\\Users\\Hp\\Desktop\\site_Yii\\site\\web\\index.php'
+    'PHP_SELF' => '/index.php'
+    'QUERY_STRING' => 'r=site%2Flogin'
+    'HTTP_HOST' => 'localhost:8000'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'CONTENT_LENGTH' => '220'
+    'HTTP_CONTENT_LENGTH' => '220'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_SEC_CH_UA' => '\"Opera\";v=\"105\", \"Chromium\";v=\"119\", \"Not?A_Brand\";v=\"24\"'
+    'HTTP_SEC_CH_UA_MOBILE' => '?0'
+    'HTTP_SEC_CH_UA_PLATFORM' => '\"Windows\"'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36 OPR/105.0.0.0'
+    'HTTP_ORIGIN' => 'http://localhost:8000'
+    'CONTENT_TYPE' => 'application/x-www-form-urlencoded'
+    'HTTP_CONTENT_TYPE' => 'application/x-www-form-urlencoded'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7'
+    'HTTP_SEC_FETCH_SITE' => 'same-origin'
+    'HTTP_SEC_FETCH_MODE' => 'navigate'
+    'HTTP_SEC_FETCH_USER' => '?1'
+    'HTTP_SEC_FETCH_DEST' => 'document'
+    'HTTP_REFERER' => 'http://localhost:8000/index.php?r=site%2Flogin'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7'
+    'HTTP_COOKIE' => 'PHPSESSID=qvjnei1q1pov4671qupa7qqeu6; _csrf=526aac5fc9725c7e21c33726843dfea382e5a37ae9c536baa7dd4ead2fdf0f0aa%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22YBJBgyKYFPjWz6CwWE6qcowLwmQaywkp%22%3B%7D'
+    'REQUEST_TIME_FLOAT' => 1703612353.0942
+    'REQUEST_TIME' => 1703612353
+]
+2023-12-26 18:39:15 [127.0.0.1][-][qvjnei1q1pov4671qupa7qqeu6][error][yii\db\Exception] PDOException: SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: YES) in C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Connection.php:721
+Stack trace:
+#0 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Connection.php(721): PDO->__construct('mysql:host=loca...', 'root', Object(SensitiveParameterValue), NULL)
+#1 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Connection.php(636): yii\db\Connection->createPdoInstance()
+#2 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Connection.php(1066): yii\db\Connection->open()
+#3 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Connection.php(1053): yii\db\Connection->getMasterPdo()
+#4 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Command.php(261): yii\db\Connection->getSlavePdo()
+#5 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Command.php(1163): yii\db\Command->prepare(true)
+#6 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Command.php(410): yii\db\Command->queryInternal('fetchAll', NULL)
+#7 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\mysql\Schema.php(320): yii\db\Command->queryAll()
+#8 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\mysql\Schema.php(125): yii\db\mysql\Schema->findColumns(Object(yii\db\TableSchema))
+#9 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Schema.php(756): yii\db\mysql\Schema->loadTableSchema('user')
+#10 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Schema.php(192): yii\db\Schema->getTableMetadata('user', 'schema', false)
+#11 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\ActiveRecord.php(439): yii\db\Schema->getTableSchema('user')
+#12 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\ActiveRecord.php(266): yii\db\ActiveRecord::getTableSchema()
+#13 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\ActiveRecord.php(238): yii\db\ActiveRecord::filterValidColumnNames(Object(yii\db\Connection), Array)
+#14 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\ActiveRecord.php(195): yii\db\ActiveRecord::filterCondition(Array, Array)
+#15 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\BaseActiveRecord.php(110): yii\db\ActiveRecord::findByCondition(Array)
+#16 C:\Users\Hp\Desktop\site_Yii\site\models\common\User.php(161): yii\db\BaseActiveRecord::findOne(Array)
+#17 C:\Users\Hp\Desktop\site_Yii\site\models\LoginForm.php(78): app\models\common\User::findByUsername('1')
+#18 C:\Users\Hp\Desktop\site_Yii\site\models\LoginForm.php(49): app\models\LoginForm->getUser()
+#19 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\validators\InlineValidator.php(78): app\models\LoginForm->validatePassword('password', NULL, Object(yii\validators\InlineValidator), '1')
+#20 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\validators\Validator.php(260): yii\validators\InlineValidator->validateAttribute(Object(app\models\LoginForm), 'password')
+#21 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\base\Model.php(361): yii\validators\Validator->validateAttributes(Object(app\models\LoginForm), Array)
+#22 C:\Users\Hp\Desktop\site_Yii\site\models\LoginForm.php(63): yii\base\Model->validate()
+#23 C:\Users\Hp\Desktop\site_Yii\site\controllers\SiteController.php(144): app\models\LoginForm->login()
+#24 [internal function]: app\controllers\SiteController->actionLogin()
+#25 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\base\InlineAction.php(57): call_user_func_array(Array, Array)
+#26 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\base\Controller.php(178): yii\base\InlineAction->runWithParams(Array)
+#27 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\base\Module.php(552): yii\base\Controller->runAction('login', Array)
+#28 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction('site/login', Array)
+#29 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\base\Application.php(384): yii\web\Application->handleRequest(Object(yii\web\Request))
+#30 C:\Users\Hp\Desktop\site_Yii\site\web\index.php(13): yii\base\Application->run()
+#31 {main}
+
+Next yii\db\Exception: SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: YES) in C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Connection.php:647
+Stack trace:
+#0 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Connection.php(1066): yii\db\Connection->open()
+#1 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Connection.php(1053): yii\db\Connection->getMasterPdo()
+#2 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Command.php(261): yii\db\Connection->getSlavePdo()
+#3 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Command.php(1163): yii\db\Command->prepare(true)
+#4 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Command.php(410): yii\db\Command->queryInternal('fetchAll', NULL)
+#5 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\mysql\Schema.php(320): yii\db\Command->queryAll()
+#6 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\mysql\Schema.php(125): yii\db\mysql\Schema->findColumns(Object(yii\db\TableSchema))
+#7 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Schema.php(756): yii\db\mysql\Schema->loadTableSchema('user')
+#8 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Schema.php(192): yii\db\Schema->getTableMetadata('user', 'schema', false)
+#9 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\ActiveRecord.php(439): yii\db\Schema->getTableSchema('user')
+#10 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\ActiveRecord.php(266): yii\db\ActiveRecord::getTableSchema()
+#11 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\ActiveRecord.php(238): yii\db\ActiveRecord::filterValidColumnNames(Object(yii\db\Connection), Array)
+#12 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\ActiveRecord.php(195): yii\db\ActiveRecord::filterCondition(Array, Array)
+#13 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\BaseActiveRecord.php(110): yii\db\ActiveRecord::findByCondition(Array)
+#14 C:\Users\Hp\Desktop\site_Yii\site\models\common\User.php(161): yii\db\BaseActiveRecord::findOne(Array)
+#15 C:\Users\Hp\Desktop\site_Yii\site\models\LoginForm.php(78): app\models\common\User::findByUsername('1')
+#16 C:\Users\Hp\Desktop\site_Yii\site\models\LoginForm.php(49): app\models\LoginForm->getUser()
+#17 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\validators\InlineValidator.php(78): app\models\LoginForm->validatePassword('password', NULL, Object(yii\validators\InlineValidator), '1')
+#18 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\validators\Validator.php(260): yii\validators\InlineValidator->validateAttribute(Object(app\models\LoginForm), 'password')
+#19 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\base\Model.php(361): yii\validators\Validator->validateAttributes(Object(app\models\LoginForm), Array)
+#20 C:\Users\Hp\Desktop\site_Yii\site\models\LoginForm.php(63): yii\base\Model->validate()
+#21 C:\Users\Hp\Desktop\site_Yii\site\controllers\SiteController.php(144): app\models\LoginForm->login()
+#22 [internal function]: app\controllers\SiteController->actionLogin()
+#23 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\base\InlineAction.php(57): call_user_func_array(Array, Array)
+#24 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\base\Controller.php(178): yii\base\InlineAction->runWithParams(Array)
+#25 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\base\Module.php(552): yii\base\Controller->runAction('login', Array)
+#26 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction('site/login', Array)
+#27 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\base\Application.php(384): yii\web\Application->handleRequest(Object(yii\web\Request))
+#28 C:\Users\Hp\Desktop\site_Yii\site\web\index.php(13): yii\base\Application->run()
+#29 {main}
+Additional Information:
+Array
+(
+    [0] => HY000
+    [1] => 1045
+    [2] => Access denied for user 'root'@'localhost' (using password: YES)
+)
+
+2023-12-26 18:39:15 [127.0.0.1][-][qvjnei1q1pov4671qupa7qqeu6][info][application] $_GET = [
+    'r' => 'site/login'
+]
+
+$_POST = [
+    '_csrf' => 'CUace3tPfS0eU_fOVBxtCP-EnKRiMwmYeKWmDNWNbMdQBNY5HDY2dFgDnZkuKi5_qMGq1QFcftQPyPdtrPoHtw=='
+    'LoginForm' => [
+        'username' => '1'
+        'password' => '1'
+        'rememberMe' => '1'
+    ]
+    'login-button' => ''
+]
+
+$_FILES = []
+
+$_COOKIE = [
+    'PHPSESSID' => 'qvjnei1q1pov4671qupa7qqeu6'
+    '_csrf' => '526aac5fc9725c7e21c33726843dfea382e5a37ae9c536baa7dd4ead2fdf0f0aa:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"YBJBgyKYFPjWz6CwWE6qcowLwmQaywkp\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => 'http://localhost:8000/'
+    'userSessionTimeout' => 8640000
+]
+
+$_SERVER = [
+    'DOCUMENT_ROOT' => 'C:\\Users\\Hp\\Desktop\\site_Yii\\site\\web'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'REMOTE_PORT' => '55897'
+    'SERVER_SOFTWARE' => 'PHP 8.2.12 Development Server'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_PORT' => '8000'
+    'REQUEST_URI' => '/index.php?r=site%2Flogin'
+    'REQUEST_METHOD' => 'POST'
+    'SCRIPT_NAME' => '/index.php'
+    'SCRIPT_FILENAME' => 'C:\\Users\\Hp\\Desktop\\site_Yii\\site\\web\\index.php'
+    'PHP_SELF' => '/index.php'
+    'QUERY_STRING' => 'r=site%2Flogin'
+    'HTTP_HOST' => 'localhost:8000'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'CONTENT_LENGTH' => '220'
+    'HTTP_CONTENT_LENGTH' => '220'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_SEC_CH_UA' => '\"Opera\";v=\"105\", \"Chromium\";v=\"119\", \"Not?A_Brand\";v=\"24\"'
+    'HTTP_SEC_CH_UA_MOBILE' => '?0'
+    'HTTP_SEC_CH_UA_PLATFORM' => '\"Windows\"'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36 OPR/105.0.0.0'
+    'HTTP_ORIGIN' => 'http://localhost:8000'
+    'CONTENT_TYPE' => 'application/x-www-form-urlencoded'
+    'HTTP_CONTENT_TYPE' => 'application/x-www-form-urlencoded'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7'
+    'HTTP_SEC_FETCH_SITE' => 'same-origin'
+    'HTTP_SEC_FETCH_MODE' => 'navigate'
+    'HTTP_SEC_FETCH_USER' => '?1'
+    'HTTP_SEC_FETCH_DEST' => 'document'
+    'HTTP_REFERER' => 'http://localhost:8000/index.php?r=site%2Flogin'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7'
+    'HTTP_COOKIE' => 'PHPSESSID=qvjnei1q1pov4671qupa7qqeu6; _csrf=526aac5fc9725c7e21c33726843dfea382e5a37ae9c536baa7dd4ead2fdf0f0aa%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22YBJBgyKYFPjWz6CwWE6qcowLwmQaywkp%22%3B%7D'
+    'REQUEST_TIME_FLOAT' => 1703612355.282
+    'REQUEST_TIME' => 1703612355
+]
+2023-12-26 18:48:41 [127.0.0.1][-][qvjnei1q1pov4671qupa7qqeu6][error][yii\db\Exception] PDOException: SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO) in C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Connection.php:721
+Stack trace:
+#0 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Connection.php(721): PDO->__construct('mysql:host=loca...', 'root', Object(SensitiveParameterValue), NULL)
+#1 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Connection.php(636): yii\db\Connection->createPdoInstance()
+#2 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Connection.php(1066): yii\db\Connection->open()
+#3 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Connection.php(1053): yii\db\Connection->getMasterPdo()
+#4 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Command.php(261): yii\db\Connection->getSlavePdo()
+#5 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Command.php(1163): yii\db\Command->prepare(true)
+#6 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Command.php(410): yii\db\Command->queryInternal('fetchAll', NULL)
+#7 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\mysql\Schema.php(320): yii\db\Command->queryAll()
+#8 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\mysql\Schema.php(125): yii\db\mysql\Schema->findColumns(Object(yii\db\TableSchema))
+#9 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Schema.php(756): yii\db\mysql\Schema->loadTableSchema('user')
+#10 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Schema.php(192): yii\db\Schema->getTableMetadata('user', 'schema', false)
+#11 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\ActiveRecord.php(439): yii\db\Schema->getTableSchema('user')
+#12 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\ActiveRecord.php(266): yii\db\ActiveRecord::getTableSchema()
+#13 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\ActiveRecord.php(238): yii\db\ActiveRecord::filterValidColumnNames(Object(yii\db\Connection), Array)
+#14 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\ActiveRecord.php(195): yii\db\ActiveRecord::filterCondition(Array, Array)
+#15 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\BaseActiveRecord.php(110): yii\db\ActiveRecord::findByCondition(Array)
+#16 C:\Users\Hp\Desktop\site_Yii\site\models\common\User.php(161): yii\db\BaseActiveRecord::findOne(Array)
+#17 C:\Users\Hp\Desktop\site_Yii\site\models\LoginForm.php(78): app\models\common\User::findByUsername('1313')
+#18 C:\Users\Hp\Desktop\site_Yii\site\models\LoginForm.php(49): app\models\LoginForm->getUser()
+#19 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\validators\InlineValidator.php(78): app\models\LoginForm->validatePassword('password', NULL, Object(yii\validators\InlineValidator), '31311')
+#20 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\validators\Validator.php(260): yii\validators\InlineValidator->validateAttribute(Object(app\models\LoginForm), 'password')
+#21 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\base\Model.php(361): yii\validators\Validator->validateAttributes(Object(app\models\LoginForm), Array)
+#22 C:\Users\Hp\Desktop\site_Yii\site\models\LoginForm.php(63): yii\base\Model->validate()
+#23 C:\Users\Hp\Desktop\site_Yii\site\controllers\SiteController.php(144): app\models\LoginForm->login()
+#24 [internal function]: app\controllers\SiteController->actionLogin()
+#25 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\base\InlineAction.php(57): call_user_func_array(Array, Array)
+#26 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\base\Controller.php(178): yii\base\InlineAction->runWithParams(Array)
+#27 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\base\Module.php(552): yii\base\Controller->runAction('login', Array)
+#28 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction('site/login', Array)
+#29 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\base\Application.php(384): yii\web\Application->handleRequest(Object(yii\web\Request))
+#30 C:\Users\Hp\Desktop\site_Yii\site\web\index.php(13): yii\base\Application->run()
+#31 {main}
+
+Next yii\db\Exception: SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO) in C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Connection.php:647
+Stack trace:
+#0 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Connection.php(1066): yii\db\Connection->open()
+#1 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Connection.php(1053): yii\db\Connection->getMasterPdo()
+#2 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Command.php(261): yii\db\Connection->getSlavePdo()
+#3 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Command.php(1163): yii\db\Command->prepare(true)
+#4 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Command.php(410): yii\db\Command->queryInternal('fetchAll', NULL)
+#5 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\mysql\Schema.php(320): yii\db\Command->queryAll()
+#6 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\mysql\Schema.php(125): yii\db\mysql\Schema->findColumns(Object(yii\db\TableSchema))
+#7 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Schema.php(756): yii\db\mysql\Schema->loadTableSchema('user')
+#8 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Schema.php(192): yii\db\Schema->getTableMetadata('user', 'schema', false)
+#9 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\ActiveRecord.php(439): yii\db\Schema->getTableSchema('user')
+#10 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\ActiveRecord.php(266): yii\db\ActiveRecord::getTableSchema()
+#11 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\ActiveRecord.php(238): yii\db\ActiveRecord::filterValidColumnNames(Object(yii\db\Connection), Array)
+#12 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\ActiveRecord.php(195): yii\db\ActiveRecord::filterCondition(Array, Array)
+#13 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\BaseActiveRecord.php(110): yii\db\ActiveRecord::findByCondition(Array)
+#14 C:\Users\Hp\Desktop\site_Yii\site\models\common\User.php(161): yii\db\BaseActiveRecord::findOne(Array)
+#15 C:\Users\Hp\Desktop\site_Yii\site\models\LoginForm.php(78): app\models\common\User::findByUsername('1313')
+#16 C:\Users\Hp\Desktop\site_Yii\site\models\LoginForm.php(49): app\models\LoginForm->getUser()
+#17 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\validators\InlineValidator.php(78): app\models\LoginForm->validatePassword('password', NULL, Object(yii\validators\InlineValidator), '31311')
+#18 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\validators\Validator.php(260): yii\validators\InlineValidator->validateAttribute(Object(app\models\LoginForm), 'password')
+#19 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\base\Model.php(361): yii\validators\Validator->validateAttributes(Object(app\models\LoginForm), Array)
+#20 C:\Users\Hp\Desktop\site_Yii\site\models\LoginForm.php(63): yii\base\Model->validate()
+#21 C:\Users\Hp\Desktop\site_Yii\site\controllers\SiteController.php(144): app\models\LoginForm->login()
+#22 [internal function]: app\controllers\SiteController->actionLogin()
+#23 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\base\InlineAction.php(57): call_user_func_array(Array, Array)
+#24 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\base\Controller.php(178): yii\base\InlineAction->runWithParams(Array)
+#25 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\base\Module.php(552): yii\base\Controller->runAction('login', Array)
+#26 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction('site/login', Array)
+#27 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\base\Application.php(384): yii\web\Application->handleRequest(Object(yii\web\Request))
+#28 C:\Users\Hp\Desktop\site_Yii\site\web\index.php(13): yii\base\Application->run()
+#29 {main}
+Additional Information:
+Array
+(
+    [0] => HY000
+    [1] => 1045
+    [2] => Access denied for user 'root'@'localhost' (using password: NO)
+)
+
+2023-12-26 18:48:41 [127.0.0.1][-][qvjnei1q1pov4671qupa7qqeu6][info][application] $_GET = [
+    'r' => 'site/login'
+]
+
+$_POST = [
+    '_csrf' => 'r_WqRiRUWQ4_oX_2HzvzVQ4BrJLL5-Eb_iBS-lgY5af2t-AEQy0SV3nxFaFlDbAiWUSa46iIlleJTQObIW-O1w=='
+    'LoginForm' => [
+        'username' => '1313'
+        'password' => '31311'
+        'rememberMe' => '1'
+    ]
+    'login-button' => ''
+]
+
+$_FILES = []
+
+$_COOKIE = [
+    'PHPSESSID' => 'qvjnei1q1pov4671qupa7qqeu6'
+    '_csrf' => '526aac5fc9725c7e21c33726843dfea382e5a37ae9c536baa7dd4ead2fdf0f0aa:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"YBJBgyKYFPjWz6CwWE6qcowLwmQaywkp\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => 'http://localhost:8000/'
+    'userSessionTimeout' => 8640000
+]
+
+$_SERVER = [
+    'DOCUMENT_ROOT' => 'C:\\Users\\Hp\\Desktop\\site_Yii\\site\\web'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'REMOTE_PORT' => '56504'
+    'SERVER_SOFTWARE' => 'PHP 8.2.12 Development Server'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_PORT' => '8000'
+    'REQUEST_URI' => '/index.php?r=site%2Flogin'
+    'REQUEST_METHOD' => 'POST'
+    'SCRIPT_NAME' => '/index.php'
+    'SCRIPT_FILENAME' => 'C:\\Users\\Hp\\Desktop\\site_Yii\\site\\web\\index.php'
+    'PHP_SELF' => '/index.php'
+    'QUERY_STRING' => 'r=site%2Flogin'
+    'HTTP_HOST' => 'localhost:8000'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'CONTENT_LENGTH' => '227'
+    'HTTP_CONTENT_LENGTH' => '227'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_SEC_CH_UA' => '\"Opera\";v=\"105\", \"Chromium\";v=\"119\", \"Not?A_Brand\";v=\"24\"'
+    'HTTP_SEC_CH_UA_MOBILE' => '?0'
+    'HTTP_SEC_CH_UA_PLATFORM' => '\"Windows\"'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36 OPR/105.0.0.0'
+    'HTTP_ORIGIN' => 'http://localhost:8000'
+    'CONTENT_TYPE' => 'application/x-www-form-urlencoded'
+    'HTTP_CONTENT_TYPE' => 'application/x-www-form-urlencoded'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7'
+    'HTTP_SEC_FETCH_SITE' => 'same-origin'
+    'HTTP_SEC_FETCH_MODE' => 'navigate'
+    'HTTP_SEC_FETCH_USER' => '?1'
+    'HTTP_SEC_FETCH_DEST' => 'document'
+    'HTTP_REFERER' => 'http://localhost:8000/index.php?r=site%2Flogin'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7'
+    'HTTP_COOKIE' => 'PHPSESSID=qvjnei1q1pov4671qupa7qqeu6; _csrf=526aac5fc9725c7e21c33726843dfea382e5a37ae9c536baa7dd4ead2fdf0f0aa%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22YBJBgyKYFPjWz6CwWE6qcowLwmQaywkp%22%3B%7D'
+    'REQUEST_TIME_FLOAT' => 1703612921.6257
+    'REQUEST_TIME' => 1703612921
+]
+2023-12-26 18:48:46 [127.0.0.1][-][qvjnei1q1pov4671qupa7qqeu6][error][yii\db\Exception] PDOException: SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO) in C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Connection.php:721
+Stack trace:
+#0 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Connection.php(721): PDO->__construct('mysql:host=loca...', 'root', Object(SensitiveParameterValue), NULL)
+#1 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Connection.php(636): yii\db\Connection->createPdoInstance()
+#2 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Connection.php(1066): yii\db\Connection->open()
+#3 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Connection.php(1053): yii\db\Connection->getMasterPdo()
+#4 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Command.php(261): yii\db\Connection->getSlavePdo()
+#5 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Command.php(1163): yii\db\Command->prepare(true)
+#6 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Command.php(410): yii\db\Command->queryInternal('fetchAll', NULL)
+#7 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\mysql\Schema.php(320): yii\db\Command->queryAll()
+#8 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\mysql\Schema.php(125): yii\db\mysql\Schema->findColumns(Object(yii\db\TableSchema))
+#9 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Schema.php(756): yii\db\mysql\Schema->loadTableSchema('user')
+#10 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Schema.php(192): yii\db\Schema->getTableMetadata('user', 'schema', false)
+#11 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\ActiveRecord.php(439): yii\db\Schema->getTableSchema('user')
+#12 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\ActiveRecord.php(266): yii\db\ActiveRecord::getTableSchema()
+#13 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\ActiveRecord.php(238): yii\db\ActiveRecord::filterValidColumnNames(Object(yii\db\Connection), Array)
+#14 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\ActiveRecord.php(195): yii\db\ActiveRecord::filterCondition(Array, Array)
+#15 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\BaseActiveRecord.php(110): yii\db\ActiveRecord::findByCondition(Array)
+#16 C:\Users\Hp\Desktop\site_Yii\site\models\common\User.php(161): yii\db\BaseActiveRecord::findOne(Array)
+#17 C:\Users\Hp\Desktop\site_Yii\site\models\LoginForm.php(78): app\models\common\User::findByUsername('1313')
+#18 C:\Users\Hp\Desktop\site_Yii\site\models\LoginForm.php(49): app\models\LoginForm->getUser()
+#19 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\validators\InlineValidator.php(78): app\models\LoginForm->validatePassword('password', NULL, Object(yii\validators\InlineValidator), '31311')
+#20 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\validators\Validator.php(260): yii\validators\InlineValidator->validateAttribute(Object(app\models\LoginForm), 'password')
+#21 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\base\Model.php(361): yii\validators\Validator->validateAttributes(Object(app\models\LoginForm), Array)
+#22 C:\Users\Hp\Desktop\site_Yii\site\models\LoginForm.php(63): yii\base\Model->validate()
+#23 C:\Users\Hp\Desktop\site_Yii\site\controllers\SiteController.php(144): app\models\LoginForm->login()
+#24 [internal function]: app\controllers\SiteController->actionLogin()
+#25 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\base\InlineAction.php(57): call_user_func_array(Array, Array)
+#26 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\base\Controller.php(178): yii\base\InlineAction->runWithParams(Array)
+#27 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\base\Module.php(552): yii\base\Controller->runAction('login', Array)
+#28 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction('site/login', Array)
+#29 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\base\Application.php(384): yii\web\Application->handleRequest(Object(yii\web\Request))
+#30 C:\Users\Hp\Desktop\site_Yii\site\web\index.php(13): yii\base\Application->run()
+#31 {main}
+
+Next yii\db\Exception: SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO) in C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Connection.php:647
+Stack trace:
+#0 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Connection.php(1066): yii\db\Connection->open()
+#1 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Connection.php(1053): yii\db\Connection->getMasterPdo()
+#2 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Command.php(261): yii\db\Connection->getSlavePdo()
+#3 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Command.php(1163): yii\db\Command->prepare(true)
+#4 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Command.php(410): yii\db\Command->queryInternal('fetchAll', NULL)
+#5 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\mysql\Schema.php(320): yii\db\Command->queryAll()
+#6 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\mysql\Schema.php(125): yii\db\mysql\Schema->findColumns(Object(yii\db\TableSchema))
+#7 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Schema.php(756): yii\db\mysql\Schema->loadTableSchema('user')
+#8 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\Schema.php(192): yii\db\Schema->getTableMetadata('user', 'schema', false)
+#9 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\ActiveRecord.php(439): yii\db\Schema->getTableSchema('user')
+#10 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\ActiveRecord.php(266): yii\db\ActiveRecord::getTableSchema()
+#11 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\ActiveRecord.php(238): yii\db\ActiveRecord::filterValidColumnNames(Object(yii\db\Connection), Array)
+#12 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\ActiveRecord.php(195): yii\db\ActiveRecord::filterCondition(Array, Array)
+#13 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\db\BaseActiveRecord.php(110): yii\db\ActiveRecord::findByCondition(Array)
+#14 C:\Users\Hp\Desktop\site_Yii\site\models\common\User.php(161): yii\db\BaseActiveRecord::findOne(Array)
+#15 C:\Users\Hp\Desktop\site_Yii\site\models\LoginForm.php(78): app\models\common\User::findByUsername('1313')
+#16 C:\Users\Hp\Desktop\site_Yii\site\models\LoginForm.php(49): app\models\LoginForm->getUser()
+#17 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\validators\InlineValidator.php(78): app\models\LoginForm->validatePassword('password', NULL, Object(yii\validators\InlineValidator), '31311')
+#18 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\validators\Validator.php(260): yii\validators\InlineValidator->validateAttribute(Object(app\models\LoginForm), 'password')
+#19 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\base\Model.php(361): yii\validators\Validator->validateAttributes(Object(app\models\LoginForm), Array)
+#20 C:\Users\Hp\Desktop\site_Yii\site\models\LoginForm.php(63): yii\base\Model->validate()
+#21 C:\Users\Hp\Desktop\site_Yii\site\controllers\SiteController.php(144): app\models\LoginForm->login()
+#22 [internal function]: app\controllers\SiteController->actionLogin()
+#23 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\base\InlineAction.php(57): call_user_func_array(Array, Array)
+#24 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\base\Controller.php(178): yii\base\InlineAction->runWithParams(Array)
+#25 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\base\Module.php(552): yii\base\Controller->runAction('login', Array)
+#26 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction('site/login', Array)
+#27 C:\Users\Hp\Desktop\site_Yii\site\vendor\yiisoft\yii2\base\Application.php(384): yii\web\Application->handleRequest(Object(yii\web\Request))
+#28 C:\Users\Hp\Desktop\site_Yii\site\web\index.php(13): yii\base\Application->run()
+#29 {main}
+Additional Information:
+Array
+(
+    [0] => HY000
+    [1] => 1045
+    [2] => Access denied for user 'root'@'localhost' (using password: NO)
+)
+
+2023-12-26 18:48:46 [127.0.0.1][-][qvjnei1q1pov4671qupa7qqeu6][info][application] $_GET = [
+    'r' => 'site/login'
+]
+
+$_POST = [
+    '_csrf' => 'eCZbjWGIzkGqREFfSMsRziHmZlefXCWzshyYT60eB2ghZBHPBvGFGOwUKwgy_VK5dqNQJvwzUv_Fccku1GlsGA=='
+    'LoginForm' => [
+        'username' => '1313'
+        'password' => '31311'
+        'rememberMe' => '1'
+    ]
+    'login-button' => ''
+]
+
+$_FILES = []
+
+$_COOKIE = [
+    'PHPSESSID' => 'qvjnei1q1pov4671qupa7qqeu6'
+    '_csrf' => '526aac5fc9725c7e21c33726843dfea382e5a37ae9c536baa7dd4ead2fdf0f0aa:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"YBJBgyKYFPjWz6CwWE6qcowLwmQaywkp\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => 'http://localhost:8000/'
+    'userSessionTimeout' => 8640000
+]
+
+$_SERVER = [
+    'DOCUMENT_ROOT' => 'C:\\Users\\Hp\\Desktop\\site_Yii\\site\\web'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'REMOTE_PORT' => '56510'
+    'SERVER_SOFTWARE' => 'PHP 8.2.12 Development Server'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_PORT' => '8000'
+    'REQUEST_URI' => '/index.php?r=site%2Flogin'
+    'REQUEST_METHOD' => 'POST'
+    'SCRIPT_NAME' => '/index.php'
+    'SCRIPT_FILENAME' => 'C:\\Users\\Hp\\Desktop\\site_Yii\\site\\web\\index.php'
+    'PHP_SELF' => '/index.php'
+    'QUERY_STRING' => 'r=site%2Flogin'
+    'HTTP_HOST' => 'localhost:8000'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'CONTENT_LENGTH' => '227'
+    'HTTP_CONTENT_LENGTH' => '227'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_SEC_CH_UA' => '\"Opera\";v=\"105\", \"Chromium\";v=\"119\", \"Not?A_Brand\";v=\"24\"'
+    'HTTP_SEC_CH_UA_MOBILE' => '?0'
+    'HTTP_SEC_CH_UA_PLATFORM' => '\"Windows\"'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36 OPR/105.0.0.0'
+    'HTTP_ORIGIN' => 'http://localhost:8000'
+    'CONTENT_TYPE' => 'application/x-www-form-urlencoded'
+    'HTTP_CONTENT_TYPE' => 'application/x-www-form-urlencoded'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7'
+    'HTTP_SEC_FETCH_SITE' => 'same-origin'
+    'HTTP_SEC_FETCH_MODE' => 'navigate'
+    'HTTP_SEC_FETCH_USER' => '?1'
+    'HTTP_SEC_FETCH_DEST' => 'document'
+    'HTTP_REFERER' => 'http://localhost:8000/index.php?r=site%2Flogin'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7'
+    'HTTP_COOKIE' => 'PHPSESSID=qvjnei1q1pov4671qupa7qqeu6; _csrf=526aac5fc9725c7e21c33726843dfea382e5a37ae9c536baa7dd4ead2fdf0f0aa%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22YBJBgyKYFPjWz6CwWE6qcowLwmQaywkp%22%3B%7D'
+    'REQUEST_TIME_FLOAT' => 1703612926.7386
+    'REQUEST_TIME' => 1703612926
+]
