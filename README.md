@@ -9,3 +9,4 @@ Mysite_project
   schools - школы
 Папка project - клиентская часть 
 запускать по ссылке http://127.0.0.1:8000/test
+Папка site_yii - новый проект yii 
