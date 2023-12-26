@@ -18,14 +18,16 @@
         <h3 class = "text-1"> </br>Астраханская</br>область</h3>    
     </div>
     <div class = "container box-1" id = "mySchool">
-    
+      @php
+      $record = $record['data']
+      @endphp
     <form action="{{route('giveurl')}}" method = "POST"> 
         @csrf 
         <div>Название школы:</br><input type="text" style="width:70%" name="name" list="productName"></div>
         <datalist id="productName">
-        
+            
             @for ($i = 0; $i < $num2; $i++)
-                <option value = "{{$record[$i]->id}}">{{$record[$i]->name}}</option>
+                <option value = "{{$record[$i]['name']}}">{{$record[$i]['id']}}</option>
             @endfor
         </datalist> 
             </br>

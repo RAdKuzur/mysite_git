@@ -14,7 +14,6 @@ use App\Http\Controllers\apicontroller;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-
 Route::get('/login',[SiteController::class ,'login']) -> name('login');
 Route::post('/login',[SiteController::class ,'loginPost']) -> name('login.post');
 Route::get('/register',[SiteController::class ,'register']) -> name('register');

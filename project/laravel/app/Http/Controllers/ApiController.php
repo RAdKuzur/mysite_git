@@ -18,16 +18,14 @@ class ApiController extends Controller
      */
     public function index()
     {
-        return studentsResource::collection(students::all());
+       
     }
 
     /**
      * Store a newly created resource in storage.
      */
     public function store(studentRequest $request)
-    {
-        $create = students::create($request->validated());
-        return new studentsResource($create);    
+    {  
         //
     }
 
@@ -35,9 +33,7 @@ class ApiController extends Controller
      * Display the specified resource.
      */
     public function show(string $id)
-    {
-
-        return new studentsResource(students::findOrFail($id));
+    {  
         //
     }
 
@@ -45,10 +41,7 @@ class ApiController extends Controller
      * Update the specified resource in storage.
      */
     public function update(studentRequest $request, students $student)
-    {
-        $student->where('id', '=', $request->id)->update($request->validated());
-        
-        return new studentsResource($student);
+    {   
     }
 
     /**
@@ -56,29 +49,18 @@ class ApiController extends Controller
      */
     public function destroy(studentRequest $request, students $student)
     {
-        $student->where('id', '=', $request->id)->delete();
-        return new studentsResource($student);
     }
     public function getData(Request $request)
     {
-        /*$token = "";
-        if ($request->token != null){
-            $token = Str::random(80);
-        }
-        $data = students::all();
-        return response()->json(['data' => $data, 'token'=>$token]);
-        $response = Http::post("http://127.0.0.1:8001/api/data/12", ['token3' => '10101010']);
-        return $response->json();*/
-
     }
 
-    public function postData(Request $request, $token)
+    public function postData(Request $request, $id ,$token)
     {
-        if(DB::table('students')->where('token', '=' ,$token)->count() == 0){
+        if(DB::table('students')->where('token', '=' ,$token)->where('id', '=', $id)->count() == 0){
             abort(401);
         };
-        $token = Str::random(80);
-        $data = students::all();
+        
+        $data = DB::table('students')->where('token', '=', $token)->where('id', '=', $id)->get();
         return response()->json(['data' => $data, 'token'=>$token]);
     }
 }

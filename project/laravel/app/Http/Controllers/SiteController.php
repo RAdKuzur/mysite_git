@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 use App\Models\User;
 use Redirect;
+use GuzzleHttp\Client;
+use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -11,129 +13,93 @@ use Illuminate\Support\Facades\URL;
 use Carbon\Carbon;
 class SiteController extends Controller
 {
-    //
-       // Implement your logic here to handle actions when the link is accessed.
-       // This may include updating records, confirming email addresses, resetting passwords, and more.
-    public function table_process(Request $request, $id){
+    //get формы подтверждения
+    public function table_process(Request $request, $id, $teacher_id){
         if(!$request->hasValidSignature()){
             abort(403, "Время сеанса истекло");
         }
-        $urlfull = ($request->server())["HTTP_REFERER"];
-        if(DB::table('teacher')->where('url', '=' ,$urlfull)->where('flag', '=' , 1)->where('id', '=', $id)->count() != 0){
-            abort(403, "Вы уже приняли участие в олимпиаде1");
-        }
- 
-        $id2 =  DB::table('teacher')
-        ->where('id', '=', $id)
-        ->get();    
-        $id = $id2[0]->school;
-        $record = DB::table('students')
-                    ->where('id_teacher', '=', $id)
-                    ->get();  
-
-        $id = $id2[0]->id;
-        return view('welcome')->with('record', $record)->with('id_teacher', $id);
+        $data = Http::get("http://127.0.0.1:8001/api/show_students/{$id}");
+        $data = json_decode($data, true);
+        $number = count($data['data']);
+        $countries = $data['countries'];
+        return view('welcome')->with('record', $data)->with('number', $number)->with('id_t', $id)->with('teacher_id',$teacher_id)
+                              ->with('countries',$countries)->with('num_count',count($countries));
     }
-    public function registerPost(Request $request, $id){
-    //id здесь - это id учителя
-        DB::table('teacher')
-                ->where('id', '=' , $id)
-                ->update(['flag' => 1]);
-        $number = 1; 
-        $id2 =  DB::table('teacher')
-        ->where('id', '=' , $id)->get();
-        // теперь id - id школы
-        $id = $id2[0]->school;
-        $record = DB::table('students')
-                    ->where('id_teacher', '=', $id)
-                    ->get();
-        $var = new User;
-        foreach ($record as $element) {
-            $id_student = $element->id;
-            if ($request->input("checkbox{$number}") == "on"){
-                $var = DB::table('students')->where('id','=', $element->id)->update(['flag' => 1]);
+    //Post формы подтверждения
+    public function registerPost(Request $request, $id, $teacher_id){
+        $number = 3;
+        $data = Http::get("http://127.0.0.1:8001/api/students/{$id}");
+        $data = json_decode($data, true);
+        $data_id = $data["data"];
+        $num = $data["num"];
+        for($i = 0; $i < $num; $i++) {
+            $num2 = $number - 1;
+            $num3 = $number - 2;
+            $checkbox_ovz = $request->input("checkbox{$num2}");
+            if($checkbox_ovz == "on"){
+                $ovz = 1;
             }
             else {
-                $var = DB::table('students')->where('id','=', $element->id)->update(['flag' => 0]);
+                $ovz = 0;
             }
-            $number = $number + 1;
+            $country = $request->input("checkbox{$num3}");
+            if ($request->input("checkbox{$number}") == "on"){       
+                $data = Http::get("http://127.0.0.1:8001/api/register_students",
+                [   
+                    'ovz' => $ovz,
+                    'country' => $country,
+                    'id' => $data_id[$i],
+                    'flag' => 1, 
+                    'teacher_id' => $teacher_id
+                ]);
+            }
+            else {       
+                $data =  Http::get("http://127.0.0.1:8001/api/register_students",
+                [
+                    'ovz' => $ovz,
+                    'country' => $country,
+                    'id' => $data_id[$i],
+                    'flag' => 0,  
+                    'teacher_id' => $teacher_id
+                ]);               
+            }
+            $number = $number + 3;
         }
-        sleep(1);
         return redirect(route('main'));
     }
-
-
     public function main(){   
         return view('main');
     }
-
-
-    //POST METHOD register
+    //POST формы регистрации учителя
     public function giveurl(Request $request){
-        
-        if($request->name == ""){
-            //указание об ошибке
-            return redirect(route('giveurl'));
-        }
-        else {
-            $id_schools = DB::table('school')->where('id', '=', $request->name)->get();
-            $id_school = $id_schools[0]->id;
-            $teachers = DB::table('teacher')->where('school', '=', $id_school)->get();
-            $num2 = $teachers->count();
-            if (($request->server())["HTTP_REFERER"] == null){
-                abort(403, "Ошибка");
-            }
-            $urlfull = ($request->server())["HTTP_REFERER"];
-            $record = DB::table('teacher')
-                ->where('url', '=', $urlfull)
-                ->get();
-            if($record->count()!=0){
-                abort(403, "Время сеанса истекло");
-            }
-            $record = DB::table('teacher')
-                ->where('school', '=', $id_school)
-                ->where( 'name', '=' ,"{$request->name_teacher}")
-                ->where('surname', '=' ,"{$request->surname_teacher}")
-                ->where( 'flag', '=', 1)
-                ->where('url', '=', $urlfull)
-                ->get();
-          
-            if($record->count() == 0){    
-                DB::table('teacher')->insert([
-                        'name' => "{$request->name_teacher}", 
-                        'surname' => "{$request->surname_teacher}",
-                        'flag' => 0,
-                        'school' =>  $id_school,
-                        'url' => ""
-
-                ]);
-                
-                $record = DB::table('teacher')
-                        ->where('school', '=', $id_school)
-                        ->where( 'name', '=' ,"{$request->name_teacher}")
-                        ->where('surname', '=' ,"{$request->surname_teacher}")->where('url','=',"")->get();  
-                $i = $record[0]->id;
-                $url = URL::temporarySignedRoute('table.process', now()->addSeconds(1000), ['id' => $i]);
-                DB::table('teacher')
-                        ->where('school', '=', $id_school)
-                        ->where( 'name', '=' ,"{$request->name_teacher}")
-                        ->where('surname', '=' ,"{$request->surname_teacher}")
-                        ->where('url','=',"")
-                        ->update(['url' => $urlfull]);
-                return Redirect::to($url);
-            }
-            else {      
-                abort(403, "Вы уже приняли участие в олимпиаде2");
-            }
-        }
+        $data = Http::get("http://127.0.0.1:8001/api/register/{$request->name}",
+        [
+            'name' => $request -> name_teacher,
+            'surname' => $request -> surname_teacher,
+            'record' => $request->server(),
+        ]);
+        //$data  = $data->json();
+        $data = json_decode($data, true);
+        $id_school = $data['data'][0]['id_teacher'];
+        $teacher_id = $data['teacher_id'];
+        $url = URL::temporarySignedRoute('table.process', now()->addSeconds(1000), ['id' => $id_school, 'teacher_id' => $teacher_id]);
+        return Redirect::to($url); 
     }
+    //  GET формы регистрации учителя
     public function giveurl_get(Request $request){  
-        $record = DB::table('teacher');
         if(!$request->hasValidSignature()){
             abort(403, "Время сеанса истекло");
         }
-        $record = DB::table('school')->get();
-        $num2 = DB::table('school')->count();
-        return view('giveurl')->with('record', $record)->with('num2',$num2);
+        $data = Http::get("http://127.0.0.1:8001/api/schools",
+        [
+            'url' => url()->full(),
+        ]);
+        $data = json_decode($data, true);
+        $num = count($data['data']);
+        if($data['abort'] == 1)
+        {
+            abort(403, "Ссылка недействительна");
+        }
+        return view('giveurl')->with('record', $data)->with('num2', $num);
     }
 }

@@ -14,12 +14,11 @@ use App\Http\Controllers\SiteController;
 | routes are loaded by the RouteServiceProvider and all of them will
 | be assigned to the "web" middleware group. Make something great!
 |
-
 */
 Route::get('/main',  [SiteController::class, 'main'])->name('main');
 
-Route::get('/id/{id}',  [SiteController::class, 'table_process'])->name('table.process');
-Route::post('/id/{id}',[SiteController::class ,'registerPost']) -> name('register.post');
+Route::get('/id/{id}/{teacher_id}',  [SiteController::class, 'table_process'])->name('table.process');
+Route::post('/id/{id}/{teacher_id}',[SiteController::class ,'registerPost']) -> name('register.post');
 
 Route::get('/giveurl',  [SiteController::class, 'giveurl_get'])->name('giveurl_get');
 Route::post('/giveurl',[SiteController::class ,'giveurl']) -> name('giveurl');
