@@ -1,0 +1,4 @@
+UPDATE `visit` 
+SET `visit`.`training_group_participant_id` = `training_group_participant`.`id` 
+WHERE `visit`.`training_group_lesson_id` = `training_group_lesson`.`id` &&
+	`training_group_lesson`.`training_group_id` = `training_group_participant`.`participant_id`
