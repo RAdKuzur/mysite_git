@@ -169,7 +169,7 @@ $this->params['breadcrumbs'][] = $this->title;
             echo $visits->prettyStatus;
             $counter++;
         }
-        echo '<td style="text-align: left; ">'.$part->groupProjectThemes->projectTheme->name.'</td>';
+        echo '<td style="text-align: left; ">'/*$part->groupProjectThemes ? $part->groupProjectThemes->projectTheme->name : ''*/.'</td>';
         echo '<td>'.$part->points.'</td>';
         if ($part->success == 1)
             echo '<td style="width: 10px">'.'&#9989'/*$form->field($model, 'successes[]')->checkbox(['disabled' => 'disabled', 'checked' => 'checked', 'label' => '', 'value' => $part->id,])*/.'</td>';

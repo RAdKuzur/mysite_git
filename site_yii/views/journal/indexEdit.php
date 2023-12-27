@@ -285,7 +285,7 @@ $this->params['breadcrumbs'][] = $this->title;
         'id' => 'themeSelect1',
         'style' => 'min-width: 200px; margin: 0',
         'options' => [
-                $part->group_project_themes_id => ['selected' => true]
+               /* $part->group_project_themes_id => ['selected' => true]*/
             ]
     ];
 
