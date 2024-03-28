@@ -16,9 +16,15 @@ use app\models\LoginForm;
 use app\models\ContactForm;
 use app\models\User;
 use app\models\SiClick;
-
+use app\services\SiteService;
 class SiteController extends Controller
 {
+    public $service;
+    public function __construct($id, $module, SiteService $service, $config = [])
+    {
+        parent::__construct($id ,$module, $config);
+        $this->service = $service;
+    }
     /**
      * {@inheritdoc}
      */
@@ -76,9 +82,11 @@ class SiteController extends Controller
 
     public function actionSiUnblock()
     {
-        $clicks = SiClick::find()->all();
+        /*$clicks = SiClick::find()->all();
         foreach ($clicks as $click)
             $click->delete();
+        */
+        $this->service->siteSiUnblock();
         return $this->render('si-admin');
     }
 
@@ -90,8 +98,9 @@ class SiteController extends Controller
     public function actionSiUser($name)
     {
         $model = new SiClick();
-        Yii::$app->session->set('user', $name);
-        //var_dump($model->load(Yii::$app->request->post()));
+        //Yii::$app->session->set('user', $name);
+        $this->service->siteSiUser($name);
+                //var_dump($model->load(Yii::$app->request->post()));
         if ($model->load(Yii::$app->request->post())) {
             $this->render('si-admin');
         }
@@ -101,6 +110,7 @@ class SiteController extends Controller
     public function actionSiConfirm()
     {
         $model = new SiClick();
+        /*
         $name = User::find()->where(['username' => Yii::$app->session->get('user')])->one();
         $model->user_id = $name->id;
         $model->time = date("H:i:s");
@@ -109,6 +119,8 @@ class SiteController extends Controller
         {
             $model->save();
         }
+        */
+        $this->service->siteSiConfirm($model);
         return $this->redirect('index.php?r=site/si-user&name='.Yii::$app->session->get('user'));
     }
 
@@ -134,11 +146,12 @@ class SiteController extends Controller
         if (Yii::$app->user->isGuest) {
             return $this->redirect('index.php?r=site/login');
         }
-        $model = new Team();
+                $model = new Team();
         if ($model->load(Yii::$app->request->post()))
         {
-            $model = Team::find()->where(['id' => $model->name])->one();
-        }
+            $this->service->siteIndexTeam($model);
+            //$model = Team::find()->where(['id' => $model->name])->one();
+        }                    
         return $this->render('index-team', [
             'model' => $model,
         ]);
@@ -152,7 +165,8 @@ class SiteController extends Controller
         $model = new PersonalOffset();
         if ($model->load(Yii::$app->request->post()))
         {
-            $model = PersonalOffset::find()->where(['id' => $model->name])->one();
+            $model  = $this->service->siteIndexPersonal($model);
+            //model = PersonalOffset::find()->where(['id' => $model->name])->one();
         }
         return $this->render('index-personal', [
             'model' => $model,
@@ -167,8 +181,10 @@ class SiteController extends Controller
         $model = new PartyTeam();
         if ($id !== null)
         {
-            $model = PartyTeam::find()->where(['id' => $id])->one();
-            $model->lastBranch = $branch;
+            //$model = PartyTeam::find()->where(['id' => $id])->one();
+            //$model->lastBranch = $branch;
+            $model = $this->service->siteChooseColor($model, $branch, $id);
+
         }
         return $this->render('choose-color', [
             'model' => $model,
@@ -182,7 +198,9 @@ class SiteController extends Controller
         $model = new LoginForm();
 
         if ($model->load(Yii::$app->request->post())) {
-            $user = User::find()->where(['username' => $model->username])->one();
+            //$user = User::find()->where(['username' => $model->username])->one();
+            $user = $this->service->siteLogin($model);
+
             if ($model->password == '' && $user !== null)
                 return $this->redirect('index.php?r=site/si-index&name='.$model->username);
             if ($model->password !== '' && $model->login())
@@ -204,8 +222,8 @@ class SiteController extends Controller
      */
     public function actionLogout()
     {
-        Yii::$app->user->logout();
-
+        //Yii::$app->user->logout();
+        $this->service->siteLogout();
         return $this->redirect('index.php?r=site/login');
     }
 
@@ -218,8 +236,8 @@ class SiteController extends Controller
     {
         $model = new ContactForm();
         if ($model->load(Yii::$app->request->post()) && $model->contact(Yii::$app->params['adminEmail'])) {
-            Yii::$app->session->setFlash('contactFormSubmitted');
-
+            //Yii::$app->session->setFlash('contactFormSubmitted');
+            $this->service->siteContact();
             return $this->refresh();
         }
         return $this->render('contact', [
@@ -270,10 +288,13 @@ class SiteController extends Controller
         $model = new PartyTeam();
         if ($id !== null)
         {
+            /*
             $model = PartyTeam::find()->where(['id' => $id])->one();
             $model->total_score = $model->total_score + $numb;
             $model->lastBranch = $branch;
             $model->save();
+            */
+            $model = $this->service->sitePlus($model, $numb, $branch, $id);
             $this->WriteHistory('+'.$numb, $model->id);
             return $this->redirect(['choose-color', 'id' => $model->id, 'branch' => $branch]);
         }
@@ -294,10 +315,13 @@ class SiteController extends Controller
         $model = new PartyTeam();
         if ($_POST['PartyTeam']['id'] !== null)
         {
+            /*
             $model = PartyTeam::find()->where(['id' => $_POST['PartyTeam']['id']])->one();
             $model->total_score = $model->total_score + $_POST['PartyTeam']['score'];
             $model->lastBranch = $_POST['PartyTeam']['lastBranch'];
             $model->save();
+            */
+            $model = $this->service->sitePlusVal($model);
             $this->WriteHistory('+'.$_POST['PartyTeam']['score'], $model->id);
             return $this->redirect(['choose-color', 'id' => $model->id, 'branch' => $_POST['PartyTeam']['lastBranch']]);
         }
@@ -317,10 +341,13 @@ class SiteController extends Controller
         $model = new PartyTeam();
         if ($id !== null)
         {
+            /*
             $model = PartyTeam::find()->where(['id' => $id])->one();
             $model->total_score = $model->total_score - $numb;
             $model->lastBranch = $branch;
             $model->save();
+            */
+            $model = $this->service->siteMinus($model, $numb, $branch, $id);
             $this->WriteHistory('-'.$numb, $model->id);
             return $this->redirect(['choose-color', 'id' => $model->id, 'branch' => $branch]);
         }
@@ -341,10 +368,13 @@ class SiteController extends Controller
         $model = new PartyTeam();
         if ($_POST['PartyTeam']['id'] !== null)
         {
+            /*
             $model = PartyTeam::find()->where(['id' => $_POST['PartyTeam']['id']])->one();
             $model->total_score = $model->total_score - $_POST['PartyTeam']['score'];
             $model->lastBranch = $_POST['PartyTeam']['lastBranch'];
             $model->save();
+            */
+            $model = $this->service->siteMinusVal($model);
             $this->WriteHistory('+'.$_POST['PartyTeam']['score'], $model->id);
             return $this->redirect(['choose-color', 'id' => $model->id, 'branch' => $_POST['PartyTeam']['lastBranch']]);
         }
@@ -356,10 +386,13 @@ class SiteController extends Controller
     public function WriteHistory($score, $party_team_id)
     {
         $history = new History();
+        /*
         $history->score = $score;
         $history->party_team_id = $party_team_id;
         $history->date_time = date('Y-m-d h:i:s');
         $history->save();
+        */
+        $this->service->siteWriteHistory($history ,$score, $party_team_id);
     }
 
 

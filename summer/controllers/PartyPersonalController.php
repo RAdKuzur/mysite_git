@@ -39,7 +39,6 @@ class PartyPersonalController extends Controller
     {
         $searchModel = new SearchPartyPersonal();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
-
         return $this->render('index', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
@@ -58,7 +57,6 @@ class PartyPersonalController extends Controller
             'model' => $this->findModel($id),
         ]);
     }
-
     /**
      * Creates a new PartyPersonal model.
      * If creation is successful, the browser will be redirected to the 'view' page.
@@ -68,7 +66,7 @@ class PartyPersonalController extends Controller
     {
         $model = new PartyPersonal();
         $modelPersonals = [new PersonalOffsetDynamic];
-
+                                                                                                                            
         if ($model->load(Yii::$app->request->post())) {
             $modelPersonals = DynamicModel::createMultiple(PersonalOffsetDynamic::classname());
             DynamicModel::loadMultiple($modelPersonals, Yii::$app->request->post());
@@ -76,7 +74,8 @@ class PartyPersonalController extends Controller
             $model->save();
             return $this->redirect(['view', 'id' => $model->id]);
         }
-
+        
+        //$this->service->PartyPersonalCreateService();
         return $this->render('create', [
             'model' => $model,
             'modelPersonals' => $modelPersonals,
@@ -94,11 +93,9 @@ class PartyPersonalController extends Controller
     {
         $model = $this->findModel($id);
         $modelPersonals = [new PersonalOffsetDynamic];
-
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         }
-
         return $this->render('update', [
             'model' => $model,
             'modelPersonals' => $modelPersonals,
@@ -118,7 +115,6 @@ class PartyPersonalController extends Controller
 
         return $this->redirect(['index']);
     }
-
     /**
      * Finds the PartyPersonal model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
@@ -131,7 +127,6 @@ class PartyPersonalController extends Controller
         if (($model = PartyPersonal::findOne($id)) !== null) {
             return $model;
         }
-
         throw new NotFoundHttpException('The requested page does not exist.');
     }
 }
