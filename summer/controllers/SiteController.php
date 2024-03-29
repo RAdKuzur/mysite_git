@@ -16,7 +16,9 @@ use app\models\LoginForm;
 use app\models\ContactForm;
 use app\models\User;
 use app\models\SiClick;
+
 use app\services\SiteService;
+use app\repository\SiteRepository;
 class SiteController extends Controller
 {
     public $service;
@@ -82,11 +84,12 @@ class SiteController extends Controller
 
     public function actionSiUnblock()
     {
-        /*$clicks = SiClick::find()->all();
+        //$clicks = SiClick::find()->all();
+        $newRepo = new SiteRepository();
+        $clicks = $newRepo->findSiClickAll();
         foreach ($clicks as $click)
-            $click->delete();
-        */
-        $this->service->siteSiUnblock();
+            //$click->delete();
+            $newRepo->deleteSiClickAll($click);
         return $this->render('si-admin');
     }
 
@@ -110,6 +113,7 @@ class SiteController extends Controller
     public function actionSiConfirm()
     {
         $model = new SiClick();
+        $newRepo = new SiteRepository();
         /*
         $name = User::find()->where(['username' => Yii::$app->session->get('user')])->one();
         $model->user_id = $name->id;
@@ -120,7 +124,8 @@ class SiteController extends Controller
             $model->save();
         }
         */
-        $this->service->siteSiConfirm($model);
+        $newRepo->saveSiConfirm($model);
+        // $this->service->siteSiConfirm($model);
         return $this->redirect('index.php?r=site/si-user&name='.Yii::$app->session->get('user'));
     }
 
@@ -143,15 +148,16 @@ class SiteController extends Controller
 
     public function actionIndexTeam()
     {
+        $newRepo = new SiteRepository();
         if (Yii::$app->user->isGuest) {
             return $this->redirect('index.php?r=site/login');
         }
                 $model = new Team();
         if ($model->load(Yii::$app->request->post()))
         {
-            $this->service->siteIndexTeam($model);
+            $model = $newRepo->findIndexTeam($model);
             //$model = Team::find()->where(['id' => $model->name])->one();
-        }                    
+        }
         return $this->render('index-team', [
             'model' => $model,
         ]);
@@ -159,13 +165,14 @@ class SiteController extends Controller
 
     public function actionIndexPersonal()
     {
+        $newRepo = new SiteRepository();
         if (Yii::$app->user->isGuest) {
             return $this->redirect('index.php?r=site/login');
         }
         $model = new PersonalOffset();
         if ($model->load(Yii::$app->request->post()))
         {
-            $model  = $this->service->siteIndexPersonal($model);
+            $model = $newRepo->findIndexPersonal($model);
             //model = PersonalOffset::find()->where(['id' => $model->name])->one();
         }
         return $this->render('index-personal', [
@@ -175,15 +182,17 @@ class SiteController extends Controller
 
     public function actionChooseColor($id = null, $branch = null)
     {
+        $newRepo = new SiteRepository();
         if (Yii::$app->user->isGuest) {
             return $this->redirect('index.php?r=site/login');
         }
         $model = new PartyTeam();
         if ($id !== null)
         {
+
             //$model = PartyTeam::find()->where(['id' => $id])->one();
             //$model->lastBranch = $branch;
-            $model = $this->service->siteChooseColor($model, $branch, $id);
+            $model = $newRepo->findChooseColor($model, $branch, $id);
 
         }
         return $this->render('choose-color', [
@@ -193,13 +202,14 @@ class SiteController extends Controller
 
     public function actionLogin()
     {
+        $newRepo = new SiteRepository();
         if (!Yii::$app->user->isGuest)
             return $this->redirect('index');
         $model = new LoginForm();
 
         if ($model->load(Yii::$app->request->post())) {
             //$user = User::find()->where(['username' => $model->username])->one();
-            $user = $this->service->siteLogin($model);
+            $user = $newRepo->findLogin($model);
 
             if ($model->password == '' && $user !== null)
                 return $this->redirect('index.php?r=site/si-index&name='.$model->username);
@@ -279,6 +289,7 @@ class SiteController extends Controller
 
     public function actionPlus($numb, $id = null, $branch = null)
     {
+        $newRepo = new SiteRepository();
         if (Yii::$app->user->isGuest) {
             $model = new LoginForm();
             return $this->render('login', [
@@ -294,7 +305,7 @@ class SiteController extends Controller
             $model->lastBranch = $branch;
             $model->save();
             */
-            $model = $this->service->sitePlus($model, $numb, $branch, $id);
+            $model = $newRepo->updatePlus($model, $numb, $branch, $id);
             $this->WriteHistory('+'.$numb, $model->id);
             return $this->redirect(['choose-color', 'id' => $model->id, 'branch' => $branch]);
         }
@@ -305,7 +316,7 @@ class SiteController extends Controller
 
     public function actionPlusVal()
     {
-
+        $newRepo = new SiteRepository();
         if (Yii::$app->user->isGuest) {
             $model = new LoginForm();
             return $this->render('login', [
@@ -321,7 +332,7 @@ class SiteController extends Controller
             $model->lastBranch = $_POST['PartyTeam']['lastBranch'];
             $model->save();
             */
-            $model = $this->service->sitePlusVal($model);
+            $model = $newRepo->updatePlusVal($model);
             $this->WriteHistory('+'.$_POST['PartyTeam']['score'], $model->id);
             return $this->redirect(['choose-color', 'id' => $model->id, 'branch' => $_POST['PartyTeam']['lastBranch']]);
         }
@@ -332,6 +343,7 @@ class SiteController extends Controller
 
     public function actionMinus($numb, $id = null, $branch = null)
     {
+        $newRepo = new SiteRepository();
         if (Yii::$app->user->isGuest) {
             $model = new LoginForm();
             return $this->render('login', [
@@ -347,7 +359,8 @@ class SiteController extends Controller
             $model->lastBranch = $branch;
             $model->save();
             */
-            $model = $this->service->siteMinus($model, $numb, $branch, $id);
+            //$model = $this->service->siteMinus($model, $numb, $branch, $id);
+            $model = $newRepo->updateMinus($model, $numb, $branch, $id);
             $this->WriteHistory('-'.$numb, $model->id);
             return $this->redirect(['choose-color', 'id' => $model->id, 'branch' => $branch]);
         }
@@ -358,7 +371,7 @@ class SiteController extends Controller
 
     public function actionMinusVal()
     {
-
+        $newRepo = new SiteRepository();
         if (Yii::$app->user->isGuest) {
             $model = new LoginForm();
             return $this->render('login', [
@@ -374,7 +387,8 @@ class SiteController extends Controller
             $model->lastBranch = $_POST['PartyTeam']['lastBranch'];
             $model->save();
             */
-            $model = $this->service->siteMinusVal($model);
+            //$model = $this->service->siteMinusVal($model);
+            $model = $newRepo->updateMinusVal($model);
             $this->WriteHistory('+'.$_POST['PartyTeam']['score'], $model->id);
             return $this->redirect(['choose-color', 'id' => $model->id, 'branch' => $_POST['PartyTeam']['lastBranch']]);
         }
