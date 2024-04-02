@@ -19,4 +19,19 @@ use app\models\SiClick;
 use app\services\SiteService;
 class HistoryRepository
 {
+    public function siteWriteHistory($history ,$score, $party_team_id){
+        $history->score = $score;
+        $history->party_team_id = $party_team_id;
+        $history->date_time = date('-m-d h:i:s');
+        $this->saveModel($history);
+
+        //$history->save();
+
+    }
+
+
+    public function saveModel(History $model)
+    {
+        $model->save();
+    }
 }

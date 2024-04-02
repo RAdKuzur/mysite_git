@@ -22,4 +22,7 @@ class UserRepository
     public function findUser(){
         return User::find()->where(['username' => Yii::$app->session->get('user')])->one();
     }
+    public function findUserLogin(LoginForm $model){
+        return User::find()->where(['username' => $model->username])->one();
+    }
 }

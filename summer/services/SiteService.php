@@ -6,6 +6,7 @@ use app\models\PartyTeam;
 use app\models\PersonalOffset;
 use app\models\Team;
 use app\models\History;
+use app\repository\HistoryRepository;
 use app\repository\SiteRepository;
 use Yii;
 use yii\filters\AccessControl;
@@ -18,10 +19,10 @@ use app\models\User;
 use app\models\SiClick;
 class SiteService
 {
-    public SiteRepository $repository;
-    public function __construct(SiteRepository $repository)
+    public HistoryRepository $historyRepository;
+    public function __construct(HistoryRepository  $repository)
     {
-        $this->repository = $repository;
+        $this->historyRepository = $repository;
     }
 
     public function SiteSiUser($name){
@@ -42,8 +43,7 @@ class SiteService
         $history->score = $score;
         $history->party_team_id = $party_team_id;
         $history->date_time = date('-m-d h:i:s');
-        $newRepo = new SiteRepository();
-        $newRepo->saveHistory($history);
+        $this->historyRepository->saveModel($history);
 
         //$history->save();
 

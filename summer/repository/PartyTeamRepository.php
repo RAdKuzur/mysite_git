@@ -19,5 +19,48 @@ use app\models\SiClick;
 use app\services\SiteService;
 class PartyTeamRepository
 {
+    public function findChooseColor($branch,$id)
+    {
+        $model = PartyTeam::find()->where(['id' => $id])->one();
+        $model->lastBranch = $branch;
+        return $model;
+    }
+    public function plusNumb($id, $numb, $branch){
+        $model = PartyTeam::find()->where(['id' => $id])->one();
+        $model->total_score = $model->total_score + $numb;
+        $model->lastBranch = $branch;
+        //$model->save();
+        $this->saveModel($model);
+        return $model;
+    }
+    public function plusScore()
+    {
+        $model = PartyTeam::find()->where(['id' => $_POST['PartyTeam']['id']])->one();
+        $model->total_score = $model->total_score + $_POST['PartyTeam']['score'];
+        $model->lastBranch = $_POST['PartyTeam']['lastBranch'];
+        //$model->save();
+        $this->saveModel($model);
+        return $model;
+    }
+    public function minusNumb($id, $numb, $branch){
+        $model = PartyTeam::find()->where(['id' => $id])->one();
+        $model->total_score = $model->total_score - $numb;
+        $model->lastBranch = $branch;
+        //$model->save();
+        $this->saveModel($model);
+        return $model;
+    }
+    public function minusScore(){
+        $model = PartyTeam::find()->where(['id' => $_POST['PartyTeam']['id']])->one();
+        $model->total_score = $model->total_score - $_POST['PartyTeam']['score'];
+        $model->lastBranch = $_POST['PartyTeam']['lastBranch'];
+        //$model->save();
+        $this->saveModel($model);
+        return $model;
+    }
+    public function saveModel(PartyTeam $model)
+    {
+        $model->save();
+    }
 
 }
