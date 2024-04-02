@@ -20,17 +20,9 @@ use app\services\SiteService;
 
 class SiteRepository
 {
-    public function findSiClickAll()
-    {
-        return SiClick::find()->all();
-    }
-    public function deleteSiClickAll($click)
-    {
-        $click->delete();
-    }
     public function saveSiConfirm($model)
     {
-        $name = User::find()->where(['username' => Yii::$app->session->get('user')])->one();
+        $name =
         $model->user_id = $name->id;
         $model->time = date("H:i:s");
         $duplicate = SiClick::find()->where(['user_id' => $name->id])->one();

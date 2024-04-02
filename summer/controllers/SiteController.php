@@ -19,13 +19,115 @@ use app\models\SiClick;
 
 use app\services\SiteService;
 use app\repository\SiteRepository;
+use app\repository\ColorRepository;
+use app\repository\ContactFormRepository;
+use app\repository\DynamicModelRepository;
+use app\repository\HistoryRepository;
+use app\repository\LoginFormRepository;
+use app\repository\PartyTeamRepository;
+use app\repository\PartyPersonalRepository;
+use app\repository\PersonalOffsetRepository;
+use app\repository\SearchPartyPersonalRepository;
+use app\repository\SearchPartyTeamRepository;
+use app\repository\SearchPersonalOffsetRepository;
+use app\repository\SearchTeamRepository;
+use app\repository\SiClickRepository;
+use app\repository\TeamRepository;
+use app\repository\TimerRepository;
+use app\repository\UserRepository;
 class SiteController extends Controller
 {
+    public ColorRepository $colorRepository;
+    public ContactFormRepository $contactFormRepository;
+    public DynamicModelRepository $dynamicModelRepository;
+    public HistoryRepository $historyRepository;
+    public LoginFormRepository $loginFormRepository;
+    public PartyPersonalRepository $partyPersonalRepository;
+    public PartyTeamRepository $partyTeamRepository;
+    public PersonalOffsetRepository $personalOffsetRepository;
+    public SearchPartyPersonalRepository $searchPartyPersonalRepository;
+    public SearchPartyTeamRepository $searchPartyTeamRepository;
+    public SearchPersonalOffsetRepository $searchPersonalOffsetRepository;
+    public SearchTeamRepository $searchTeamRepository;
+    public SiClickRepository $siClickRepository;
+    public TeamRepository $teamRepository;
+    public TimerRepository $timerRepository;
+    public UserRepository $userRepository;
+
+
+
     public SiteService $service;
+
     public function __construct($id, $module, SiteService $service, $config = [])
     {
         parent::__construct($id ,$module, $config);
         $this->service = $service;
+    }
+    public function __ColorConstruct(ColorRepository $repository)
+    {
+        $this->colorRepository = $repository;
+    }
+    public function __ContactFormConstruct(ContactFormRepository $repository)
+    {
+        $this->contactFormRepository = $repository;
+    }
+    public function __DymamicModelConstruct(DynamicModelRepository $repository)
+    {
+        $this->dynamicModelRepository = $repository;
+    }
+    public function __HistoryConstruct(HistoryRepository $repository)
+    {
+        $this->historyRepository = $repository;
+    }
+    public function __LoginFormConstruct(LoginFormRepository $repository)
+    {
+        $this->loginFormRepository = $repository;
+    }
+    public function __PartyPersonalConstruct(PartyPersonalRepository $repository)
+    {
+        $this->partyPersonalRepository = $repository;
+    }
+    public function __PartyTeamConstruct(PartyTeamRepository $repository)
+    {
+        $this->partyTeamRepository = $repository;
+    }
+    public function __PersonalOffsetConstruct(PersonalOffsetRepository $repository)
+    {
+        $this->personalOffsetRepository= $repository;
+    }
+    public function __SearchPartyPersonalConstruct(SearchPartyPersonalRepository $repository)
+    {
+        $this->searchPartyPersonalRepository = $repository;
+    }
+    public function __SearchPartyTeamConstruct(SearchPartyTeamRepository $repository)
+    {
+        $this->searchPartyTeamRepository = $repository;
+    }
+
+    public function __SearchPersonalOffsetConstruct(SearchPersonalOffsetRepository $repository)
+    {
+        $this-> searchPersonalOffsetRepository = $repository;
+    }
+    public function __SearchTeamConstruct(SearchTeamRepository $repository)
+    {
+        $this-> searchTeamRepository= $repository;
+    }
+
+    public function __SiClickConstruct(SiClickRepository $repository)
+    {
+        $this->siClickRepository = $repository;
+    }
+    public function __TeamConstruct(TeamRepository $repository)
+    {+
+    $this-> teamRepository = $repository;
+    }
+    public function __TimerConstruct(TimerRepository $repository)
+    {
+        $this-> timerRepository = $repository;
+    }
+    public function __UserConstruct(UserRepository $repository)
+    {
+        $this-> userRepository = $repository;
     }
     /**
      * {@inheritdoc}
@@ -73,8 +175,6 @@ class SiteController extends Controller
             ],
         ];
     }
-
-
     public function actionSiIndex($name)
     {
         if ($name == 'admin')
@@ -85,11 +185,10 @@ class SiteController extends Controller
     public function actionSiUnblock()
     {
         //$clicks = SiClick::find()->all();
-        $newRepo = new SiteRepository();
-        $clicks = $newRepo->findSiClickAll();
+        $clicks = $this->siClickRepository->findSiClickAll();
         foreach ($clicks as $click)
-            //$click->delete();
-            $newRepo->deleteSiClickAll($click);
+            $this->siClickRepository->deleteSiClickAll($click);
+            //$newRepo->deleteSiClickAll($click);
         return $this->render('si-admin');
     }
 
@@ -97,7 +196,6 @@ class SiteController extends Controller
     {
         return $this->render('si-table');
     }
-
     public function actionSiUser($name)
     {
         $model = new SiClick();
@@ -113,7 +211,6 @@ class SiteController extends Controller
     public function actionSiConfirm()
     {
         $model = new SiClick();
-        $newRepo = new SiteRepository();
         /*
         $name = User::find()->where(['username' => Yii::$app->session->get('user')])->one();
         $model->user_id = $name->id;
@@ -122,9 +219,13 @@ class SiteController extends Controller
         if ($duplicate == null)
         {
             $model->save();
+        }*/
+        $name = $this->userRepository->findUser();
+        $this->service->userUpdateIdTime($model, $name);
+        $duplicate = $this->siClickRepository->findSiClickById($name);
+        if ($duplicate == null) {
+            $this->siClickRepository->saveSiClick($model);
         }
-        */
-        $newRepo->saveSiConfirm($model);
         // $this->service->siteSiConfirm($model);
         return $this->redirect('index.php?r=site/si-user&name='.Yii::$app->session->get('user'));
     }
@@ -155,7 +256,7 @@ class SiteController extends Controller
         }
         if ($model->load(Yii::$app->request->post()))
         {
-            $model = $this->service->repository->findIndexTeam($model);
+            $model = $this->teamRepository->findTeamById($model);
             //$model = Team::find()->where(['id' => $model->name])->one();
         }
         return $this->render('index-team', [
@@ -165,14 +266,13 @@ class SiteController extends Controller
 
     public function actionIndexPersonal()
     {
-        $newRepo = new SiteRepository();
+        $model = new PersonalOffset();
         if (Yii::$app->user->isGuest) {
             return $this->redirect('index.php?r=site/login');
         }
-        $model = new PersonalOffset();
         if ($model->load(Yii::$app->request->post()))
         {
-            $model = $newRepo->findIndexPersonal($model);
+            $model = $this->personalOffsetRepository->findPersonalOffsetById($model);
             //model = PersonalOffset::find()->where(['id' => $model->name])->one();
         }
         return $this->render('index-personal', [

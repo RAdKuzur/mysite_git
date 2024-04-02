@@ -19,7 +19,6 @@ use app\models\SiClick;
 class SiteService
 {
     public SiteRepository $repository;
-
     public function __construct(SiteRepository $repository)
     {
         $this->repository = $repository;
@@ -33,6 +32,10 @@ class SiteService
     }
     public function siteContact(){
         Yii::$app->session->setFlash('contactFormSubmitted');
+    }
+    public function userUpdateIdTime($model, $name){
+        $model->user_id = $name->id;
+        $model->time = date("H:i:s");
     }
 
     public function siteWriteHistory($history ,$score, $party_team_id){
