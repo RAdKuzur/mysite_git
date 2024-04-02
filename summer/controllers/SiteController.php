@@ -21,7 +21,7 @@ use app\services\SiteService;
 use app\repository\SiteRepository;
 class SiteController extends Controller
 {
-    public $service;
+    public SiteService $service;
     public function __construct($id, $module, SiteService $service, $config = [])
     {
         parent::__construct($id ,$module, $config);
@@ -148,14 +148,14 @@ class SiteController extends Controller
 
     public function actionIndexTeam()
     {
-        $newRepo = new SiteRepository();
+        $model = new Team();
+
         if (Yii::$app->user->isGuest) {
             return $this->redirect('index.php?r=site/login');
         }
-                $model = new Team();
         if ($model->load(Yii::$app->request->post()))
         {
-            $model = $newRepo->findIndexTeam($model);
+            $model = $this->service->repository->findIndexTeam($model);
             //$model = Team::find()->where(['id' => $model->name])->one();
         }
         return $this->render('index-team', [
@@ -388,7 +388,7 @@ class SiteController extends Controller
             $model->save();
             */
             //$model = $this->service->siteMinusVal($model);
-            $model = $newRepo->updateMinusVal($model);
+            $model = $newRepo->updateMinusVal();
             $this->WriteHistory('+'.$_POST['PartyTeam']['score'], $model->id);
             return $this->redirect(['choose-color', 'id' => $model->id, 'branch' => $_POST['PartyTeam']['lastBranch']]);
         }

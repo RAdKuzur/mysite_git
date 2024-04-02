@@ -6,6 +6,7 @@ use app\models\PartyTeam;
 use app\models\PersonalOffset;
 use app\models\Team;
 use app\models\History;
+use http\Exception\RuntimeException;
 use Yii;
 use yii\filters\AccessControl;
 use yii\web\Controller;
@@ -65,6 +66,7 @@ class SiteRepository
         return $model;
     }
     public function updatePlusVal($model){
+        /*Yii::$app->request->post()*/
         $model = PartyTeam::find()->where(['id' => $_POST['PartyTeam']['id']])->one();
         $model->total_score = $model->total_score + $_POST['PartyTeam']['score'];
         $model->lastBranch = $_POST['PartyTeam']['lastBranch'];
@@ -79,15 +81,22 @@ class SiteRepository
         $model->save();
         return $model;
     }
-    public function updateMinusVal($model){
+    public function updateMinusVal(){
         $model = PartyTeam::find()->where(['id' => $_POST['PartyTeam']['id']])->one();
         $model->total_score = $model->total_score - $_POST['PartyTeam']['score'];
         $model->lastBranch = $_POST['PartyTeam']['lastBranch'];
-        $model->save();
+        $this->save($model);
         return $model;
 
     }
     public function saveHistory($history){
         $history->save();
+    }
+
+    public function save(PartyTeam $model)
+    {
+        if (!$model->save())
+            throw new RuntimeException('Saving error');
+
     }
 }

@@ -18,6 +18,13 @@ use app\models\User;
 use app\models\SiClick;
 class SiteService
 {
+    public SiteRepository $repository;
+
+    public function __construct(SiteRepository $repository)
+    {
+        $this->repository = $repository;
+    }
+
     public function SiteSiUser($name){
         Yii::$app->session->set('user', $name);
     }
