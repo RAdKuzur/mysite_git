@@ -19,7 +19,11 @@ use app\models\SiClick;
 use app\services\SiteService;
 class PersonalOffsetRepository
 {
-    public function findPersonalOffsetById($model)
+    /**
+     * @param PersonalOffset $model
+     * @return array|\yii\db\ActiveRecord|null
+     */
+    public function findPersonalOffsetById(PersonalOffset $model)
     {
         return PersonalOffset::find()->where(['id' => $model->name])->one();
     }
