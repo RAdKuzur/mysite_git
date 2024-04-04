@@ -1,5 +1,5 @@
 <?php
-namespace app\repository;
+namespace app\repositories;
 
 use app\models\PartyPersonal;
 use app\models\PartyTeam;

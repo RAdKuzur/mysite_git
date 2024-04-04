@@ -1,5 +1,5 @@
 <?php
-namespace app\repository;
+namespace app\repositories;
 
 use app\models\PartyPersonal;
 use app\models\PartyTeam;
@@ -33,15 +33,11 @@ class PartyTeamRepository
         $this->saveModel($model);
         return $model;
     }
-    public function plusScore()
+    public function plusScore($id, $score,$lastBranch)
     {
-        //$model = PartyTeam::find()->where(['id' => $_POST['PartyTeam']['id']])->one();
-        //$model->total_score = $model->total_score + $_POST['PartyTeam']['score'];
-        //$model->lastBranch = $_POST['PartyTeam']['lastBranch'];
-        $model = PartyTeam::find()->where(['id' => Yii::$app->request->post('PartyTeam')['id']])->one();
-        $model->total_score = $model->total_score + Yii::$app->request->post('PartyTeam')['score'];
-        $model->lastBranch = Yii::$app->request->post('PartyTeam')['lastBranch'];
-        //$model->save();
+        $model = PartyTeam::find()->where(['id' => $id])->one();
+        $model->total_score = $model->total_score + $score;
+        $model->lastBranch = $lastBranch;
         $this->saveModel($model);
         return $model;
     }
@@ -53,14 +49,12 @@ class PartyTeamRepository
         $this->saveModel($model);
         return $model;
     }
-    public function minusScore(){
-        //$model = PartyTeam::find()->where(['id' => $_POST['PartyTeam']['id']])->one();
-        //$model->total_score = $model->total_score - $_POST['PartyTeam']['score'];
-        //$model->lastBranch = $_POST['PartyTeam']['lastBranch'];
-        $model = PartyTeam::find()->where(['id' => Yii::$app->request->post('PartyTeam')['id']])->one();
-        $model->total_score = $model->total_score - Yii::$app->request->post('PartyTeam')['score'];
-        $model->lastBranch = Yii::$app->request->post('PartyTeam')['lastBranch'];
-        //$model->save();
+    public function minusScore($id, $score,$lastBranch){
+
+        $model = PartyTeam::find()->where(['id' => $id])->one();
+        $model->total_score = $model->total_score - $score;
+        $model->lastBranch = $lastBranch;
+
         $this->saveModel($model);
         return $model;
     }

@@ -17,23 +17,23 @@ use app\models\ContactForm;
 use app\models\User;
 use app\models\SiClick;
 use app\services\SiteService;
-use app\repository\SiteRepository;
-use app\repository\ColorRepository;
-use app\repository\ContactFormRepository;
-use app\repository\DynamicModelRepository;
-use app\repository\HistoryRepository;
-use app\repository\LoginFormRepository;
-use app\repository\PartyTeamRepository;
-use app\repository\PartyPersonalRepository;
-use app\repository\PersonalOffsetRepository;
-use app\repository\SearchPartyPersonalRepository;
-use app\repository\SearchPartyTeamRepository;
-use app\repository\SearchPersonalOffsetRepository;
-use app\repository\SearchTeamRepository;
-use app\repository\SiClickRepository;
-use app\repository\TeamRepository;
-use app\repository\TimerRepository;
-use app\repository\UserRepository;
+use app\repositories\SiteRepository;
+use app\repositories\ColorRepository;
+use app\repositories\ContactFormRepository;
+use app\repositories\DynamicModelRepository;
+use app\repositories\HistoryRepository;
+use app\repositories\LoginFormRepository;
+use app\repositories\PartyTeamRepository;
+use app\repositories\PartyPersonalRepository;
+use app\repositories\PersonalOffsetRepository;
+use app\repositories\SearchPartyPersonalRepository;
+use app\repositories\SearchPartyTeamRepository;
+use app\repositories\SearchPersonalOffsetRepository;
+use app\repositories\SearchTeamRepository;
+use app\repositories\SiClickRepository;
+use app\repositories\TeamRepository;
+use app\repositories\TimerRepository;
+use app\repositories\UserRepository;
 class SiteController extends Controller
 {
     public HistoryRepository $historyRepository;
@@ -43,6 +43,7 @@ class SiteController extends Controller
     public TeamRepository $teamRepository;
     public UserRepository $userRepository;
     public SiteService $service;
+
     public function __construct(
         $id,
         $module,
@@ -55,16 +56,17 @@ class SiteController extends Controller
         UserRepository $usRepository,
         $config = [])
     {
-        parent::__construct($id ,$module, $config);
+        parent::__construct($id, $module, $config);
         $this->service = $service;
-        $this-> teamRepository =  $commandRepository;
-        $this-> userRepository = $usRepository;
+        $this->teamRepository = $commandRepository;
+        $this->userRepository = $usRepository;
         $this->siClickRepository = $ClickRepository;
         $this->partyTeamRepository = $parTeamRepository;
-        $this->historyRepository =  $hisRepository;
+        $this->historyRepository = $hisRepository;
         $this->personalOffsetRepository = $perOffsetRepository;
     }
-       /**
+
+    /**
      * {@inheritdoc}
      */
     public function behaviors()
@@ -110,21 +112,19 @@ class SiteController extends Controller
             ],
         ];
     }
+
     public function actionSiIndex($name)
     {
         if ($name == 'admin')
             return $this->render('si-admin');
-        //return $this->redirect('index.php?r=site/si-user&name='.$name);
         return $this->redirect(['site/si-user', 'name' => $name]);
     }
 
     public function actionSiUnblock()
     {
-        //$clicks = SiClick::find()->all();
         $clicks = $this->siClickRepository->findSiClickAll();
         foreach ($clicks as $click)
             $this->siClickRepository->deleteSiClickAll($click);
-            //$newRepo->deleteSiClickAll($click);
         return $this->render('si-admin');
     }
 
@@ -132,12 +132,11 @@ class SiteController extends Controller
     {
         return $this->render('si-table');
     }
+
     public function actionSiUser($name)
     {
         $model = new SiClick();
-        //Yii::$app->session->set('user', $name);
         $this->service->siteSiUser($name);
-                //var_dump($model->load(Yii::$app->request->post()));
         if ($model->load(Yii::$app->request->post())) {
             $this->render('si-admin');
         }
@@ -147,23 +146,12 @@ class SiteController extends Controller
     public function actionSiConfirm()
     {
         $model = new SiClick();
-        /*
-        $name = User::find()->where(['username' => Yii::$app->session->get('user')])->one();
-        $model->user_id = $name->id;
-        $model->time = date("H:i:s");
-        $duplicate = SiClick::find()->where(['user_id' => $name->id])->one();
-        if ($duplicate == null)
-        {
-            $model->save();
-        }*/
         $name = $this->userRepository->findUser();
         $this->service->userUpdateIdTime($model, $name);
         $duplicate = $this->siClickRepository->findSiClickById($name);
         if ($duplicate == null) {
             $this->siClickRepository->saveSiClick($model);
         }
-        // $this->service->siteSiConfirm($model);
-        //return $this->redirect('index.php?r=site/si-user&name='.Yii::$app->session->get('user'));
         return $this->redirect(['site/si-user', 'name' => Yii::$app->session->get('user')]);
     }
 
@@ -183,53 +171,39 @@ class SiteController extends Controller
         }
         return $this->render('index');
     }
-
     public function actionIndexTeam()
     {
         $model = new Team();
-
         if (Yii::$app->user->isGuest) {
-            //return $this->redirect('index.php?r=site/login');
             return $this->redirect(['site/login']);
         }
-        if ($model->load(Yii::$app->request->post()))
-        {
+        if ($model->load(Yii::$app->request->post())) {
             $model = $this->teamRepository->findTeamById($model);
-            //$model = Team::find()->where(['id' => $model->name])->one();
         }
         return $this->render('index-team', [
             'model' => $model,
         ]);
     }
-
     public function actionIndexPersonal()
     {
         $model = new PersonalOffset();
         if (Yii::$app->user->isGuest) {
-            //return $this->redirect('index.php?r=site/login');
             return $this->redirect(['site/login']);
         }
-        if ($model->load(Yii::$app->request->post()))
-        {
+        if ($model->load(Yii::$app->request->post())) {
             $model = $this->personalOffsetRepository->findPersonalOffsetById($model);
-            //model = PersonalOffset::find()->where(['id' => $model->name])->one();
         }
         return $this->render('index-personal', [
             'model' => $model,
         ]);
     }
-
     public function actionChooseColor($id = null, $branch = null)
     {
         $model = new PartyTeam();
         if (Yii::$app->user->isGuest) {
-            //return $this->redirect('index.php?r=site/login');
             return $this->redirect(['site/login']);
         }
-        if ($id !== null)
-        {
-            //$model = PartyTeam::find()->where(['id' => $id])->one();
-            //$model->lastBranch = $branch;
+        if ($id !== null) {
             $model = $this->partyTeamRepository->findChooseColor($branch, $id);
         }
         return $this->render('choose-color', [
@@ -242,19 +216,13 @@ class SiteController extends Controller
         $model = new LoginForm();
         if (!Yii::$app->user->isGuest)
             return $this->redirect('index');
-
-
         if ($model->load(Yii::$app->request->post())) {
-            //$user = User::find()->where(['username' => $model->username])->one();
             $user = $this->userRepository->findUserLogin($model);
             if ($model->password == '' && $user !== null)
-                //return $this->redirect('index.php?r=site/si-index&name='.$model->username);
                 return $this->redirect(['site/si-index', 'name' => $model->username]);
-            if ($model->password !== '' && $model->login())
-            {
+            if ($model->password !== '' && $model->login()) {
                 return $this->render('index');
             }
-
         } else {
             return $this->render('login', [
                 'model' => $model,
@@ -269,9 +237,7 @@ class SiteController extends Controller
      */
     public function actionLogout()
     {
-        //Yii::$app->user->logout();
         $this->service->siteLogout();
-        //return $this->redirect('index.php?r=site/login');
         return $this->redirect(['site/login']);
     }
 
@@ -284,7 +250,6 @@ class SiteController extends Controller
     {
         $model = new ContactForm();
         if ($model->load(Yii::$app->request->post()) && $model->contact(Yii::$app->params['adminEmail'])) {
-            //Yii::$app->session->setFlash('contactFormSubmitted');
             $this->service->siteContact();
             return $this->refresh();
         }
@@ -292,7 +257,6 @@ class SiteController extends Controller
             'model' => $model,
         ]);
     }
-
     /**
      * Displays about page.
      *
@@ -313,7 +277,6 @@ class SiteController extends Controller
         }
         return $this->render('team-view');
     }
-
     public function actionPersonalView()
     {
         if (Yii::$app->user->isGuest) {
@@ -324,10 +287,8 @@ class SiteController extends Controller
         }
         return $this->render('personal-view');
     }
-
     public function actionPlus($numb, $id = null, $branch = null)
     {
-
         if (Yii::$app->user->isGuest) {
             $model = new LoginForm();
             return $this->render('login', [
@@ -335,18 +296,9 @@ class SiteController extends Controller
             ]);
         }
         $model = new PartyTeam();
-        if ($id !== null)
-        {
-            /*
-            $model = PartyTeam::find()->where(['id' => $id])->one();
-            $model->total_score = $model->total_score + $numb;
-            $model->lastBranch = $branch;
-            $model->save();
-            */
+        if ($id !== null) {
             $model = $this->partyTeamRepository->plusNumb($id, $numb, $branch);
-            //$this->WriteHistory('+'.$numb, $model->id);
-
-            $this->historyRepository->siteWriteHistory('+'.$numb, $model->id);
+            $this->historyRepository->siteWriteHistory('+' . $numb, $model->id);
             return $this->redirect(['choose-color', 'id' => $model->id, 'branch' => $branch]);
         }
         return $this->render('choose-color', [
@@ -356,7 +308,6 @@ class SiteController extends Controller
 
     public function actionPlusVal()
     {
-
         if (Yii::$app->user->isGuest) {
             $model = new LoginForm();
             return $this->render('login', [
@@ -364,30 +315,22 @@ class SiteController extends Controller
             ]);
         }
         $model = new PartyTeam();
-        //if ($_POST['PartyTeam']['id'] !== null)
-        if (Yii::$app->request->post('PartyTeam')['id'])
-        {
-            /*
-            $model = PartyTeam::find()->where(['id' => $_POST['PartyTeam']['id']])->one();
-            $model->total_score = $model->total_score + $_POST['PartyTeam']['score'];
-            $model->lastBranch = $_POST['PartyTeam']['lastBranch'];
-            $model->save();
-            */
-            $model = $this->partyTeamRepository->plusScore();
-            //$this->WriteHistory('+'.$_POST['PartyTeam']['score'], $model->id);
-            //$this->historyRepository->siteWriteHistory('+'.$_POST['PartyTeam']['score'], $model->id);
-            $this->historyRepository->siteWriteHistory('+'.Yii::$app->request->post('PartyTeam')['score'], $model->id);
-            //return $this->redirect(['choose-color', 'id' => $model->id, 'branch' => $_POST['PartyTeam']['lastBranch']]);
+        if (Yii::$app->request->post('PartyTeam')['id']) {
+
+            $id = Yii::$app->request->post('PartyTeam')['id'];
+            $score = Yii::$app->request->post('PartyTeam')['score'];
+            $lastBranch = Yii::$app->request->post('PartyTeam')['lastBranch'];
+
+            $model = $this->partyTeamRepository->plusScore($id, $score,$lastBranch);
+            $this->historyRepository->siteWriteHistory('+' . Yii::$app->request->post('PartyTeam')['score'], $model->id);
             return $this->redirect(['choose-color', 'id' => $model->id, 'branch' => Yii::$app->request->post('PartyTeam')['lastBranch']]);
         }
         return $this->render('choose-color', [
             'model' => $model,
         ]);
     }
-
     public function actionMinus($numb, $id = null, $branch = null)
     {
-
         if (Yii::$app->user->isGuest) {
             $model = new LoginForm();
             return $this->render('login', [
@@ -395,17 +338,9 @@ class SiteController extends Controller
             ]);
         }
         $model = new PartyTeam();
-        if ($id !== null)
-        {
-            /*
-            $model = PartyTeam::find()->where(['id' => $id])->one();
-            $model->total_score = $model->total_score - $numb;
-            $model->lastBranch = $branch;
-            $model->save();
-            */
-            //$model = $this->service->siteMinus($model, $numb, $branch, $id);
+        if ($id !== null) {
             $model = $this->partyTeamRepository->minusNumb($id, $numb, $branch);
-            $this->historyRepository->siteWriteHistory('-'.$numb, $model->id);
+            $this->historyRepository->siteWriteHistory('-' . $numb, $model->id);
             return $this->redirect(['choose-color', 'id' => $model->id, 'branch' => $branch]);
         }
         return $this->render('choose-color', [
@@ -415,28 +350,20 @@ class SiteController extends Controller
 
     public function actionMinusVal()
     {
-
-                if (Yii::$app->user->isGuest) {
+        if (Yii::$app->user->isGuest) {
             $model = new LoginForm();
             return $this->render('login', [
                 'model' => $model,
             ]);
         }
         $model = new PartyTeam();
-        //if ($_POST['PartyTeam']['id'] !== null)
-        if (Yii::$app->request->post('PartyTeam')['id'])
-        {
-            /*
-            $model = PartyTeam::find()->where(['id' => $_POST['PartyTeam']['id']])->one();
-            $model->total_score = $model->total_score - $_POST['PartyTeam']['score'];
-            $model->lastBranch = $_POST['PartyTeam']['lastBranch'];
-            $model->save();
-            */
-            //$model = $this->service->siteMinusVal($model);
-            $model = $this->partyTeamRepository->minusScore();
-            //$this->WriteHistory('+'.$_POST['PartyTeam']['score'], $model->id);
-            //$this->historyRepository->siteWriteHistory('+'.$_POST['PartyTeam']['score'], $model->id);
-            //return $this->redirect(['choose-color', 'id' => $model->id, 'branch' => $_POST['PartyTeam']['lastBranch']]);
+        if (Yii::$app->request->post('PartyTeam')['id']) {
+
+            $id = Yii::$app->request->post('PartyTeam')['id'];
+            $score = Yii::$app->request->post('PartyTeam')['score'];
+            $lastBranch = Yii::$app->request->post('PartyTeam')['lastBranch'];
+
+            $model = $this->partyTeamRepository->minusScore($id, $score,$lastBranch);
             $this->historyRepository->siteWriteHistory('+' . Yii::$app->request->post('PartyTeam')['score'], $model->id);
             return $this->redirect(['choose-color', 'id' => $model->id, 'branch' => Yii::$app->request->post('PartyTeam')['lastBranch']]);
         }
@@ -444,176 +371,4 @@ class SiteController extends Controller
             'model' => $model,
         ]);
     }
-    /*
-    public function WriteHistory($score, $party_team_id)
-    {
-        /*
-        $history = new History();
-        $history->score = $score;
-        $history->party_team_id = $party_team_id;
-        $history->date_time = date('Y-m-d h:i:s');
-        $history->save();
-        $this->historyRepository->siteWriteHistory($score, $party_team_id);
-    }
-    */
-    /*public function actionPlusOne($id = null)
-    {
-        if (Yii::$app->user->isGuest) {
-            $model = new LoginForm();
-            return $this->render('login', [
-                'model' => $model,
-            ]);
-        }
-        $model = new PartyTeam();
-        if ($id !== null)
-        {
-            $model = PartyTeam::find()->where(['id' => $id])->one();
-            $model->total_score = $model->total_score + 1;
-            $model->save();
-        }
-        return $this->render('choose-color', [
-            'model' => $model,
-        ]);
-    }
-
-    public function actionPlusTen($id = null)
-    {
-        if (Yii::$app->user->isGuest) {
-            $model = new LoginForm();
-            return $this->render('login', [
-                'model' => $model,
-            ]);
-        }
-        $model = new PartyTeam();
-        if ($id !== null)
-        {
-            $model = PartyTeam::find()->where(['id' => $id])->one();
-            $model->total_score = $model->total_score + 10;
-            $model->save();
-        }
-        return $this->render('choose-color', [
-            'model' => $model,
-        ]);
-    }
-
-    public function actionMinusOne($id = null)
-    {
-        if (Yii::$app->user->isGuest) {
-            $model = new LoginForm();
-            return $this->render('login', [
-                'model' => $model,
-            ]);
-        }
-        $model = new PartyTeam();
-        if ($id !== null)
-        {
-            $model = PartyTeam::find()->where(['id' => $id])->one();
-            $model->total_score = $model->total_score - 1;
-            $model->save();
-        }
-        return $this->render('choose-color', [
-            'model' => $model,
-        ]);
-    }
-
-    public function actionMinusTen($id = null)
-    {
-        if (Yii::$app->user->isGuest) {
-            $model = new LoginForm();
-            return $this->render('login', [
-                'model' => $model,
-            ]);
-        }
-        $model = new PartyTeam();
-        if ($id !== null)
-        {
-            $model = PartyTeam::find()->where(['id' => $id])->one();
-            $model->total_score = $model->total_score - 10;
-            $model->save();
-        }
-        return $this->render('choose-color', [
-            'model' => $model,
-        ]);
-    }
-
-
-    public function actionPlusOneP($id = null)
-    {
-        if (Yii::$app->user->isGuest) {
-            $model = new LoginForm();
-            return $this->render('login', [
-                'model' => $model,
-            ]);
-        }
-        $model = new PartyPersonal();
-        if ($id !== null)
-        {
-            $model = PartyPersonal::find()->where(['id' => $id])->one();
-            $model->total_score = $model->total_score + 1;
-            $model->save();
-        }
-        return $this->render('index-personal', [
-            'model' => PersonalOffset::find()->where(['id' => $model->personal_offset_id])->one(),
-        ]);
-    }
-
-    public function actionPlusTenP($id = null)
-    {
-        if (Yii::$app->user->isGuest) {
-            $model = new LoginForm();
-            return $this->render('login', [
-                'model' => $model,
-            ]);
-        }
-        $model = new PartyPersonal();
-        if ($id !== null)
-        {
-            $model = PartyPersonal::find()->where(['id' => $id])->one();
-            $model->total_score = $model->total_score + 10;
-            $model->save();
-        }
-        return $this->render('index-personal', [
-            'model' => PersonalOffset::find()->where(['id' => $model->personal_offset_id])->one(),
-        ]);
-    }
-
-    public function actionMinusOneP($id = null)
-    {
-        if (Yii::$app->user->isGuest) {
-            $model = new LoginForm();
-            return $this->render('login', [
-                'model' => $model,
-            ]);
-        }
-        $model = new PartyPersonal();
-        if ($id !== null)
-        {
-            $model = PartyPersonal::find()->where(['id' => $id])->one();
-            $model->total_score = $model->total_score - 1;
-            $model->save();
-        }
-        return $this->render('index-personal', [
-            'model' => PersonalOffset::find()->where(['id' => $model->personal_offset_id])->one(),
-        ]);
-    }
-
-    public function actionPlusTwoP($id = null)
-    {
-        if (Yii::$app->user->isGuest) {
-            $model = new LoginForm();
-            return $this->render('login', [
-                'model' => $model,
-            ]);
-        }
-        $model = new PartyPersonal();
-        if ($id !== null)
-        {
-            $model = PartyPersonal::find()->where(['id' => $id])->one();
-            $model->total_score = $model->total_score + 2;
-            $model->save();
-        }
-        return $this->render('index-personal', [
-            'model' => PersonalOffset::find()->where(['id' => $model->personal_offset_id])->one(),
-        ]);
-    }*/
 }
