@@ -6,6 +6,16 @@ use app\models\dynamic\PersonalOffsetDynamic;
 use app\models\DynamicModel;
 use app\models\LoginForm;
 use app\models\PartyTeam;
+use app\repositories\DynamicModelRepository;
+use app\repositories\HistoryRepository;
+use app\repositories\PartyTeamRepository;
+use app\repositories\PersonalOffsetRepository;
+use app\repositories\SiClickRepository;
+use app\repositories\TeamRepository;
+use app\repositories\TimerRepository;
+use app\repositories\UserRepository;
+use app\services\SiteService;
+use app\services\TeamService;
 use Yii;
 use app\models\Team;
 use app\models\SearchTeam;
@@ -18,6 +28,38 @@ use yii\filters\VerbFilter;
  */
 class TeamController extends Controller
 {
+    public HistoryRepository $historyRepository;
+    public DynamicModelRepository $dynamicModelRepository;
+    public PartyTeamRepository $partyTeamRepository;
+    public PersonalOffsetRepository $personalOffsetRepository;
+    public SiClickRepository $siClickRepository;
+    public TeamRepository $teamRepository;
+    public UserRepository $userRepository;
+    public TimerRepository $timerRepository;
+    public TeamService $teamService;
+    public function __construct(
+        $id,
+        $module,
+        TeamRepository $teamRepository,
+        PartyTeamRepository $parTeamRepository,
+        PersonalOffsetRepository $perOffsetRepository,
+        SiClickRepository $ClickRepository,
+        UserRepository $usRepository,
+        DynamicModelRepository $dynamicRepository,
+        TimerRepository $timeRepository,
+        TeamService $service,
+        $config = [])
+    {
+        parent::__construct($id, $module, $config);
+        $this->teamService = $service;
+        $this->teamRepository = $teamRepository;
+        $this->userRepository = $usRepository;
+        $this->siClickRepository = $ClickRepository;
+        $this->partyTeamRepository = $parTeamRepository;
+        $this->personalOffsetRepository = $perOffsetRepository;
+        $this->dynamicModelRepository = $dynamicRepository;
+        $this->timerRepository = $timeRepository;
+    }
     /**
      * {@inheritdoc}
      */
@@ -32,7 +74,6 @@ class TeamController extends Controller
             ],
         ];
     }
-
     /**
      * Lists all Team models.
      * @return mixed
@@ -42,12 +83,10 @@ class TeamController extends Controller
         if (Yii::$app->user->isGuest) {
             return $this->redirect('index.php?r=site/login');
         }
-        $searchModel = new SearchTeam();
-        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
-
+        $array = $this->teamRepository->findTeamByQuery();
         return $this->render('index', [
-            'searchModel' => $searchModel,
-            'dataProvider' => $dataProvider,
+            'searchModel' => $array[1],
+            'dataProvider' => $array[0],
         ]);
     }
 
@@ -73,15 +112,10 @@ class TeamController extends Controller
     {
         $model = new Team();
         $modelTeams = [new PartyTeam];
-
         if ($model->load(Yii::$app->request->post())) {
-            $modelTeams = DynamicModel::createMultiple(PartyTeam::classname());
-            DynamicModel::loadMultiple($modelTeams, Yii::$app->request->post());
-            $model->teams = $modelTeams;
-            $model->save();
+            $this->dynamicModelRepository->updateTeams($model);
             return $this->redirect(['view', 'id' => $model->id]);
         }
-
         return $this->render('create', [
             'model' => $model,
             'modelTeams' => $modelTeams,
@@ -97,27 +131,21 @@ class TeamController extends Controller
      */
     public function actionUpdate($id)
     {
-        $model = $this->findModel($id);
+        $model = $this->teamRepository->findModel($id);
         $modelTeams = [new PartyTeam];
-
         if ($model->load(Yii::$app->request->post())) {
-            $modelTeams = DynamicModel::createMultiple(PartyTeam::classname());
-            DynamicModel::loadMultiple($modelTeams, Yii::$app->request->post());
-            $model->teams = $modelTeams;
-            $model->save();
+            $this->dynamicModelRepository->updateTeams($model);
             return $this->redirect(['view', 'id' => $model->id]);
         }
-
         return $this->render('update', [
             'model' => $model,
             'modelTeams' => $modelTeams,
         ]);
     }
-
     public function actionTeamView($id)
     {
-        $scores = \app\models\PartyTeam::find()->where(['team_id' => $id])->all();
-        $timer = \app\models\Timer::find()->where(['name' => 'Main Timer'])->one();
+        $scores = $this->partyTeamRepository->findByTeamId($id);
+        $timer = $this->timerRepository->findByName();
         return $this->render('team-view', [
             'scores' => $scores,
             'timer' => $timer,
@@ -127,30 +155,27 @@ class TeamController extends Controller
 
     public function actionTimer()
     {
-        $timer = \app\models\Timer::find()->where(['name' => 'Main Timer'])->one();
-        $timer->seconds = $_POST['sec'];
-        $timer->minutes = $_POST['min'];
-        $timer->hours = $_POST['h'];
-        $timer->save();
+        $seconds = Yii::$app->request->post('sec');
+        $minutes = Yii::$app->request->post('min');
+        $hours = Yii::$app->request->post('h');
+        $this->timerRepository->updateTime($seconds,$minutes,$hours);
     }
 
     public function actionReset()
     {
-        $timer = \app\models\Timer::find()->where(['name' => 'Main Timer'])->one();
-        $timer->seconds = 0;
-        $timer->minutes = 0;
-        $timer->hours = 0;
-        $timer->save();
+        $this->timerRepository->resetTime();
     }
 
     public function actionTimerVisible($id)
     {
-        $currentVisible = Yii::$app->session->get('t_vis');
+
+        /* $currentVisible = Yii::$app->session->get('t_vis');
         if ($currentVisible == null) Yii::$app->session->set('t_vis', 1);
         else Yii::$app->session->set('t_vis', abs($currentVisible - 1));
-
-        $scores = \app\models\PartyTeam::find()->where(['team_id' => $id])->all();
-        $timer = \app\models\Timer::find()->where(['name' => 'Main Timer'])->one();
+        */
+        $this->teamService->currentVisible();
+        $scores = $this->partyTeamRepository->findByTeamId($id);
+        $timer = $this->timerRepository->findByName();
         return $this->render('team-view', [
             'scores' => $scores,
             'timer' => $timer,
@@ -167,15 +192,17 @@ class TeamController extends Controller
      */
     public function actionDelete($id)
     {
-        $this->findModel($id)->delete();
-
+        //$this->findModel($id)->delete();
+        $this->teamRepository->findModelAndDelete($id);
         return $this->redirect(['index']);
     }
 
     public function actionDeletePartyTeam($id, $modelId)
     {
-        $team = PartyTeam::find()->where(['id' => $id])->one();
+        /*$team = PartyTeam::find()->where(['id' => $id])->one();
         $team->delete();
+        */
+        $this->partyTeamRepository->deleteById($id);
         return $this->redirect('index?r=team/update&id='.$modelId);
     }
 
@@ -186,12 +213,5 @@ class TeamController extends Controller
      * @return Team the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
-    protected function findModel($id)
-    {
-        if (($model = Team::findOne($id)) !== null) {
-            return $model;
-        }
 
-        throw new NotFoundHttpException('The requested page does not exist.');
-    }
 }

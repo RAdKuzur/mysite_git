@@ -8,6 +8,7 @@ use app\models\Team;
 use app\models\History;
 use http\Exception\RuntimeException;
 use Yii;
+use yii\db\ArrayExpression;
 use yii\filters\AccessControl;
 use yii\web\Controller;
 use yii\web\Response;
@@ -19,6 +20,10 @@ use app\models\SiClick;
 use app\services\SiteService;
 class PartyTeamRepository
 {
+
+
+
+
     public function findChooseColor($branch,$id)
     {
         $model = PartyTeam::find()->where(['id' => $id])->one();
@@ -54,7 +59,6 @@ class PartyTeamRepository
         $model = PartyTeam::find()->where(['id' => $id])->one();
         $model->total_score = $model->total_score - $score;
         $model->lastBranch = $lastBranch;
-
         $this->saveModel($model);
         return $model;
     }
@@ -62,5 +66,19 @@ class PartyTeamRepository
     {
         $model->save();
     }
+    public function deleteById($id){
+        $team = PartyTeam::find()->where(['id' => $id])->one();
+        $team->delete();
+    }
+
+    public function findByTeamId($id):array
+    {
+        return \app\models\PartyTeam::find()->where(['team_id' => $id])->all();
+    }
+
+
+
+
+
 
 }

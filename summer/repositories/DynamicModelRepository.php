@@ -1,6 +1,7 @@
 <?php
 namespace app\repositories;
 
+use app\models\DynamicModel;
 use app\models\PartyPersonal;
 use app\models\PartyTeam;
 use app\models\PersonalOffset;
@@ -19,5 +20,14 @@ use app\models\SiClick;
 use app\services\SiteService;
 class DynamicModelRepository
 {
+    public function updateTeams($model) {
+        $modelTeams = DynamicModel::createMultiple(PartyTeam::classname());
+        DynamicModel::loadMultiple($modelTeams, Yii::$app->request->post());
+        $model->teams = $modelTeams;
+        $this->save($model);
+    }
+    public function save($model) {
+        $model->save();
+    }
 
 }

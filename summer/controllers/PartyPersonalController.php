@@ -37,6 +37,7 @@ class PartyPersonalController extends Controller
      */
     public function actionIndex()
     {
+        //
         $searchModel = new SearchPartyPersonal();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
         return $this->render('index', [

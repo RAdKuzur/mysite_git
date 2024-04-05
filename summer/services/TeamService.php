@@ -1,6 +1,8 @@
 <?php
 
+
 namespace app\services;
+
 use app\models\PartyPersonal;
 use app\models\PartyTeam;
 use app\models\PersonalOffset;
@@ -16,23 +18,13 @@ use app\models\LoginForm;
 use app\models\ContactForm;
 use app\models\User;
 use app\models\SiClick;
-class SiteService
+
+class TeamService
 {
-    public function SiteSiUser($name){
-        Yii::$app->session->set('user', $name);
+    public function currentVisible()
+    {
+        $currentVisible = Yii::$app->session->get('t_vis');
+        if ($currentVisible == null) Yii::$app->session->set('t_vis', 1);
+        else Yii::$app->session->set('t_vis', abs($currentVisible - 1));
     }
-    public function siteLogout(){
-        Yii::$app->user->logout();
-    }
-    public function siteContact(){
-        Yii::$app->session->setFlash('contactFormSubmitted');
-    }
-    public function userUpdateIdTime($model, $name){
-        $model->user_id = $name->id;
-        $model->time = date("H:i:s");
-    }
-
-
-
-
 }
