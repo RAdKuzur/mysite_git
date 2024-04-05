@@ -110,10 +110,12 @@ class TeamController extends Controller
      */
     public function actionCreate()
     {
+
         $model = new Team();
         $modelTeams = [new PartyTeam];
+        $requestPost = Yii::$app->request->post();
         if ($model->load(Yii::$app->request->post())) {
-            $this->dynamicModelRepository->updateTeams($model);
+            $this->dynamicModelRepository->updateTeams($model, $requestPost);
             return $this->redirect(['view', 'id' => $model->id]);
         }
         return $this->render('create', [

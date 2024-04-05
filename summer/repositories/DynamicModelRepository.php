@@ -20,9 +20,9 @@ use app\models\SiClick;
 use app\services\SiteService;
 class DynamicModelRepository
 {
-    public function updateTeams($model) {
+    public function updateTeams($model, $requestPost) {
         $modelTeams = DynamicModel::createMultiple(PartyTeam::classname());
-        DynamicModel::loadMultiple($modelTeams, Yii::$app->request->post());
+        DynamicModel::loadMultiple($modelTeams, $requestPost);
         $model->teams = $modelTeams;
         $this->save($model);
     }
