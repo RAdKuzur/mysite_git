@@ -3,6 +3,15 @@
 namespace app\controllers;
 
 use app\models\DynamicModel;
+use app\repositories\DynamicModelRepository;
+use app\repositories\HistoryRepository;
+use app\repositories\PartyPersonalRepository;
+use app\repositories\PartyTeamRepository;
+use app\repositories\PersonalOffsetRepository;
+use app\repositories\SiClickRepository;
+use app\repositories\TeamRepository;
+use app\repositories\UserRepository;
+use app\services\SiteService;
 use Yii;
 use app\models\PartyPersonal;
 use app\models\dynamic\PersonalOffsetDynamic;
@@ -16,6 +25,19 @@ use yii\filters\VerbFilter;
  */
 class PartyPersonalController extends Controller
 {
+    public DynamicModelRepository $dynamicModelRepository;
+    public PartyPersonalRepository $partyPersonalRepository;
+    public function __construct(
+        $id,
+        $module,
+        DynamicModelRepository $dynamicRepository,
+        PartyPersonalRepository $partyPersonalRepository,
+        $config = [])
+    {
+        parent::__construct($id, $module, $config);
+        $this->partyPersonalRepository = $partyPersonalRepository;
+        $this->dynamicModelRepository = $dynamicRepository;
+    }
     /**
      * {@inheritdoc}
      */
@@ -37,12 +59,11 @@ class PartyPersonalController extends Controller
      */
     public function actionIndex()
     {
-        //
-        $searchModel = new SearchPartyPersonal();
-        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+        $queryParams = Yii::$app->request->queryParams;
+        $array = $this->partyPersonalRepository->searchPartyPersonal($queryParams);
         return $this->render('index', [
-            'searchModel' => $searchModel,
-            'dataProvider' => $dataProvider,
+            'searchModel' => $array[0],
+            'dataProvider' => $array[1],
         ]);
     }
 
@@ -55,7 +76,7 @@ class PartyPersonalController extends Controller
     public function actionView($id)
     {
         return $this->render('view', [
-            'model' => $this->findModel($id),
+            'model' => $this->partyPersonalRepository->findModel($id),
         ]);
     }
     /**
@@ -67,12 +88,10 @@ class PartyPersonalController extends Controller
     {
         $model = new PartyPersonal();
         $modelPersonals = [new PersonalOffsetDynamic];
-                                                                                                                            
-        if ($model->load(Yii::$app->request->post())) {
-            $modelPersonals = DynamicModel::createMultiple(PersonalOffsetDynamic::classname());
-            DynamicModel::loadMultiple($modelPersonals, Yii::$app->request->post());
-            $model->personals = $modelPersonals;
-            $model->save();
+        $requestPost = Yii::$app->request->post();
+        if ($model->load($requestPost)) {
+
+            $this->dynamicModelRepository->updatePersonals($model, $requestPost);
             return $this->redirect(['view', 'id' => $model->id]);
         }
         
@@ -92,7 +111,7 @@ class PartyPersonalController extends Controller
      */
     public function actionUpdate($id)
     {
-        $model = $this->findModel($id);
+        $model = $this->partyPersonalRepository->findModel($id);
         $modelPersonals = [new PersonalOffsetDynamic];
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
@@ -112,7 +131,7 @@ class PartyPersonalController extends Controller
      */
     public function actionDelete($id)
     {
-        $this->findModel($id)->delete();
+        $this->partyPersonalRepository->findModel($id)->delete();
 
         return $this->redirect(['index']);
     }

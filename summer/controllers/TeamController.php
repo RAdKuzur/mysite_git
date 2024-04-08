@@ -28,10 +28,9 @@ use yii\filters\VerbFilter;
  */
 class TeamController extends Controller
 {
-    public HistoryRepository $historyRepository;
+
     public DynamicModelRepository $dynamicModelRepository;
     public PartyTeamRepository $partyTeamRepository;
-    public PersonalOffsetRepository $personalOffsetRepository;
     public SiClickRepository $siClickRepository;
     public TeamRepository $teamRepository;
     public UserRepository $userRepository;
@@ -42,7 +41,6 @@ class TeamController extends Controller
         $module,
         TeamRepository $teamRepository,
         PartyTeamRepository $parTeamRepository,
-        PersonalOffsetRepository $perOffsetRepository,
         SiClickRepository $ClickRepository,
         UserRepository $usRepository,
         DynamicModelRepository $dynamicRepository,
@@ -56,7 +54,6 @@ class TeamController extends Controller
         $this->userRepository = $usRepository;
         $this->siClickRepository = $ClickRepository;
         $this->partyTeamRepository = $parTeamRepository;
-        $this->personalOffsetRepository = $perOffsetRepository;
         $this->dynamicModelRepository = $dynamicRepository;
         $this->timerRepository = $timeRepository;
     }

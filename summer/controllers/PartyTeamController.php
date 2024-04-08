@@ -3,6 +3,15 @@
 namespace app\controllers;
 
 use app\models\dynamic\PersonalOffsetDynamic;
+use app\repositories\DynamicModelRepository;
+use app\repositories\HistoryRepository;
+use app\repositories\PartyPersonalRepository;
+use app\repositories\PartyTeamRepository;
+use app\repositories\PersonalOffsetRepository;
+use app\repositories\SiClickRepository;
+use app\repositories\TeamRepository;
+use app\repositories\UserRepository;
+use app\services\SiteService;
 use Yii;
 use app\models\PartyTeam;
 use app\models\SearchPartyTeam;
@@ -15,6 +24,18 @@ use yii\filters\VerbFilter;
  */
 class PartyTeamController extends Controller
 {
+
+
+    public PartyTeamRepository $partyTeamRepository;
+    public function __construct(
+        $id,
+        $module,
+        PartyTeamRepository $parTeamRepository,
+        $config = [])
+    {
+        parent::__construct($id, $module, $config);
+        $this->partyTeamRepository = $parTeamRepository;
+    }
     /**
      * {@inheritdoc}
      */
@@ -36,12 +57,16 @@ class PartyTeamController extends Controller
      */
     public function actionIndex()
     {
+        $queryParams = Yii::$app->request->queryParams;
+/*
         $searchModel = new SearchPartyTeam();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+*/
 
+        $array = $this->partyTeamRepository->createModel($queryParams);
         return $this->render('index', [
-            'searchModel' => $searchModel,
-            'dataProvider' => $dataProvider,
+            'searchModel' => $array[0],
+            'dataProvider' => $array[1],
         ]);
     }
 
@@ -54,7 +79,7 @@ class PartyTeamController extends Controller
     public function actionView($id)
     {
         return $this->render('view', [
-            'model' => $this->findModel($id),
+            'model' => $this->partyTeamRepository->findModel($id),
         ]);
     }
 
@@ -87,13 +112,11 @@ class PartyTeamController extends Controller
      */
     public function actionUpdate($id)
     {
-        $model = $this->findModel($id);
+        $model = $this->partyTeamRepository->findModel($id);
         $modelPersonals = [new PersonalOffsetDynamic];
-
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         }
-
         return $this->render('update', [
             'model' => $model,
             'modelPersonals' => $modelPersonals,
@@ -109,11 +132,10 @@ class PartyTeamController extends Controller
      */
     public function actionDelete($id)
     {
-        $this->findModel($id)->delete();
+        $this->partyTeamRepository->findModel($id)->delete();
 
         return $this->redirect(['index']);
     }
-
     /**
      * Finds the PartyTeam model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
@@ -121,12 +143,5 @@ class PartyTeamController extends Controller
      * @return PartyTeam the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
-    protected function findModel($id)
-    {
-        if (($model = PartyTeam::findOne($id)) !== null) {
-            return $model;
-        }
 
-        throw new NotFoundHttpException('The requested page does not exist.');
-    }
 }

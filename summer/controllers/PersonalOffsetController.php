@@ -5,6 +5,15 @@ namespace app\controllers;
 use app\models\DynamicModel;
 use app\models\LoginForm;
 use app\models\PartyPersonal;
+use app\repositories\DynamicModelRepository;
+use app\repositories\HistoryRepository;
+use app\repositories\PartyPersonalRepository;
+use app\repositories\PartyTeamRepository;
+use app\repositories\PersonalOffsetRepository;
+use app\repositories\SiClickRepository;
+use app\repositories\TeamRepository;
+use app\repositories\UserRepository;
+use app\services\SiteService;
 use Yii;
 use app\models\PersonalOffset;
 use app\models\SearchPersonalOffset;
@@ -17,6 +26,22 @@ use yii\filters\VerbFilter;
  */
 class PersonalOffsetController extends Controller
 {
+    public PersonalOffsetRepository $personalOffsetRepository;
+    public DynamicModelRepository $dynamicModelRepository;
+    public PartyPersonalRepository $partyPersonalRepository;
+    public function __construct(
+        $id,
+        $module,
+        DynamicModelRepository $dynamicRepository,
+        PartyPersonalRepository $partyPersonalRepository,
+        PersonalOffsetRepository $perOffsetRepository,
+        $config = [])
+    {
+        parent::__construct($id, $module, $config);
+        $this->partyPersonalRepository = $partyPersonalRepository;
+        $this->dynamicModelRepository = $dynamicRepository;
+        $this->personalOffsetRepository = $perOffsetRepository;
+    }
     /**
      * {@inheritdoc}
      */
@@ -38,15 +63,15 @@ class PersonalOffsetController extends Controller
      */
     public function actionIndex()
     {
+        $queryParams = Yii::$app->request->post();
         if (Yii::$app->user->isGuest) {
-            return $this->redirect('index.php?r=site/login');
+            return $this->redirect(['site/login']);
+            //return $this->redirect('index.php?r=site/login');
         }
-        $searchModel = new SearchPersonalOffset();
-        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
-
+        $array = $this->personalOffsetRepository->createModel($queryParams);
         return $this->render('index', [
-            'searchModel' => $searchModel,
-            'dataProvider' => $dataProvider,
+            'searchModel' => $array[0],
+            'dataProvider' => $array[1],
         ]);
     }
 
@@ -59,7 +84,7 @@ class PersonalOffsetController extends Controller
     public function actionView($id)
     {
         return $this->render('view', [
-            'model' => $this->findModel($id),
+            'model' => $this->personalOffsetRepository->findModel($id),
         ]);
     }
 
@@ -72,12 +97,9 @@ class PersonalOffsetController extends Controller
     {
         $model = new PersonalOffset();
         $modelTeams = [new PartyPersonal];
-
-        if ($model->load(Yii::$app->request->post())) {
-            $modelTeams = DynamicModel::createMultiple(PartyPersonal::classname());
-            DynamicModel::loadMultiple($modelTeams, Yii::$app->request->post());
-            $model->personals = $modelTeams;
-            $model->save();
+        $requestPost = Yii::$app->request->post();
+        if ($model->load($requestPost)) {
+            $this->dynamicModelRepository->updatePersonals($model, $requestPost);
             return $this->redirect(['view', 'id' => $model->id]);
         }
 
@@ -98,12 +120,9 @@ class PersonalOffsetController extends Controller
     {
         $model = $this->findModel($id);
         $modelTeams = [new PartyPersonal];
-
-        if ($model->load(Yii::$app->request->post())) {
-            $modelTeams = DynamicModel::createMultiple(PartyPersonal::classname());
-            DynamicModel::loadMultiple($modelTeams, Yii::$app->request->post());
-            $model->personals = $modelTeams;
-            $model->save();
+        $requestPost = Yii::$app->request->post();
+        if ($model->load($requestPost)) {
+            $this->dynamicModelRepository->updatePersonals($model, $requestPost);
             return $this->redirect(['view', 'id' => $model->id]);
         }
 
@@ -115,7 +134,7 @@ class PersonalOffsetController extends Controller
 
     public function actionPersonalView($id)
     {
-        $scores = \app\models\PartyPersonal::find()->where(['personal_offset_id' => $id])->orderBy(['total_score' => SORT_DESC])->all();
+        $scores = $this->partyPersonalRepository->findByPersonalId($id);
         return $this->render('personal-view', [
             'scores' => $scores,
         ]);
@@ -130,16 +149,16 @@ class PersonalOffsetController extends Controller
      */
     public function actionDelete($id)
     {
-        $this->findModel($id)->delete();
+        $this->personalOffsetRepository->findModel($id)->delete();
 
         return $this->redirect(['index']);
     }
 
     public function actionDeletePartyPersonal($id, $modelId)
     {
-        $team = PartyPersonal::find()->where(['id' => $id])->one();
-        $team->delete();
-        return $this->redirect('index?r=personal-offset/update&id='.$modelId);
+        $this->partyPersonalRepository->findById($id);
+        //$this->redirect('index?r=personal-offset/update&id='.$modelId);
+        $this->redirect(['personal-offset/update', 'id' => $modelId]);
     }
 
     /**
@@ -149,12 +168,5 @@ class PersonalOffsetController extends Controller
      * @return PersonalOffset the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
-    protected function findModel($id)
-    {
-        if (($model = PersonalOffset::findOne($id)) !== null) {
-            return $model;
-        }
 
-        throw new NotFoundHttpException('The requested page does not exist.');
-    }
 }

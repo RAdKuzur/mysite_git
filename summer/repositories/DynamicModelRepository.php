@@ -1,6 +1,7 @@
 <?php
 namespace app\repositories;
 
+use app\models\dynamic\PersonalOffsetDynamic;
 use app\models\DynamicModel;
 use app\models\PartyPersonal;
 use app\models\PartyTeam;
@@ -24,6 +25,12 @@ class DynamicModelRepository
         $modelTeams = DynamicModel::createMultiple(PartyTeam::classname());
         DynamicModel::loadMultiple($modelTeams, $requestPost);
         $model->teams = $modelTeams;
+        $this->save($model);
+    }
+    public function updatePersonals($model, $requestPost){
+        $modelPersonals = DynamicModel::createMultiple(PersonalOffsetDynamic::classname());
+        DynamicModel::loadMultiple($modelPersonals, $requestPost);
+        $model->personals = $modelPersonals;
         $this->save($model);
     }
     public function save($model) {

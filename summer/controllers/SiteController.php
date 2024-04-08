@@ -42,12 +42,10 @@ class SiteController extends Controller
     public SiClickRepository $siClickRepository;
     public TeamRepository $teamRepository;
     public UserRepository $userRepository;
-    public SiteService $service;
-
     public function __construct(
         $id,
         $module,
-        SiteService $service,
+
         HistoryRepository $hisRepository,
         PartyTeamRepository $parTeamRepository,
         PersonalOffsetRepository $perOffsetRepository,
@@ -57,7 +55,6 @@ class SiteController extends Controller
         $config = [])
     {
         parent::__construct($id, $module, $config);
-        $this->service = $service;
         $this->teamRepository = $commandRepository;
         $this->userRepository = $usRepository;
         $this->siClickRepository = $ClickRepository;
