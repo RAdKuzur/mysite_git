@@ -1,6 +1,7 @@
 <?php
 
 namespace app\controllers;
+use app\models\PersonalOffset;
 use app\services\PartyTeamService;
 use app\models\dynamic\PersonalOffsetDynamic;
 use app\repositories\DynamicModelRepository;
@@ -90,8 +91,8 @@ class PartyTeamController extends Controller
      */
     public function actionCreate()
     {
-        $model = new PartyTeam();
-        $modelPersonals = [new PersonalOffsetDynamic];
+        $model = Yii::createObject(PartyTeam::class);
+        $modelPersonals = [Yii::createObject(PersonalOffsetDynamic::class)];
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
@@ -113,7 +114,7 @@ class PartyTeamController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->partyTeamRepository->findModel($id);
-        $modelPersonals = [new PersonalOffsetDynamic];
+        $modelPersonals = [Yii::createObject(PersonalOffsetDynamic::class)];
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         }

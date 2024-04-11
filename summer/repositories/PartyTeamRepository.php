@@ -31,33 +31,30 @@ class PartyTeamRepository
     public function plusNumb($id, $numb, $branch){
         $model = PartyTeam::find()->where(['id' => $id])->one();
         $model->plus($numb);
-        $model->total_score = $model->total_score + $numb;
-        $model->lastBranch = $branch;
-        //$model->save();
+        $model->lastBranch($branch);
         $this->saveModel($model);
         return $model;
     }
     public function plusScore($id, $score,$lastBranch)
     {
         $model = PartyTeam::find()->where(['id' => $id])->one();
-        $model->total_score = $model->total_score + $score;
-        $model->lastBranch = $lastBranch;
+        $model->plus($score);
+        $model->lastBranch($lastBranch);
         $this->saveModel($model);
         return $model;
     }
     public function minusNumb($id, $numb, $branch){
         $model = PartyTeam::find()->where(['id' => $id])->one();
-        $model->total_score = $model->total_score - $numb;
-        $model->lastBranch = $branch;
-        //$model->save();
+        $model->minus($numb);
+        $model->lastBranch($branch);
         $this->saveModel($model);
         return $model;
     }
     public function minusScore($id, $score,$lastBranch){
 
         $model = PartyTeam::find()->where(['id' => $id])->one();
-        $model->total_score = $model->total_score - $score;
-        $model->lastBranch = $lastBranch;
+        $model->minus($score);
+        $model->lastBranch($lastBranch);
         $this->saveModel($model);
         return $model;
     }
@@ -69,14 +66,16 @@ class PartyTeamRepository
     }
     public function deleteById($id){
         $team = PartyTeam::find()->where(['id' => $id])->one();
-        $team->delete();
+        if (!$team->delete()) {
+            throw new NotFoundHttpException('The model cannot be deleted');
+        }
     }
     public function findByTeamId($id):array
     {
         return \app\models\PartyTeam::find()->where(['team_id' => $id])->all();
     }
     public function createModel($queryParams){
-        $searchModel = new SearchPartyTeam();
+        $searchModel = Yii::createObject(SearchPartyTeam::class);
         $dataProvider = $searchModel->search($queryParams);
         return [$searchModel, $dataProvider];
     }
@@ -86,10 +85,7 @@ class PartyTeamRepository
         if (($model = PartyTeam::findOne($id)) !== null) {
             return $model;
         }
-
         throw new NotFoundHttpException('The requested page does not exist.');
     }
-
-
 
 }

@@ -51,4 +51,14 @@ class Timer extends \yii\db\ActiveRecord
             'check_time' => 'Check Time',
         ];
     }
+    public function reset(){
+        $this->seconds = 0;
+        $this->minutes = 0;
+        $this->hours = 0;
+    }
+    public function set($seconds,$minutes,$hours){
+        $this->seconds = $seconds;
+        $this->minutes = $minutes;
+        $this->hours = $hours;
+    }
 }

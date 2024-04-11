@@ -95,8 +95,8 @@ class PersonalOffsetController extends Controller
      */
     public function actionCreate()
     {
-        $model = new PersonalOffset();
-        $modelTeams = [new PartyPersonal];
+        $model = Yii::createObject(PersonalOffset::class);
+        $modelTeams = [Yii::createObject(PartyPersonal::class)];
         $requestPost = Yii::$app->request->post();
         if ($model->load($requestPost)) {
             $this->dynamicModelRepository->updatePersonals($model, $requestPost);
@@ -119,7 +119,7 @@ class PersonalOffsetController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
-        $modelTeams = [new PartyPersonal];
+        $modelTeams = [Yii::createObject(PartyPersonal::class)];
         $requestPost = Yii::$app->request->post();
         if ($model->load($requestPost)) {
             $this->dynamicModelRepository->updatePersonals($model, $requestPost);

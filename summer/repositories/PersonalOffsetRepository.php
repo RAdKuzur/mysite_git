@@ -31,7 +31,7 @@ class PersonalOffsetRepository
         return PersonalOffset::find()->where(['id' => $model->name])->one();
     }
     public function createModel($queryParams){
-        $searchModel = new SearchPersonalOffset();
+        $searchModel = Yii::createObject(SearchPersonalOffset::class);
         $dataProvider = $searchModel->search($queryParams);
         return [$searchModel, $dataProvider];
     }

@@ -96,7 +96,7 @@ class TeamController extends Controller
     public function actionView($id)
     {
         return $this->render('view', [
-            'model' => $this->teamRepository->findModel($id),
+            'model' => $this->teamRepository->findModelDelete($id),
         ]);
     }
 
@@ -107,9 +107,8 @@ class TeamController extends Controller
      */
     public function actionCreate()
     {
-
-        $model = new Team();
-        $modelTeams = [new PartyTeam];
+        $model = Yii::createObject(Team::class);
+        $modelTeams = [Yii::createObject(PartyTeam::class)];
         $requestPost = Yii::$app->request->post();
         if ($model->load(Yii::$app->request->post())) {
             $this->dynamicModelRepository->updateTeams($model, $requestPost);
@@ -131,7 +130,7 @@ class TeamController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->teamRepository->findModel($id);
-        $modelTeams = [new PartyTeam];
+        $modelTeams = [Yii::createObject(PartyTeam::class)];
         if ($model->load(Yii::$app->request->post())) {
             $this->dynamicModelRepository->updateTeams($model);
             return $this->redirect(['view', 'id' => $model->id]);
@@ -167,11 +166,6 @@ class TeamController extends Controller
 
     public function actionTimerVisible($id)
     {
-
-        /* $currentVisible = Yii::$app->session->get('t_vis');
-        if ($currentVisible == null) Yii::$app->session->set('t_vis', 1);
-        else Yii::$app->session->set('t_vis', abs($currentVisible - 1));
-        */
         $this->teamService->currentVisible();
         $scores = $this->teamService->findByTeamId($id);
         $timer = $this->teamService->findByName();
@@ -191,16 +185,12 @@ class TeamController extends Controller
      */
     public function actionDelete($id)
     {
-        //$this->findModel($id)->delete();
-        $this->teamRepository->findModelAndDelete($id);
+        $this->teamRepository->findModel($id);
         return $this->redirect(['index']);
     }
 
     public function actionDeletePartyTeam($id, $modelId)
     {
-        /*$team = PartyTeam::find()->where(['id' => $id])->one();
-        $team->delete();
-        */
         $this->partyTeamRepository->deleteById($id);
         return $this->redirect('index?r=team/update&id='.$modelId);
     }

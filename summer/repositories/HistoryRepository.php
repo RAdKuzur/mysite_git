@@ -10,6 +10,7 @@ use http\Exception\RuntimeException;
 use Yii;
 use yii\filters\AccessControl;
 use yii\web\Controller;
+use yii\web\NotFoundHttpException;
 use yii\web\Response;
 use yii\filters\VerbFilter;
 use app\models\LoginForm;
@@ -20,19 +21,15 @@ use app\services\SiteService;
 class HistoryRepository
 {
     public function siteWriteHistory($score, $party_team_id){
-        $history = new History();
-        $history->score = $score;
-        $history->party_team_id = $party_team_id;
-        $history->date_time = date('-m-d h:i:s');
+        $history = Yii::createObject(History::class);
+        $history->dataset($score, $party_team_id);
         $this->saveModel($history);
-
-        //$history->save();
-
     }
-
-
     public function saveModel(History $model)
     {
-        $model->save();
+        if (!$model->save()) {
+            throw new NotFoundHttpException('The model cannot be saved');
+        }
+
     }
 }

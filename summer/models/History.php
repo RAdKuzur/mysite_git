@@ -50,7 +50,12 @@ class History extends \yii\db\ActiveRecord
             'party_team_id' => 'Party Team ID',
         ];
     }
-
+    public function dataset($score, $party_team_id)
+    {
+        $this->score = $score;
+        $this->party_team_id = $party_team_id;
+        $this->date_time = date('-m-d h:i:s');
+    }
     /**
      * Gets query for [[PartyTeam]].
      *

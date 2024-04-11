@@ -25,11 +25,13 @@ class PartyPersonalRepository
     public function searchPartyPersonal($queryParams)
     {
         $searchModel = Yii::createObject(SearchPartyPersonal::class);
-        $dataProvider = $searchModel->search($queryParams);
+            $dataProvider = $searchModel->search($queryParams);
         return [$searchModel,  $dataProvider];
     }
     public function save($model) {
-        $model->save();
+        if (!$model->save()) {
+            throw new NotFoundHttpException('The model cannot be saved');
+        }
     }
     public function findModel($id)
     {
@@ -40,7 +42,9 @@ class PartyPersonalRepository
     }
     public function findById($id){
         $team = PartyPersonal::find()->where(['id' => $id])->one();
-        $team->delete();
+        if (!$team->delete()) {
+            throw new NotFoundHttpException('The requested page does not exist.');
+        }
     }
     public function findByPersonalId($id){
         return \app\models\PartyPersonal::find()->where(['personal_offset_id' => $id])->orderBy(['total_score' => SORT_DESC])->all();

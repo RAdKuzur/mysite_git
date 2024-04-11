@@ -26,7 +26,7 @@ class TeamRepository
     }
     public function findTeamByQuery()
     {
-        $searchModel = new SearchTeam();
+        $searchModel = Yii::createObject(SearchTeam::class);
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
         $array = [$dataProvider, $searchModel];
         return $array;
@@ -39,9 +39,12 @@ class TeamRepository
 
         throw new NotFoundHttpException('The requested page does not exist.');
     }
-    public function findModelAndDelete($id)
+    public function findModelDelete($id)
     {
-        $this->findModel($id)->delete();
+        $model = $this->findModel($id);
+        if (!$model->delete()) {
+            throw new NotFoundHttpException('The requested page does not exist.');
+        }
     }
 
 }

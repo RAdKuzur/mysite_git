@@ -80,4 +80,12 @@ class PartyTeam extends \yii\db\ActiveRecord
     {
         $this->total_score += $numb;
     }
+    public function lastBranch($branch)
+    {
+        $this->lastBranch = $branch;
+    }
+    public function minus($numb)
+    {
+        $this->total_score -= $numb;
+    }
 }

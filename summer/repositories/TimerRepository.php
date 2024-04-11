@@ -10,6 +10,7 @@ use http\Exception\RuntimeException;
 use Yii;
 use yii\filters\AccessControl;
 use yii\web\Controller;
+use yii\web\NotFoundHttpException;
 use yii\web\Response;
 use yii\filters\VerbFilter;
 use app\models\LoginForm;
@@ -26,21 +27,19 @@ class TimerRepository
     public function updateTime($seconds,$minutes,$hours)
     {
         $timer = \app\models\Timer::find()->where(['name' => 'Main Timer'])->one();
-        $timer->seconds = $seconds;
-        $timer->minutes = $minutes;
-        $timer->hours = $hours;
+        $timer->set($seconds,$minutes,$hours);
         $this->save($timer);
     }
     public function resetTime(){
         $timer = \app\models\Timer::find()->where(['name' => 'Main Timer'])->one();
-        $timer->seconds = 0;
-        $timer->minutes = 0;
-        $timer->hours = 0;
+        $timer->reset();
         $this->save($timer);
     }
 
     public function save($model)
     {
-        $model->save();
+        if (!$model->save()) {
+            throw new NotFoundHttpException('The model cannot be saved');
+        }
     }
 }

@@ -87,8 +87,8 @@ class PartyPersonalController extends Controller
      */
     public function actionCreate()
     {
-        $model = new PartyPersonal();
-        $modelPersonals = [new PersonalOffsetDynamic];
+        $model = Yii::createObject(PartyPersonal::class);
+        $modelPersonals = [Yii::createObject(PersonalOffsetDynamic::class)];
         $requestPost = Yii::$app->request->post();
         if ($model->load($requestPost)) {
 
@@ -113,7 +113,7 @@ class PartyPersonalController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->partyPersonalRepository->findModel($id);
-        $modelPersonals = [new PersonalOffsetDynamic];
+        $modelPersonals = [Yii::createObject(PersonalOffsetDynamic::class)];
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         }

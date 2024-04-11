@@ -129,7 +129,7 @@ class SiteController extends Controller
 
     public function actionSiUser($name)
     {
-        $model = new SiClick();
+        $model = Yii::createObject(SiClick::class);
         $this->service->siteSiUser($name);
         if ($model->load(Yii::$app->request->post())) {
             $this->render('si-admin');
@@ -140,7 +140,7 @@ class SiteController extends Controller
 
     public function actionSiConfirm()
     {
-        $model = new SiClick();
+        $model = Yii::createObject(SiClick::class);
         $name = $this->userRepository->findUser();
         $this->service->userUpdateIdTime($model, $name);
         $duplicate = $this->service->findSiClickById($name);
@@ -159,7 +159,7 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        $model = new LoginForm();
+        $model = Yii::createObject(LoginForm::class);
         if (Yii::$app->user->isGuest) {
             return $this->render('login', [
                 'model' => $model,
@@ -169,7 +169,7 @@ class SiteController extends Controller
     }
     public function actionIndexTeam()
     {
-        $model = new Team();
+        $model = Yii::createObject(Team::class);
         if (Yii::$app->user->isGuest) {
             return $this->redirect(['site/login']);
         }
@@ -182,7 +182,7 @@ class SiteController extends Controller
     }
     public function actionIndexPersonal()
     {
-        $model = new PersonalOffset();
+        $model = Yii::createObject(PersonalOffset::class);
         if (Yii::$app->user->isGuest) {
             return $this->redirect(['site/login']);
         }
@@ -195,7 +195,7 @@ class SiteController extends Controller
     }
     public function actionChooseColor($id = null, $branch = null)
     {
-        $model = new PartyTeam();
+        $model  = Yii::createObject(PartyTeam::class);
         if (Yii::$app->user->isGuest) {
             return $this->redirect(['site/login']);
         }
@@ -209,7 +209,7 @@ class SiteController extends Controller
 
     public function actionLogin()
     {
-        $model = new LoginForm();
+        $model = Yii::createObject(LoginForm::class);
         if (!Yii::$app->user->isGuest)
             return $this->redirect('index');
         if ($model->load(Yii::$app->request->post())) {
@@ -244,7 +244,7 @@ class SiteController extends Controller
      */
     public function actionContact()
     {
-        $model = new ContactForm();
+        $model =  Yii::createObject(ContactForm::class);
         if ($model->load(Yii::$app->request->post()) && $model->contact(Yii::$app->params['adminEmail'])) {
             $this->service->siteContact();
             return $this->refresh();
@@ -266,7 +266,7 @@ class SiteController extends Controller
     public function actionTeamView()
     {
         if (Yii::$app->user->isGuest) {
-            $model = new LoginForm();
+            $model = Yii::createObject(LoginForm::class);
             return $this->render('login', [
                 'model' => $model,
             ]);
@@ -276,7 +276,7 @@ class SiteController extends Controller
     public function actionPersonalView()
     {
         if (Yii::$app->user->isGuest) {
-            $model = new LoginForm();
+            $model = Yii::createObject(LoginForm::class);
             return $this->render('login', [
                 'model' => $model,
             ]);
@@ -286,12 +286,12 @@ class SiteController extends Controller
     public function actionPlus($numb, $id = null, $branch = null)
     {
         if (Yii::$app->user->isGuest) {
-            $model = new LoginForm();
+            $model = Yii::createObject(LoginForm::class);
             return $this->render('login', [
                 'model' => $model,
             ]);
         }
-        $model = new PartyTeam();
+        $model = Yii::createObject(PartyTeam::class);
         if ($id !== null) {
             $model = $this->partyTeamRepository->plusNumb($id, $numb, $branch);
             $this->historyRepository->siteWriteHistory('+' . $numb, $model->id);
@@ -310,7 +310,7 @@ class SiteController extends Controller
                 'model' => $model,
             ]);
         }
-        $model = new PartyTeam();
+        $model = Yii::createObject(PartyTeam::class);
         if (Yii::$app->request->post('PartyTeam')['id']) {
 
             $id = Yii::$app->request->post('PartyTeam')['id'];
@@ -328,12 +328,12 @@ class SiteController extends Controller
     public function actionMinus($numb, $id = null, $branch = null)
     {
         if (Yii::$app->user->isGuest) {
-            $model = new LoginForm();
+            $model = Yii::createObject(LoginForm::class);
             return $this->render('login', [
                 'model' => $model,
             ]);
         }
-        $model = new PartyTeam();
+        $model = Yii::createObject(PartyTeam::class);
         if ($id !== null) {
             $model = $this->partyTeamRepository->minusNumb($id, $numb, $branch);
             $this->historyRepository->siteWriteHistory('-' . $numb, $model->id);
@@ -347,7 +347,7 @@ class SiteController extends Controller
     public function actionMinusVal()
     {
         if (Yii::$app->user->isGuest) {
-            $model = new LoginForm();
+            $model= Yii::createObject(LoginForm::class);
             return $this->render('login', [
                 'model' => $model,
             ]);
