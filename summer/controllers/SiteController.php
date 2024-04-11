@@ -17,7 +17,6 @@ use app\models\ContactForm;
 use app\models\User;
 use app\models\SiClick;
 use app\services\SiteService;
-use app\repositories\SiteRepository;
 use app\repositories\ColorRepository;
 use app\repositories\ContactFormRepository;
 use app\repositories\DynamicModelRepository;
@@ -26,10 +25,6 @@ use app\repositories\LoginFormRepository;
 use app\repositories\PartyTeamRepository;
 use app\repositories\PartyPersonalRepository;
 use app\repositories\PersonalOffsetRepository;
-use app\repositories\SearchPartyPersonalRepository;
-use app\repositories\SearchPartyTeamRepository;
-use app\repositories\SearchPersonalOffsetRepository;
-use app\repositories\SearchTeamRepository;
 use app\repositories\SiClickRepository;
 use app\repositories\TeamRepository;
 use app\repositories\TimerRepository;
@@ -37,6 +32,7 @@ use app\repositories\UserRepository;
 class SiteController extends Controller
 {
     public HistoryRepository $historyRepository;
+    private SiteService $service;
     public PartyTeamRepository $partyTeamRepository;
     public PersonalOffsetRepository $personalOffsetRepository;
     public SiClickRepository $siClickRepository;
@@ -45,7 +41,7 @@ class SiteController extends Controller
     public function __construct(
         $id,
         $module,
-
+        SiteService $service,
         HistoryRepository $hisRepository,
         PartyTeamRepository $parTeamRepository,
         PersonalOffsetRepository $perOffsetRepository,
@@ -55,6 +51,7 @@ class SiteController extends Controller
         $config = [])
     {
         parent::__construct($id, $module, $config);
+        $this->service = $service;
         $this->teamRepository = $commandRepository;
         $this->userRepository = $usRepository;
         $this->siClickRepository = $ClickRepository;

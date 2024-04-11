@@ -22,6 +22,13 @@ class SearchPartyTeam extends PartyTeam
         ];
     }
 
+    public static function make()
+    {
+        $entity = new static();
+        $entity->team_name = 'default';
+    }
+
+
     /**
      * {@inheritdoc}
      */

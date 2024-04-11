@@ -142,11 +142,4 @@ class PartyPersonalController extends Controller
      * @return PartyPersonal the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
-    protected function findModel($id)
-    {
-        if (($model = PartyPersonal::findOne($id)) !== null) {
-            return $model;
-        }
-        throw new NotFoundHttpException('The requested page does not exist.');
-    }
 }

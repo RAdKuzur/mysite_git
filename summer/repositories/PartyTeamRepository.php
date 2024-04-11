@@ -30,6 +30,7 @@ class PartyTeamRepository
     }
     public function plusNumb($id, $numb, $branch){
         $model = PartyTeam::find()->where(['id' => $id])->one();
+        $model->plus($numb);
         $model->total_score = $model->total_score + $numb;
         $model->lastBranch = $branch;
         //$model->save();
@@ -62,7 +63,9 @@ class PartyTeamRepository
     }
     public function saveModel(PartyTeam $model)
     {
-        $model->save();
+        if(!$model->save()) {
+            return new \DomainException('Model not saving');
+        }
     }
     public function deleteById($id){
         $team = PartyTeam::find()->where(['id' => $id])->one();

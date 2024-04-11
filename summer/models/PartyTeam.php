@@ -75,4 +75,9 @@ class PartyTeam extends \yii\db\ActiveRecord
     {
         return $this->hasOne(Color::className(), ['id' => 'color_id']);
     }
+
+    public function plus($numb)
+    {
+        $this->total_score += $numb;
+    }
 }

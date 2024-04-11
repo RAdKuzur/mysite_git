@@ -24,7 +24,7 @@ class PartyPersonalRepository
 {
     public function searchPartyPersonal($queryParams)
     {
-        $searchModel = new SearchPartyPersonal();
+        $searchModel = Yii::createObject(SearchPartyPersonal::class);
         $dataProvider = $searchModel->search($queryParams);
         return [$searchModel,  $dataProvider];
     }
