@@ -31,6 +31,7 @@ class SiClickRepository
     public function findSiClickById($name){
         return SiClick::find()->where(['user_id' => $name->id])->one();
     }
+
     public function saveSiClick(SiClick $model){
         if (!$model->save())
             throw new RuntimeException('Saving error');

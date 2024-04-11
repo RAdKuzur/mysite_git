@@ -1,7 +1,7 @@
 <?php
 
 namespace app\controllers;
-
+use app\services\PartyPersonalService;
 use app\models\DynamicModel;
 use app\repositories\DynamicModelRepository;
 use app\repositories\HistoryRepository;
@@ -26,6 +26,7 @@ use yii\filters\VerbFilter;
 class PartyPersonalController extends Controller
 {
     public DynamicModelRepository $dynamicModelRepository;
+
     public PartyPersonalRepository $partyPersonalRepository;
     public function __construct(
         $id,

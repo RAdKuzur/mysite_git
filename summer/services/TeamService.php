@@ -9,6 +9,8 @@ use app\models\PersonalOffset;
 use app\models\Team;
 use app\models\History;
 use app\repositories\HistoryRepository;
+use app\repositories\PartyTeamRepository;
+use app\repositories\TimerRepository;
 use Yii;
 use yii\filters\AccessControl;
 use yii\web\Controller;
@@ -21,6 +23,19 @@ use app\models\SiClick;
 
 class TeamService
 {
+
+    public PartyTeamRepository $partyTeamRepository;
+    public TimerRepository $timerRepository;
+
+
+    public function findByTeamId($id):array
+    {
+        return $this->partyTeamRepository->findByTeamId($id);
+    }
+    public function findByName()
+    {
+        return $this->timerRepository->findByName();
+    }
     public function currentVisible()
     {
         $currentVisible = Yii::$app->session->get('t_vis');

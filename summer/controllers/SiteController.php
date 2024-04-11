@@ -137,14 +137,16 @@ class SiteController extends Controller
         return $this->render('si-user', ['model' => $model]);
     }
 
+
     public function actionSiConfirm()
     {
         $model = new SiClick();
         $name = $this->userRepository->findUser();
         $this->service->userUpdateIdTime($model, $name);
-        $duplicate = $this->siClickRepository->findSiClickById($name);
+        $duplicate = $this->service->findSiClickById($name);
         if ($duplicate == null) {
-            $this->siClickRepository->saveSiClick($model);
+            $this->service->saveSiClick($model);
+
         }
         return $this->redirect(['site/si-user', 'name' => Yii::$app->session->get('user')]);
     }

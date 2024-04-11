@@ -173,8 +173,8 @@ class TeamController extends Controller
         else Yii::$app->session->set('t_vis', abs($currentVisible - 1));
         */
         $this->teamService->currentVisible();
-        $scores = $this->partyTeamRepository->findByTeamId($id);
-        $timer = $this->timerRepository->findByName();
+        $scores = $this->teamService->findByTeamId($id);
+        $timer = $this->teamService->findByName();
         return $this->render('team-view', [
             'scores' => $scores,
             'timer' => $timer,
