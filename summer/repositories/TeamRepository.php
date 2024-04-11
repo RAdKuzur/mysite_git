@@ -42,7 +42,11 @@ class TeamRepository
     public function findModelDelete($id)
     {
         $model = $this->findModel($id);
-        if (!$model->delete()) {
+        $this->delete($model);
+
+    }
+    public function delete(PartyPersonal $team){
+        if (!$team->delete($team)) {
             throw new NotFoundHttpException('The requested page does not exist.');
         }
     }

@@ -25,7 +25,7 @@ class PartyTeamRepository
     public function findChooseColor($branch,$id)
     {
         $model = PartyTeam::find()->where(['id' => $id])->one();
-        $model->lastBranch = $branch;
+        $model->lastBranch($branch);
         return $model;
     }
     public function plusNumb($id, $numb, $branch){
@@ -66,9 +66,7 @@ class PartyTeamRepository
     }
     public function deleteById($id){
         $team = PartyTeam::find()->where(['id' => $id])->one();
-        if (!$team->delete()) {
-            throw new NotFoundHttpException('The model cannot be deleted');
-        }
+        $this->delete($team);
     }
     public function findByTeamId($id):array
     {
@@ -86,6 +84,11 @@ class PartyTeamRepository
             return $model;
         }
         throw new NotFoundHttpException('The requested page does not exist.');
+    }
+    public function delete(PartyTeam $team){
+        if (!$team->delete($team)) {
+            throw new NotFoundHttpException('The requested page does not exist.');
+        }
     }
 
 }

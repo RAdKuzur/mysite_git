@@ -26,7 +26,7 @@ class SiClickRepository
     }
     public function deleteSiClickAll($click)
     {
-        $click->delete();
+        $this->delete($click);
     }
     public function findSiClickById($name){
         return SiClick::find()->where(['user_id' => $name->id])->one();
@@ -35,5 +35,10 @@ class SiClickRepository
     public function saveSiClick(SiClick $model){
         if (!$model->save())
             throw new RuntimeException('Saving error');
+    }
+    public function delete($click){
+        if (!$click->delete()) {
+            throw new NotFoundHttpException('The requested page does not exist.');
+        }
     }
 }

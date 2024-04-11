@@ -42,11 +42,15 @@ class PartyPersonalRepository
     }
     public function findById($id){
         $team = PartyPersonal::find()->where(['id' => $id])->one();
-        if (!$team->delete()) {
-            throw new NotFoundHttpException('The requested page does not exist.');
-        }
+        $this->delete($team);
+
     }
     public function findByPersonalId($id){
         return \app\models\PartyPersonal::find()->where(['personal_offset_id' => $id])->orderBy(['total_score' => SORT_DESC])->all();
+    }
+    public function delete(PartyPersonal $team){
+        if (!$team->delete($team)) {
+            throw new NotFoundHttpException('The requested page does not exist.');
+        }
     }
 }
