@@ -22,19 +22,19 @@ use app\models\SiClick;
 use app\services\SiteService;
 class DynamicModelRepository
 {
-    public function updateTeams(DynamicModel $model, $requestPost) {
+    public function updateTeams($model, $requestPost) {
         $modelTeams = DynamicModel::createMultiple(PartyTeam::classname());
         DynamicModel::loadMultiple($modelTeams, $requestPost);
         $model->teams = $modelTeams;
         $this->save($model);
     }
-    public function updatePersonals(DynamicModel $model, $requestPost){
+    public function updatePersonals($model, $requestPost){
         $modelPersonals = DynamicModel::createMultiple(PersonalOffsetDynamic::classname());
         DynamicModel::loadMultiple($modelPersonals, $requestPost);
         $model->personals = $modelPersonals;
         $this->save($model);
     }
-    public function save(DynamicModel $model) {
+    public function save($model) {
 
         if (!$model->save()) {
             throw new NotFoundHttpException('The requested page does not exist.');

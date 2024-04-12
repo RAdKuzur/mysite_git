@@ -22,6 +22,7 @@ use app\models\SearchTeam;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\web\Request;
 
 /**
  * TeamController implements the CRUD actions for Team model.
@@ -96,7 +97,7 @@ class TeamController extends Controller
     public function actionView($id)
     {
         return $this->render('view', [
-            'model' => $this->teamRepository->findModelDelete($id),
+            'model' => $this->teamRepository->findModel($id),
         ]);
     }
 
@@ -131,8 +132,9 @@ class TeamController extends Controller
     {
         $model = $this->teamRepository->findModel($id);
         $modelTeams = [Yii::createObject(PartyTeam::class)];
+        $requestPost = Yii::$app->request->post();
         if ($model->load(Yii::$app->request->post())) {
-            $this->dynamicModelRepository->updateTeams($model);
+            $this->dynamicModelRepository->updateTeams($model, $requestPost);
             return $this->redirect(['view', 'id' => $model->id]);
         }
         return $this->render('update', [

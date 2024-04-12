@@ -39,16 +39,12 @@ class TeamRepository
 
         throw new NotFoundHttpException('The requested page does not exist.');
     }
-    public function findModelDelete($id)
-    {
-        $model = $this->findModel($id);
-        $this->delete($model);
 
-    }
-    public function delete(PartyPersonal $team){
-        if (!$team->delete($team)) {
+    public function delete($team){
+        if (!$team->delete()) {
             throw new NotFoundHttpException('The requested page does not exist.');
         }
+        return true;
     }
 
 }
