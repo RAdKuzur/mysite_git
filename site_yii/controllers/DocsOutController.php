@@ -63,6 +63,7 @@ class DocsOutController extends Controller
      */
     public function actionIndex($archive = null, $type = null)
     {
+
         $session = Yii::$app->session;
         if ($archive !== null && $type !== null)
             $session->set("archiveOut", "1");
@@ -138,7 +139,6 @@ class DocsOutController extends Controller
     public function actionCreateReserve()
     {
         $model = new DocumentOutWork();
-
         $model->document_theme = 'Резерв';
         $model->document_name = '';
         //$model->document_date = end(DocumentOutWork::find()->orderBy(['document_number' => SORT_ASC, 'document_postfix' => SORT_ASC])->all())->document_date;

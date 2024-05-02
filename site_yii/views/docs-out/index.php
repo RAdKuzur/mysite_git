@@ -14,6 +14,7 @@ $this->params['breadcrumbs'][] = $this->title;
 $session = Yii::$app->session;
 $tempArchive = $session->get("archiveOut");
 ?>
+
 <div class="document-out-index">
 
     <h1><?= Html::encode($this->title) ?></h1>
@@ -91,15 +92,17 @@ $tempArchive = $session->get("archiveOut");
             ['attribute' => 'positionCompany','label' => 'Кому адресован', 'value' => function ($model) {
                 if ($model->position_id == 7)
                     return $model->company->name;
-                return $model->position->name.' '.$model->company->name;
+                return $model->position ? $model->position->name.' '.$model->company->name: " ";
+               // return $model->position->name.' '.$model->company->name;
             },
             ],
             ['attribute' => 'signedName','label' => 'Кем подписан', 'value' => function ($model) {
-                return $model->signed->secondname.' '.mb_substr($model->signed->firstname, 0, 1).'.'.mb_substr($model->signed->patronymic, 0, 1).'.';
+                //return $model->signed->secondname.' '.mb_substr($model->signed->firstname, 0, 1).'.'.mb_substr($model->signed->patronymic, 0, 1).'.';
+                return $model->signed ? $model->signed->secondname.' '.mb_substr($model->signed->firstname, 0, 1).'.'.mb_substr($model->signed->patronymic, 0, 1).'.': " ";
             },
             ],
             ['attribute' => 'executorName','label' => 'Кто исполнитель', 'value' => function ($model) {
-                return $model->executor->secondname.' '.mb_substr($model->executor->firstname, 0, 1).'.'.mb_substr($model->executor->patronymic, 0, 1).'.';
+                return $model->executor?$model->executor->secondname.' '.mb_substr($model->executor->firstname, 0, 1).'.'.mb_substr($model->executor->patronymic, 0, 1).'.':" ";
             },
             ],
             ['attribute' => 'sendMethodName','label' => 'Способ отправления', 'value' => 'sendMethod.name'],
