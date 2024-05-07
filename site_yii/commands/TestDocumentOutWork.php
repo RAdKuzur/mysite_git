@@ -16,7 +16,7 @@ use Yii;
 use yii\helpers\ArrayHelper;
 use app\models\components\YandexDiskContext;
 use yii\helpers\Html;
-use app\commands\Generator_helpers\Helper;
+use app\commands\Generator_helpers\DocHelper;
 
 class TestDocumentOutWork extends DocumentOut
 {
@@ -36,9 +36,9 @@ class TestDocumentOutWork extends DocumentOut
     {
         $this->document_number = $document_number;
         $this->document_date = $randomDate;
-        $this->document_name = Helper::$array_name[$FirstRandomKey];
-        $this->document_theme = Helper::$array_theme[$SecondRandomKey];
-        $this->key_words = Helper::$array_keywords[$ThirdRandomKey];
+        $this->document_name = DocHelper::$array_name[$FirstRandomKey];
+        $this->document_theme = DocHelper::$array_theme[$SecondRandomKey];
+        $this->key_words = DocHelper::$array_keywords[$ThirdRandomKey];
         $this->correspondent_id = 1;
         $this->company_id = 1;
         $this->position_id = 1;

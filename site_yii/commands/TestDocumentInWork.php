@@ -2,7 +2,7 @@
 
 namespace app\commands;
 
-use app\commands\Generator_helpers\Helper;
+use app\commands\Generator_helpers\DocHelper;
 use app\models\common\Company;
 use app\models\common\DocumentIn;
 use app\models\common\InOutDocs;
@@ -42,9 +42,9 @@ class TestDocumentInWork extends DocumentIn
         $this->position_id = 1;
         $this->send_method_id = 2;
         //$this->register_id = 1;
-        $this->document_theme = Helper::$array_theme[$SecondRandomKey];
+        $this->document_theme = DocHelper::$array_theme[$SecondRandomKey];
 
-        $this->key_words = Helper::$array_keywords[$ThirdRandomKey];
+        $this->key_words = DocHelper::$array_keywords[$ThirdRandomKey];
         parent::__construct();
     }
     public function rules()

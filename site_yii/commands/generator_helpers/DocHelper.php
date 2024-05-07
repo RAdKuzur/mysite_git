@@ -2,7 +2,7 @@
 
 namespace app\commands\Generator_helpers;
 
-class Helper
+class DocHelper
 {
     static $array_name = [
         "Секретный Проект Альфа", "Операция Лунная Тень", "Протокол Океанский Ветер", "Код Черный Лотос",

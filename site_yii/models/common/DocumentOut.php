@@ -2,7 +2,7 @@
 
 namespace app\models\common;
 
-use app\commands\Generator_helpers\Helper;
+use app\commands\Generator_helpers\DocHelper;
 use app\commands\TestDocumentOutWork;
 use app\models\components\FileWizard;
 use Faker\Provider\File;

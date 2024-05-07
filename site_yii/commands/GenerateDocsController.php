@@ -6,7 +6,7 @@
  */
 
 namespace app\commands;
-use app\commands\Generator_helpers\Helper;
+use app\commands\Generator_helpers\DocHelper;
 use app\controllers\DocsOutController;
 use app\models\common\People;
 use app\models\common\SendMethod;
@@ -17,7 +17,7 @@ use yii\console\Controller;
 use yii\console\ExitCode;
 use yii\web\UploadedFile;
 use app\commands;
-class HelloController extends Controller
+class GenerateDocsController extends Controller
 {
     /**
     /**
@@ -38,9 +38,9 @@ class HelloController extends Controller
     public function actionDocoutcreate($number)
     {
         for($i = 0; $i < $number; $i++) {
-            $FirstRandomKey = array_rand(Helper::$array_name);
-            $SecondRandomKey = array_rand(Helper::$array_theme);
-            $ThirdRandomKey = array_rand(Helper::$array_keywords);
+            $FirstRandomKey = array_rand(DocHelper::$array_name);
+            $SecondRandomKey = array_rand(DocHelper::$array_theme);
+            $ThirdRandomKey = array_rand(DocHelper::$array_keywords);
             $year = date('Y');
             $startDate = strtotime("01 January $year");
             $endDate = strtotime(date("Y-m-d"));
@@ -55,8 +55,8 @@ class HelloController extends Controller
     }
     public function actionDocincreate($number){
         for($i = 0; $i < $number; $i++) {
-            $SecondRandomKey = array_rand(Helper::$array_theme);
-            $ThirdRandomKey = array_rand(Helper::$array_keywords);
+            $SecondRandomKey = array_rand(DocHelper::$array_theme);
+            $ThirdRandomKey = array_rand(DocHelper::$array_keywords);
             $real_number = rand(1,10000);
             $local_number = TestDocumentInWork::find()
                 ->select('local_number')
