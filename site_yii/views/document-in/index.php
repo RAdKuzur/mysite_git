@@ -115,7 +115,7 @@ $tempArchive = $session->get("archiveIn");
                 ['attribute' => 'real_number', 'label' => 'Рег. номер<br>входящего док.', 'encodeLabel' => false],
 
                 ['attribute' => 'companyName', 'label' => 'Наименование<br>корреспондента', 'encodeLabel' => false, 'value' => function ($model) {
-                    return $model->company->name;
+                    return $model->company ? $model->company->name: '';
                 }],
                 ['attribute' => 'document_theme', 'label' => 'Тема документа', 'encodeLabel' => false],
                 ['attribute' => 'sendMethodName','label' => 'Способ получения', 'value' => 'sendMethod.name'],

@@ -2,6 +2,8 @@
 
 namespace app\models\common;
 
+use app\commands\Generator_helpers\Helper;
+use app\commands\TestDocumentOutWork;
 use app\models\components\FileWizard;
 use Faker\Provider\File;
 use Yii;
@@ -42,6 +44,7 @@ class DocumentOut extends \yii\db\ActiveRecord
     /**
      * {@inheritdoc}
      */
+
     public static function tableName()
     {
         return 'document_out';

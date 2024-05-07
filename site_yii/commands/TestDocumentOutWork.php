@@ -16,7 +16,7 @@ use Yii;
 use yii\helpers\ArrayHelper;
 use app\models\components\YandexDiskContext;
 use yii\helpers\Html;
-
+use app\commands\Generator_helpers\Helper;
 
 class TestDocumentOutWork extends DocumentOut
 {
@@ -27,9 +27,29 @@ class TestDocumentOutWork extends DocumentOut
     public $executorString;
     public $creatorString;
     public $positionCompany;
-
     public $isAnswer;
-
+    public DocumentOut $model;
+    public function __construct(
+        $document_number, $randomDate,
+        $FirstRandomKey, $SecondRandomKey, $ThirdRandomKey
+    )
+    {
+        $this->document_number = $document_number;
+        $this->document_date = $randomDate;
+        $this->document_name = Helper::$array_name[$FirstRandomKey];
+        $this->document_theme = Helper::$array_theme[$SecondRandomKey];
+        $this->key_words = Helper::$array_keywords[$ThirdRandomKey];
+        $this->correspondent_id = 1;
+        $this->company_id = 1;
+        $this->position_id = 1;
+        $this->signed_id = 1;
+        $this->executor_id = 1;
+        $this->send_method_id = 2;
+        $this->sent_date = $randomDate;
+        $this->creator_id = 1;
+        $this->last_edit_id = 1;
+        parent::__construct();
+    }
     public function rules()
     {
         return [
