@@ -1,7 +1,8 @@
 <?php
 
-namespace app\commands;
+namespace app\commands\test_models;
 
+use app\commands\UserWork;
 use app\models\common\Company;
 use app\models\common\DocumentIn;
 use app\models\common\DocumentOut;

@@ -7,9 +7,12 @@
 
 namespace app\commands;
 use app\commands\Generator_helpers\DocHelper;
+use app\commands\test_models\TestDocumentInWork;
+use app\commands\test_models\TestDocumentOutWork;
 use app\controllers\DocsOutController;
 use app\models\common\People;
 use app\models\common\SendMethod;
+use app\models\work\TestDocumentOrderWork;
 use Yii;
 use app\models\common\DocumentOut;
 use app\models\components\Logger;
@@ -19,18 +22,11 @@ use yii\web\UploadedFile;
 use app\commands;
 class GenerateDocsController extends Controller
 {
-    /**
-    /**
-     * This command echoes what you have entered as the message.
-     * @param string $message the message to be echoed.
-     * @return int Exit code
-     */
     public $number;
     public function options($actionID)
     {
         return ['number'];
     }
-
     public function optionAliases()
     {
         return ['n' => 'number'];
@@ -71,9 +67,21 @@ class GenerateDocsController extends Controller
                 $SecondRandomKey, $ThirdRandomKey);
             $model->save(false);
         }
-
-
-
-
+    }
+    public function actionDocorder($number){
+        for($i = 0; $i < $number; $i++) {
+            $FirstRandomKey = array_rand(DocHelper::$array_name);
+            $SecondRandomKey = array_rand(DocHelper::$array_keywords);
+            $real_number = TestDocumentOrderWork::find()
+                    ->select('order_copy_id')
+                    ->max('order_copy_id') + 1;
+            $year = date('Y');
+            $startDate = strtotime("01 January $year");
+            $endDate = strtotime(date("Y-m-d"));
+            $randomTimestamp = mt_rand($startDate, $endDate);
+            $date = date('Y-m-d', $randomTimestamp);
+            $model = new TestDocumentOrderWork($real_number, $date, $FirstRandomKey, $SecondRandomKey);
+            $model->save(false);
+        }
     }
 }

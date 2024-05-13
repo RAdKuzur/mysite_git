@@ -26102,3 +26102,1399 @@ $_SERVER = [
     'REQUEST_TIME_FLOAT' => 1715071528.7852
     'REQUEST_TIME' => 1715071528
 ]
+2024-05-08 07:46:37 [127.0.0.1][1][e12poj74qvav1qvmkccoovapv8][error][yii\base\ErrorException:2] yii\base\ErrorException: Undefined array key "c" in C:\Users\Praktik\Desktop\mysite_git\site_yii\controllers\RegulationController.php:224
+Stack trace:
+#0 C:\Users\Praktik\Desktop\mysite_git\site_yii\controllers\RegulationController.php(224): yii\base\ErrorHandler->handleError(2, 'Undefined array...', 'C:\\Users\\Prakti...', 224)
+#1 C:\Users\Praktik\Desktop\mysite_git\site_yii\vendor\yiisoft\yii2\base\Controller.php(176): app\controllers\RegulationController->beforeAction(Object(yii\base\InlineAction))
+#2 C:\Users\Praktik\Desktop\mysite_git\site_yii\vendor\yiisoft\yii2\base\Module.php(552): yii\base\Controller->runAction('create', Array)
+#3 C:\Users\Praktik\Desktop\mysite_git\site_yii\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction('regulation/crea...', Array)
+#4 C:\Users\Praktik\Desktop\mysite_git\site_yii\vendor\yiisoft\yii2\base\Application.php(384): yii\web\Application->handleRequest(Object(yii\web\Request))
+#5 C:\Users\Praktik\Desktop\mysite_git\site_yii\web\index.php(13): yii\base\Application->run()
+#6 {main}
+2024-05-08 07:46:37 [127.0.0.1][1][e12poj74qvav1qvmkccoovapv8][info][application] $_GET = [
+    'r' => 'regulation/create'
+]
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    '_identity' => '04bdd8198866bcab9f7fcb73ecfaae7e95b017a33f4f656615ae17253aa7a3bba:2:{i:0;s:9:\"_identity\";i:1;s:45:\"[1,\"PATsN8FUOCjpbl5zd80jBQgl8H94QJEf\",362400]\";}'
+    'PHPSESSID' => 'e12poj74qvav1qvmkccoovapv8'
+    '_csrf' => '5ac7e68473dcbb95f661a5083d415a68987601450566d9372c07dfb59f4f0c9da:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"icmKLtJUpNvkeSJffuWsbNjGOH7FY9f1\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => 1
+    '__authKey' => 'PATsN8FUOCjpbl5zd80jBQgl8H94QJEf'
+    'type' => '1'
+]
+
+$_SERVER = [
+    'DOCUMENT_ROOT' => 'C:\\Users\\Praktik\\Desktop\\mysite_git\\site_yii\\web'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'REMOTE_PORT' => '58216'
+    'SERVER_SOFTWARE' => 'PHP 8.2.12 Development Server'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_PORT' => '8080'
+    'REQUEST_URI' => '/index.php?r=regulation%2Fcreate'
+    'REQUEST_METHOD' => 'GET'
+    'SCRIPT_NAME' => '/index.php'
+    'SCRIPT_FILENAME' => 'C:\\Users\\Praktik\\Desktop\\mysite_git\\site_yii\\web\\index.php'
+    'PHP_SELF' => '/index.php'
+    'QUERY_STRING' => 'r=regulation%2Fcreate'
+    'HTTP_HOST' => 'localhost:8080'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_SEC_CH_UA' => '\"Chromium\";v=\"124\", \"Microsoft Edge\";v=\"124\", \"Not-A.Brand\";v=\"99\"'
+    'HTTP_SEC_CH_UA_MOBILE' => '?0'
+    'HTTP_SEC_CH_UA_PLATFORM' => '\"Windows\"'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36 Edg/124.0.0.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7'
+    'HTTP_SEC_FETCH_SITE' => 'same-origin'
+    'HTTP_SEC_FETCH_MODE' => 'navigate'
+    'HTTP_SEC_FETCH_USER' => '?1'
+    'HTTP_SEC_FETCH_DEST' => 'document'
+    'HTTP_REFERER' => 'http://localhost:8080/index.php?r=regulation%2Findex&c=1'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br, zstd'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru,en;q=0.9,en-GB;q=0.8,en-US;q=0.7'
+    'HTTP_COOKIE' => '_identity=04bdd8198866bcab9f7fcb73ecfaae7e95b017a33f4f656615ae17253aa7a3bba%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A45%3A%22%5B1%2C%22PATsN8FUOCjpbl5zd80jBQgl8H94QJEf%22%2C362400%5D%22%3B%7D; PHPSESSID=e12poj74qvav1qvmkccoovapv8; _csrf=5ac7e68473dcbb95f661a5083d415a68987601450566d9372c07dfb59f4f0c9da%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22icmKLtJUpNvkeSJffuWsbNjGOH7FY9f1%22%3B%7D'
+    'REQUEST_TIME_FLOAT' => 1715147197.3424
+    'REQUEST_TIME' => 1715147197
+]
+2024-05-13 08:25:36 [-][-][-][error][yii\console\UnknownCommandException] yii\base\InvalidRouteException: Unable to resolve the request "hello/order". in C:\Users\Praktik\Desktop\mysite_git\site_yii\vendor\yiisoft\yii2\base\Module.php:561
+Stack trace:
+#0 C:\Users\Praktik\Desktop\mysite_git\site_yii\vendor\yiisoft\yii2\console\Application.php(180): yii\base\Module->runAction('hello/order', Array)
+#1 C:\Users\Praktik\Desktop\mysite_git\site_yii\vendor\yiisoft\yii2\console\Application.php(147): yii\console\Application->runAction('hello/order', Array)
+#2 C:\Users\Praktik\Desktop\mysite_git\site_yii\vendor\yiisoft\yii2\base\Application.php(384): yii\console\Application->handleRequest(Object(yii\console\Request))
+#3 C:\Users\Praktik\Desktop\mysite_git\site_yii\yii(20): yii\base\Application->run()
+#4 {main}
+
+Next yii\console\UnknownCommandException: Unknown command "hello/order". in C:\Users\Praktik\Desktop\mysite_git\site_yii\vendor\yiisoft\yii2\console\Application.php:183
+Stack trace:
+#0 C:\Users\Praktik\Desktop\mysite_git\site_yii\vendor\yiisoft\yii2\console\Application.php(147): yii\console\Application->runAction('hello/order', Array)
+#1 C:\Users\Praktik\Desktop\mysite_git\site_yii\vendor\yiisoft\yii2\base\Application.php(384): yii\console\Application->handleRequest(Object(yii\console\Request))
+#2 C:\Users\Praktik\Desktop\mysite_git\site_yii\yii(20): yii\base\Application->run()
+#3 {main}
+2024-05-13 08:25:36 [-][-][-][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'PSExecutionPolicyPreference' => 'Bypass'
+    'TERM_SESSION_ID' => '95ceed6b-5378-4c9e-a057-6918bad6d588'
+    'CommonProgramW6432' => 'C:\\Program Files\\Common Files'
+    'ProgramW6432' => 'C:\\Program Files'
+    'CLION_VM_OPTIONS' => 'C:\\Program Files\\JetBrains\\Activate\\vmoptions\\clion.vmoptions'
+    'JETBRAINS_CLIENT_VM_OPTIONS' => 'C:\\Program Files\\JetBrains\\Activate\\vmoptions\\jetbrains_client.vmoptions'
+    'DATAGRIP_VM_OPTIONS' => 'C:\\Program Files\\JetBrains\\Activate\\vmoptions\\datagrip.vmoptions'
+    'USERNAME' => 'Praktik'
+    'ALLUSERSPROFILE' => 'C:\\ProgramData'
+    'USERPROFILE' => 'C:\\Users\\Praktik'
+    'RUBYMINE_VM_OPTIONS' => 'C:\\Program Files\\JetBrains\\Activate\\vmoptions\\rubymine.vmoptions'
+    'PROCESSOR_REVISION' => '4f01'
+    'IDEA_INITIAL_DIRECTORY' => 'C:\\Program Files\\JetBrains\\PhpStorm2024.1\\bin'
+    'FPS_BROWSER_APP_PROFILE_STRING' => 'Internet Explorer'
+    'PUBLIC' => 'C:\\Users\\Public'
+    'PYCHARM_VM_OPTIONS' => 'C:\\Program Files\\JetBrains\\Activate\\vmoptions\\pycharm.vmoptions'
+    'Path' => 'C:\\xampp\\php;C:\\Program Files (x86)\\Intel\\iCLS Client\\;C:\\Program Files\\Intel\\iCLS Client\\;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Windows\\System32\\OpenSSH\\;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common;C:\\Program Files\\NVIDIA Corporation\\NVIDIA NvDLISR;C:\\Program Files\\dotnet\\;C:\\Program Files (x86)\\HP\\HP OCR\\DB_Lib\\;C:\\Program Files\\HP\\Common\\HPDestPlgIn\\;C:\\Program Files (x86)\\HP\\Common\\HPDestPlgIn\\;C:\\Windows\\System32\\OpenSSH\\;C:\\Program Files\\Microsoft SQL Server\\Client SDK\\ODBC\\170\\Tools\\Binn\\;C:\\Program Files (x86)\\Microsoft SQL Server\\150\\Tools\\Binn\\;C:\\Program Files\\Microsoft SQL Server\\150\\Tools\\Binn\\;C:\\Program Files\\Microsoft SQL Server\\150\\DTS\\Binn\\;C:\\Program Files (x86)\\Microsoft SQL Server\\160\\DTS\\Binn\\;C:\\Program Files (x86)\\Kaspersky Lab\\Endpoint Agent\\;C:\\Program Files\\Git\\cmd;C:\\Users\\Praktik\\Downloads\\php-8.3.0-nts-Win32-vs16-x64;C:\\ProgramData\\ComposerSetup\\bin;C:\\xampp\\php;C:\\Program Files (x86)\\dotnet\\;C:\\Program Files (x86)\\Incredibuild;C:\\Program Files (x86)\\Windows Kits\\10\\Windows Performance Toolkit\\;C:\\Users\\Praktik\\AppData\\Local\\Microsoft\\WindowsApps;;C:\\Users\\Praktik\\AppData\\Local\\Programs\\Microsoft VS Code\\bin;C:\\Users\\Praktik\\AppData\\Roaming\\Composer\\vendor\\bin;C:\\Users\\Praktik\\.dotnet\\tools'
+    'DriverData' => 'C:\\Windows\\System32\\Drivers\\DriverData'
+    'HOMEDRIVE' => 'C:'
+    'IDEA_VM_OPTIONS' => 'C:\\Program Files\\JetBrains\\Activate\\vmoptions\\idea.vmoptions'
+    'SESSIONNAME' => 'Console'
+    'LOGONSERVER' => '\\\\WSS'
+    'TERMINAL_EMULATOR' => 'JetBrains-JediTerm'
+    'APPCODE_VM_OPTIONS' => 'C:\\Program Files\\JetBrains\\Activate\\vmoptions\\appcode.vmoptions'
+    'JETBRAINSCLIENT_VM_OPTIONS' => 'C:\\Program Files\\JetBrains\\Activate\\vmoptions\\jetbrainsclient.vmoptions'
+    'HOMEPATH' => '\\Users\\Praktik'
+    'SystemRoot' => 'C:\\Windows'
+    'STUDIO_VM_OPTIONS' => 'C:\\Program Files\\JetBrains\\Activate\\vmoptions\\studio.vmoptions'
+    'VS140COMNTOOLS' => 'C:\\Program Files (x86)\\Microsoft Visual Studio 14.0\\Common7\\Tools\\'
+    'LOCALAPPDATA' => 'C:\\Users\\Praktik\\AppData\\Local'
+    'APPDATA' => 'C:\\Users\\Praktik\\AppData\\Roaming'
+    'PROCESSOR_IDENTIFIER' => 'Intel64 Family 6 Model 79 Stepping 1, GenuineIntel'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC;.CPL'
+    'PSModulePath' => 'C:\\Users\\Praktik\\Documents\\WindowsPowerShell\\Modules;C:\\Program Files\\WindowsPowerShell\\Modules;C:\\Windows\\system32\\WindowsPowerShell\\v1.0\\Modules;C:\\Program Files\\Intel\\;C:\\Program Files (x86)\\Microsoft SQL Server\\150\\Tools\\PowerShell\\Modules\\'
+    'ProgramFiles(x86)' => 'C:\\Program Files (x86)'
+    'WEBIDE_VM_OPTIONS' => 'C:\\Program Files\\JetBrains\\Activate\\vmoptions\\webide.vmoptions'
+    'PHPSTORM_VM_OPTIONS' => 'C:\\Program Files\\JetBrains\\Activate\\vmoptions\\phpstorm.vmoptions'
+    'RIDER_VM_OPTIONS' => 'C:\\Program Files\\JetBrains\\Activate\\vmoptions\\rider.vmoptions'
+    'JETBRAINS_INTELLIJ_COMMAND_END_MARKER' => 'hy5o914AmrWMdGuNMJxiPaNJnWWdoiGwtHioV1Nf6a7dBuibfAYZkK6O69ov2GZb'
+    'OS' => 'Windows_NT'
+    'USERDNSDOMAIN' => 'RST.EDU'
+    'PROCESSOR_ARCHITECTURE' => 'AMD64'
+    'WEBSTORM_VM_OPTIONS' => 'C:\\Program Files\\JetBrains\\Activate\\vmoptions\\webstorm.vmoptions'
+    'NUMBER_OF_PROCESSORS' => '12'
+    'ComSpec' => 'C:\\Windows\\system32\\cmd.exe'
+    'PROCESSOR_LEVEL' => '6'
+    'DEVECOSTUDIO_VM_OPTIONS' => 'C:\\Program Files\\JetBrains\\Activate\\vmoptions\\devecostudio.vmoptions'
+    'USERDOMAIN_ROAMINGPROFILE' => 'RST'
+    'windir' => 'C:\\Windows'
+    'ProgramFiles' => 'C:\\Program Files'
+    'DATASPELL_VM_OPTIONS' => 'C:\\Program Files\\JetBrains\\Activate\\vmoptions\\dataspell.vmoptions'
+    'TEMP' => 'C:\\Users\\Praktik\\AppData\\Local\\Temp'
+    'TMP' => 'C:\\Users\\Praktik\\AppData\\Local\\Temp'
+    'GATEWAY_VM_OPTIONS' => 'C:\\Program Files\\JetBrains\\Activate\\vmoptions\\gateway.vmoptions'
+    'OneDrive' => 'C:\\Users\\Praktik\\OneDrive'
+    'CommonProgramFiles(x86)' => 'C:\\Program Files (x86)\\Common Files'
+    'USERDOMAIN' => 'RST'
+    'SystemDrive' => 'C:'
+    'COMPUTERNAME' => 'T20-2R'
+    'ProgramData' => 'C:\\ProgramData'
+    'GOLAND_VM_OPTIONS' => 'C:\\Program Files\\JetBrains\\Activate\\vmoptions\\goland.vmoptions'
+    'FPS_BROWSER_USER_PROFILE_STRING' => 'Default'
+    'KOMPAS_SDK' => 'C:\\Program Files\\ASCON\\KOMPAS-3D v21\\SDK\\'
+    'CommonProgramFiles' => 'C:\\Program Files\\Common Files'
+    'PHP_SELF' => 'yii'
+    'SCRIPT_NAME' => 'yii'
+    'SCRIPT_FILENAME' => 'yii'
+    'PATH_TRANSLATED' => 'yii'
+    'DOCUMENT_ROOT' => ''
+    'REQUEST_TIME_FLOAT' => 1715581536.8631
+    'REQUEST_TIME' => 1715581536
+    'argv' => [
+        0 => 'yii'
+        1 => 'hello/order'
+        2 => '--number'
+        3 => '='
+        4 => '3'
+    ]
+    'argc' => 5
+]
+2024-05-13 08:25:44 [-][-][-][error][yii\console\UnknownCommandException] yii\base\InvalidRouteException: Unable to resolve the request "hello/Order". in C:\Users\Praktik\Desktop\mysite_git\site_yii\vendor\yiisoft\yii2\base\Module.php:561
+Stack trace:
+#0 C:\Users\Praktik\Desktop\mysite_git\site_yii\vendor\yiisoft\yii2\console\Application.php(180): yii\base\Module->runAction('hello/Order', Array)
+#1 C:\Users\Praktik\Desktop\mysite_git\site_yii\vendor\yiisoft\yii2\console\Application.php(147): yii\console\Application->runAction('hello/Order', Array)
+#2 C:\Users\Praktik\Desktop\mysite_git\site_yii\vendor\yiisoft\yii2\base\Application.php(384): yii\console\Application->handleRequest(Object(yii\console\Request))
+#3 C:\Users\Praktik\Desktop\mysite_git\site_yii\yii(20): yii\base\Application->run()
+#4 {main}
+
+Next yii\console\UnknownCommandException: Unknown command "hello/Order". in C:\Users\Praktik\Desktop\mysite_git\site_yii\vendor\yiisoft\yii2\console\Application.php:183
+Stack trace:
+#0 C:\Users\Praktik\Desktop\mysite_git\site_yii\vendor\yiisoft\yii2\console\Application.php(147): yii\console\Application->runAction('hello/Order', Array)
+#1 C:\Users\Praktik\Desktop\mysite_git\site_yii\vendor\yiisoft\yii2\base\Application.php(384): yii\console\Application->handleRequest(Object(yii\console\Request))
+#2 C:\Users\Praktik\Desktop\mysite_git\site_yii\yii(20): yii\base\Application->run()
+#3 {main}
+2024-05-13 08:25:44 [-][-][-][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'PSExecutionPolicyPreference' => 'Bypass'
+    'TERM_SESSION_ID' => '95ceed6b-5378-4c9e-a057-6918bad6d588'
+    'CommonProgramW6432' => 'C:\\Program Files\\Common Files'
+    'ProgramW6432' => 'C:\\Program Files'
+    'CLION_VM_OPTIONS' => 'C:\\Program Files\\JetBrains\\Activate\\vmoptions\\clion.vmoptions'
+    'JETBRAINS_CLIENT_VM_OPTIONS' => 'C:\\Program Files\\JetBrains\\Activate\\vmoptions\\jetbrains_client.vmoptions'
+    'DATAGRIP_VM_OPTIONS' => 'C:\\Program Files\\JetBrains\\Activate\\vmoptions\\datagrip.vmoptions'
+    'USERNAME' => 'Praktik'
+    'ALLUSERSPROFILE' => 'C:\\ProgramData'
+    'USERPROFILE' => 'C:\\Users\\Praktik'
+    'RUBYMINE_VM_OPTIONS' => 'C:\\Program Files\\JetBrains\\Activate\\vmoptions\\rubymine.vmoptions'
+    'PROCESSOR_REVISION' => '4f01'
+    'IDEA_INITIAL_DIRECTORY' => 'C:\\Program Files\\JetBrains\\PhpStorm2024.1\\bin'
+    'FPS_BROWSER_APP_PROFILE_STRING' => 'Internet Explorer'
+    'PUBLIC' => 'C:\\Users\\Public'
+    'PYCHARM_VM_OPTIONS' => 'C:\\Program Files\\JetBrains\\Activate\\vmoptions\\pycharm.vmoptions'
+    'Path' => 'C:\\xampp\\php;C:\\Program Files (x86)\\Intel\\iCLS Client\\;C:\\Program Files\\Intel\\iCLS Client\\;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Windows\\System32\\OpenSSH\\;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common;C:\\Program Files\\NVIDIA Corporation\\NVIDIA NvDLISR;C:\\Program Files\\dotnet\\;C:\\Program Files (x86)\\HP\\HP OCR\\DB_Lib\\;C:\\Program Files\\HP\\Common\\HPDestPlgIn\\;C:\\Program Files (x86)\\HP\\Common\\HPDestPlgIn\\;C:\\Windows\\System32\\OpenSSH\\;C:\\Program Files\\Microsoft SQL Server\\Client SDK\\ODBC\\170\\Tools\\Binn\\;C:\\Program Files (x86)\\Microsoft SQL Server\\150\\Tools\\Binn\\;C:\\Program Files\\Microsoft SQL Server\\150\\Tools\\Binn\\;C:\\Program Files\\Microsoft SQL Server\\150\\DTS\\Binn\\;C:\\Program Files (x86)\\Microsoft SQL Server\\160\\DTS\\Binn\\;C:\\Program Files (x86)\\Kaspersky Lab\\Endpoint Agent\\;C:\\Program Files\\Git\\cmd;C:\\Users\\Praktik\\Downloads\\php-8.3.0-nts-Win32-vs16-x64;C:\\ProgramData\\ComposerSetup\\bin;C:\\xampp\\php;C:\\Program Files (x86)\\dotnet\\;C:\\Program Files (x86)\\Incredibuild;C:\\Program Files (x86)\\Windows Kits\\10\\Windows Performance Toolkit\\;C:\\Users\\Praktik\\AppData\\Local\\Microsoft\\WindowsApps;;C:\\Users\\Praktik\\AppData\\Local\\Programs\\Microsoft VS Code\\bin;C:\\Users\\Praktik\\AppData\\Roaming\\Composer\\vendor\\bin;C:\\Users\\Praktik\\.dotnet\\tools'
+    'DriverData' => 'C:\\Windows\\System32\\Drivers\\DriverData'
+    'HOMEDRIVE' => 'C:'
+    'IDEA_VM_OPTIONS' => 'C:\\Program Files\\JetBrains\\Activate\\vmoptions\\idea.vmoptions'
+    'SESSIONNAME' => 'Console'
+    'LOGONSERVER' => '\\\\WSS'
+    'TERMINAL_EMULATOR' => 'JetBrains-JediTerm'
+    'APPCODE_VM_OPTIONS' => 'C:\\Program Files\\JetBrains\\Activate\\vmoptions\\appcode.vmoptions'
+    'JETBRAINSCLIENT_VM_OPTIONS' => 'C:\\Program Files\\JetBrains\\Activate\\vmoptions\\jetbrainsclient.vmoptions'
+    'HOMEPATH' => '\\Users\\Praktik'
+    'SystemRoot' => 'C:\\Windows'
+    'STUDIO_VM_OPTIONS' => 'C:\\Program Files\\JetBrains\\Activate\\vmoptions\\studio.vmoptions'
+    'VS140COMNTOOLS' => 'C:\\Program Files (x86)\\Microsoft Visual Studio 14.0\\Common7\\Tools\\'
+    'LOCALAPPDATA' => 'C:\\Users\\Praktik\\AppData\\Local'
+    'APPDATA' => 'C:\\Users\\Praktik\\AppData\\Roaming'
+    'PROCESSOR_IDENTIFIER' => 'Intel64 Family 6 Model 79 Stepping 1, GenuineIntel'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC;.CPL'
+    'PSModulePath' => 'C:\\Users\\Praktik\\Documents\\WindowsPowerShell\\Modules;C:\\Program Files\\WindowsPowerShell\\Modules;C:\\Windows\\system32\\WindowsPowerShell\\v1.0\\Modules;C:\\Program Files\\Intel\\;C:\\Program Files (x86)\\Microsoft SQL Server\\150\\Tools\\PowerShell\\Modules\\'
+    'ProgramFiles(x86)' => 'C:\\Program Files (x86)'
+    'WEBIDE_VM_OPTIONS' => 'C:\\Program Files\\JetBrains\\Activate\\vmoptions\\webide.vmoptions'
+    'PHPSTORM_VM_OPTIONS' => 'C:\\Program Files\\JetBrains\\Activate\\vmoptions\\phpstorm.vmoptions'
+    'RIDER_VM_OPTIONS' => 'C:\\Program Files\\JetBrains\\Activate\\vmoptions\\rider.vmoptions'
+    'JETBRAINS_INTELLIJ_COMMAND_END_MARKER' => 'hy5o914AmrWMdGuNMJxiPaNJnWWdoiGwtHioV1Nf6a7dBuibfAYZkK6O69ov2GZb'
+    'OS' => 'Windows_NT'
+    'USERDNSDOMAIN' => 'RST.EDU'
+    'PROCESSOR_ARCHITECTURE' => 'AMD64'
+    'WEBSTORM_VM_OPTIONS' => 'C:\\Program Files\\JetBrains\\Activate\\vmoptions\\webstorm.vmoptions'
+    'NUMBER_OF_PROCESSORS' => '12'
+    'ComSpec' => 'C:\\Windows\\system32\\cmd.exe'
+    'PROCESSOR_LEVEL' => '6'
+    'DEVECOSTUDIO_VM_OPTIONS' => 'C:\\Program Files\\JetBrains\\Activate\\vmoptions\\devecostudio.vmoptions'
+    'USERDOMAIN_ROAMINGPROFILE' => 'RST'
+    'windir' => 'C:\\Windows'
+    'ProgramFiles' => 'C:\\Program Files'
+    'DATASPELL_VM_OPTIONS' => 'C:\\Program Files\\JetBrains\\Activate\\vmoptions\\dataspell.vmoptions'
+    'TEMP' => 'C:\\Users\\Praktik\\AppData\\Local\\Temp'
+    'TMP' => 'C:\\Users\\Praktik\\AppData\\Local\\Temp'
+    'GATEWAY_VM_OPTIONS' => 'C:\\Program Files\\JetBrains\\Activate\\vmoptions\\gateway.vmoptions'
+    'OneDrive' => 'C:\\Users\\Praktik\\OneDrive'
+    'CommonProgramFiles(x86)' => 'C:\\Program Files (x86)\\Common Files'
+    'USERDOMAIN' => 'RST'
+    'SystemDrive' => 'C:'
+    'COMPUTERNAME' => 'T20-2R'
+    'ProgramData' => 'C:\\ProgramData'
+    'GOLAND_VM_OPTIONS' => 'C:\\Program Files\\JetBrains\\Activate\\vmoptions\\goland.vmoptions'
+    'FPS_BROWSER_USER_PROFILE_STRING' => 'Default'
+    'KOMPAS_SDK' => 'C:\\Program Files\\ASCON\\KOMPAS-3D v21\\SDK\\'
+    'CommonProgramFiles' => 'C:\\Program Files\\Common Files'
+    'PHP_SELF' => 'yii'
+    'SCRIPT_NAME' => 'yii'
+    'SCRIPT_FILENAME' => 'yii'
+    'PATH_TRANSLATED' => 'yii'
+    'DOCUMENT_ROOT' => ''
+    'REQUEST_TIME_FLOAT' => 1715581544.8551
+    'REQUEST_TIME' => 1715581544
+    'argv' => [
+        0 => 'yii'
+        1 => 'hello/Order'
+        2 => '--number'
+        3 => '='
+        4 => '3'
+    ]
+    'argc' => 5
+]
+2024-05-13 08:27:57 [-][-][-][error][yii\console\UnknownCommandException] yii\base\InvalidRouteException: Unable to resolve the request "hello/Order". in C:\Users\Praktik\Desktop\mysite_git\site_yii\vendor\yiisoft\yii2\base\Module.php:561
+Stack trace:
+#0 C:\Users\Praktik\Desktop\mysite_git\site_yii\vendor\yiisoft\yii2\console\Application.php(180): yii\base\Module->runAction('hello/Order', Array)
+#1 C:\Users\Praktik\Desktop\mysite_git\site_yii\vendor\yiisoft\yii2\console\Application.php(147): yii\console\Application->runAction('hello/Order', Array)
+#2 C:\Users\Praktik\Desktop\mysite_git\site_yii\vendor\yiisoft\yii2\base\Application.php(384): yii\console\Application->handleRequest(Object(yii\console\Request))
+#3 C:\Users\Praktik\Desktop\mysite_git\site_yii\yii(20): yii\base\Application->run()
+#4 {main}
+
+Next yii\console\UnknownCommandException: Unknown command "hello/Order". in C:\Users\Praktik\Desktop\mysite_git\site_yii\vendor\yiisoft\yii2\console\Application.php:183
+Stack trace:
+#0 C:\Users\Praktik\Desktop\mysite_git\site_yii\vendor\yiisoft\yii2\console\Application.php(147): yii\console\Application->runAction('hello/Order', Array)
+#1 C:\Users\Praktik\Desktop\mysite_git\site_yii\vendor\yiisoft\yii2\base\Application.php(384): yii\console\Application->handleRequest(Object(yii\console\Request))
+#2 C:\Users\Praktik\Desktop\mysite_git\site_yii\yii(20): yii\base\Application->run()
+#3 {main}
+2024-05-13 08:27:57 [-][-][-][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'PSExecutionPolicyPreference' => 'Bypass'
+    'TERM_SESSION_ID' => '95ceed6b-5378-4c9e-a057-6918bad6d588'
+    'CommonProgramW6432' => 'C:\\Program Files\\Common Files'
+    'ProgramW6432' => 'C:\\Program Files'
+    'CLION_VM_OPTIONS' => 'C:\\Program Files\\JetBrains\\Activate\\vmoptions\\clion.vmoptions'
+    'JETBRAINS_CLIENT_VM_OPTIONS' => 'C:\\Program Files\\JetBrains\\Activate\\vmoptions\\jetbrains_client.vmoptions'
+    'DATAGRIP_VM_OPTIONS' => 'C:\\Program Files\\JetBrains\\Activate\\vmoptions\\datagrip.vmoptions'
+    'USERNAME' => 'Praktik'
+    'ALLUSERSPROFILE' => 'C:\\ProgramData'
+    'USERPROFILE' => 'C:\\Users\\Praktik'
+    'RUBYMINE_VM_OPTIONS' => 'C:\\Program Files\\JetBrains\\Activate\\vmoptions\\rubymine.vmoptions'
+    'PROCESSOR_REVISION' => '4f01'
+    'IDEA_INITIAL_DIRECTORY' => 'C:\\Program Files\\JetBrains\\PhpStorm2024.1\\bin'
+    'FPS_BROWSER_APP_PROFILE_STRING' => 'Internet Explorer'
+    'PUBLIC' => 'C:\\Users\\Public'
+    'PYCHARM_VM_OPTIONS' => 'C:\\Program Files\\JetBrains\\Activate\\vmoptions\\pycharm.vmoptions'
+    'Path' => 'C:\\xampp\\php;C:\\Program Files (x86)\\Intel\\iCLS Client\\;C:\\Program Files\\Intel\\iCLS Client\\;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Windows\\System32\\OpenSSH\\;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common;C:\\Program Files\\NVIDIA Corporation\\NVIDIA NvDLISR;C:\\Program Files\\dotnet\\;C:\\Program Files (x86)\\HP\\HP OCR\\DB_Lib\\;C:\\Program Files\\HP\\Common\\HPDestPlgIn\\;C:\\Program Files (x86)\\HP\\Common\\HPDestPlgIn\\;C:\\Windows\\System32\\OpenSSH\\;C:\\Program Files\\Microsoft SQL Server\\Client SDK\\ODBC\\170\\Tools\\Binn\\;C:\\Program Files (x86)\\Microsoft SQL Server\\150\\Tools\\Binn\\;C:\\Program Files\\Microsoft SQL Server\\150\\Tools\\Binn\\;C:\\Program Files\\Microsoft SQL Server\\150\\DTS\\Binn\\;C:\\Program Files (x86)\\Microsoft SQL Server\\160\\DTS\\Binn\\;C:\\Program Files (x86)\\Kaspersky Lab\\Endpoint Agent\\;C:\\Program Files\\Git\\cmd;C:\\Users\\Praktik\\Downloads\\php-8.3.0-nts-Win32-vs16-x64;C:\\ProgramData\\ComposerSetup\\bin;C:\\xampp\\php;C:\\Program Files (x86)\\dotnet\\;C:\\Program Files (x86)\\Incredibuild;C:\\Program Files (x86)\\Windows Kits\\10\\Windows Performance Toolkit\\;C:\\Users\\Praktik\\AppData\\Local\\Microsoft\\WindowsApps;;C:\\Users\\Praktik\\AppData\\Local\\Programs\\Microsoft VS Code\\bin;C:\\Users\\Praktik\\AppData\\Roaming\\Composer\\vendor\\bin;C:\\Users\\Praktik\\.dotnet\\tools'
+    'DriverData' => 'C:\\Windows\\System32\\Drivers\\DriverData'
+    'HOMEDRIVE' => 'C:'
+    'IDEA_VM_OPTIONS' => 'C:\\Program Files\\JetBrains\\Activate\\vmoptions\\idea.vmoptions'
+    'SESSIONNAME' => 'Console'
+    'LOGONSERVER' => '\\\\WSS'
+    'TERMINAL_EMULATOR' => 'JetBrains-JediTerm'
+    'APPCODE_VM_OPTIONS' => 'C:\\Program Files\\JetBrains\\Activate\\vmoptions\\appcode.vmoptions'
+    'JETBRAINSCLIENT_VM_OPTIONS' => 'C:\\Program Files\\JetBrains\\Activate\\vmoptions\\jetbrainsclient.vmoptions'
+    'HOMEPATH' => '\\Users\\Praktik'
+    'SystemRoot' => 'C:\\Windows'
+    'STUDIO_VM_OPTIONS' => 'C:\\Program Files\\JetBrains\\Activate\\vmoptions\\studio.vmoptions'
+    'VS140COMNTOOLS' => 'C:\\Program Files (x86)\\Microsoft Visual Studio 14.0\\Common7\\Tools\\'
+    'LOCALAPPDATA' => 'C:\\Users\\Praktik\\AppData\\Local'
+    'APPDATA' => 'C:\\Users\\Praktik\\AppData\\Roaming'
+    'PROCESSOR_IDENTIFIER' => 'Intel64 Family 6 Model 79 Stepping 1, GenuineIntel'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC;.CPL'
+    'PSModulePath' => 'C:\\Users\\Praktik\\Documents\\WindowsPowerShell\\Modules;C:\\Program Files\\WindowsPowerShell\\Modules;C:\\Windows\\system32\\WindowsPowerShell\\v1.0\\Modules;C:\\Program Files\\Intel\\;C:\\Program Files (x86)\\Microsoft SQL Server\\150\\Tools\\PowerShell\\Modules\\'
+    'ProgramFiles(x86)' => 'C:\\Program Files (x86)'
+    'WEBIDE_VM_OPTIONS' => 'C:\\Program Files\\JetBrains\\Activate\\vmoptions\\webide.vmoptions'
+    'PHPSTORM_VM_OPTIONS' => 'C:\\Program Files\\JetBrains\\Activate\\vmoptions\\phpstorm.vmoptions'
+    'RIDER_VM_OPTIONS' => 'C:\\Program Files\\JetBrains\\Activate\\vmoptions\\rider.vmoptions'
+    'JETBRAINS_INTELLIJ_COMMAND_END_MARKER' => 'hy5o914AmrWMdGuNMJxiPaNJnWWdoiGwtHioV1Nf6a7dBuibfAYZkK6O69ov2GZb'
+    'OS' => 'Windows_NT'
+    'USERDNSDOMAIN' => 'RST.EDU'
+    'PROCESSOR_ARCHITECTURE' => 'AMD64'
+    'WEBSTORM_VM_OPTIONS' => 'C:\\Program Files\\JetBrains\\Activate\\vmoptions\\webstorm.vmoptions'
+    'NUMBER_OF_PROCESSORS' => '12'
+    'ComSpec' => 'C:\\Windows\\system32\\cmd.exe'
+    'PROCESSOR_LEVEL' => '6'
+    'DEVECOSTUDIO_VM_OPTIONS' => 'C:\\Program Files\\JetBrains\\Activate\\vmoptions\\devecostudio.vmoptions'
+    'USERDOMAIN_ROAMINGPROFILE' => 'RST'
+    'windir' => 'C:\\Windows'
+    'ProgramFiles' => 'C:\\Program Files'
+    'DATASPELL_VM_OPTIONS' => 'C:\\Program Files\\JetBrains\\Activate\\vmoptions\\dataspell.vmoptions'
+    'TEMP' => 'C:\\Users\\Praktik\\AppData\\Local\\Temp'
+    'TMP' => 'C:\\Users\\Praktik\\AppData\\Local\\Temp'
+    'GATEWAY_VM_OPTIONS' => 'C:\\Program Files\\JetBrains\\Activate\\vmoptions\\gateway.vmoptions'
+    'OneDrive' => 'C:\\Users\\Praktik\\OneDrive'
+    'CommonProgramFiles(x86)' => 'C:\\Program Files (x86)\\Common Files'
+    'USERDOMAIN' => 'RST'
+    'SystemDrive' => 'C:'
+    'COMPUTERNAME' => 'T20-2R'
+    'ProgramData' => 'C:\\ProgramData'
+    'GOLAND_VM_OPTIONS' => 'C:\\Program Files\\JetBrains\\Activate\\vmoptions\\goland.vmoptions'
+    'FPS_BROWSER_USER_PROFILE_STRING' => 'Default'
+    'KOMPAS_SDK' => 'C:\\Program Files\\ASCON\\KOMPAS-3D v21\\SDK\\'
+    'CommonProgramFiles' => 'C:\\Program Files\\Common Files'
+    'PHP_SELF' => 'yii'
+    'SCRIPT_NAME' => 'yii'
+    'SCRIPT_FILENAME' => 'yii'
+    'PATH_TRANSLATED' => 'yii'
+    'DOCUMENT_ROOT' => ''
+    'REQUEST_TIME_FLOAT' => 1715581677.6849
+    'REQUEST_TIME' => 1715581677
+    'argv' => [
+        0 => 'yii'
+        1 => 'hello/Order'
+        2 => '--number'
+        3 => '='
+        4 => '3'
+    ]
+    'argc' => 5
+]
+2024-05-13 08:28:03 [-][-][-][error][yii\console\UnknownCommandException] yii\base\InvalidRouteException: Unable to resolve the request "hello/Order". in C:\Users\Praktik\Desktop\mysite_git\site_yii\vendor\yiisoft\yii2\base\Module.php:561
+Stack trace:
+#0 C:\Users\Praktik\Desktop\mysite_git\site_yii\vendor\yiisoft\yii2\console\Application.php(180): yii\base\Module->runAction('hello/Order', Array)
+#1 C:\Users\Praktik\Desktop\mysite_git\site_yii\vendor\yiisoft\yii2\console\Application.php(147): yii\console\Application->runAction('hello/Order', Array)
+#2 C:\Users\Praktik\Desktop\mysite_git\site_yii\vendor\yiisoft\yii2\base\Application.php(384): yii\console\Application->handleRequest(Object(yii\console\Request))
+#3 C:\Users\Praktik\Desktop\mysite_git\site_yii\yii(20): yii\base\Application->run()
+#4 {main}
+
+Next yii\console\UnknownCommandException: Unknown command "hello/Order". in C:\Users\Praktik\Desktop\mysite_git\site_yii\vendor\yiisoft\yii2\console\Application.php:183
+Stack trace:
+#0 C:\Users\Praktik\Desktop\mysite_git\site_yii\vendor\yiisoft\yii2\console\Application.php(147): yii\console\Application->runAction('hello/Order', Array)
+#1 C:\Users\Praktik\Desktop\mysite_git\site_yii\vendor\yiisoft\yii2\base\Application.php(384): yii\console\Application->handleRequest(Object(yii\console\Request))
+#2 C:\Users\Praktik\Desktop\mysite_git\site_yii\yii(20): yii\base\Application->run()
+#3 {main}
+2024-05-13 08:28:03 [-][-][-][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'PSExecutionPolicyPreference' => 'Bypass'
+    'TERM_SESSION_ID' => '95ceed6b-5378-4c9e-a057-6918bad6d588'
+    'CommonProgramW6432' => 'C:\\Program Files\\Common Files'
+    'ProgramW6432' => 'C:\\Program Files'
+    'CLION_VM_OPTIONS' => 'C:\\Program Files\\JetBrains\\Activate\\vmoptions\\clion.vmoptions'
+    'JETBRAINS_CLIENT_VM_OPTIONS' => 'C:\\Program Files\\JetBrains\\Activate\\vmoptions\\jetbrains_client.vmoptions'
+    'DATAGRIP_VM_OPTIONS' => 'C:\\Program Files\\JetBrains\\Activate\\vmoptions\\datagrip.vmoptions'
+    'USERNAME' => 'Praktik'
+    'ALLUSERSPROFILE' => 'C:\\ProgramData'
+    'USERPROFILE' => 'C:\\Users\\Praktik'
+    'RUBYMINE_VM_OPTIONS' => 'C:\\Program Files\\JetBrains\\Activate\\vmoptions\\rubymine.vmoptions'
+    'PROCESSOR_REVISION' => '4f01'
+    'IDEA_INITIAL_DIRECTORY' => 'C:\\Program Files\\JetBrains\\PhpStorm2024.1\\bin'
+    'FPS_BROWSER_APP_PROFILE_STRING' => 'Internet Explorer'
+    'PUBLIC' => 'C:\\Users\\Public'
+    'PYCHARM_VM_OPTIONS' => 'C:\\Program Files\\JetBrains\\Activate\\vmoptions\\pycharm.vmoptions'
+    'Path' => 'C:\\xampp\\php;C:\\Program Files (x86)\\Intel\\iCLS Client\\;C:\\Program Files\\Intel\\iCLS Client\\;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Windows\\System32\\OpenSSH\\;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common;C:\\Program Files\\NVIDIA Corporation\\NVIDIA NvDLISR;C:\\Program Files\\dotnet\\;C:\\Program Files (x86)\\HP\\HP OCR\\DB_Lib\\;C:\\Program Files\\HP\\Common\\HPDestPlgIn\\;C:\\Program Files (x86)\\HP\\Common\\HPDestPlgIn\\;C:\\Windows\\System32\\OpenSSH\\;C:\\Program Files\\Microsoft SQL Server\\Client SDK\\ODBC\\170\\Tools\\Binn\\;C:\\Program Files (x86)\\Microsoft SQL Server\\150\\Tools\\Binn\\;C:\\Program Files\\Microsoft SQL Server\\150\\Tools\\Binn\\;C:\\Program Files\\Microsoft SQL Server\\150\\DTS\\Binn\\;C:\\Program Files (x86)\\Microsoft SQL Server\\160\\DTS\\Binn\\;C:\\Program Files (x86)\\Kaspersky Lab\\Endpoint Agent\\;C:\\Program Files\\Git\\cmd;C:\\Users\\Praktik\\Downloads\\php-8.3.0-nts-Win32-vs16-x64;C:\\ProgramData\\ComposerSetup\\bin;C:\\xampp\\php;C:\\Program Files (x86)\\dotnet\\;C:\\Program Files (x86)\\Incredibuild;C:\\Program Files (x86)\\Windows Kits\\10\\Windows Performance Toolkit\\;C:\\Users\\Praktik\\AppData\\Local\\Microsoft\\WindowsApps;;C:\\Users\\Praktik\\AppData\\Local\\Programs\\Microsoft VS Code\\bin;C:\\Users\\Praktik\\AppData\\Roaming\\Composer\\vendor\\bin;C:\\Users\\Praktik\\.dotnet\\tools'
+    'DriverData' => 'C:\\Windows\\System32\\Drivers\\DriverData'
+    'HOMEDRIVE' => 'C:'
+    'IDEA_VM_OPTIONS' => 'C:\\Program Files\\JetBrains\\Activate\\vmoptions\\idea.vmoptions'
+    'SESSIONNAME' => 'Console'
+    'LOGONSERVER' => '\\\\WSS'
+    'TERMINAL_EMULATOR' => 'JetBrains-JediTerm'
+    'APPCODE_VM_OPTIONS' => 'C:\\Program Files\\JetBrains\\Activate\\vmoptions\\appcode.vmoptions'
+    'JETBRAINSCLIENT_VM_OPTIONS' => 'C:\\Program Files\\JetBrains\\Activate\\vmoptions\\jetbrainsclient.vmoptions'
+    'HOMEPATH' => '\\Users\\Praktik'
+    'SystemRoot' => 'C:\\Windows'
+    'STUDIO_VM_OPTIONS' => 'C:\\Program Files\\JetBrains\\Activate\\vmoptions\\studio.vmoptions'
+    'VS140COMNTOOLS' => 'C:\\Program Files (x86)\\Microsoft Visual Studio 14.0\\Common7\\Tools\\'
+    'LOCALAPPDATA' => 'C:\\Users\\Praktik\\AppData\\Local'
+    'APPDATA' => 'C:\\Users\\Praktik\\AppData\\Roaming'
+    'PROCESSOR_IDENTIFIER' => 'Intel64 Family 6 Model 79 Stepping 1, GenuineIntel'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC;.CPL'
+    'PSModulePath' => 'C:\\Users\\Praktik\\Documents\\WindowsPowerShell\\Modules;C:\\Program Files\\WindowsPowerShell\\Modules;C:\\Windows\\system32\\WindowsPowerShell\\v1.0\\Modules;C:\\Program Files\\Intel\\;C:\\Program Files (x86)\\Microsoft SQL Server\\150\\Tools\\PowerShell\\Modules\\'
+    'ProgramFiles(x86)' => 'C:\\Program Files (x86)'
+    'WEBIDE_VM_OPTIONS' => 'C:\\Program Files\\JetBrains\\Activate\\vmoptions\\webide.vmoptions'
+    'PHPSTORM_VM_OPTIONS' => 'C:\\Program Files\\JetBrains\\Activate\\vmoptions\\phpstorm.vmoptions'
+    'RIDER_VM_OPTIONS' => 'C:\\Program Files\\JetBrains\\Activate\\vmoptions\\rider.vmoptions'
+    'JETBRAINS_INTELLIJ_COMMAND_END_MARKER' => 'hy5o914AmrWMdGuNMJxiPaNJnWWdoiGwtHioV1Nf6a7dBuibfAYZkK6O69ov2GZb'
+    'OS' => 'Windows_NT'
+    'USERDNSDOMAIN' => 'RST.EDU'
+    'PROCESSOR_ARCHITECTURE' => 'AMD64'
+    'WEBSTORM_VM_OPTIONS' => 'C:\\Program Files\\JetBrains\\Activate\\vmoptions\\webstorm.vmoptions'
+    'NUMBER_OF_PROCESSORS' => '12'
+    'ComSpec' => 'C:\\Windows\\system32\\cmd.exe'
+    'PROCESSOR_LEVEL' => '6'
+    'DEVECOSTUDIO_VM_OPTIONS' => 'C:\\Program Files\\JetBrains\\Activate\\vmoptions\\devecostudio.vmoptions'
+    'USERDOMAIN_ROAMINGPROFILE' => 'RST'
+    'windir' => 'C:\\Windows'
+    'ProgramFiles' => 'C:\\Program Files'
+    'DATASPELL_VM_OPTIONS' => 'C:\\Program Files\\JetBrains\\Activate\\vmoptions\\dataspell.vmoptions'
+    'TEMP' => 'C:\\Users\\Praktik\\AppData\\Local\\Temp'
+    'TMP' => 'C:\\Users\\Praktik\\AppData\\Local\\Temp'
+    'GATEWAY_VM_OPTIONS' => 'C:\\Program Files\\JetBrains\\Activate\\vmoptions\\gateway.vmoptions'
+    'OneDrive' => 'C:\\Users\\Praktik\\OneDrive'
+    'CommonProgramFiles(x86)' => 'C:\\Program Files (x86)\\Common Files'
+    'USERDOMAIN' => 'RST'
+    'SystemDrive' => 'C:'
+    'COMPUTERNAME' => 'T20-2R'
+    'ProgramData' => 'C:\\ProgramData'
+    'GOLAND_VM_OPTIONS' => 'C:\\Program Files\\JetBrains\\Activate\\vmoptions\\goland.vmoptions'
+    'FPS_BROWSER_USER_PROFILE_STRING' => 'Default'
+    'KOMPAS_SDK' => 'C:\\Program Files\\ASCON\\KOMPAS-3D v21\\SDK\\'
+    'CommonProgramFiles' => 'C:\\Program Files\\Common Files'
+    'PHP_SELF' => 'yii'
+    'SCRIPT_NAME' => 'yii'
+    'SCRIPT_FILENAME' => 'yii'
+    'PATH_TRANSLATED' => 'yii'
+    'DOCUMENT_ROOT' => ''
+    'REQUEST_TIME_FLOAT' => 1715581683.1473
+    'REQUEST_TIME' => 1715581683
+    'argv' => [
+        0 => 'yii'
+        1 => 'hello/Order'
+        2 => '--number'
+        3 => '='
+        4 => '3'
+    ]
+    'argc' => 5
+]
+2024-05-13 08:29:21 [-][-][-][error][yii\console\UnknownCommandException] yii\base\InvalidRouteException: Unable to resolve the request "hello/docorder". in C:\Users\Praktik\Desktop\mysite_git\site_yii\vendor\yiisoft\yii2\base\Module.php:561
+Stack trace:
+#0 C:\Users\Praktik\Desktop\mysite_git\site_yii\vendor\yiisoft\yii2\console\Application.php(180): yii\base\Module->runAction('hello/docorder', Array)
+#1 C:\Users\Praktik\Desktop\mysite_git\site_yii\vendor\yiisoft\yii2\console\Application.php(147): yii\console\Application->runAction('hello/docorder', Array)
+#2 C:\Users\Praktik\Desktop\mysite_git\site_yii\vendor\yiisoft\yii2\base\Application.php(384): yii\console\Application->handleRequest(Object(yii\console\Request))
+#3 C:\Users\Praktik\Desktop\mysite_git\site_yii\yii(20): yii\base\Application->run()
+#4 {main}
+
+Next yii\console\UnknownCommandException: Unknown command "hello/docorder". in C:\Users\Praktik\Desktop\mysite_git\site_yii\vendor\yiisoft\yii2\console\Application.php:183
+Stack trace:
+#0 C:\Users\Praktik\Desktop\mysite_git\site_yii\vendor\yiisoft\yii2\console\Application.php(147): yii\console\Application->runAction('hello/docorder', Array)
+#1 C:\Users\Praktik\Desktop\mysite_git\site_yii\vendor\yiisoft\yii2\base\Application.php(384): yii\console\Application->handleRequest(Object(yii\console\Request))
+#2 C:\Users\Praktik\Desktop\mysite_git\site_yii\yii(20): yii\base\Application->run()
+#3 {main}
+2024-05-13 08:29:21 [-][-][-][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'PSExecutionPolicyPreference' => 'Bypass'
+    'TERM_SESSION_ID' => '95ceed6b-5378-4c9e-a057-6918bad6d588'
+    'CommonProgramW6432' => 'C:\\Program Files\\Common Files'
+    'ProgramW6432' => 'C:\\Program Files'
+    'CLION_VM_OPTIONS' => 'C:\\Program Files\\JetBrains\\Activate\\vmoptions\\clion.vmoptions'
+    'JETBRAINS_CLIENT_VM_OPTIONS' => 'C:\\Program Files\\JetBrains\\Activate\\vmoptions\\jetbrains_client.vmoptions'
+    'DATAGRIP_VM_OPTIONS' => 'C:\\Program Files\\JetBrains\\Activate\\vmoptions\\datagrip.vmoptions'
+    'USERNAME' => 'Praktik'
+    'ALLUSERSPROFILE' => 'C:\\ProgramData'
+    'USERPROFILE' => 'C:\\Users\\Praktik'
+    'RUBYMINE_VM_OPTIONS' => 'C:\\Program Files\\JetBrains\\Activate\\vmoptions\\rubymine.vmoptions'
+    'PROCESSOR_REVISION' => '4f01'
+    'IDEA_INITIAL_DIRECTORY' => 'C:\\Program Files\\JetBrains\\PhpStorm2024.1\\bin'
+    'FPS_BROWSER_APP_PROFILE_STRING' => 'Internet Explorer'
+    'PUBLIC' => 'C:\\Users\\Public'
+    'PYCHARM_VM_OPTIONS' => 'C:\\Program Files\\JetBrains\\Activate\\vmoptions\\pycharm.vmoptions'
+    'Path' => 'C:\\xampp\\php;C:\\Program Files (x86)\\Intel\\iCLS Client\\;C:\\Program Files\\Intel\\iCLS Client\\;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Windows\\System32\\OpenSSH\\;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common;C:\\Program Files\\NVIDIA Corporation\\NVIDIA NvDLISR;C:\\Program Files\\dotnet\\;C:\\Program Files (x86)\\HP\\HP OCR\\DB_Lib\\;C:\\Program Files\\HP\\Common\\HPDestPlgIn\\;C:\\Program Files (x86)\\HP\\Common\\HPDestPlgIn\\;C:\\Windows\\System32\\OpenSSH\\;C:\\Program Files\\Microsoft SQL Server\\Client SDK\\ODBC\\170\\Tools\\Binn\\;C:\\Program Files (x86)\\Microsoft SQL Server\\150\\Tools\\Binn\\;C:\\Program Files\\Microsoft SQL Server\\150\\Tools\\Binn\\;C:\\Program Files\\Microsoft SQL Server\\150\\DTS\\Binn\\;C:\\Program Files (x86)\\Microsoft SQL Server\\160\\DTS\\Binn\\;C:\\Program Files (x86)\\Kaspersky Lab\\Endpoint Agent\\;C:\\Program Files\\Git\\cmd;C:\\Users\\Praktik\\Downloads\\php-8.3.0-nts-Win32-vs16-x64;C:\\ProgramData\\ComposerSetup\\bin;C:\\xampp\\php;C:\\Program Files (x86)\\dotnet\\;C:\\Program Files (x86)\\Incredibuild;C:\\Program Files (x86)\\Windows Kits\\10\\Windows Performance Toolkit\\;C:\\Users\\Praktik\\AppData\\Local\\Microsoft\\WindowsApps;;C:\\Users\\Praktik\\AppData\\Local\\Programs\\Microsoft VS Code\\bin;C:\\Users\\Praktik\\AppData\\Roaming\\Composer\\vendor\\bin;C:\\Users\\Praktik\\.dotnet\\tools'
+    'DriverData' => 'C:\\Windows\\System32\\Drivers\\DriverData'
+    'HOMEDRIVE' => 'C:'
+    'IDEA_VM_OPTIONS' => 'C:\\Program Files\\JetBrains\\Activate\\vmoptions\\idea.vmoptions'
+    'SESSIONNAME' => 'Console'
+    'LOGONSERVER' => '\\\\WSS'
+    'TERMINAL_EMULATOR' => 'JetBrains-JediTerm'
+    'APPCODE_VM_OPTIONS' => 'C:\\Program Files\\JetBrains\\Activate\\vmoptions\\appcode.vmoptions'
+    'JETBRAINSCLIENT_VM_OPTIONS' => 'C:\\Program Files\\JetBrains\\Activate\\vmoptions\\jetbrainsclient.vmoptions'
+    'HOMEPATH' => '\\Users\\Praktik'
+    'SystemRoot' => 'C:\\Windows'
+    'STUDIO_VM_OPTIONS' => 'C:\\Program Files\\JetBrains\\Activate\\vmoptions\\studio.vmoptions'
+    'VS140COMNTOOLS' => 'C:\\Program Files (x86)\\Microsoft Visual Studio 14.0\\Common7\\Tools\\'
+    'LOCALAPPDATA' => 'C:\\Users\\Praktik\\AppData\\Local'
+    'APPDATA' => 'C:\\Users\\Praktik\\AppData\\Roaming'
+    'PROCESSOR_IDENTIFIER' => 'Intel64 Family 6 Model 79 Stepping 1, GenuineIntel'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC;.CPL'
+    'PSModulePath' => 'C:\\Users\\Praktik\\Documents\\WindowsPowerShell\\Modules;C:\\Program Files\\WindowsPowerShell\\Modules;C:\\Windows\\system32\\WindowsPowerShell\\v1.0\\Modules;C:\\Program Files\\Intel\\;C:\\Program Files (x86)\\Microsoft SQL Server\\150\\Tools\\PowerShell\\Modules\\'
+    'ProgramFiles(x86)' => 'C:\\Program Files (x86)'
+    'WEBIDE_VM_OPTIONS' => 'C:\\Program Files\\JetBrains\\Activate\\vmoptions\\webide.vmoptions'
+    'PHPSTORM_VM_OPTIONS' => 'C:\\Program Files\\JetBrains\\Activate\\vmoptions\\phpstorm.vmoptions'
+    'RIDER_VM_OPTIONS' => 'C:\\Program Files\\JetBrains\\Activate\\vmoptions\\rider.vmoptions'
+    'JETBRAINS_INTELLIJ_COMMAND_END_MARKER' => 'hy5o914AmrWMdGuNMJxiPaNJnWWdoiGwtHioV1Nf6a7dBuibfAYZkK6O69ov2GZb'
+    'OS' => 'Windows_NT'
+    'USERDNSDOMAIN' => 'RST.EDU'
+    'PROCESSOR_ARCHITECTURE' => 'AMD64'
+    'WEBSTORM_VM_OPTIONS' => 'C:\\Program Files\\JetBrains\\Activate\\vmoptions\\webstorm.vmoptions'
+    'NUMBER_OF_PROCESSORS' => '12'
+    'ComSpec' => 'C:\\Windows\\system32\\cmd.exe'
+    'PROCESSOR_LEVEL' => '6'
+    'DEVECOSTUDIO_VM_OPTIONS' => 'C:\\Program Files\\JetBrains\\Activate\\vmoptions\\devecostudio.vmoptions'
+    'USERDOMAIN_ROAMINGPROFILE' => 'RST'
+    'windir' => 'C:\\Windows'
+    'ProgramFiles' => 'C:\\Program Files'
+    'DATASPELL_VM_OPTIONS' => 'C:\\Program Files\\JetBrains\\Activate\\vmoptions\\dataspell.vmoptions'
+    'TEMP' => 'C:\\Users\\Praktik\\AppData\\Local\\Temp'
+    'TMP' => 'C:\\Users\\Praktik\\AppData\\Local\\Temp'
+    'GATEWAY_VM_OPTIONS' => 'C:\\Program Files\\JetBrains\\Activate\\vmoptions\\gateway.vmoptions'
+    'OneDrive' => 'C:\\Users\\Praktik\\OneDrive'
+    'CommonProgramFiles(x86)' => 'C:\\Program Files (x86)\\Common Files'
+    'USERDOMAIN' => 'RST'
+    'SystemDrive' => 'C:'
+    'COMPUTERNAME' => 'T20-2R'
+    'ProgramData' => 'C:\\ProgramData'
+    'GOLAND_VM_OPTIONS' => 'C:\\Program Files\\JetBrains\\Activate\\vmoptions\\goland.vmoptions'
+    'FPS_BROWSER_USER_PROFILE_STRING' => 'Default'
+    'KOMPAS_SDK' => 'C:\\Program Files\\ASCON\\KOMPAS-3D v21\\SDK\\'
+    'CommonProgramFiles' => 'C:\\Program Files\\Common Files'
+    'PHP_SELF' => 'yii'
+    'SCRIPT_NAME' => 'yii'
+    'SCRIPT_FILENAME' => 'yii'
+    'PATH_TRANSLATED' => 'yii'
+    'DOCUMENT_ROOT' => ''
+    'REQUEST_TIME_FLOAT' => 1715581761.1106
+    'REQUEST_TIME' => 1715581761
+    'argv' => [
+        0 => 'yii'
+        1 => 'hello/docorder'
+        2 => '--number'
+        3 => '='
+        4 => '3'
+    ]
+    'argc' => 5
+]
+2024-05-13 08:29:32 [-][-][-][error][yii\console\UnknownCommandException] yii\base\InvalidRouteException: Unable to resolve the request "hello/docincreate". in C:\Users\Praktik\Desktop\mysite_git\site_yii\vendor\yiisoft\yii2\base\Module.php:561
+Stack trace:
+#0 C:\Users\Praktik\Desktop\mysite_git\site_yii\vendor\yiisoft\yii2\console\Application.php(180): yii\base\Module->runAction('hello/docincrea...', Array)
+#1 C:\Users\Praktik\Desktop\mysite_git\site_yii\vendor\yiisoft\yii2\console\Application.php(147): yii\console\Application->runAction('hello/docincrea...', Array)
+#2 C:\Users\Praktik\Desktop\mysite_git\site_yii\vendor\yiisoft\yii2\base\Application.php(384): yii\console\Application->handleRequest(Object(yii\console\Request))
+#3 C:\Users\Praktik\Desktop\mysite_git\site_yii\yii(20): yii\base\Application->run()
+#4 {main}
+
+Next yii\console\UnknownCommandException: Unknown command "hello/docincreate". in C:\Users\Praktik\Desktop\mysite_git\site_yii\vendor\yiisoft\yii2\console\Application.php:183
+Stack trace:
+#0 C:\Users\Praktik\Desktop\mysite_git\site_yii\vendor\yiisoft\yii2\console\Application.php(147): yii\console\Application->runAction('hello/docincrea...', Array)
+#1 C:\Users\Praktik\Desktop\mysite_git\site_yii\vendor\yiisoft\yii2\base\Application.php(384): yii\console\Application->handleRequest(Object(yii\console\Request))
+#2 C:\Users\Praktik\Desktop\mysite_git\site_yii\yii(20): yii\base\Application->run()
+#3 {main}
+2024-05-13 08:29:32 [-][-][-][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'PSExecutionPolicyPreference' => 'Bypass'
+    'TERM_SESSION_ID' => '95ceed6b-5378-4c9e-a057-6918bad6d588'
+    'CommonProgramW6432' => 'C:\\Program Files\\Common Files'
+    'ProgramW6432' => 'C:\\Program Files'
+    'CLION_VM_OPTIONS' => 'C:\\Program Files\\JetBrains\\Activate\\vmoptions\\clion.vmoptions'
+    'JETBRAINS_CLIENT_VM_OPTIONS' => 'C:\\Program Files\\JetBrains\\Activate\\vmoptions\\jetbrains_client.vmoptions'
+    'DATAGRIP_VM_OPTIONS' => 'C:\\Program Files\\JetBrains\\Activate\\vmoptions\\datagrip.vmoptions'
+    'USERNAME' => 'Praktik'
+    'ALLUSERSPROFILE' => 'C:\\ProgramData'
+    'USERPROFILE' => 'C:\\Users\\Praktik'
+    'RUBYMINE_VM_OPTIONS' => 'C:\\Program Files\\JetBrains\\Activate\\vmoptions\\rubymine.vmoptions'
+    'PROCESSOR_REVISION' => '4f01'
+    'IDEA_INITIAL_DIRECTORY' => 'C:\\Program Files\\JetBrains\\PhpStorm2024.1\\bin'
+    'FPS_BROWSER_APP_PROFILE_STRING' => 'Internet Explorer'
+    'PUBLIC' => 'C:\\Users\\Public'
+    'PYCHARM_VM_OPTIONS' => 'C:\\Program Files\\JetBrains\\Activate\\vmoptions\\pycharm.vmoptions'
+    'Path' => 'C:\\xampp\\php;C:\\Program Files (x86)\\Intel\\iCLS Client\\;C:\\Program Files\\Intel\\iCLS Client\\;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Windows\\System32\\OpenSSH\\;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common;C:\\Program Files\\NVIDIA Corporation\\NVIDIA NvDLISR;C:\\Program Files\\dotnet\\;C:\\Program Files (x86)\\HP\\HP OCR\\DB_Lib\\;C:\\Program Files\\HP\\Common\\HPDestPlgIn\\;C:\\Program Files (x86)\\HP\\Common\\HPDestPlgIn\\;C:\\Windows\\System32\\OpenSSH\\;C:\\Program Files\\Microsoft SQL Server\\Client SDK\\ODBC\\170\\Tools\\Binn\\;C:\\Program Files (x86)\\Microsoft SQL Server\\150\\Tools\\Binn\\;C:\\Program Files\\Microsoft SQL Server\\150\\Tools\\Binn\\;C:\\Program Files\\Microsoft SQL Server\\150\\DTS\\Binn\\;C:\\Program Files (x86)\\Microsoft SQL Server\\160\\DTS\\Binn\\;C:\\Program Files (x86)\\Kaspersky Lab\\Endpoint Agent\\;C:\\Program Files\\Git\\cmd;C:\\Users\\Praktik\\Downloads\\php-8.3.0-nts-Win32-vs16-x64;C:\\ProgramData\\ComposerSetup\\bin;C:\\xampp\\php;C:\\Program Files (x86)\\dotnet\\;C:\\Program Files (x86)\\Incredibuild;C:\\Program Files (x86)\\Windows Kits\\10\\Windows Performance Toolkit\\;C:\\Users\\Praktik\\AppData\\Local\\Microsoft\\WindowsApps;;C:\\Users\\Praktik\\AppData\\Local\\Programs\\Microsoft VS Code\\bin;C:\\Users\\Praktik\\AppData\\Roaming\\Composer\\vendor\\bin;C:\\Users\\Praktik\\.dotnet\\tools'
+    'DriverData' => 'C:\\Windows\\System32\\Drivers\\DriverData'
+    'HOMEDRIVE' => 'C:'
+    'IDEA_VM_OPTIONS' => 'C:\\Program Files\\JetBrains\\Activate\\vmoptions\\idea.vmoptions'
+    'SESSIONNAME' => 'Console'
+    'LOGONSERVER' => '\\\\WSS'
+    'TERMINAL_EMULATOR' => 'JetBrains-JediTerm'
+    'APPCODE_VM_OPTIONS' => 'C:\\Program Files\\JetBrains\\Activate\\vmoptions\\appcode.vmoptions'
+    'JETBRAINSCLIENT_VM_OPTIONS' => 'C:\\Program Files\\JetBrains\\Activate\\vmoptions\\jetbrainsclient.vmoptions'
+    'HOMEPATH' => '\\Users\\Praktik'
+    'SystemRoot' => 'C:\\Windows'
+    'STUDIO_VM_OPTIONS' => 'C:\\Program Files\\JetBrains\\Activate\\vmoptions\\studio.vmoptions'
+    'VS140COMNTOOLS' => 'C:\\Program Files (x86)\\Microsoft Visual Studio 14.0\\Common7\\Tools\\'
+    'LOCALAPPDATA' => 'C:\\Users\\Praktik\\AppData\\Local'
+    'APPDATA' => 'C:\\Users\\Praktik\\AppData\\Roaming'
+    'PROCESSOR_IDENTIFIER' => 'Intel64 Family 6 Model 79 Stepping 1, GenuineIntel'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC;.CPL'
+    'PSModulePath' => 'C:\\Users\\Praktik\\Documents\\WindowsPowerShell\\Modules;C:\\Program Files\\WindowsPowerShell\\Modules;C:\\Windows\\system32\\WindowsPowerShell\\v1.0\\Modules;C:\\Program Files\\Intel\\;C:\\Program Files (x86)\\Microsoft SQL Server\\150\\Tools\\PowerShell\\Modules\\'
+    'ProgramFiles(x86)' => 'C:\\Program Files (x86)'
+    'WEBIDE_VM_OPTIONS' => 'C:\\Program Files\\JetBrains\\Activate\\vmoptions\\webide.vmoptions'
+    'PHPSTORM_VM_OPTIONS' => 'C:\\Program Files\\JetBrains\\Activate\\vmoptions\\phpstorm.vmoptions'
+    'RIDER_VM_OPTIONS' => 'C:\\Program Files\\JetBrains\\Activate\\vmoptions\\rider.vmoptions'
+    'JETBRAINS_INTELLIJ_COMMAND_END_MARKER' => 'hy5o914AmrWMdGuNMJxiPaNJnWWdoiGwtHioV1Nf6a7dBuibfAYZkK6O69ov2GZb'
+    'OS' => 'Windows_NT'
+    'USERDNSDOMAIN' => 'RST.EDU'
+    'PROCESSOR_ARCHITECTURE' => 'AMD64'
+    'WEBSTORM_VM_OPTIONS' => 'C:\\Program Files\\JetBrains\\Activate\\vmoptions\\webstorm.vmoptions'
+    'NUMBER_OF_PROCESSORS' => '12'
+    'ComSpec' => 'C:\\Windows\\system32\\cmd.exe'
+    'PROCESSOR_LEVEL' => '6'
+    'DEVECOSTUDIO_VM_OPTIONS' => 'C:\\Program Files\\JetBrains\\Activate\\vmoptions\\devecostudio.vmoptions'
+    'USERDOMAIN_ROAMINGPROFILE' => 'RST'
+    'windir' => 'C:\\Windows'
+    'ProgramFiles' => 'C:\\Program Files'
+    'DATASPELL_VM_OPTIONS' => 'C:\\Program Files\\JetBrains\\Activate\\vmoptions\\dataspell.vmoptions'
+    'TEMP' => 'C:\\Users\\Praktik\\AppData\\Local\\Temp'
+    'TMP' => 'C:\\Users\\Praktik\\AppData\\Local\\Temp'
+    'GATEWAY_VM_OPTIONS' => 'C:\\Program Files\\JetBrains\\Activate\\vmoptions\\gateway.vmoptions'
+    'OneDrive' => 'C:\\Users\\Praktik\\OneDrive'
+    'CommonProgramFiles(x86)' => 'C:\\Program Files (x86)\\Common Files'
+    'USERDOMAIN' => 'RST'
+    'SystemDrive' => 'C:'
+    'COMPUTERNAME' => 'T20-2R'
+    'ProgramData' => 'C:\\ProgramData'
+    'GOLAND_VM_OPTIONS' => 'C:\\Program Files\\JetBrains\\Activate\\vmoptions\\goland.vmoptions'
+    'FPS_BROWSER_USER_PROFILE_STRING' => 'Default'
+    'KOMPAS_SDK' => 'C:\\Program Files\\ASCON\\KOMPAS-3D v21\\SDK\\'
+    'CommonProgramFiles' => 'C:\\Program Files\\Common Files'
+    'PHP_SELF' => 'yii'
+    'SCRIPT_NAME' => 'yii'
+    'SCRIPT_FILENAME' => 'yii'
+    'PATH_TRANSLATED' => 'yii'
+    'DOCUMENT_ROOT' => ''
+    'REQUEST_TIME_FLOAT' => 1715581772.4817
+    'REQUEST_TIME' => 1715581772
+    'argv' => [
+        0 => 'yii'
+        1 => 'hello/docincreate'
+        2 => '--number'
+        3 => '='
+        4 => '3'
+    ]
+    'argc' => 5
+]
+2024-05-13 08:29:58 [-][-][-][error][yii\console\UnknownCommandException] yii\base\InvalidRouteException: Unable to resolve the request "hello/docoutcreate". in C:\Users\Praktik\Desktop\mysite_git\site_yii\vendor\yiisoft\yii2\base\Module.php:561
+Stack trace:
+#0 C:\Users\Praktik\Desktop\mysite_git\site_yii\vendor\yiisoft\yii2\console\Application.php(180): yii\base\Module->runAction('hello/docoutcre...', Array)
+#1 C:\Users\Praktik\Desktop\mysite_git\site_yii\vendor\yiisoft\yii2\console\Application.php(147): yii\console\Application->runAction('hello/docoutcre...', Array)
+#2 C:\Users\Praktik\Desktop\mysite_git\site_yii\vendor\yiisoft\yii2\base\Application.php(384): yii\console\Application->handleRequest(Object(yii\console\Request))
+#3 C:\Users\Praktik\Desktop\mysite_git\site_yii\yii(20): yii\base\Application->run()
+#4 {main}
+
+Next yii\console\UnknownCommandException: Unknown command "hello/docoutcreate". in C:\Users\Praktik\Desktop\mysite_git\site_yii\vendor\yiisoft\yii2\console\Application.php:183
+Stack trace:
+#0 C:\Users\Praktik\Desktop\mysite_git\site_yii\vendor\yiisoft\yii2\console\Application.php(147): yii\console\Application->runAction('hello/docoutcre...', Array)
+#1 C:\Users\Praktik\Desktop\mysite_git\site_yii\vendor\yiisoft\yii2\base\Application.php(384): yii\console\Application->handleRequest(Object(yii\console\Request))
+#2 C:\Users\Praktik\Desktop\mysite_git\site_yii\yii(20): yii\base\Application->run()
+#3 {main}
+2024-05-13 08:29:58 [-][-][-][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'PSExecutionPolicyPreference' => 'Bypass'
+    'TERM_SESSION_ID' => '95ceed6b-5378-4c9e-a057-6918bad6d588'
+    'CommonProgramW6432' => 'C:\\Program Files\\Common Files'
+    'ProgramW6432' => 'C:\\Program Files'
+    'CLION_VM_OPTIONS' => 'C:\\Program Files\\JetBrains\\Activate\\vmoptions\\clion.vmoptions'
+    'JETBRAINS_CLIENT_VM_OPTIONS' => 'C:\\Program Files\\JetBrains\\Activate\\vmoptions\\jetbrains_client.vmoptions'
+    'DATAGRIP_VM_OPTIONS' => 'C:\\Program Files\\JetBrains\\Activate\\vmoptions\\datagrip.vmoptions'
+    'USERNAME' => 'Praktik'
+    'ALLUSERSPROFILE' => 'C:\\ProgramData'
+    'USERPROFILE' => 'C:\\Users\\Praktik'
+    'RUBYMINE_VM_OPTIONS' => 'C:\\Program Files\\JetBrains\\Activate\\vmoptions\\rubymine.vmoptions'
+    'PROCESSOR_REVISION' => '4f01'
+    'IDEA_INITIAL_DIRECTORY' => 'C:\\Program Files\\JetBrains\\PhpStorm2024.1\\bin'
+    'FPS_BROWSER_APP_PROFILE_STRING' => 'Internet Explorer'
+    'PUBLIC' => 'C:\\Users\\Public'
+    'PYCHARM_VM_OPTIONS' => 'C:\\Program Files\\JetBrains\\Activate\\vmoptions\\pycharm.vmoptions'
+    'Path' => 'C:\\xampp\\php;C:\\Program Files (x86)\\Intel\\iCLS Client\\;C:\\Program Files\\Intel\\iCLS Client\\;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Windows\\System32\\OpenSSH\\;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common;C:\\Program Files\\NVIDIA Corporation\\NVIDIA NvDLISR;C:\\Program Files\\dotnet\\;C:\\Program Files (x86)\\HP\\HP OCR\\DB_Lib\\;C:\\Program Files\\HP\\Common\\HPDestPlgIn\\;C:\\Program Files (x86)\\HP\\Common\\HPDestPlgIn\\;C:\\Windows\\System32\\OpenSSH\\;C:\\Program Files\\Microsoft SQL Server\\Client SDK\\ODBC\\170\\Tools\\Binn\\;C:\\Program Files (x86)\\Microsoft SQL Server\\150\\Tools\\Binn\\;C:\\Program Files\\Microsoft SQL Server\\150\\Tools\\Binn\\;C:\\Program Files\\Microsoft SQL Server\\150\\DTS\\Binn\\;C:\\Program Files (x86)\\Microsoft SQL Server\\160\\DTS\\Binn\\;C:\\Program Files (x86)\\Kaspersky Lab\\Endpoint Agent\\;C:\\Program Files\\Git\\cmd;C:\\Users\\Praktik\\Downloads\\php-8.3.0-nts-Win32-vs16-x64;C:\\ProgramData\\ComposerSetup\\bin;C:\\xampp\\php;C:\\Program Files (x86)\\dotnet\\;C:\\Program Files (x86)\\Incredibuild;C:\\Program Files (x86)\\Windows Kits\\10\\Windows Performance Toolkit\\;C:\\Users\\Praktik\\AppData\\Local\\Microsoft\\WindowsApps;;C:\\Users\\Praktik\\AppData\\Local\\Programs\\Microsoft VS Code\\bin;C:\\Users\\Praktik\\AppData\\Roaming\\Composer\\vendor\\bin;C:\\Users\\Praktik\\.dotnet\\tools'
+    'DriverData' => 'C:\\Windows\\System32\\Drivers\\DriverData'
+    'HOMEDRIVE' => 'C:'
+    'IDEA_VM_OPTIONS' => 'C:\\Program Files\\JetBrains\\Activate\\vmoptions\\idea.vmoptions'
+    'SESSIONNAME' => 'Console'
+    'LOGONSERVER' => '\\\\WSS'
+    'TERMINAL_EMULATOR' => 'JetBrains-JediTerm'
+    'APPCODE_VM_OPTIONS' => 'C:\\Program Files\\JetBrains\\Activate\\vmoptions\\appcode.vmoptions'
+    'JETBRAINSCLIENT_VM_OPTIONS' => 'C:\\Program Files\\JetBrains\\Activate\\vmoptions\\jetbrainsclient.vmoptions'
+    'HOMEPATH' => '\\Users\\Praktik'
+    'SystemRoot' => 'C:\\Windows'
+    'STUDIO_VM_OPTIONS' => 'C:\\Program Files\\JetBrains\\Activate\\vmoptions\\studio.vmoptions'
+    'VS140COMNTOOLS' => 'C:\\Program Files (x86)\\Microsoft Visual Studio 14.0\\Common7\\Tools\\'
+    'LOCALAPPDATA' => 'C:\\Users\\Praktik\\AppData\\Local'
+    'APPDATA' => 'C:\\Users\\Praktik\\AppData\\Roaming'
+    'PROCESSOR_IDENTIFIER' => 'Intel64 Family 6 Model 79 Stepping 1, GenuineIntel'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC;.CPL'
+    'PSModulePath' => 'C:\\Users\\Praktik\\Documents\\WindowsPowerShell\\Modules;C:\\Program Files\\WindowsPowerShell\\Modules;C:\\Windows\\system32\\WindowsPowerShell\\v1.0\\Modules;C:\\Program Files\\Intel\\;C:\\Program Files (x86)\\Microsoft SQL Server\\150\\Tools\\PowerShell\\Modules\\'
+    'ProgramFiles(x86)' => 'C:\\Program Files (x86)'
+    'WEBIDE_VM_OPTIONS' => 'C:\\Program Files\\JetBrains\\Activate\\vmoptions\\webide.vmoptions'
+    'PHPSTORM_VM_OPTIONS' => 'C:\\Program Files\\JetBrains\\Activate\\vmoptions\\phpstorm.vmoptions'
+    'RIDER_VM_OPTIONS' => 'C:\\Program Files\\JetBrains\\Activate\\vmoptions\\rider.vmoptions'
+    'JETBRAINS_INTELLIJ_COMMAND_END_MARKER' => 'hy5o914AmrWMdGuNMJxiPaNJnWWdoiGwtHioV1Nf6a7dBuibfAYZkK6O69ov2GZb'
+    'OS' => 'Windows_NT'
+    'USERDNSDOMAIN' => 'RST.EDU'
+    'PROCESSOR_ARCHITECTURE' => 'AMD64'
+    'WEBSTORM_VM_OPTIONS' => 'C:\\Program Files\\JetBrains\\Activate\\vmoptions\\webstorm.vmoptions'
+    'NUMBER_OF_PROCESSORS' => '12'
+    'ComSpec' => 'C:\\Windows\\system32\\cmd.exe'
+    'PROCESSOR_LEVEL' => '6'
+    'DEVECOSTUDIO_VM_OPTIONS' => 'C:\\Program Files\\JetBrains\\Activate\\vmoptions\\devecostudio.vmoptions'
+    'USERDOMAIN_ROAMINGPROFILE' => 'RST'
+    'windir' => 'C:\\Windows'
+    'ProgramFiles' => 'C:\\Program Files'
+    'DATASPELL_VM_OPTIONS' => 'C:\\Program Files\\JetBrains\\Activate\\vmoptions\\dataspell.vmoptions'
+    'TEMP' => 'C:\\Users\\Praktik\\AppData\\Local\\Temp'
+    'TMP' => 'C:\\Users\\Praktik\\AppData\\Local\\Temp'
+    'GATEWAY_VM_OPTIONS' => 'C:\\Program Files\\JetBrains\\Activate\\vmoptions\\gateway.vmoptions'
+    'OneDrive' => 'C:\\Users\\Praktik\\OneDrive'
+    'CommonProgramFiles(x86)' => 'C:\\Program Files (x86)\\Common Files'
+    'USERDOMAIN' => 'RST'
+    'SystemDrive' => 'C:'
+    'COMPUTERNAME' => 'T20-2R'
+    'ProgramData' => 'C:\\ProgramData'
+    'GOLAND_VM_OPTIONS' => 'C:\\Program Files\\JetBrains\\Activate\\vmoptions\\goland.vmoptions'
+    'FPS_BROWSER_USER_PROFILE_STRING' => 'Default'
+    'KOMPAS_SDK' => 'C:\\Program Files\\ASCON\\KOMPAS-3D v21\\SDK\\'
+    'CommonProgramFiles' => 'C:\\Program Files\\Common Files'
+    'PHP_SELF' => 'yii'
+    'SCRIPT_NAME' => 'yii'
+    'SCRIPT_FILENAME' => 'yii'
+    'PATH_TRANSLATED' => 'yii'
+    'DOCUMENT_ROOT' => ''
+    'REQUEST_TIME_FLOAT' => 1715581798.3422
+    'REQUEST_TIME' => 1715581798
+    'argv' => [
+        0 => 'yii'
+        1 => 'hello/docoutcreate'
+        2 => '--number'
+        3 => '='
+        4 => '3'
+    ]
+    'argc' => 5
+]
+2024-05-13 08:30:49 [-][-][-][error][yii\console\UnknownCommandException] yii\base\InvalidRouteException: Unable to resolve the request "hello". in C:\Users\Praktik\Desktop\mysite_git\site_yii\vendor\yiisoft\yii2\base\Module.php:561
+Stack trace:
+#0 C:\Users\Praktik\Desktop\mysite_git\site_yii\vendor\yiisoft\yii2\console\Application.php(180): yii\base\Module->runAction('hello', Array)
+#1 C:\Users\Praktik\Desktop\mysite_git\site_yii\vendor\yiisoft\yii2\console\Application.php(147): yii\console\Application->runAction('hello', Array)
+#2 C:\Users\Praktik\Desktop\mysite_git\site_yii\vendor\yiisoft\yii2\base\Application.php(384): yii\console\Application->handleRequest(Object(yii\console\Request))
+#3 C:\Users\Praktik\Desktop\mysite_git\site_yii\yii(20): yii\base\Application->run()
+#4 {main}
+
+Next yii\console\UnknownCommandException: Unknown command "hello". in C:\Users\Praktik\Desktop\mysite_git\site_yii\vendor\yiisoft\yii2\console\Application.php:183
+Stack trace:
+#0 C:\Users\Praktik\Desktop\mysite_git\site_yii\vendor\yiisoft\yii2\console\Application.php(147): yii\console\Application->runAction('hello', Array)
+#1 C:\Users\Praktik\Desktop\mysite_git\site_yii\vendor\yiisoft\yii2\base\Application.php(384): yii\console\Application->handleRequest(Object(yii\console\Request))
+#2 C:\Users\Praktik\Desktop\mysite_git\site_yii\yii(20): yii\base\Application->run()
+#3 {main}
+2024-05-13 08:30:49 [-][-][-][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'PSExecutionPolicyPreference' => 'Bypass'
+    'TERM_SESSION_ID' => '95ceed6b-5378-4c9e-a057-6918bad6d588'
+    'CommonProgramW6432' => 'C:\\Program Files\\Common Files'
+    'ProgramW6432' => 'C:\\Program Files'
+    'CLION_VM_OPTIONS' => 'C:\\Program Files\\JetBrains\\Activate\\vmoptions\\clion.vmoptions'
+    'JETBRAINS_CLIENT_VM_OPTIONS' => 'C:\\Program Files\\JetBrains\\Activate\\vmoptions\\jetbrains_client.vmoptions'
+    'DATAGRIP_VM_OPTIONS' => 'C:\\Program Files\\JetBrains\\Activate\\vmoptions\\datagrip.vmoptions'
+    'USERNAME' => 'Praktik'
+    'ALLUSERSPROFILE' => 'C:\\ProgramData'
+    'USERPROFILE' => 'C:\\Users\\Praktik'
+    'RUBYMINE_VM_OPTIONS' => 'C:\\Program Files\\JetBrains\\Activate\\vmoptions\\rubymine.vmoptions'
+    'PROCESSOR_REVISION' => '4f01'
+    'IDEA_INITIAL_DIRECTORY' => 'C:\\Program Files\\JetBrains\\PhpStorm2024.1\\bin'
+    'FPS_BROWSER_APP_PROFILE_STRING' => 'Internet Explorer'
+    'PUBLIC' => 'C:\\Users\\Public'
+    'PYCHARM_VM_OPTIONS' => 'C:\\Program Files\\JetBrains\\Activate\\vmoptions\\pycharm.vmoptions'
+    'Path' => 'C:\\xampp\\php;C:\\Program Files (x86)\\Intel\\iCLS Client\\;C:\\Program Files\\Intel\\iCLS Client\\;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Windows\\System32\\OpenSSH\\;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common;C:\\Program Files\\NVIDIA Corporation\\NVIDIA NvDLISR;C:\\Program Files\\dotnet\\;C:\\Program Files (x86)\\HP\\HP OCR\\DB_Lib\\;C:\\Program Files\\HP\\Common\\HPDestPlgIn\\;C:\\Program Files (x86)\\HP\\Common\\HPDestPlgIn\\;C:\\Windows\\System32\\OpenSSH\\;C:\\Program Files\\Microsoft SQL Server\\Client SDK\\ODBC\\170\\Tools\\Binn\\;C:\\Program Files (x86)\\Microsoft SQL Server\\150\\Tools\\Binn\\;C:\\Program Files\\Microsoft SQL Server\\150\\Tools\\Binn\\;C:\\Program Files\\Microsoft SQL Server\\150\\DTS\\Binn\\;C:\\Program Files (x86)\\Microsoft SQL Server\\160\\DTS\\Binn\\;C:\\Program Files (x86)\\Kaspersky Lab\\Endpoint Agent\\;C:\\Program Files\\Git\\cmd;C:\\Users\\Praktik\\Downloads\\php-8.3.0-nts-Win32-vs16-x64;C:\\ProgramData\\ComposerSetup\\bin;C:\\xampp\\php;C:\\Program Files (x86)\\dotnet\\;C:\\Program Files (x86)\\Incredibuild;C:\\Program Files (x86)\\Windows Kits\\10\\Windows Performance Toolkit\\;C:\\Users\\Praktik\\AppData\\Local\\Microsoft\\WindowsApps;;C:\\Users\\Praktik\\AppData\\Local\\Programs\\Microsoft VS Code\\bin;C:\\Users\\Praktik\\AppData\\Roaming\\Composer\\vendor\\bin;C:\\Users\\Praktik\\.dotnet\\tools'
+    'DriverData' => 'C:\\Windows\\System32\\Drivers\\DriverData'
+    'HOMEDRIVE' => 'C:'
+    'IDEA_VM_OPTIONS' => 'C:\\Program Files\\JetBrains\\Activate\\vmoptions\\idea.vmoptions'
+    'SESSIONNAME' => 'Console'
+    'LOGONSERVER' => '\\\\WSS'
+    'TERMINAL_EMULATOR' => 'JetBrains-JediTerm'
+    'APPCODE_VM_OPTIONS' => 'C:\\Program Files\\JetBrains\\Activate\\vmoptions\\appcode.vmoptions'
+    'JETBRAINSCLIENT_VM_OPTIONS' => 'C:\\Program Files\\JetBrains\\Activate\\vmoptions\\jetbrainsclient.vmoptions'
+    'HOMEPATH' => '\\Users\\Praktik'
+    'SystemRoot' => 'C:\\Windows'
+    'STUDIO_VM_OPTIONS' => 'C:\\Program Files\\JetBrains\\Activate\\vmoptions\\studio.vmoptions'
+    'VS140COMNTOOLS' => 'C:\\Program Files (x86)\\Microsoft Visual Studio 14.0\\Common7\\Tools\\'
+    'LOCALAPPDATA' => 'C:\\Users\\Praktik\\AppData\\Local'
+    'APPDATA' => 'C:\\Users\\Praktik\\AppData\\Roaming'
+    'PROCESSOR_IDENTIFIER' => 'Intel64 Family 6 Model 79 Stepping 1, GenuineIntel'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC;.CPL'
+    'PSModulePath' => 'C:\\Users\\Praktik\\Documents\\WindowsPowerShell\\Modules;C:\\Program Files\\WindowsPowerShell\\Modules;C:\\Windows\\system32\\WindowsPowerShell\\v1.0\\Modules;C:\\Program Files\\Intel\\;C:\\Program Files (x86)\\Microsoft SQL Server\\150\\Tools\\PowerShell\\Modules\\'
+    'ProgramFiles(x86)' => 'C:\\Program Files (x86)'
+    'WEBIDE_VM_OPTIONS' => 'C:\\Program Files\\JetBrains\\Activate\\vmoptions\\webide.vmoptions'
+    'PHPSTORM_VM_OPTIONS' => 'C:\\Program Files\\JetBrains\\Activate\\vmoptions\\phpstorm.vmoptions'
+    'RIDER_VM_OPTIONS' => 'C:\\Program Files\\JetBrains\\Activate\\vmoptions\\rider.vmoptions'
+    'JETBRAINS_INTELLIJ_COMMAND_END_MARKER' => 'hy5o914AmrWMdGuNMJxiPaNJnWWdoiGwtHioV1Nf6a7dBuibfAYZkK6O69ov2GZb'
+    'OS' => 'Windows_NT'
+    'USERDNSDOMAIN' => 'RST.EDU'
+    'PROCESSOR_ARCHITECTURE' => 'AMD64'
+    'WEBSTORM_VM_OPTIONS' => 'C:\\Program Files\\JetBrains\\Activate\\vmoptions\\webstorm.vmoptions'
+    'NUMBER_OF_PROCESSORS' => '12'
+    'ComSpec' => 'C:\\Windows\\system32\\cmd.exe'
+    'PROCESSOR_LEVEL' => '6'
+    'DEVECOSTUDIO_VM_OPTIONS' => 'C:\\Program Files\\JetBrains\\Activate\\vmoptions\\devecostudio.vmoptions'
+    'USERDOMAIN_ROAMINGPROFILE' => 'RST'
+    'windir' => 'C:\\Windows'
+    'ProgramFiles' => 'C:\\Program Files'
+    'DATASPELL_VM_OPTIONS' => 'C:\\Program Files\\JetBrains\\Activate\\vmoptions\\dataspell.vmoptions'
+    'TEMP' => 'C:\\Users\\Praktik\\AppData\\Local\\Temp'
+    'TMP' => 'C:\\Users\\Praktik\\AppData\\Local\\Temp'
+    'GATEWAY_VM_OPTIONS' => 'C:\\Program Files\\JetBrains\\Activate\\vmoptions\\gateway.vmoptions'
+    'OneDrive' => 'C:\\Users\\Praktik\\OneDrive'
+    'CommonProgramFiles(x86)' => 'C:\\Program Files (x86)\\Common Files'
+    'USERDOMAIN' => 'RST'
+    'SystemDrive' => 'C:'
+    'COMPUTERNAME' => 'T20-2R'
+    'ProgramData' => 'C:\\ProgramData'
+    'GOLAND_VM_OPTIONS' => 'C:\\Program Files\\JetBrains\\Activate\\vmoptions\\goland.vmoptions'
+    'FPS_BROWSER_USER_PROFILE_STRING' => 'Default'
+    'KOMPAS_SDK' => 'C:\\Program Files\\ASCON\\KOMPAS-3D v21\\SDK\\'
+    'CommonProgramFiles' => 'C:\\Program Files\\Common Files'
+    'PHP_SELF' => 'yii'
+    'SCRIPT_NAME' => 'yii'
+    'SCRIPT_FILENAME' => 'yii'
+    'PATH_TRANSLATED' => 'yii'
+    'DOCUMENT_ROOT' => ''
+    'REQUEST_TIME_FLOAT' => 1715581849.3947
+    'REQUEST_TIME' => 1715581849
+    'argv' => [
+        0 => 'yii'
+        1 => 'hello'
+    ]
+    'argc' => 2
+]
+2024-05-13 08:35:32 [-][-][-][error][yii\console\UnknownCommandException] yii\base\InvalidRouteException: Unable to resolve the request "hello/docoutcreate". in C:\Users\Praktik\Desktop\mysite_git\site_yii\vendor\yiisoft\yii2\base\Module.php:561
+Stack trace:
+#0 C:\Users\Praktik\Desktop\mysite_git\site_yii\vendor\yiisoft\yii2\console\Application.php(180): yii\base\Module->runAction('hello/docoutcre...', Array)
+#1 C:\Users\Praktik\Desktop\mysite_git\site_yii\vendor\yiisoft\yii2\console\Application.php(147): yii\console\Application->runAction('hello/docoutcre...', Array)
+#2 C:\Users\Praktik\Desktop\mysite_git\site_yii\vendor\yiisoft\yii2\base\Application.php(384): yii\console\Application->handleRequest(Object(yii\console\Request))
+#3 C:\Users\Praktik\Desktop\mysite_git\site_yii\yii(20): yii\base\Application->run()
+#4 {main}
+
+Next yii\console\UnknownCommandException: Unknown command "hello/docoutcreate". in C:\Users\Praktik\Desktop\mysite_git\site_yii\vendor\yiisoft\yii2\console\Application.php:183
+Stack trace:
+#0 C:\Users\Praktik\Desktop\mysite_git\site_yii\vendor\yiisoft\yii2\console\Application.php(147): yii\console\Application->runAction('hello/docoutcre...', Array)
+#1 C:\Users\Praktik\Desktop\mysite_git\site_yii\vendor\yiisoft\yii2\base\Application.php(384): yii\console\Application->handleRequest(Object(yii\console\Request))
+#2 C:\Users\Praktik\Desktop\mysite_git\site_yii\yii(20): yii\base\Application->run()
+#3 {main}
+2024-05-13 08:35:32 [-][-][-][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'PSExecutionPolicyPreference' => 'Bypass'
+    'TERM_SESSION_ID' => '95ceed6b-5378-4c9e-a057-6918bad6d588'
+    'CommonProgramW6432' => 'C:\\Program Files\\Common Files'
+    'ProgramW6432' => 'C:\\Program Files'
+    'CLION_VM_OPTIONS' => 'C:\\Program Files\\JetBrains\\Activate\\vmoptions\\clion.vmoptions'
+    'JETBRAINS_CLIENT_VM_OPTIONS' => 'C:\\Program Files\\JetBrains\\Activate\\vmoptions\\jetbrains_client.vmoptions'
+    'DATAGRIP_VM_OPTIONS' => 'C:\\Program Files\\JetBrains\\Activate\\vmoptions\\datagrip.vmoptions'
+    'USERNAME' => 'Praktik'
+    'ALLUSERSPROFILE' => 'C:\\ProgramData'
+    'USERPROFILE' => 'C:\\Users\\Praktik'
+    'RUBYMINE_VM_OPTIONS' => 'C:\\Program Files\\JetBrains\\Activate\\vmoptions\\rubymine.vmoptions'
+    'PROCESSOR_REVISION' => '4f01'
+    'IDEA_INITIAL_DIRECTORY' => 'C:\\Program Files\\JetBrains\\PhpStorm2024.1\\bin'
+    'FPS_BROWSER_APP_PROFILE_STRING' => 'Internet Explorer'
+    'PUBLIC' => 'C:\\Users\\Public'
+    'PYCHARM_VM_OPTIONS' => 'C:\\Program Files\\JetBrains\\Activate\\vmoptions\\pycharm.vmoptions'
+    'Path' => 'C:\\xampp\\php;C:\\Program Files (x86)\\Intel\\iCLS Client\\;C:\\Program Files\\Intel\\iCLS Client\\;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Windows\\System32\\OpenSSH\\;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common;C:\\Program Files\\NVIDIA Corporation\\NVIDIA NvDLISR;C:\\Program Files\\dotnet\\;C:\\Program Files (x86)\\HP\\HP OCR\\DB_Lib\\;C:\\Program Files\\HP\\Common\\HPDestPlgIn\\;C:\\Program Files (x86)\\HP\\Common\\HPDestPlgIn\\;C:\\Windows\\System32\\OpenSSH\\;C:\\Program Files\\Microsoft SQL Server\\Client SDK\\ODBC\\170\\Tools\\Binn\\;C:\\Program Files (x86)\\Microsoft SQL Server\\150\\Tools\\Binn\\;C:\\Program Files\\Microsoft SQL Server\\150\\Tools\\Binn\\;C:\\Program Files\\Microsoft SQL Server\\150\\DTS\\Binn\\;C:\\Program Files (x86)\\Microsoft SQL Server\\160\\DTS\\Binn\\;C:\\Program Files (x86)\\Kaspersky Lab\\Endpoint Agent\\;C:\\Program Files\\Git\\cmd;C:\\Users\\Praktik\\Downloads\\php-8.3.0-nts-Win32-vs16-x64;C:\\ProgramData\\ComposerSetup\\bin;C:\\xampp\\php;C:\\Program Files (x86)\\dotnet\\;C:\\Program Files (x86)\\Incredibuild;C:\\Program Files (x86)\\Windows Kits\\10\\Windows Performance Toolkit\\;C:\\Users\\Praktik\\AppData\\Local\\Microsoft\\WindowsApps;;C:\\Users\\Praktik\\AppData\\Local\\Programs\\Microsoft VS Code\\bin;C:\\Users\\Praktik\\AppData\\Roaming\\Composer\\vendor\\bin;C:\\Users\\Praktik\\.dotnet\\tools'
+    'DriverData' => 'C:\\Windows\\System32\\Drivers\\DriverData'
+    'HOMEDRIVE' => 'C:'
+    'IDEA_VM_OPTIONS' => 'C:\\Program Files\\JetBrains\\Activate\\vmoptions\\idea.vmoptions'
+    'SESSIONNAME' => 'Console'
+    'LOGONSERVER' => '\\\\WSS'
+    'TERMINAL_EMULATOR' => 'JetBrains-JediTerm'
+    'APPCODE_VM_OPTIONS' => 'C:\\Program Files\\JetBrains\\Activate\\vmoptions\\appcode.vmoptions'
+    'JETBRAINSCLIENT_VM_OPTIONS' => 'C:\\Program Files\\JetBrains\\Activate\\vmoptions\\jetbrainsclient.vmoptions'
+    'HOMEPATH' => '\\Users\\Praktik'
+    'SystemRoot' => 'C:\\Windows'
+    'STUDIO_VM_OPTIONS' => 'C:\\Program Files\\JetBrains\\Activate\\vmoptions\\studio.vmoptions'
+    'VS140COMNTOOLS' => 'C:\\Program Files (x86)\\Microsoft Visual Studio 14.0\\Common7\\Tools\\'
+    'LOCALAPPDATA' => 'C:\\Users\\Praktik\\AppData\\Local'
+    'APPDATA' => 'C:\\Users\\Praktik\\AppData\\Roaming'
+    'PROCESSOR_IDENTIFIER' => 'Intel64 Family 6 Model 79 Stepping 1, GenuineIntel'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC;.CPL'
+    'PSModulePath' => 'C:\\Users\\Praktik\\Documents\\WindowsPowerShell\\Modules;C:\\Program Files\\WindowsPowerShell\\Modules;C:\\Windows\\system32\\WindowsPowerShell\\v1.0\\Modules;C:\\Program Files\\Intel\\;C:\\Program Files (x86)\\Microsoft SQL Server\\150\\Tools\\PowerShell\\Modules\\'
+    'ProgramFiles(x86)' => 'C:\\Program Files (x86)'
+    'WEBIDE_VM_OPTIONS' => 'C:\\Program Files\\JetBrains\\Activate\\vmoptions\\webide.vmoptions'
+    'PHPSTORM_VM_OPTIONS' => 'C:\\Program Files\\JetBrains\\Activate\\vmoptions\\phpstorm.vmoptions'
+    'RIDER_VM_OPTIONS' => 'C:\\Program Files\\JetBrains\\Activate\\vmoptions\\rider.vmoptions'
+    'JETBRAINS_INTELLIJ_COMMAND_END_MARKER' => 'hy5o914AmrWMdGuNMJxiPaNJnWWdoiGwtHioV1Nf6a7dBuibfAYZkK6O69ov2GZb'
+    'OS' => 'Windows_NT'
+    'USERDNSDOMAIN' => 'RST.EDU'
+    'PROCESSOR_ARCHITECTURE' => 'AMD64'
+    'WEBSTORM_VM_OPTIONS' => 'C:\\Program Files\\JetBrains\\Activate\\vmoptions\\webstorm.vmoptions'
+    'NUMBER_OF_PROCESSORS' => '12'
+    'ComSpec' => 'C:\\Windows\\system32\\cmd.exe'
+    'PROCESSOR_LEVEL' => '6'
+    'DEVECOSTUDIO_VM_OPTIONS' => 'C:\\Program Files\\JetBrains\\Activate\\vmoptions\\devecostudio.vmoptions'
+    'USERDOMAIN_ROAMINGPROFILE' => 'RST'
+    'windir' => 'C:\\Windows'
+    'ProgramFiles' => 'C:\\Program Files'
+    'DATASPELL_VM_OPTIONS' => 'C:\\Program Files\\JetBrains\\Activate\\vmoptions\\dataspell.vmoptions'
+    'TEMP' => 'C:\\Users\\Praktik\\AppData\\Local\\Temp'
+    'TMP' => 'C:\\Users\\Praktik\\AppData\\Local\\Temp'
+    'GATEWAY_VM_OPTIONS' => 'C:\\Program Files\\JetBrains\\Activate\\vmoptions\\gateway.vmoptions'
+    'OneDrive' => 'C:\\Users\\Praktik\\OneDrive'
+    'CommonProgramFiles(x86)' => 'C:\\Program Files (x86)\\Common Files'
+    'USERDOMAIN' => 'RST'
+    'SystemDrive' => 'C:'
+    'COMPUTERNAME' => 'T20-2R'
+    'ProgramData' => 'C:\\ProgramData'
+    'GOLAND_VM_OPTIONS' => 'C:\\Program Files\\JetBrains\\Activate\\vmoptions\\goland.vmoptions'
+    'FPS_BROWSER_USER_PROFILE_STRING' => 'Default'
+    'KOMPAS_SDK' => 'C:\\Program Files\\ASCON\\KOMPAS-3D v21\\SDK\\'
+    'CommonProgramFiles' => 'C:\\Program Files\\Common Files'
+    'PHP_SELF' => 'yii'
+    'SCRIPT_NAME' => 'yii'
+    'SCRIPT_FILENAME' => 'yii'
+    'PATH_TRANSLATED' => 'yii'
+    'DOCUMENT_ROOT' => ''
+    'REQUEST_TIME_FLOAT' => 1715582132.7852
+    'REQUEST_TIME' => 1715582132
+    'argv' => [
+        0 => 'yii'
+        1 => 'hello/docoutcreate'
+        2 => '--number'
+        3 => '='
+        4 => '3'
+    ]
+    'argc' => 5
+]
+2024-05-13 08:55:06 [-][-][-][error][yii\console\UnknownCommandException] yii\base\InvalidRouteException: Unable to resolve the request "hello". in C:\Users\Praktik\Desktop\mysite_git\site_yii\vendor\yiisoft\yii2\base\Module.php:561
+Stack trace:
+#0 C:\Users\Praktik\Desktop\mysite_git\site_yii\vendor\yiisoft\yii2\console\Application.php(180): yii\base\Module->runAction('hello', Array)
+#1 C:\Users\Praktik\Desktop\mysite_git\site_yii\vendor\yiisoft\yii2\console\Application.php(147): yii\console\Application->runAction('hello', Array)
+#2 C:\Users\Praktik\Desktop\mysite_git\site_yii\vendor\yiisoft\yii2\base\Application.php(384): yii\console\Application->handleRequest(Object(yii\console\Request))
+#3 C:\Users\Praktik\Desktop\mysite_git\site_yii\yii(20): yii\base\Application->run()
+#4 {main}
+
+Next yii\console\UnknownCommandException: Unknown command "hello". in C:\Users\Praktik\Desktop\mysite_git\site_yii\vendor\yiisoft\yii2\console\Application.php:183
+Stack trace:
+#0 C:\Users\Praktik\Desktop\mysite_git\site_yii\vendor\yiisoft\yii2\console\Application.php(147): yii\console\Application->runAction('hello', Array)
+#1 C:\Users\Praktik\Desktop\mysite_git\site_yii\vendor\yiisoft\yii2\base\Application.php(384): yii\console\Application->handleRequest(Object(yii\console\Request))
+#2 C:\Users\Praktik\Desktop\mysite_git\site_yii\yii(20): yii\base\Application->run()
+#3 {main}
+2024-05-13 08:55:06 [-][-][-][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'PSExecutionPolicyPreference' => 'Bypass'
+    'TERM_SESSION_ID' => '95ceed6b-5378-4c9e-a057-6918bad6d588'
+    'CommonProgramW6432' => 'C:\\Program Files\\Common Files'
+    'ProgramW6432' => 'C:\\Program Files'
+    'CLION_VM_OPTIONS' => 'C:\\Program Files\\JetBrains\\Activate\\vmoptions\\clion.vmoptions'
+    'JETBRAINS_CLIENT_VM_OPTIONS' => 'C:\\Program Files\\JetBrains\\Activate\\vmoptions\\jetbrains_client.vmoptions'
+    'DATAGRIP_VM_OPTIONS' => 'C:\\Program Files\\JetBrains\\Activate\\vmoptions\\datagrip.vmoptions'
+    'USERNAME' => 'Praktik'
+    'ALLUSERSPROFILE' => 'C:\\ProgramData'
+    'USERPROFILE' => 'C:\\Users\\Praktik'
+    'RUBYMINE_VM_OPTIONS' => 'C:\\Program Files\\JetBrains\\Activate\\vmoptions\\rubymine.vmoptions'
+    'PROCESSOR_REVISION' => '4f01'
+    'IDEA_INITIAL_DIRECTORY' => 'C:\\Program Files\\JetBrains\\PhpStorm2024.1\\bin'
+    'FPS_BROWSER_APP_PROFILE_STRING' => 'Internet Explorer'
+    'PUBLIC' => 'C:\\Users\\Public'
+    'PYCHARM_VM_OPTIONS' => 'C:\\Program Files\\JetBrains\\Activate\\vmoptions\\pycharm.vmoptions'
+    'Path' => 'C:\\xampp\\php;C:\\Program Files (x86)\\Intel\\iCLS Client\\;C:\\Program Files\\Intel\\iCLS Client\\;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Windows\\System32\\OpenSSH\\;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common;C:\\Program Files\\NVIDIA Corporation\\NVIDIA NvDLISR;C:\\Program Files\\dotnet\\;C:\\Program Files (x86)\\HP\\HP OCR\\DB_Lib\\;C:\\Program Files\\HP\\Common\\HPDestPlgIn\\;C:\\Program Files (x86)\\HP\\Common\\HPDestPlgIn\\;C:\\Windows\\System32\\OpenSSH\\;C:\\Program Files\\Microsoft SQL Server\\Client SDK\\ODBC\\170\\Tools\\Binn\\;C:\\Program Files (x86)\\Microsoft SQL Server\\150\\Tools\\Binn\\;C:\\Program Files\\Microsoft SQL Server\\150\\Tools\\Binn\\;C:\\Program Files\\Microsoft SQL Server\\150\\DTS\\Binn\\;C:\\Program Files (x86)\\Microsoft SQL Server\\160\\DTS\\Binn\\;C:\\Program Files (x86)\\Kaspersky Lab\\Endpoint Agent\\;C:\\Program Files\\Git\\cmd;C:\\Users\\Praktik\\Downloads\\php-8.3.0-nts-Win32-vs16-x64;C:\\ProgramData\\ComposerSetup\\bin;C:\\xampp\\php;C:\\Program Files (x86)\\dotnet\\;C:\\Program Files (x86)\\Incredibuild;C:\\Program Files (x86)\\Windows Kits\\10\\Windows Performance Toolkit\\;C:\\Users\\Praktik\\AppData\\Local\\Microsoft\\WindowsApps;;C:\\Users\\Praktik\\AppData\\Local\\Programs\\Microsoft VS Code\\bin;C:\\Users\\Praktik\\AppData\\Roaming\\Composer\\vendor\\bin;C:\\Users\\Praktik\\.dotnet\\tools'
+    'DriverData' => 'C:\\Windows\\System32\\Drivers\\DriverData'
+    'HOMEDRIVE' => 'C:'
+    'IDEA_VM_OPTIONS' => 'C:\\Program Files\\JetBrains\\Activate\\vmoptions\\idea.vmoptions'
+    'SESSIONNAME' => 'Console'
+    'LOGONSERVER' => '\\\\WSS'
+    'TERMINAL_EMULATOR' => 'JetBrains-JediTerm'
+    'APPCODE_VM_OPTIONS' => 'C:\\Program Files\\JetBrains\\Activate\\vmoptions\\appcode.vmoptions'
+    'JETBRAINSCLIENT_VM_OPTIONS' => 'C:\\Program Files\\JetBrains\\Activate\\vmoptions\\jetbrainsclient.vmoptions'
+    'HOMEPATH' => '\\Users\\Praktik'
+    'SystemRoot' => 'C:\\Windows'
+    'STUDIO_VM_OPTIONS' => 'C:\\Program Files\\JetBrains\\Activate\\vmoptions\\studio.vmoptions'
+    'VS140COMNTOOLS' => 'C:\\Program Files (x86)\\Microsoft Visual Studio 14.0\\Common7\\Tools\\'
+    'LOCALAPPDATA' => 'C:\\Users\\Praktik\\AppData\\Local'
+    'APPDATA' => 'C:\\Users\\Praktik\\AppData\\Roaming'
+    'PROCESSOR_IDENTIFIER' => 'Intel64 Family 6 Model 79 Stepping 1, GenuineIntel'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC;.CPL'
+    'PSModulePath' => 'C:\\Users\\Praktik\\Documents\\WindowsPowerShell\\Modules;C:\\Program Files\\WindowsPowerShell\\Modules;C:\\Windows\\system32\\WindowsPowerShell\\v1.0\\Modules;C:\\Program Files\\Intel\\;C:\\Program Files (x86)\\Microsoft SQL Server\\150\\Tools\\PowerShell\\Modules\\'
+    'ProgramFiles(x86)' => 'C:\\Program Files (x86)'
+    'WEBIDE_VM_OPTIONS' => 'C:\\Program Files\\JetBrains\\Activate\\vmoptions\\webide.vmoptions'
+    'PHPSTORM_VM_OPTIONS' => 'C:\\Program Files\\JetBrains\\Activate\\vmoptions\\phpstorm.vmoptions'
+    'RIDER_VM_OPTIONS' => 'C:\\Program Files\\JetBrains\\Activate\\vmoptions\\rider.vmoptions'
+    'JETBRAINS_INTELLIJ_COMMAND_END_MARKER' => 'hy5o914AmrWMdGuNMJxiPaNJnWWdoiGwtHioV1Nf6a7dBuibfAYZkK6O69ov2GZb'
+    'OS' => 'Windows_NT'
+    'USERDNSDOMAIN' => 'RST.EDU'
+    'PROCESSOR_ARCHITECTURE' => 'AMD64'
+    'WEBSTORM_VM_OPTIONS' => 'C:\\Program Files\\JetBrains\\Activate\\vmoptions\\webstorm.vmoptions'
+    'NUMBER_OF_PROCESSORS' => '12'
+    'ComSpec' => 'C:\\Windows\\system32\\cmd.exe'
+    'PROCESSOR_LEVEL' => '6'
+    'DEVECOSTUDIO_VM_OPTIONS' => 'C:\\Program Files\\JetBrains\\Activate\\vmoptions\\devecostudio.vmoptions'
+    'USERDOMAIN_ROAMINGPROFILE' => 'RST'
+    'windir' => 'C:\\Windows'
+    'ProgramFiles' => 'C:\\Program Files'
+    'DATASPELL_VM_OPTIONS' => 'C:\\Program Files\\JetBrains\\Activate\\vmoptions\\dataspell.vmoptions'
+    'TEMP' => 'C:\\Users\\Praktik\\AppData\\Local\\Temp'
+    'TMP' => 'C:\\Users\\Praktik\\AppData\\Local\\Temp'
+    'GATEWAY_VM_OPTIONS' => 'C:\\Program Files\\JetBrains\\Activate\\vmoptions\\gateway.vmoptions'
+    'OneDrive' => 'C:\\Users\\Praktik\\OneDrive'
+    'CommonProgramFiles(x86)' => 'C:\\Program Files (x86)\\Common Files'
+    'USERDOMAIN' => 'RST'
+    'SystemDrive' => 'C:'
+    'COMPUTERNAME' => 'T20-2R'
+    'ProgramData' => 'C:\\ProgramData'
+    'GOLAND_VM_OPTIONS' => 'C:\\Program Files\\JetBrains\\Activate\\vmoptions\\goland.vmoptions'
+    'FPS_BROWSER_USER_PROFILE_STRING' => 'Default'
+    'KOMPAS_SDK' => 'C:\\Program Files\\ASCON\\KOMPAS-3D v21\\SDK\\'
+    'CommonProgramFiles' => 'C:\\Program Files\\Common Files'
+    'PHP_SELF' => 'yii'
+    'SCRIPT_NAME' => 'yii'
+    'SCRIPT_FILENAME' => 'yii'
+    'PATH_TRANSLATED' => 'yii'
+    'DOCUMENT_ROOT' => ''
+    'REQUEST_TIME_FLOAT' => 1715583306.7463
+    'REQUEST_TIME' => 1715583306
+    'argv' => [
+        0 => 'yii'
+        1 => 'hello'
+    ]
+    'argc' => 2
+]
+2024-05-13 08:55:08 [-][-][-][error][yii\console\UnknownCommandException] yii\base\InvalidRouteException: Unable to resolve the request "hello/docoutcreate". in C:\Users\Praktik\Desktop\mysite_git\site_yii\vendor\yiisoft\yii2\base\Module.php:561
+Stack trace:
+#0 C:\Users\Praktik\Desktop\mysite_git\site_yii\vendor\yiisoft\yii2\console\Application.php(180): yii\base\Module->runAction('hello/docoutcre...', Array)
+#1 C:\Users\Praktik\Desktop\mysite_git\site_yii\vendor\yiisoft\yii2\console\Application.php(147): yii\console\Application->runAction('hello/docoutcre...', Array)
+#2 C:\Users\Praktik\Desktop\mysite_git\site_yii\vendor\yiisoft\yii2\base\Application.php(384): yii\console\Application->handleRequest(Object(yii\console\Request))
+#3 C:\Users\Praktik\Desktop\mysite_git\site_yii\yii(20): yii\base\Application->run()
+#4 {main}
+
+Next yii\console\UnknownCommandException: Unknown command "hello/docoutcreate". in C:\Users\Praktik\Desktop\mysite_git\site_yii\vendor\yiisoft\yii2\console\Application.php:183
+Stack trace:
+#0 C:\Users\Praktik\Desktop\mysite_git\site_yii\vendor\yiisoft\yii2\console\Application.php(147): yii\console\Application->runAction('hello/docoutcre...', Array)
+#1 C:\Users\Praktik\Desktop\mysite_git\site_yii\vendor\yiisoft\yii2\base\Application.php(384): yii\console\Application->handleRequest(Object(yii\console\Request))
+#2 C:\Users\Praktik\Desktop\mysite_git\site_yii\yii(20): yii\base\Application->run()
+#3 {main}
+2024-05-13 08:55:08 [-][-][-][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'PSExecutionPolicyPreference' => 'Bypass'
+    'TERM_SESSION_ID' => '95ceed6b-5378-4c9e-a057-6918bad6d588'
+    'CommonProgramW6432' => 'C:\\Program Files\\Common Files'
+    'ProgramW6432' => 'C:\\Program Files'
+    'CLION_VM_OPTIONS' => 'C:\\Program Files\\JetBrains\\Activate\\vmoptions\\clion.vmoptions'
+    'JETBRAINS_CLIENT_VM_OPTIONS' => 'C:\\Program Files\\JetBrains\\Activate\\vmoptions\\jetbrains_client.vmoptions'
+    'DATAGRIP_VM_OPTIONS' => 'C:\\Program Files\\JetBrains\\Activate\\vmoptions\\datagrip.vmoptions'
+    'USERNAME' => 'Praktik'
+    'ALLUSERSPROFILE' => 'C:\\ProgramData'
+    'USERPROFILE' => 'C:\\Users\\Praktik'
+    'RUBYMINE_VM_OPTIONS' => 'C:\\Program Files\\JetBrains\\Activate\\vmoptions\\rubymine.vmoptions'
+    'PROCESSOR_REVISION' => '4f01'
+    'IDEA_INITIAL_DIRECTORY' => 'C:\\Program Files\\JetBrains\\PhpStorm2024.1\\bin'
+    'FPS_BROWSER_APP_PROFILE_STRING' => 'Internet Explorer'
+    'PUBLIC' => 'C:\\Users\\Public'
+    'PYCHARM_VM_OPTIONS' => 'C:\\Program Files\\JetBrains\\Activate\\vmoptions\\pycharm.vmoptions'
+    'Path' => 'C:\\xampp\\php;C:\\Program Files (x86)\\Intel\\iCLS Client\\;C:\\Program Files\\Intel\\iCLS Client\\;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Windows\\System32\\OpenSSH\\;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common;C:\\Program Files\\NVIDIA Corporation\\NVIDIA NvDLISR;C:\\Program Files\\dotnet\\;C:\\Program Files (x86)\\HP\\HP OCR\\DB_Lib\\;C:\\Program Files\\HP\\Common\\HPDestPlgIn\\;C:\\Program Files (x86)\\HP\\Common\\HPDestPlgIn\\;C:\\Windows\\System32\\OpenSSH\\;C:\\Program Files\\Microsoft SQL Server\\Client SDK\\ODBC\\170\\Tools\\Binn\\;C:\\Program Files (x86)\\Microsoft SQL Server\\150\\Tools\\Binn\\;C:\\Program Files\\Microsoft SQL Server\\150\\Tools\\Binn\\;C:\\Program Files\\Microsoft SQL Server\\150\\DTS\\Binn\\;C:\\Program Files (x86)\\Microsoft SQL Server\\160\\DTS\\Binn\\;C:\\Program Files (x86)\\Kaspersky Lab\\Endpoint Agent\\;C:\\Program Files\\Git\\cmd;C:\\Users\\Praktik\\Downloads\\php-8.3.0-nts-Win32-vs16-x64;C:\\ProgramData\\ComposerSetup\\bin;C:\\xampp\\php;C:\\Program Files (x86)\\dotnet\\;C:\\Program Files (x86)\\Incredibuild;C:\\Program Files (x86)\\Windows Kits\\10\\Windows Performance Toolkit\\;C:\\Users\\Praktik\\AppData\\Local\\Microsoft\\WindowsApps;;C:\\Users\\Praktik\\AppData\\Local\\Programs\\Microsoft VS Code\\bin;C:\\Users\\Praktik\\AppData\\Roaming\\Composer\\vendor\\bin;C:\\Users\\Praktik\\.dotnet\\tools'
+    'DriverData' => 'C:\\Windows\\System32\\Drivers\\DriverData'
+    'HOMEDRIVE' => 'C:'
+    'IDEA_VM_OPTIONS' => 'C:\\Program Files\\JetBrains\\Activate\\vmoptions\\idea.vmoptions'
+    'SESSIONNAME' => 'Console'
+    'LOGONSERVER' => '\\\\WSS'
+    'TERMINAL_EMULATOR' => 'JetBrains-JediTerm'
+    'APPCODE_VM_OPTIONS' => 'C:\\Program Files\\JetBrains\\Activate\\vmoptions\\appcode.vmoptions'
+    'JETBRAINSCLIENT_VM_OPTIONS' => 'C:\\Program Files\\JetBrains\\Activate\\vmoptions\\jetbrainsclient.vmoptions'
+    'HOMEPATH' => '\\Users\\Praktik'
+    'SystemRoot' => 'C:\\Windows'
+    'STUDIO_VM_OPTIONS' => 'C:\\Program Files\\JetBrains\\Activate\\vmoptions\\studio.vmoptions'
+    'VS140COMNTOOLS' => 'C:\\Program Files (x86)\\Microsoft Visual Studio 14.0\\Common7\\Tools\\'
+    'LOCALAPPDATA' => 'C:\\Users\\Praktik\\AppData\\Local'
+    'APPDATA' => 'C:\\Users\\Praktik\\AppData\\Roaming'
+    'PROCESSOR_IDENTIFIER' => 'Intel64 Family 6 Model 79 Stepping 1, GenuineIntel'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC;.CPL'
+    'PSModulePath' => 'C:\\Users\\Praktik\\Documents\\WindowsPowerShell\\Modules;C:\\Program Files\\WindowsPowerShell\\Modules;C:\\Windows\\system32\\WindowsPowerShell\\v1.0\\Modules;C:\\Program Files\\Intel\\;C:\\Program Files (x86)\\Microsoft SQL Server\\150\\Tools\\PowerShell\\Modules\\'
+    'ProgramFiles(x86)' => 'C:\\Program Files (x86)'
+    'WEBIDE_VM_OPTIONS' => 'C:\\Program Files\\JetBrains\\Activate\\vmoptions\\webide.vmoptions'
+    'PHPSTORM_VM_OPTIONS' => 'C:\\Program Files\\JetBrains\\Activate\\vmoptions\\phpstorm.vmoptions'
+    'RIDER_VM_OPTIONS' => 'C:\\Program Files\\JetBrains\\Activate\\vmoptions\\rider.vmoptions'
+    'JETBRAINS_INTELLIJ_COMMAND_END_MARKER' => 'hy5o914AmrWMdGuNMJxiPaNJnWWdoiGwtHioV1Nf6a7dBuibfAYZkK6O69ov2GZb'
+    'OS' => 'Windows_NT'
+    'USERDNSDOMAIN' => 'RST.EDU'
+    'PROCESSOR_ARCHITECTURE' => 'AMD64'
+    'WEBSTORM_VM_OPTIONS' => 'C:\\Program Files\\JetBrains\\Activate\\vmoptions\\webstorm.vmoptions'
+    'NUMBER_OF_PROCESSORS' => '12'
+    'ComSpec' => 'C:\\Windows\\system32\\cmd.exe'
+    'PROCESSOR_LEVEL' => '6'
+    'DEVECOSTUDIO_VM_OPTIONS' => 'C:\\Program Files\\JetBrains\\Activate\\vmoptions\\devecostudio.vmoptions'
+    'USERDOMAIN_ROAMINGPROFILE' => 'RST'
+    'windir' => 'C:\\Windows'
+    'ProgramFiles' => 'C:\\Program Files'
+    'DATASPELL_VM_OPTIONS' => 'C:\\Program Files\\JetBrains\\Activate\\vmoptions\\dataspell.vmoptions'
+    'TEMP' => 'C:\\Users\\Praktik\\AppData\\Local\\Temp'
+    'TMP' => 'C:\\Users\\Praktik\\AppData\\Local\\Temp'
+    'GATEWAY_VM_OPTIONS' => 'C:\\Program Files\\JetBrains\\Activate\\vmoptions\\gateway.vmoptions'
+    'OneDrive' => 'C:\\Users\\Praktik\\OneDrive'
+    'CommonProgramFiles(x86)' => 'C:\\Program Files (x86)\\Common Files'
+    'USERDOMAIN' => 'RST'
+    'SystemDrive' => 'C:'
+    'COMPUTERNAME' => 'T20-2R'
+    'ProgramData' => 'C:\\ProgramData'
+    'GOLAND_VM_OPTIONS' => 'C:\\Program Files\\JetBrains\\Activate\\vmoptions\\goland.vmoptions'
+    'FPS_BROWSER_USER_PROFILE_STRING' => 'Default'
+    'KOMPAS_SDK' => 'C:\\Program Files\\ASCON\\KOMPAS-3D v21\\SDK\\'
+    'CommonProgramFiles' => 'C:\\Program Files\\Common Files'
+    'PHP_SELF' => 'yii'
+    'SCRIPT_NAME' => 'yii'
+    'SCRIPT_FILENAME' => 'yii'
+    'PATH_TRANSLATED' => 'yii'
+    'DOCUMENT_ROOT' => ''
+    'REQUEST_TIME_FLOAT' => 1715583308.822
+    'REQUEST_TIME' => 1715583308
+    'argv' => [
+        0 => 'yii'
+        1 => 'hello/docoutcreate'
+        2 => '--number'
+        3 => '='
+        4 => '3'
+    ]
+    'argc' => 5
+]
+2024-05-13 08:55:15 [-][-][-][error][yii\console\UnknownCommandException] yii\base\InvalidRouteException: Unable to resolve the request "hello\docoutcreate". in C:\Users\Praktik\Desktop\mysite_git\site_yii\vendor\yiisoft\yii2\base\Module.php:561
+Stack trace:
+#0 C:\Users\Praktik\Desktop\mysite_git\site_yii\vendor\yiisoft\yii2\console\Application.php(180): yii\base\Module->runAction('hello\\docoutcre...', Array)
+#1 C:\Users\Praktik\Desktop\mysite_git\site_yii\vendor\yiisoft\yii2\console\Application.php(147): yii\console\Application->runAction('hello\\docoutcre...', Array)
+#2 C:\Users\Praktik\Desktop\mysite_git\site_yii\vendor\yiisoft\yii2\base\Application.php(384): yii\console\Application->handleRequest(Object(yii\console\Request))
+#3 C:\Users\Praktik\Desktop\mysite_git\site_yii\yii(20): yii\base\Application->run()
+#4 {main}
+
+Next yii\console\UnknownCommandException: Unknown command "hello\docoutcreate". in C:\Users\Praktik\Desktop\mysite_git\site_yii\vendor\yiisoft\yii2\console\Application.php:183
+Stack trace:
+#0 C:\Users\Praktik\Desktop\mysite_git\site_yii\vendor\yiisoft\yii2\console\Application.php(147): yii\console\Application->runAction('hello\\docoutcre...', Array)
+#1 C:\Users\Praktik\Desktop\mysite_git\site_yii\vendor\yiisoft\yii2\base\Application.php(384): yii\console\Application->handleRequest(Object(yii\console\Request))
+#2 C:\Users\Praktik\Desktop\mysite_git\site_yii\yii(20): yii\base\Application->run()
+#3 {main}
+2024-05-13 08:55:15 [-][-][-][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'PSExecutionPolicyPreference' => 'Bypass'
+    'TERM_SESSION_ID' => '95ceed6b-5378-4c9e-a057-6918bad6d588'
+    'CommonProgramW6432' => 'C:\\Program Files\\Common Files'
+    'ProgramW6432' => 'C:\\Program Files'
+    'CLION_VM_OPTIONS' => 'C:\\Program Files\\JetBrains\\Activate\\vmoptions\\clion.vmoptions'
+    'JETBRAINS_CLIENT_VM_OPTIONS' => 'C:\\Program Files\\JetBrains\\Activate\\vmoptions\\jetbrains_client.vmoptions'
+    'DATAGRIP_VM_OPTIONS' => 'C:\\Program Files\\JetBrains\\Activate\\vmoptions\\datagrip.vmoptions'
+    'USERNAME' => 'Praktik'
+    'ALLUSERSPROFILE' => 'C:\\ProgramData'
+    'USERPROFILE' => 'C:\\Users\\Praktik'
+    'RUBYMINE_VM_OPTIONS' => 'C:\\Program Files\\JetBrains\\Activate\\vmoptions\\rubymine.vmoptions'
+    'PROCESSOR_REVISION' => '4f01'
+    'IDEA_INITIAL_DIRECTORY' => 'C:\\Program Files\\JetBrains\\PhpStorm2024.1\\bin'
+    'FPS_BROWSER_APP_PROFILE_STRING' => 'Internet Explorer'
+    'PUBLIC' => 'C:\\Users\\Public'
+    'PYCHARM_VM_OPTIONS' => 'C:\\Program Files\\JetBrains\\Activate\\vmoptions\\pycharm.vmoptions'
+    'Path' => 'C:\\xampp\\php;C:\\Program Files (x86)\\Intel\\iCLS Client\\;C:\\Program Files\\Intel\\iCLS Client\\;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Windows\\System32\\OpenSSH\\;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common;C:\\Program Files\\NVIDIA Corporation\\NVIDIA NvDLISR;C:\\Program Files\\dotnet\\;C:\\Program Files (x86)\\HP\\HP OCR\\DB_Lib\\;C:\\Program Files\\HP\\Common\\HPDestPlgIn\\;C:\\Program Files (x86)\\HP\\Common\\HPDestPlgIn\\;C:\\Windows\\System32\\OpenSSH\\;C:\\Program Files\\Microsoft SQL Server\\Client SDK\\ODBC\\170\\Tools\\Binn\\;C:\\Program Files (x86)\\Microsoft SQL Server\\150\\Tools\\Binn\\;C:\\Program Files\\Microsoft SQL Server\\150\\Tools\\Binn\\;C:\\Program Files\\Microsoft SQL Server\\150\\DTS\\Binn\\;C:\\Program Files (x86)\\Microsoft SQL Server\\160\\DTS\\Binn\\;C:\\Program Files (x86)\\Kaspersky Lab\\Endpoint Agent\\;C:\\Program Files\\Git\\cmd;C:\\Users\\Praktik\\Downloads\\php-8.3.0-nts-Win32-vs16-x64;C:\\ProgramData\\ComposerSetup\\bin;C:\\xampp\\php;C:\\Program Files (x86)\\dotnet\\;C:\\Program Files (x86)\\Incredibuild;C:\\Program Files (x86)\\Windows Kits\\10\\Windows Performance Toolkit\\;C:\\Users\\Praktik\\AppData\\Local\\Microsoft\\WindowsApps;;C:\\Users\\Praktik\\AppData\\Local\\Programs\\Microsoft VS Code\\bin;C:\\Users\\Praktik\\AppData\\Roaming\\Composer\\vendor\\bin;C:\\Users\\Praktik\\.dotnet\\tools'
+    'DriverData' => 'C:\\Windows\\System32\\Drivers\\DriverData'
+    'HOMEDRIVE' => 'C:'
+    'IDEA_VM_OPTIONS' => 'C:\\Program Files\\JetBrains\\Activate\\vmoptions\\idea.vmoptions'
+    'SESSIONNAME' => 'Console'
+    'LOGONSERVER' => '\\\\WSS'
+    'TERMINAL_EMULATOR' => 'JetBrains-JediTerm'
+    'APPCODE_VM_OPTIONS' => 'C:\\Program Files\\JetBrains\\Activate\\vmoptions\\appcode.vmoptions'
+    'JETBRAINSCLIENT_VM_OPTIONS' => 'C:\\Program Files\\JetBrains\\Activate\\vmoptions\\jetbrainsclient.vmoptions'
+    'HOMEPATH' => '\\Users\\Praktik'
+    'SystemRoot' => 'C:\\Windows'
+    'STUDIO_VM_OPTIONS' => 'C:\\Program Files\\JetBrains\\Activate\\vmoptions\\studio.vmoptions'
+    'VS140COMNTOOLS' => 'C:\\Program Files (x86)\\Microsoft Visual Studio 14.0\\Common7\\Tools\\'
+    'LOCALAPPDATA' => 'C:\\Users\\Praktik\\AppData\\Local'
+    'APPDATA' => 'C:\\Users\\Praktik\\AppData\\Roaming'
+    'PROCESSOR_IDENTIFIER' => 'Intel64 Family 6 Model 79 Stepping 1, GenuineIntel'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC;.CPL'
+    'PSModulePath' => 'C:\\Users\\Praktik\\Documents\\WindowsPowerShell\\Modules;C:\\Program Files\\WindowsPowerShell\\Modules;C:\\Windows\\system32\\WindowsPowerShell\\v1.0\\Modules;C:\\Program Files\\Intel\\;C:\\Program Files (x86)\\Microsoft SQL Server\\150\\Tools\\PowerShell\\Modules\\'
+    'ProgramFiles(x86)' => 'C:\\Program Files (x86)'
+    'WEBIDE_VM_OPTIONS' => 'C:\\Program Files\\JetBrains\\Activate\\vmoptions\\webide.vmoptions'
+    'PHPSTORM_VM_OPTIONS' => 'C:\\Program Files\\JetBrains\\Activate\\vmoptions\\phpstorm.vmoptions'
+    'RIDER_VM_OPTIONS' => 'C:\\Program Files\\JetBrains\\Activate\\vmoptions\\rider.vmoptions'
+    'JETBRAINS_INTELLIJ_COMMAND_END_MARKER' => 'hy5o914AmrWMdGuNMJxiPaNJnWWdoiGwtHioV1Nf6a7dBuibfAYZkK6O69ov2GZb'
+    'OS' => 'Windows_NT'
+    'USERDNSDOMAIN' => 'RST.EDU'
+    'PROCESSOR_ARCHITECTURE' => 'AMD64'
+    'WEBSTORM_VM_OPTIONS' => 'C:\\Program Files\\JetBrains\\Activate\\vmoptions\\webstorm.vmoptions'
+    'NUMBER_OF_PROCESSORS' => '12'
+    'ComSpec' => 'C:\\Windows\\system32\\cmd.exe'
+    'PROCESSOR_LEVEL' => '6'
+    'DEVECOSTUDIO_VM_OPTIONS' => 'C:\\Program Files\\JetBrains\\Activate\\vmoptions\\devecostudio.vmoptions'
+    'USERDOMAIN_ROAMINGPROFILE' => 'RST'
+    'windir' => 'C:\\Windows'
+    'ProgramFiles' => 'C:\\Program Files'
+    'DATASPELL_VM_OPTIONS' => 'C:\\Program Files\\JetBrains\\Activate\\vmoptions\\dataspell.vmoptions'
+    'TEMP' => 'C:\\Users\\Praktik\\AppData\\Local\\Temp'
+    'TMP' => 'C:\\Users\\Praktik\\AppData\\Local\\Temp'
+    'GATEWAY_VM_OPTIONS' => 'C:\\Program Files\\JetBrains\\Activate\\vmoptions\\gateway.vmoptions'
+    'OneDrive' => 'C:\\Users\\Praktik\\OneDrive'
+    'CommonProgramFiles(x86)' => 'C:\\Program Files (x86)\\Common Files'
+    'USERDOMAIN' => 'RST'
+    'SystemDrive' => 'C:'
+    'COMPUTERNAME' => 'T20-2R'
+    'ProgramData' => 'C:\\ProgramData'
+    'GOLAND_VM_OPTIONS' => 'C:\\Program Files\\JetBrains\\Activate\\vmoptions\\goland.vmoptions'
+    'FPS_BROWSER_USER_PROFILE_STRING' => 'Default'
+    'KOMPAS_SDK' => 'C:\\Program Files\\ASCON\\KOMPAS-3D v21\\SDK\\'
+    'CommonProgramFiles' => 'C:\\Program Files\\Common Files'
+    'PHP_SELF' => 'yii'
+    'SCRIPT_NAME' => 'yii'
+    'SCRIPT_FILENAME' => 'yii'
+    'PATH_TRANSLATED' => 'yii'
+    'DOCUMENT_ROOT' => ''
+    'REQUEST_TIME_FLOAT' => 1715583315.4349
+    'REQUEST_TIME' => 1715583315
+    'argv' => [
+        0 => 'yii'
+        1 => 'hello\\docoutcreate'
+        2 => '--number'
+        3 => '='
+        4 => '3'
+    ]
+    'argc' => 5
+]
+2024-05-13 08:55:23 [-][-][-][error][yii\console\UnknownCommandException] yii\base\InvalidRouteException: Unable to resolve the request "hello/docoutcreate". in C:\Users\Praktik\Desktop\mysite_git\site_yii\vendor\yiisoft\yii2\base\Module.php:561
+Stack trace:
+#0 C:\Users\Praktik\Desktop\mysite_git\site_yii\vendor\yiisoft\yii2\console\Application.php(180): yii\base\Module->runAction('hello/docoutcre...', Array)
+#1 C:\Users\Praktik\Desktop\mysite_git\site_yii\vendor\yiisoft\yii2\console\Application.php(147): yii\console\Application->runAction('hello/docoutcre...', Array)
+#2 C:\Users\Praktik\Desktop\mysite_git\site_yii\vendor\yiisoft\yii2\base\Application.php(384): yii\console\Application->handleRequest(Object(yii\console\Request))
+#3 C:\Users\Praktik\Desktop\mysite_git\site_yii\yii(20): yii\base\Application->run()
+#4 {main}
+
+Next yii\console\UnknownCommandException: Unknown command "hello/docoutcreate". in C:\Users\Praktik\Desktop\mysite_git\site_yii\vendor\yiisoft\yii2\console\Application.php:183
+Stack trace:
+#0 C:\Users\Praktik\Desktop\mysite_git\site_yii\vendor\yiisoft\yii2\console\Application.php(147): yii\console\Application->runAction('hello/docoutcre...', Array)
+#1 C:\Users\Praktik\Desktop\mysite_git\site_yii\vendor\yiisoft\yii2\base\Application.php(384): yii\console\Application->handleRequest(Object(yii\console\Request))
+#2 C:\Users\Praktik\Desktop\mysite_git\site_yii\yii(20): yii\base\Application->run()
+#3 {main}
+2024-05-13 08:55:23 [-][-][-][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'PSExecutionPolicyPreference' => 'Bypass'
+    'TERM_SESSION_ID' => '95ceed6b-5378-4c9e-a057-6918bad6d588'
+    'CommonProgramW6432' => 'C:\\Program Files\\Common Files'
+    'ProgramW6432' => 'C:\\Program Files'
+    'CLION_VM_OPTIONS' => 'C:\\Program Files\\JetBrains\\Activate\\vmoptions\\clion.vmoptions'
+    'JETBRAINS_CLIENT_VM_OPTIONS' => 'C:\\Program Files\\JetBrains\\Activate\\vmoptions\\jetbrains_client.vmoptions'
+    'DATAGRIP_VM_OPTIONS' => 'C:\\Program Files\\JetBrains\\Activate\\vmoptions\\datagrip.vmoptions'
+    'USERNAME' => 'Praktik'
+    'ALLUSERSPROFILE' => 'C:\\ProgramData'
+    'USERPROFILE' => 'C:\\Users\\Praktik'
+    'RUBYMINE_VM_OPTIONS' => 'C:\\Program Files\\JetBrains\\Activate\\vmoptions\\rubymine.vmoptions'
+    'PROCESSOR_REVISION' => '4f01'
+    'IDEA_INITIAL_DIRECTORY' => 'C:\\Program Files\\JetBrains\\PhpStorm2024.1\\bin'
+    'FPS_BROWSER_APP_PROFILE_STRING' => 'Internet Explorer'
+    'PUBLIC' => 'C:\\Users\\Public'
+    'PYCHARM_VM_OPTIONS' => 'C:\\Program Files\\JetBrains\\Activate\\vmoptions\\pycharm.vmoptions'
+    'Path' => 'C:\\xampp\\php;C:\\Program Files (x86)\\Intel\\iCLS Client\\;C:\\Program Files\\Intel\\iCLS Client\\;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Windows\\System32\\OpenSSH\\;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common;C:\\Program Files\\NVIDIA Corporation\\NVIDIA NvDLISR;C:\\Program Files\\dotnet\\;C:\\Program Files (x86)\\HP\\HP OCR\\DB_Lib\\;C:\\Program Files\\HP\\Common\\HPDestPlgIn\\;C:\\Program Files (x86)\\HP\\Common\\HPDestPlgIn\\;C:\\Windows\\System32\\OpenSSH\\;C:\\Program Files\\Microsoft SQL Server\\Client SDK\\ODBC\\170\\Tools\\Binn\\;C:\\Program Files (x86)\\Microsoft SQL Server\\150\\Tools\\Binn\\;C:\\Program Files\\Microsoft SQL Server\\150\\Tools\\Binn\\;C:\\Program Files\\Microsoft SQL Server\\150\\DTS\\Binn\\;C:\\Program Files (x86)\\Microsoft SQL Server\\160\\DTS\\Binn\\;C:\\Program Files (x86)\\Kaspersky Lab\\Endpoint Agent\\;C:\\Program Files\\Git\\cmd;C:\\Users\\Praktik\\Downloads\\php-8.3.0-nts-Win32-vs16-x64;C:\\ProgramData\\ComposerSetup\\bin;C:\\xampp\\php;C:\\Program Files (x86)\\dotnet\\;C:\\Program Files (x86)\\Incredibuild;C:\\Program Files (x86)\\Windows Kits\\10\\Windows Performance Toolkit\\;C:\\Users\\Praktik\\AppData\\Local\\Microsoft\\WindowsApps;;C:\\Users\\Praktik\\AppData\\Local\\Programs\\Microsoft VS Code\\bin;C:\\Users\\Praktik\\AppData\\Roaming\\Composer\\vendor\\bin;C:\\Users\\Praktik\\.dotnet\\tools'
+    'DriverData' => 'C:\\Windows\\System32\\Drivers\\DriverData'
+    'HOMEDRIVE' => 'C:'
+    'IDEA_VM_OPTIONS' => 'C:\\Program Files\\JetBrains\\Activate\\vmoptions\\idea.vmoptions'
+    'SESSIONNAME' => 'Console'
+    'LOGONSERVER' => '\\\\WSS'
+    'TERMINAL_EMULATOR' => 'JetBrains-JediTerm'
+    'APPCODE_VM_OPTIONS' => 'C:\\Program Files\\JetBrains\\Activate\\vmoptions\\appcode.vmoptions'
+    'JETBRAINSCLIENT_VM_OPTIONS' => 'C:\\Program Files\\JetBrains\\Activate\\vmoptions\\jetbrainsclient.vmoptions'
+    'HOMEPATH' => '\\Users\\Praktik'
+    'SystemRoot' => 'C:\\Windows'
+    'STUDIO_VM_OPTIONS' => 'C:\\Program Files\\JetBrains\\Activate\\vmoptions\\studio.vmoptions'
+    'VS140COMNTOOLS' => 'C:\\Program Files (x86)\\Microsoft Visual Studio 14.0\\Common7\\Tools\\'
+    'LOCALAPPDATA' => 'C:\\Users\\Praktik\\AppData\\Local'
+    'APPDATA' => 'C:\\Users\\Praktik\\AppData\\Roaming'
+    'PROCESSOR_IDENTIFIER' => 'Intel64 Family 6 Model 79 Stepping 1, GenuineIntel'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC;.CPL'
+    'PSModulePath' => 'C:\\Users\\Praktik\\Documents\\WindowsPowerShell\\Modules;C:\\Program Files\\WindowsPowerShell\\Modules;C:\\Windows\\system32\\WindowsPowerShell\\v1.0\\Modules;C:\\Program Files\\Intel\\;C:\\Program Files (x86)\\Microsoft SQL Server\\150\\Tools\\PowerShell\\Modules\\'
+    'ProgramFiles(x86)' => 'C:\\Program Files (x86)'
+    'WEBIDE_VM_OPTIONS' => 'C:\\Program Files\\JetBrains\\Activate\\vmoptions\\webide.vmoptions'
+    'PHPSTORM_VM_OPTIONS' => 'C:\\Program Files\\JetBrains\\Activate\\vmoptions\\phpstorm.vmoptions'
+    'RIDER_VM_OPTIONS' => 'C:\\Program Files\\JetBrains\\Activate\\vmoptions\\rider.vmoptions'
+    'JETBRAINS_INTELLIJ_COMMAND_END_MARKER' => 'hy5o914AmrWMdGuNMJxiPaNJnWWdoiGwtHioV1Nf6a7dBuibfAYZkK6O69ov2GZb'
+    'OS' => 'Windows_NT'
+    'USERDNSDOMAIN' => 'RST.EDU'
+    'PROCESSOR_ARCHITECTURE' => 'AMD64'
+    'WEBSTORM_VM_OPTIONS' => 'C:\\Program Files\\JetBrains\\Activate\\vmoptions\\webstorm.vmoptions'
+    'NUMBER_OF_PROCESSORS' => '12'
+    'ComSpec' => 'C:\\Windows\\system32\\cmd.exe'
+    'PROCESSOR_LEVEL' => '6'
+    'DEVECOSTUDIO_VM_OPTIONS' => 'C:\\Program Files\\JetBrains\\Activate\\vmoptions\\devecostudio.vmoptions'
+    'USERDOMAIN_ROAMINGPROFILE' => 'RST'
+    'windir' => 'C:\\Windows'
+    'ProgramFiles' => 'C:\\Program Files'
+    'DATASPELL_VM_OPTIONS' => 'C:\\Program Files\\JetBrains\\Activate\\vmoptions\\dataspell.vmoptions'
+    'TEMP' => 'C:\\Users\\Praktik\\AppData\\Local\\Temp'
+    'TMP' => 'C:\\Users\\Praktik\\AppData\\Local\\Temp'
+    'GATEWAY_VM_OPTIONS' => 'C:\\Program Files\\JetBrains\\Activate\\vmoptions\\gateway.vmoptions'
+    'OneDrive' => 'C:\\Users\\Praktik\\OneDrive'
+    'CommonProgramFiles(x86)' => 'C:\\Program Files (x86)\\Common Files'
+    'USERDOMAIN' => 'RST'
+    'SystemDrive' => 'C:'
+    'COMPUTERNAME' => 'T20-2R'
+    'ProgramData' => 'C:\\ProgramData'
+    'GOLAND_VM_OPTIONS' => 'C:\\Program Files\\JetBrains\\Activate\\vmoptions\\goland.vmoptions'
+    'FPS_BROWSER_USER_PROFILE_STRING' => 'Default'
+    'KOMPAS_SDK' => 'C:\\Program Files\\ASCON\\KOMPAS-3D v21\\SDK\\'
+    'CommonProgramFiles' => 'C:\\Program Files\\Common Files'
+    'PHP_SELF' => 'yii'
+    'SCRIPT_NAME' => 'yii'
+    'SCRIPT_FILENAME' => 'yii'
+    'PATH_TRANSLATED' => 'yii'
+    'DOCUMENT_ROOT' => ''
+    'REQUEST_TIME_FLOAT' => 1715583323.0295
+    'REQUEST_TIME' => 1715583323
+    'argv' => [
+        0 => 'yii'
+        1 => 'hello/docoutcreate'
+        2 => '--number'
+        3 => '='
+        4 => '3'
+    ]
+    'argc' => 5
+]

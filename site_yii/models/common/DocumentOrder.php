@@ -9,16 +9,16 @@ use Yii;
  * This is the model class for table "document_order".
  *
  * @property int $id
- * @property int $order_copy_id
- * @property string $order_number
- * @property int|null $order_postfix
- * @property string $order_name
- * @property string $order_date
- * @property int|null $signed_id
- * @property int|null $bring_id
- * @property int|null $executor_id
- * @property string $scan
- * @property string|null $doc
+ *  @property int $order_copy_id
+ *  @property string $order_number
+ *  @property int|null $order_postfix
+ *  @property string $order_name
+ *  @property string $order_date
+ *  @property int|null $signed_id
+ *  @property int|null $bring_id
+ *  @property int|null $executor_id
+ *  @property string $scan
+ *  @property string|null $doc
  * @property int $creator_id
  * @property int $last_edit_id
  * @property int|null $type

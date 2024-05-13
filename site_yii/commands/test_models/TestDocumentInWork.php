@@ -1,6 +1,6 @@
 <?php
 
-namespace app\commands;
+namespace app\commands\test_models;
 
 use app\commands\Generator_helpers\DocHelper;
 use app\models\common\Company;
