@@ -12,7 +12,7 @@ use app\commands\test_models\TestDocumentOutWork;
 use app\controllers\DocsOutController;
 use app\models\common\People;
 use app\models\common\SendMethod;
-use app\models\work\TestDocumentOrderWork;
+use app\commands\test_models\TestDocumentOrderWork;
 use Yii;
 use app\models\common\DocumentOut;
 use app\models\components\Logger;
@@ -22,14 +22,14 @@ use yii\web\UploadedFile;
 use app\commands;
 class GenerateDocsController extends Controller
 {
-    public $number;
+    public $number, $type;
     public function options($actionID)
     {
-        return ['number'];
+        return ['number', 'type'];
     }
     public function optionAliases()
     {
-        return ['n' => 'number'];
+        return ['n' => 'number', 't' => 'type'];
     }
     public function actionDocoutcreate($number)
     {
@@ -44,7 +44,7 @@ class GenerateDocsController extends Controller
             $randomDate = date('Y-m-d', $randomTimestamp);
             $document_number = TestDocumentOutWork::find()
                 ->select('document_number')
-                ->max('document_number');
+                ->max('document_number')+1;
             $model = new TestDocumentOutWork($document_number, $randomDate, $FirstRandomKey, $SecondRandomKey, $ThirdRandomKey);
             $model->save(false);
         }
@@ -68,8 +68,8 @@ class GenerateDocsController extends Controller
             $model->save(false);
         }
     }
-    public function actionDocorder($number){
-        for($i = 0; $i < $number; $i++) {
+    public function actionOrder($number = null, $type = null){
+        for($i = 0; $i < $this->number; $i++) {
             $FirstRandomKey = array_rand(DocHelper::$array_name);
             $SecondRandomKey = array_rand(DocHelper::$array_keywords);
             $real_number = TestDocumentOrderWork::find()
@@ -80,8 +80,9 @@ class GenerateDocsController extends Controller
             $endDate = strtotime(date("Y-m-d"));
             $randomTimestamp = mt_rand($startDate, $endDate);
             $date = date('Y-m-d', $randomTimestamp);
-            $model = new TestDocumentOrderWork($real_number, $date, $FirstRandomKey, $SecondRandomKey);
+            $model = new TestDocumentOrderWork($real_number, $date, $FirstRandomKey, $SecondRandomKey, $this->type);
             $model->save(false);
         }
+
     }
 }
