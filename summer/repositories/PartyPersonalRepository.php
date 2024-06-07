@@ -29,9 +29,10 @@ class PartyPersonalRepository
         return [$searchModel,  $dataProvider];
     }
     public function save($model) {
-        if (!$model->save()) {
+        /*if (!$model->save()) {
             throw new NotFoundHttpException('The model cannot be saved');
-        }
+        }*/
+        $model->save();
     }
     public function findModel($id)
     {
@@ -51,6 +52,32 @@ class PartyPersonalRepository
     public function delete(PartyPersonal $team){
         if (!$team->delete($team)) {
             throw new NotFoundHttpException('The requested page does not exist.');
+        }
+    }
+    public function plusNumb($id, $numb){
+        $model = PartyPersonal::find()->where(['id' => $id])->one();
+        if($model !== null){
+            $model->plus($numb);
+            $this->saveModel($model);
+            return $model;
+        } else {
+            return 'PartyTeam not found for id: ' . $id;
+        }
+    }
+    public function minusNumb($id, $numb){
+        $model = PartyPersonal::find()->where(['id' => $id])->one();
+        if($model !== null){
+            $model->minus($numb);
+            $this->saveModel($model);
+            return $model;
+        } else {
+            return 'PartyTeam not found for id: ' . $id;
+        }
+    }
+    public function saveModel(PartyPersonal $model)
+    {
+        if (!$model->save()) {
+            throw new NotFoundHttpException('The model 2 cannot be saved');
         }
     }
 }

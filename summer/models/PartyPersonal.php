@@ -62,4 +62,12 @@ class PartyPersonal extends \yii\db\ActiveRecord
     {
         return $this->hasOne(PersonalOffset::className(), ['id' => 'personal_offset_id']);
     }
+    public function minus($numb)
+    {
+        $this->total_score -= $numb;
+    }
+    public function plus($numb)
+    {
+        $this->total_score += $numb;
+    }
 }

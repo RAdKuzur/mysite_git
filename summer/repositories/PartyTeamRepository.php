@@ -22,7 +22,7 @@ use app\models\SiClick;
 use app\services\SiteService;
 class PartyTeamRepository
 {
-    public function findChooseColor($branch,$id)
+    public function findChooseColor($branch, $id)
     {
         $model = PartyTeam::find()->where(['id' => $id])->one();
         $model->lastBranch($branch);
@@ -30,10 +30,14 @@ class PartyTeamRepository
     }
     public function plusNumb($id, $numb, $branch){
         $model = PartyTeam::find()->where(['id' => $id])->one();
-        $model->plus($numb);
-        $model->lastBranch($branch);
-        $this->saveModel($model);
-        return $model;
+        if($model !== null){
+            $model->plus($numb);
+            $model->lastBranch($branch);
+            $this->saveModel($model);
+            return $model;
+        } else {
+            return 'PartyTeam not found for id: ' . $id;
+        }
     }
     public function plusScore($id, $score,$lastBranch)
     {
@@ -45,10 +49,14 @@ class PartyTeamRepository
     }
     public function minusNumb($id, $numb, $branch){
         $model = PartyTeam::find()->where(['id' => $id])->one();
+        if($model !== null){
         $model->minus($numb);
         $model->lastBranch($branch);
         $this->saveModel($model);
         return $model;
+        } else {
+            return 'PartyTeam not found for id: ' . $id;
+        }
     }
     public function minusScore($id, $score,$lastBranch){
 

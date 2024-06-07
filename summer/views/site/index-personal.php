@@ -39,9 +39,9 @@ echo $form->field($model, 'name')->dropDownList($items,$params)->label('Личн
     </tr>
     <?php
     foreach ($teams as $team)
-        echo '<tr><td>'.$team->secondname.' '.$team->firstname.' '.$team->patronymic.'</td><td>'.Html::a('+10', \yii\helpers\Url::to(['site/plus-ten-p', 'id' => $team->id]), ['class' => 'btn btn-success inline']).'</td>'.
-            '<td>'.Html::a('+2', \yii\helpers\Url::to(['site/plus-two-p', 'id' => $team->id]), ['class' => 'btn btn-success inline']).'</td>'.
-            '<td>'.Html::a('-1', \yii\helpers\Url::to(['site/minus-one-p', 'id' => $team->id]), ['class' => 'btn btn-danger inline']).'</tr>';
+        echo '<tr><td>'.$team->secondname.' '.$team->firstname.' '.$team->patronymic.'</td><td>'.Html::a('+10', \yii\helpers\Url::to(['site/plus', 'id' => $team->id, 'numb' => 10]), ['class' => 'btn btn-success inline']).'</td>'.
+            '<td>'.Html::a('+2', \yii\helpers\Url::to(['site/plus', 'id' => $team->id, 'numb' => 2]), ['class' => 'btn btn-success inline']).'</td>'.
+            '<td>'.Html::a('-1', \yii\helpers\Url::to(['site/minus', 'id' => $team->id, 'numb' => 1]), ['class' => 'btn btn-danger inline']).'</tr>';
     ?>
 </table>
 
