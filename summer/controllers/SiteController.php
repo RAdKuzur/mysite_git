@@ -295,6 +295,7 @@ class SiteController extends Controller
                 'model' => $model,
             ]);
         }
+        //gfsdg
         $model = Yii::createObject(PartyTeam::class);
         if ($id !== null) {
             $model = $this->partyPersonalRepository->plusNumb($id, $numb);
@@ -334,6 +335,7 @@ class SiteController extends Controller
         $model = Yii::createObject(PartyTeam::class);
         if ($id !== null) {
             $model = $this->partyPersonalRepository->minusNumb($id, $numb);
+            //$this->historyRepository->siteWriteHistory('-' . $numb, $model->id);
         }
         $model = Yii::createObject(PersonalOffset::class);
         return $this->redirect(['index-personal','model' => $model]);
@@ -353,7 +355,7 @@ class SiteController extends Controller
             $score = Yii::$app->request->post('PartyTeam')['score'];
             $lastBranch = Yii::$app->request->post('PartyTeam')['lastBranch'];
             $model = $this->partyTeamRepository->minusScore($id, $score, $lastBranch);
-            $this->historyRepository->siteWriteHistory('+' . Yii::$app->request->post('PartyTeam')['score'], $model->id);
+            $this->historyRepository->siteWriteHistory('-' . Yii::$app->request->post('PartyTeam')['score'], $model->id);
         }
         $model = Yii::createObject(Team::class);
         return $this->redirect(['index-team','model' => $model]);
@@ -368,7 +370,8 @@ class SiteController extends Controller
         }
         $model = Yii::createObject(PartyTeam::class);
         $model = $this->partyTeamRepository->minusNumb($id, $numb, $branch);
-        $model = Yii::createObject(Team::class);
+        $this->historyRepository->siteWriteHistory('-' . $numb, $model->id);
+
         return $this->redirect(['index-team','model' => $model]);
     }
     public function actionPlusScore($numb = null, $id = null, $branch = null)
@@ -381,6 +384,7 @@ class SiteController extends Controller
         }
         $model = Yii::createObject(PartyTeam::class);
         $model = $this->partyTeamRepository->plusNumb($id, $numb, $branch);
+        $this->historyRepository->siteWriteHistory('+' . $numb, $model->id);
         $model = Yii::createObject(Team::class);
         return $this->redirect(['index-team','model' => $model]);
     }
