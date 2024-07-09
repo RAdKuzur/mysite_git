@@ -47,4 +47,13 @@ class DocHelper
         "Коммуникации", "Инклюзивный рост", "Интерактивность", "Креативность", "Риски", "Энергия", "Урбанизация",
         "Экосистемная экономика"
     ];
+    public function ParseName($filename)
+    {
+        return $filename;
+    }
+    public function ParseType($filename)
+    {
+        $type = 'doc';
+        return $type;
+    }
 }

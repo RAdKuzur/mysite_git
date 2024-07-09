@@ -83,6 +83,6 @@ class GenerateDocsController extends Controller
             $model = new TestDocumentOrderWork($real_number, $date, $FirstRandomKey, $SecondRandomKey, $this->type);
             $model->save(false);
         }
-
+        //$this->prompt();
     }
 }

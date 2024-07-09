@@ -27,6 +27,7 @@ class FileWizard
             $i++;
         }
         return mb_substr($result, 1);
+
     }
 
     static public function UploadFile($localFilepath, $destPath, $fileObj, $uploadType)
