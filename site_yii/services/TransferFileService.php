@@ -48,7 +48,7 @@ class TransferFileService
         }
     }
     public function insertApplication($currentDirectory, $doc_in, $table){
-        $filepath = $currentDirectory."/applications";
+        $filepath = $currentDirectory."/applications/";
         $filename = $doc_in->applications;
         $fileArray = (new Generator_helpers\DocHelper)->splitFile($filename);
         foreach ($fileArray as $file) {

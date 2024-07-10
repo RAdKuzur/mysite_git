@@ -2,7 +2,7 @@
 
 namespace app\commands;
 use app\models\common\DocumentOut;
-use app\models\Files;
+use app\models\File;
 use app\models\work\DocumentInWork;
 use app\repositories\TransferFileRepository;
 use app\services\TransferFileService;
@@ -18,13 +18,11 @@ class TransferFileController extends Controller
     public function __construct(
         $id,
         $module,
-
         TransferFileRepository $repository,
         TransferFileService $service,
         $config = [])
     {
         parent::__construct($id, $module, $config);
-
         $this->transferFileRepository = $repository;
         $this->transferFileService = $service;
     }
@@ -74,5 +72,14 @@ class TransferFileController extends Controller
         }
     }
 
+    public function actionCopy()
+    {
+        $db_files = Yii::$app->db->createCommand("SELECT * FROM files")->queryAll();
+        foreach ($db_files as $file) {
+            Yii::$app->db2->createCommand()
+                ->insert('files', $file)
+                ->execute();
+        }
 
+    }
 }

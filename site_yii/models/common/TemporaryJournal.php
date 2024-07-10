@@ -81,7 +81,7 @@ class TemporaryJournal extends \yii\db\ActiveRecord
             'signed_give' => 'Signed Give',
             'signed_gain' => 'Signed Gain',
             'comment' => 'Comment',
-            'files' => 'Files',
+            'files' => 'File',
         ];
     }
 

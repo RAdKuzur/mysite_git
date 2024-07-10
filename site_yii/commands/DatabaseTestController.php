@@ -125,7 +125,7 @@ class DatabaseTestController extends Controller
         }
 
 
-        $this->stdout("Files status\n", Console::FG_YELLOW);
+        $this->stdout("File status\n", Console::FG_YELLOW);
         $this->stdout("On Server: ".$serverCount." || On Yandex: ".$yadiCount." || Dropped: ".$dropCount."\n\n", Console::FG_GREEN);
 
         $this->stdout("-------------\nDropped files\n-------------\n", Console::FG_YELLOW);

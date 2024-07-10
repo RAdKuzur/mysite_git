@@ -2,6 +2,7 @@
 
 $params = require __DIR__ . '/params.php';
 $db = require __DIR__ . '/db.php';
+$db2 = require __DIR__ . '/db2.php';
 $db_report_test = require __DIR__ . '/db_report_test.php';
 
 $config = [
@@ -63,11 +64,13 @@ $config = [
             'as log' => \yii\queue\LogBehavior::class,
 
             'db' => $db,
+            'db2' => $db2,
             'tableName' => '{{%queue}}',
             'channel' => 'default',
             'mutex' => \yii\mutex\MysqlMutex::class,
         ],
         'db' => $db,
+        'db2' => $db2,
         'db_report_test' => $db_report_test,
         /*
         'urlManager' => [

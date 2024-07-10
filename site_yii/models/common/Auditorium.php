@@ -62,7 +62,7 @@ class Auditorium extends \yii\db\ActiveRecord
             'square' => 'Square',
             'text' => 'Text',
             'capacity' => 'Capacity',
-            'files' => 'Files',
+            'files' => 'File',
             'is_education' => 'Is Education',
             'branch_id' => 'Branch ID',
             'include_square' => 'Include Square',

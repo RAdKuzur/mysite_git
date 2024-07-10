@@ -115,7 +115,7 @@ class Event extends \yii\db\ActiveRecord
             'protocol' => 'Protocol',
             'photos' => 'Photos',
             'reporting_doc' => 'Reporting Doc',
-            'other_files' => 'Other Files',
+            'other_files' => 'Other File',
             'event_way_id' => 'Event Way ID',
             'creator_id' => 'Creator ID',
             'participation_scope_id' => 'Participation Scope ID',

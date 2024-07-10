@@ -2,9 +2,10 @@
 
 namespace app\repositories;
 
-use app\models\Files;
+use app\models\File;
 use app\models\work\DocumentInWork;
 use app\models\work\DocumentOutWork;
+use app\models\work\FileWork;
 
 class TransferFileRepository
 {
@@ -23,7 +24,7 @@ class TransferFileRepository
     }
     public function insertDoc($table, $doc_in,  $type, $filepath , $file)
     {
-        $model = new Files($table , $doc_in->id , $type , $filepath.$file);
+        $model = new FileWork($table , $doc_in->id , $type , $filepath.$file);
         $model->save(false);
     }
 }
