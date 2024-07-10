@@ -47,13 +47,12 @@ class DocHelper
         "Коммуникации", "Инклюзивный рост", "Интерактивность", "Креативность", "Риски", "Энергия", "Урбанизация",
         "Экосистемная экономика"
     ];
-    public function ParseName($filename)
-    {
-        return $filename;
+    function splitFile($inputString) {
+        // Разбить строку на слова, используя пробел в качестве разделителя
+        $fileArray = explode(" ", $inputString);
+        // Удалить пустые элементы, которые могли возникнуть из-за нескольких пробелов подряд
+        $fileArray = array_filter($fileArray, 'strlen');
+        return $fileArray;
     }
-    public function ParseType($filename)
-    {
-        $type = 'doc';
-        return $type;
-    }
+
 }
