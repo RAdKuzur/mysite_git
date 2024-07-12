@@ -6,6 +6,7 @@ use app\models\common\DocumentOut;
 use app\models\File;
 use app\models\work\DocumentInWork;
 use app\repositories\TransferFileRepository;
+use app\services\DocScriptService;
 use app\services\TransferFileService;
 use Yii;
 use yii\console\Controller;
@@ -13,41 +14,46 @@ use app\commands;
 use app\commands\Generator_helpers\DocHelper;
 class DocScriptController extends Controller
 {
+    public DocScriptService $docScriptService;
+    public function  __construct($id, $module, DocScriptService $docScriptService, $config = [])
+    {
+        $this->docScriptService = $docScriptService;
+        parent::__construct($id, $module, $config);
+    }
     public function actionDocScript()
     {
         $tableNameFirst = 'files_tmp';
-        $command = \Yii::$app->db->createCommand("SHOW TABLES LIKE :table", [':table' => $tableNameFirst]);
-        $result = $command->queryAll();
-        if (empty($result)) {
-            $command = \Yii::$app->db->createCommand(DocHelper::$createQueryTableFirst)->queryAll();
-        }
         $tableNameSecond = 'files_tmp_2';
-        $command = \Yii::$app->db->createCommand("SHOW TABLES LIKE :table", [':table' => $tableNameSecond]);
-        $result = $command->queryAll();
-        if (empty($result)) {
-            $command = \Yii::$app->db->createCommand(DocHelper::$createQueryTableSecond)->queryAll();
-        }
         $tableNameThird = 'files_tmp_3';
-        $command = \Yii::$app->db->createCommand("SHOW TABLES LIKE :table", [':table' => $tableNameThird]);
-        $result = $command->queryAll();
-        if (empty($result)) {
-            $command = \Yii::$app->db->createCommand(DocHelper::$createQueryTableThird)->queryAll();
-        }
-        $command = \Yii::$app->db->createCommand(DocHelper::$insertDocInDoc)->queryAll();
-        $command = \Yii::$app->db->createCommand(DocHelper::$insertDocInScan)->queryAll();
-        $command = \Yii::$app->db->createCommand(DocHelper::$insertDocInApplication)->queryAll();
-        $command = \Yii::$app->db->createCommand(DocHelper::$splitDocIn)->queryAll();
-        $command = \Yii::$app->db->createCommand(DocHelper::$firstCopyDocIn)->queryAll();
-        $command = \Yii::$app->db->createCommand(DocHelper::$deleteEmptyDocIn)->queryAll();
-        $files = \Yii::$app->db->createCommand(DocHelper::$secondCopyDocIn)->queryAll();
-        $db_files = Yii::$app->db->createCommand("SELECT * FROM $tableNameThird")->queryAll();
-        foreach ($db_files as $file) {
-            Yii::$app->db2->createCommand()
-                ->insert('files', $file)
-                ->execute();
-        }
-        $command = \Yii::$app->db->createCommand(DocHelper::$dropTableDocIn)->queryAll();
+        $this->docScriptService->CreateTable($tableNameFirst, DocHelper::$createQueryTableFirst);
+        $this->docScriptService->CreateTable($tableNameSecond, DocHelper::$createQueryTableSecond );
+        $this->docScriptService->CreateTable($tableNameThird, DocHelper::$createQueryTableThird);
+        $this->docScriptService->insertDocIn();
+        $this->docScriptService->copyDocIn();
+        $this->docScriptService->insertFileDocIn($tableNameThird);
+    }
+    public function actionDropQuery()
+    {
 
+        $tableNameFirst = 'files_tmp';
+        $tableNameSecond = 'files_tmp_2';
+        $tableNameThird = 'files_tmp_3';
+        $this->docScriptService->dropTable($tableNameFirst, DocHelper::$dropTableFirstDocIn);
+        $this->docScriptService->dropTable($tableNameSecond, DocHelper::$dropTableSecondDocIn);
+        $this->docScriptService->dropTable($tableNameThird, DocHelper::$dropTableThirdDocIn);
+        $this->docScriptService->deleteCacheInfo();
+    }
+    public function actionCopyDocInTable()
+    {
+        $docInTable = $this->docScriptService->getDocInTable();
+        $this->docScriptService->insertDocInTable($docInTable);
+    }
+    public function actionCache() {
+        if(Yii::$app->cache->exists('data')) {
+            echo "+";
+        } else {
+            echo "-";
+        }
     }
 }
 

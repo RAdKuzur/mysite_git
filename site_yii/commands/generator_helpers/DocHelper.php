@@ -108,4 +108,9 @@ class DocHelper
     static $dropTableDocIn = "DROP TABLE u1471742_index.files_tmp;
                                 DROP TABLE u1471742_index.files_tmp_2;
                                 DROP TABLE u1471742_index.files_tmp_3;";
+    static $dropTableFirstDocIn = "DROP TABLE u1471742_index.files_tmp;";
+    static $dropTableSecondDocIn = "DROP TABLE u1471742_index.files_tmp_2;";
+    static $dropTableThirdDocIn = "DROP TABLE u1471742_index.files_tmp_3;";
+    static $getDocInTable = "SELECT *
+                                FROM u1471742_index.`document_in`";
 }
