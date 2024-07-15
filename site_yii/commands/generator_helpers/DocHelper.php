@@ -79,17 +79,33 @@ class DocHelper
                                 SELECT 'document_in', `id`, 'doc', `doc`
                                 FROM u1471742_index.`document_in`
                                 WHERE `doc` != '';";
-
+    static $insertDocOutDoc = "INSERT INTO u1471742_index.files_tmp (`table_name`, `table_row_id`, `file_type`, `filepath`)
+                                SELECT 'document_out', `id`, 'doc', `doc`
+                                FROM u1471742_index.`document_out`
+                                WHERE `doc` != '';";
     static $insertDocInScan = "INSERT INTO u1471742_index.files_tmp (`table_name`, `table_row_id`, `file_type`, `filepath`)
                                 SELECT 'document_in', `id`, 'scan', `scan`
                                 FROM u1471742_index.`document_in`
                                 WHERE `scan` != '';";
-
+    static $insertDocOutScan = "INSERT INTO u1471742_index.files_tmp (`table_name`, `table_row_id`, `file_type`, `filepath`)
+                                SELECT 'document_out', `id`, 'scan', `scan`
+                                FROM u1471742_index.`document_out`
+                                WHERE `scan` != '';";
     static $insertDocInApplication = "INSERT INTO u1471742_index.files_tmp (`table_name`, `table_row_id`, `file_type`, `filepath`)
                                 SELECT 'document_in', `id`, 'application', `applications`
                                 FROM u1471742_index.`document_in`
                                 WHERE `applications` != '';";
+    static $insertDocOutApplication = "INSERT INTO u1471742_index.files_tmp (`table_name`, `table_row_id`, `file_type`, `filepath`)
+                                SELECT 'document_out', `id`, 'application', `applications`
+                                FROM u1471742_index.`document_out`
+                                WHERE `applications` != '';";
     static $splitDocIn = "INSERT INTO u1471742_index.files_tmp_2 (`table_name`, `table_row_id`, `file_type`, `filepath`)
+                                SELECT `table_name`, `table_row_id`, `file_type`, SUBSTRING_INDEX(SUBSTRING_INDEX(`filepath`, ' ', n), ' ', -1) AS filepath
+                                FROM u1471742_index.files_tmp, (SELECT 1 n UNION ALL SELECT 2 UNION ALL SELECT 3 UNION ALL SELECT 4  UNION ALL SELECT 5
+                                UNION ALL SELECT 6  UNION ALL SELECT 7  UNION ALL SELECT 8  UNION ALL SELECT 9
+                                UNION ALL SELECT 10  UNION ALL SELECT 11) numbers
+                                WHERE n <= 1 + (LENGTH(`filepath`) - LENGTH(REPLACE(`filepath`, ' ', '')));";
+    static $splitDocOut = "INSERT INTO u1471742_index.files_tmp_2 (`table_name`, `table_row_id`, `file_type`, `filepath`)
                                 SELECT `table_name`, `table_row_id`, `file_type`, SUBSTRING_INDEX(SUBSTRING_INDEX(`filepath`, ' ', n), ' ', -1) AS filepath
                                 FROM u1471742_index.files_tmp, (SELECT 1 n UNION ALL SELECT 2 UNION ALL SELECT 3 UNION ALL SELECT 4  UNION ALL SELECT 5
                                 UNION ALL SELECT 6  UNION ALL SELECT 7  UNION ALL SELECT 8  UNION ALL SELECT 9
@@ -99,13 +115,26 @@ class DocHelper
                                 SELECT `table_name`, `table_row_id`, `file_type`, `filepath`
                                 FROM u1471742_index.files_tmp_2
                                 WHERE `filepath` != '';";
+    static $firstCopyDocOut  =  "INSERT INTO u1471742_index.files_tmp_3 (`table_name`, `table_row_id`, `file_type`, `filepath`)
+                                SELECT `table_name`, `table_row_id`, `file_type`, `filepath`
+                                FROM u1471742_index.files_tmp_2
+                                WHERE `filepath` != '';";
     static $deleteEmptyDocIn = "DELETE t1
+                                FROM u1471742_index.files_tmp_3 t1
+                                INNER JOIN u1471742_index.files_tmp_3 t2
+                                WHERE t1.filepath = t2.filepath AND t1.id > t2.id;";
+    static $deleteEmptyDocOut = "DELETE t1
                                 FROM u1471742_index.files_tmp_3 t1
                                 INNER JOIN u1471742_index.files_tmp_3 t2
                                 WHERE t1.filepath = t2.filepath AND t1.id > t2.id;";
     static $secondCopyDocIn =  "SELECT `table_name`,`table_row_id`, `file_type`, `filepath`
                                 FROM u1471742_index.files_tmp_3;";
+    static $secondCopyDocOut =  "SELECT `table_name`,`table_row_id`, `file_type`, `filepath`
+                                FROM u1471742_index.files_tmp_3;";
     static $dropTableDocIn = "DROP TABLE u1471742_index.files_tmp;
+                                DROP TABLE u1471742_index.files_tmp_2;
+                                DROP TABLE u1471742_index.files_tmp_3;";
+    static $dropTableDocOut = "DROP TABLE u1471742_index.files_tmp;
                                 DROP TABLE u1471742_index.files_tmp_2;
                                 DROP TABLE u1471742_index.files_tmp_3;";
     static $dropTableFirstDocIn = "DROP TABLE u1471742_index.files_tmp;";
@@ -113,4 +142,7 @@ class DocHelper
     static $dropTableThirdDocIn = "DROP TABLE u1471742_index.files_tmp_3;";
     static $getDocInTable = "SELECT *
                                 FROM u1471742_index.`document_in`";
+    static $getDocOutTable = "SELECT *
+                                FROM u1471742_index.`document_out`";
+
 }

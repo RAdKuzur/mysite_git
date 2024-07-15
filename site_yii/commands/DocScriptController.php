@@ -20,7 +20,7 @@ class DocScriptController extends Controller
         $this->docScriptService = $docScriptService;
         parent::__construct($id, $module, $config);
     }
-    public function actionDocScript()
+    public function actionDocInScript()
     {
         $tableNameFirst = 'files_tmp';
         $tableNameSecond = 'files_tmp_2';
@@ -34,7 +34,6 @@ class DocScriptController extends Controller
     }
     public function actionDropQuery()
     {
-
         $tableNameFirst = 'files_tmp';
         $tableNameSecond = 'files_tmp_2';
         $tableNameThird = 'files_tmp_3';
@@ -47,6 +46,23 @@ class DocScriptController extends Controller
     {
         $docInTable = $this->docScriptService->getDocInTable();
         $this->docScriptService->insertDocInTable($docInTable);
+    }
+    public function actionDocOutScript()
+    {
+        $tableNameFirst = 'files_tmp';
+        $tableNameSecond = 'files_tmp_2';
+        $tableNameThird = 'files_tmp_3';
+        $this->docScriptService->CreateTable($tableNameFirst, DocHelper::$createQueryTableFirst);
+        $this->docScriptService->CreateTable($tableNameSecond, DocHelper::$createQueryTableSecond);
+        $this->docScriptService->CreateTable($tableNameThird, DocHelper::$createQueryTableThird);
+        $this->docScriptService->insertDocOut();
+        $this->docScriptService->copyDocOut();
+        $this->docScriptService->insertFileDocOut($tableNameThird);
+    }
+    public function actionCopyDocOutTable()
+    {
+        $docInTable = $this->docScriptService->getDocOutTable();
+        $this->docScriptService->insertDocOutTable($docInTable);
     }
     public function actionCache() {
         if(Yii::$app->cache->exists('data')) {
