@@ -3,54 +3,56 @@
 namespace app\services;
 use app\commands\Generator_helpers;
 use app\commands\Generator_helpers\DocHelper;
+use app\repositories\DocScriptRepository;
 use Exception;
 use Yii;
 
 class DocScriptService
 {
-    public function createTable($tableName, $sqlCommand)
+    public DocScriptRepository $docScriptRepository;
+    public function  __construct(
+        $id,
+        $module,
+        DocScriptRepository $docScriptRepository,
+        $config = [])
     {
-        $command = \Yii::$app->db->createCommand("SHOW TABLES LIKE :table", [':table' => $tableName]);
-        $result = $command->queryAll();
-        if (empty($result)) {
-            \Yii::$app->db->createCommand($sqlCommand)->queryAll();
-        }
+        $this->docScriptRepository = $docScriptRepository;
+    }
+    public function createTemporaryTables()
+    {
+        $tableNameFirst = 'files_tmp';
+        $tableNameSecond = 'files_tmp_2';
+        $tableNameThird = 'files_tmp_3';
+        $this->docScriptRepository->CreateTemporaryTable($tableNameFirst, DocHelper::$createQueryTableFirst);
+        $this->docScriptRepository->CreateTemporaryTable($tableNameSecond, DocHelper::$createQueryTableSecond );
+        $this->docScriptRepository->CreateTemporaryTable($tableNameThird, DocHelper::$createQueryTableThird);
     }
     public function insertDocIn(){
-        \Yii::$app->db->createCommand(DocHelper::$insertDocInDoc)->queryAll();
-        \Yii::$app->db->createCommand(DocHelper::$insertDocInScan)->queryAll();
-        \Yii::$app->db->createCommand(DocHelper::$insertDocInApplication)->queryAll();
+        $this->docScriptRepository->InsertDocIn();
     }
     public function insertDocOut(){
-        \Yii::$app->db->createCommand(DocHelper::$insertDocOutDoc)->queryAll();
-        \Yii::$app->db->createCommand(DocHelper::$insertDocOutScan)->queryAll();
-        \Yii::$app->db->createCommand(DocHelper::$insertDocOutApplication)->queryAll();
+        $this->docScriptRepository->InsertDocOut();
     }
-
     public function copyDocIn(){
-        \Yii::$app->db->createCommand(DocHelper::$splitDocIn)->queryAll();
-        \Yii::$app->db->createCommand(DocHelper::$firstCopyDocIn)->queryAll();
-        \Yii::$app->db->createCommand(DocHelper::$deleteEmptyDocIn)->queryAll();
+        $this->docScriptRepository->CopyDocIn();
     }
     public function copyDocOut(){
-        \Yii::$app->db->createCommand(DocHelper::$splitDocOut)->queryAll();
-        \Yii::$app->db->createCommand(DocHelper::$firstCopyDocOut)->queryAll();
-        \Yii::$app->db->createCommand(DocHelper::$deleteEmptyDocOut)->queryAll();
+        $this->docScriptRepository->CopyDocOut();
     }
 
-    public function insertFileDocIn($tableName){
+    public function insertFileDoc($tableName){
         $array_id = [];
-        $files = \Yii::$app->db->createCommand(DocHelper::$secondCopyDocIn)->queryAll();
-        $db_files = Yii::$app->db->createCommand("SELECT * FROM $tableName")->queryAll();
+        $db_files = $this->docScriptRepository->selectFromTable($tableName);
         $cache = Yii::$app->cache;
         $cache->flush();
         foreach ($db_files as $file) {
             $filepath = $file['filepath'];
-            $result = Yii::$app->db2->createCommand("SELECT * FROM files WHERE filepath = :filepath")
+            /*$result = Yii::$app->db2->createCommand("SELECT * FROM files WHERE filepath = :filepath")
                 ->bindValues([':filepath' => $filepath])
-                ->queryAll();
+                ->queryAll();*/
+            $result = $this->docScriptRepository->findUniqueFilesByFilepath($filepath);
             if(!$result) {
-                Yii::$app->db2->createCommand("INSERT INTO  docs2_db.files (`table_name`, `table_row_id`, `file_type`, `filepath`)
+               /* Yii::$app->db2->createCommand("INSERT INTO  docs2_db.files (`table_name`, `table_row_id`, `file_type`, `filepath`)
                     VALUES (:table_name, :table_row_id, :file_type, :filepath)")
                     ->bindValues([
                         ':table_name' => $file['table_name'],
@@ -60,7 +62,8 @@ class DocScriptService
                     ])->execute();
                 $result = Yii::$app->db2->createCommand("SELECT * FROM files WHERE filepath = :filepath")
                     ->bindValues([':filepath' => $filepath])
-                    ->queryAll();
+                    ->queryAll();*/
+
                 array_push($array_id, $result[0]['id']);
             }
         }
@@ -72,47 +75,13 @@ class DocScriptService
 
         \Yii::$app->db->createCommand(DocHelper::$dropTableDocIn)->queryAll();
     }
-    public function insertFileDocOut($tableName){
-        $array_id = [];
-        $files = \Yii::$app->db->createCommand(DocHelper::$secondCopyDocOut)->queryAll();
-        $db_files = Yii::$app->db->createCommand("SELECT * FROM $tableName")->queryAll();
-        $cache = Yii::$app->cache;
-        $cache->flush();
-        foreach ($db_files as $file) {
-            $filepath = $file['filepath'];
-            $result = Yii::$app->db2->createCommand("SELECT * FROM files WHERE filepath = :filepath")
-                ->bindValues([':filepath' => $filepath])
-                ->queryAll();
-            if(!$result) {
-                Yii::$app->db2->createCommand("INSERT INTO  docs2_db.files (`table_name`, `table_row_id`, `file_type`, `filepath`)
-                    VALUES (:table_name, :table_row_id, :file_type, :filepath)")
-                    ->bindValues([
-                    ':table_name' => $file['table_name'],
-                    ':table_row_id' => $file['table_row_id'],
-                    ':file_type' => $file['file_type'],
-                    ':filepath' => $file['filepath']
-                    ])->execute();
-                $result = Yii::$app->db2->createCommand("SELECT * FROM files WHERE filepath = :filepath")
-                    ->bindValues([':filepath' => $filepath])
-                    ->queryAll();
-                array_push($array_id, $result[0]['id']);
-            }
-        }
-        if(Yii::$app->cache->exists('data')) {
-            throw new Exception('Ошибка');
-        } else {
-            $cache->set('data', $array_id, 3600);
-        }
-
-        \Yii::$app->db->createCommand(DocHelper::$dropTableDocOut)->queryAll();
-    }
-    public function dropTable($tableName, $sqlCommand){
-
-        $command = \Yii::$app->db->createCommand("SHOW TABLES LIKE :table", [':table' => $tableName]);
-        $result = $command->queryAll();
-        if (!empty($result)) {
-            $command = \Yii::$app->db->createCommand($sqlCommand)->queryAll();
-        }
+    public function dropTemporaryTables(){
+        $tableNameFirst = 'files_tmp';
+        $tableNameSecond = 'files_tmp_2';
+        $tableNameThird = 'files_tmp_3';
+        $this->docScriptRepository->dropTable($tableNameFirst, DocHelper::$dropTableFirstDocIn);
+        $this->docScriptRepository->dropTable($tableNameSecond, DocHelper::$dropTableSecondDocIn);
+        $this->docScriptRepository->dropTable($tableNameThird, DocHelper::$dropTableThirdDocIn);
     }
     public function deleteCacheInfo()
     {
@@ -130,9 +99,7 @@ class DocScriptService
             throw new Exception('Ошибка 2');
         }
     }
-    public function getDocInTable(){
-        return \Yii::$app->db->createCommand(DocHelper::$getDocInTable)->queryAll();;
-    }
+
     public function insertDocInTable($data)
     {
         foreach ($data as $doc){
@@ -183,9 +150,6 @@ class DocScriptService
             ])->execute();
         }
     }
-    public function getDocOutTable(){
-        return \Yii::$app->db->createCommand(DocHelper::$getDocOutTable)->queryAll();
-    }
     public function insertDocOutTable($data)
     {
         foreach ($data as $doc) {
@@ -235,4 +199,25 @@ class DocScriptService
             ])->execute();
         }
     }
+    public function addPath()
+    {
+        $files = Yii::$app->db2->createCommand("SELECT * FROM files")
+            ->queryAll();
+        foreach ($files as $file) {
+            $filepath = '/uploads/files/'.$file['table_name'].'/'.$file['file_type'].'/'.$file['filepath'];
+            $result = \Yii::$app->db2->createCommand("SELECT * FROM files WHERE filepath = :filepath")->
+            bindValues([
+                ':filepath' => $filepath
+            ])->execute();
+            if(!$result && $file['filepath'][0]!= '/'){
+                \Yii::$app->db2->createCommand("UPDATE files SET filepath = :filepath WHERE filepath = :old_filepath")->
+                bindValues([
+                    ':filepath' => $filepath,
+                    ':old_filepath' => $file['filepath']
+                ])->execute();
+            }
+        }
+
+    }
+
 }

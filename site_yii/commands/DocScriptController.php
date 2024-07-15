@@ -5,6 +5,7 @@ namespace app\commands;
 use app\models\common\DocumentOut;
 use app\models\File;
 use app\models\work\DocumentInWork;
+use app\repositories\DocScriptRepository;
 use app\repositories\TransferFileRepository;
 use app\services\DocScriptService;
 use app\services\TransferFileService;
@@ -15,8 +16,15 @@ use app\commands\Generator_helpers\DocHelper;
 class DocScriptController extends Controller
 {
     public DocScriptService $docScriptService;
-    public function  __construct($id, $module, DocScriptService $docScriptService, $config = [])
+    public DocScriptRepository $docScriptRepository;
+    public function  __construct(
+        $id,
+        $module,
+        DocScriptService $docScriptService,
+        DocScriptRepository $docScriptRepository,
+        $config = [])
     {
+        $this->docScriptRepository = $docScriptRepository;
         $this->docScriptService = $docScriptService;
         parent::__construct($id, $module, $config);
     }
@@ -25,26 +33,24 @@ class DocScriptController extends Controller
         $tableNameFirst = 'files_tmp';
         $tableNameSecond = 'files_tmp_2';
         $tableNameThird = 'files_tmp_3';
-        $this->docScriptService->CreateTable($tableNameFirst, DocHelper::$createQueryTableFirst);
-        $this->docScriptService->CreateTable($tableNameSecond, DocHelper::$createQueryTableSecond );
-        $this->docScriptService->CreateTable($tableNameThird, DocHelper::$createQueryTableThird);
+        $this->docScriptService->CreateTemporaryTables();
         $this->docScriptService->insertDocIn();
         $this->docScriptService->copyDocIn();
-        $this->docScriptService->insertFileDocIn($tableNameThird);
+        $this->docScriptService->insertFileDoc($tableNameThird);
+        $this->docScriptService->addPath();
     }
     public function actionDropQuery()
     {
         $tableNameFirst = 'files_tmp';
         $tableNameSecond = 'files_tmp_2';
         $tableNameThird = 'files_tmp_3';
-        $this->docScriptService->dropTable($tableNameFirst, DocHelper::$dropTableFirstDocIn);
-        $this->docScriptService->dropTable($tableNameSecond, DocHelper::$dropTableSecondDocIn);
-        $this->docScriptService->dropTable($tableNameThird, DocHelper::$dropTableThirdDocIn);
+        $this->docScriptService->DropTemporaryTables();
         $this->docScriptService->deleteCacheInfo();
+
     }
     public function actionCopyDocInTable()
     {
-        $docInTable = $this->docScriptService->getDocInTable();
+        $docInTable = $this->docScriptRepository->getDocInTable();
         $this->docScriptService->insertDocInTable($docInTable);
     }
     public function actionDocOutScript()
@@ -52,24 +58,19 @@ class DocScriptController extends Controller
         $tableNameFirst = 'files_tmp';
         $tableNameSecond = 'files_tmp_2';
         $tableNameThird = 'files_tmp_3';
-        $this->docScriptService->CreateTable($tableNameFirst, DocHelper::$createQueryTableFirst);
-        $this->docScriptService->CreateTable($tableNameSecond, DocHelper::$createQueryTableSecond);
-        $this->docScriptService->CreateTable($tableNameThird, DocHelper::$createQueryTableThird);
+        $this->docScriptService->CreateTemporaryTables();
         $this->docScriptService->insertDocOut();
         $this->docScriptService->copyDocOut();
-        $this->docScriptService->insertFileDocOut($tableNameThird);
+        $this->docScriptService->insertFileDoc($tableNameThird);
+        $this->docScriptService->addPath();
     }
     public function actionCopyDocOutTable()
     {
-        $docInTable = $this->docScriptService->getDocOutTable();
+        $docInTable = $this->docScriptRepository->getDocOutTable();
         $this->docScriptService->insertDocOutTable($docInTable);
     }
     public function actionCache() {
-        if(Yii::$app->cache->exists('data')) {
-            echo "+";
-        } else {
-            echo "-";
-        }
+        $this->docScriptService->addPath();
     }
 }
 
