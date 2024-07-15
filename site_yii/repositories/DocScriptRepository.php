@@ -48,12 +48,15 @@ class DocScriptRepository
         return \Yii::$app->db->createCommand("SELECT * FROM $tableName")->queryAll();
     }
     public function dropTable($tableName, $sqlCommand){
-
         $command = \Yii::$app->db->createCommand("SHOW TABLES LIKE :table", [':table' => $tableName]);
         $result = $command->queryAll();
         if (!empty($result)) {
             $command = \Yii::$app->db->createCommand($sqlCommand)->queryAll();
         }
+    }
+    public function dropAllTemporaryTables()
+    {
+        \Yii::$app->db->createCommand(DocHelper::$dropTableDocIn)->queryAll();
     }
     public function findUniqueFilesByFilepath($filepath)
     {
@@ -74,5 +77,26 @@ class DocScriptRepository
             ->bindValues([':filepath' => $filepath])
             ->queryAll();
     }
-
+    public function selectFiles(){
+        return \Yii::$app->db2->createCommand("SELECT * FROM files")
+            ->queryAll();
+    }
+    public function updateFilepath($file, $filepath){
+        \Yii::$app->db2->createCommand("UPDATE files SET filepath = :filepath WHERE filepath = :old_filepath")->
+        bindValues([
+            ':filepath' => $filepath,
+            ':old_filepath' => $file['filepath']
+        ])->execute();
+    }
+    public function deleteFiles($file_id){
+        Yii::$app->db2->createCommand("DELETE FROM docs2_db.files WHERE id = :file_id")
+            ->bindValues([':file_id' => $file_id])
+            ->execute();
+    }
+    public function findByFilepath($filepath){
+        return \Yii::$app->db2->createCommand("SELECT * FROM files WHERE filepath = :filepath")->
+        bindValues([
+            ':filepath' => $filepath
+        ])->execute();
+    }
 }

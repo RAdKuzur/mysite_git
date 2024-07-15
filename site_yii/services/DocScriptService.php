@@ -47,23 +47,9 @@ class DocScriptService
         $cache->flush();
         foreach ($db_files as $file) {
             $filepath = $file['filepath'];
-            /*$result = Yii::$app->db2->createCommand("SELECT * FROM files WHERE filepath = :filepath")
-                ->bindValues([':filepath' => $filepath])
-                ->queryAll();*/
             $result = $this->docScriptRepository->findUniqueFilesByFilepath($filepath);
             if(!$result) {
-               /* Yii::$app->db2->createCommand("INSERT INTO  docs2_db.files (`table_name`, `table_row_id`, `file_type`, `filepath`)
-                    VALUES (:table_name, :table_row_id, :file_type, :filepath)")
-                    ->bindValues([
-                        ':table_name' => $file['table_name'],
-                        ':table_row_id' => $file['table_row_id'],
-                        ':file_type' => $file['file_type'],
-                        ':filepath' => $file['filepath']
-                    ])->execute();
-                $result = Yii::$app->db2->createCommand("SELECT * FROM files WHERE filepath = :filepath")
-                    ->bindValues([':filepath' => $filepath])
-                    ->queryAll();*/
-
+                $result = $this->docScriptRepository->insertFiles($file, $filepath);
                 array_push($array_id, $result[0]['id']);
             }
         }
@@ -72,8 +58,7 @@ class DocScriptService
         } else {
             $cache->set('data', $array_id, 3600);
         }
-
-        \Yii::$app->db->createCommand(DocHelper::$dropTableDocIn)->queryAll();
+        $this->docScriptRepository->dropAllTemporaryTables();
     }
     public function dropTemporaryTables(){
         $tableNameFirst = 'files_tmp';
@@ -89,9 +74,7 @@ class DocScriptService
         if(Yii::$app->cache->exists('data')) {
             $keys = $cache->get('data');
             foreach ($keys as $file_id) {
-                Yii::$app->db2->createCommand("DELETE FROM docs2_db.files WHERE id = :file_id")
-                    ->bindValues([':file_id' => $file_id])
-                    ->execute();
+                $this->docScriptRepository->deleteFiles($file_id);
             }
             $cache->flush();
         }
@@ -201,20 +184,12 @@ class DocScriptService
     }
     public function addPath()
     {
-        $files = Yii::$app->db2->createCommand("SELECT * FROM files")
-            ->queryAll();
+        $files = $this->docScriptRepository->selectFiles();
         foreach ($files as $file) {
             $filepath = '/uploads/files/'.$file['table_name'].'/'.$file['file_type'].'/'.$file['filepath'];
-            $result = \Yii::$app->db2->createCommand("SELECT * FROM files WHERE filepath = :filepath")->
-            bindValues([
-                ':filepath' => $filepath
-            ])->execute();
+            $result = $this->docScriptRepository->findByFilepath($filepath);
             if(!$result && $file['filepath'][0]!= '/'){
-                \Yii::$app->db2->createCommand("UPDATE files SET filepath = :filepath WHERE filepath = :old_filepath")->
-                bindValues([
-                    ':filepath' => $filepath,
-                    ':old_filepath' => $file['filepath']
-                ])->execute();
+                $this->docScriptRepository->updateFilepath($file, $filepath);
             }
         }
 
