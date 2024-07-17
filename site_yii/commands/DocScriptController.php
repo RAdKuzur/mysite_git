@@ -9,6 +9,7 @@ use app\repositories\DocScriptRepository;
 use app\repositories\TransferFileRepository;
 use app\services\DocScriptService;
 use app\services\TransferFileService;
+use PHPUnit\Exception;
 use Yii;
 use yii\console\Controller;
 use app\commands;
@@ -30,23 +31,34 @@ class DocScriptController extends Controller
     }
     public function actionDocInScript()
     {
-        $tableNameFirst = 'files_tmp';
-        $tableNameSecond = 'files_tmp_2';
-        $tableNameThird = 'files_tmp_3';
-        $this->docScriptService->CreateTemporaryTables();
-        $this->docScriptService->insertDocIn();
-        $this->docScriptService->copyDocIn();
-        $this->docScriptService->insertFileDoc($tableNameThird);
-        $this->docScriptService->addPath();
-        echo 'Doc-In OK!'."\n";
+        try {
+            $tableNameFirst = 'files_tmp';
+            $tableNameSecond = 'files_tmp_2';
+            $tableNameThird = 'files_tmp_3';
+            $this->docScriptService->CreateTemporaryTables();
+            $this->docScriptService->insertDocIn();
+            $this->docScriptService->copyDocIn();
+            $this->docScriptService->insertFileDoc($tableNameThird);
+            $this->docScriptService->addPath();
+            echo 'Doc-In OK!'."\n";
+        }
+        catch (Exception $e){
+            echo  'Ошибка кэширования'.'\n';
+        }
+
     }
     public function actionDropQuery()
     {
-        $tableNameFirst = 'files_tmp';
-        $tableNameSecond = 'files_tmp_2';
-        $tableNameThird = 'files_tmp_3';
-        $this->docScriptService->DropTemporaryTables();
-        $this->docScriptService->deleteCacheInfo();
+        try {
+            $tableNameFirst = 'files_tmp';
+            $tableNameSecond = 'files_tmp_2';
+            $tableNameThird = 'files_tmp_3';
+            $this->docScriptService->DropTemporaryTables();
+            $this->docScriptService->deleteCacheInfo();
+        }
+        catch (Exception $e){
+            echo  $e->getMessage().'\n';
+        }
         echo 'Drop-Query OK!'."\n";
     }
     public function actionCopyDocInTable()
@@ -57,14 +69,19 @@ class DocScriptController extends Controller
     }
     public function actionDocOutScript()
     {
-        $tableNameFirst = 'files_tmp';
-        $tableNameSecond = 'files_tmp_2';
-        $tableNameThird = 'files_tmp_3';
-        $this->docScriptService->CreateTemporaryTables();
-        $this->docScriptService->insertDocOut();
-        $this->docScriptService->copyDocOut();
-        $this->docScriptService->insertFileDoc($tableNameThird);
-        $this->docScriptService->addPath();
+        try {
+            $tableNameFirst = 'files_tmp';
+            $tableNameSecond = 'files_tmp_2';
+            $tableNameThird = 'files_tmp_3';
+            $this->docScriptService->CreateTemporaryTables();
+            $this->docScriptService->insertDocOut();
+            $this->docScriptService->copyDocOut();
+            $this->docScriptService->insertFileDoc($tableNameThird);
+            $this->docScriptService->addPath();
+        }
+        catch (Exception $e){
+            echo $e->getMessage().'\n';
+        }
         echo 'Doc-Out OK!'."\n";
     }
     public function actionCopyDocOutTable()

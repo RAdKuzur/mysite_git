@@ -54,7 +54,7 @@ class DocScriptService
             }
         }
         if(Yii::$app->cache->exists('data')) {
-            throw new Exception('Ошибка');
+            throw new Exception('Ошибка кэширования');
         } else {
             $cache->set('data', $array_id, 3600);
         }
