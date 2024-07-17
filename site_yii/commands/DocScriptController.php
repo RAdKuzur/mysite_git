@@ -38,6 +38,7 @@ class DocScriptController extends Controller
         $this->docScriptService->copyDocIn();
         $this->docScriptService->insertFileDoc($tableNameThird);
         $this->docScriptService->addPath();
+        echo 'Doc-In OK!'."\n";
     }
     public function actionDropQuery()
     {
@@ -46,12 +47,13 @@ class DocScriptController extends Controller
         $tableNameThird = 'files_tmp_3';
         $this->docScriptService->DropTemporaryTables();
         $this->docScriptService->deleteCacheInfo();
-
+        echo 'Drop-Query OK!'."\n";
     }
     public function actionCopyDocInTable()
     {
         $docInTable = $this->docScriptRepository->getDocInTable();
         $this->docScriptService->insertDocInTable($docInTable);
+        echo 'Copy Doc-In OK!'."\n";
     }
     public function actionDocOutScript()
     {
@@ -63,11 +65,13 @@ class DocScriptController extends Controller
         $this->docScriptService->copyDocOut();
         $this->docScriptService->insertFileDoc($tableNameThird);
         $this->docScriptService->addPath();
+        echo 'Doc-Out OK!'."\n";
     }
     public function actionCopyDocOutTable()
     {
         $docInTable = $this->docScriptRepository->getDocOutTable();
         $this->docScriptService->insertDocOutTable($docInTable);
+        echo 'Copy Doc-Out OK!'."\n";
     }
     public function actionCache() {
         $this->docScriptService->addPath();

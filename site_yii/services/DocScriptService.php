@@ -79,7 +79,7 @@ class DocScriptService
             $cache->flush();
         }
         else {
-            throw new Exception('Ошибка 2');
+            throw new Exception('Ошибка кэширования');
         }
     }
 

@@ -89,7 +89,7 @@ class DocScriptRepository
         ])->execute();
     }
     public function deleteFiles($file_id){
-        Yii::$app->db2->createCommand("DELETE FROM docs2_db.files WHERE id = :file_id")
+        \Yii::$app->db2->createCommand("DELETE FROM docs2_db.files WHERE id = :file_id")
             ->bindValues([':file_id' => $file_id])
             ->execute();
     }

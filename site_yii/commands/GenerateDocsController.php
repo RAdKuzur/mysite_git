@@ -67,6 +67,7 @@ class GenerateDocsController extends Controller
                 $SecondRandomKey, $ThirdRandomKey);
             $model->save(false);
         }
+
     }
     public function actionOrder($number = null, $type = null){
         for($i = 0; $i < $this->number; $i++) {
