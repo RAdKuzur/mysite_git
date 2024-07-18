@@ -6,6 +6,16 @@ use app\commands\Generator_helpers\DocHelper;
 
 class DocScriptRepository
 {
+    public function countCompareTable($tablename)
+    {
+        $number = \Yii::$app->db->createCommand("SELECT COUNT(*) FROM $tablename")->queryScalar();
+        $number2 = \Yii::$app->db2->createCommand("SELECT COUNT(*) FROM $tablename")->queryScalar();
+        if ($number == $number2) {
+            return true;
+        }else {
+            return false;
+        }
+    }
     public function createTemporaryTable($tableName, $sqlCommand)
     {
         $command = \Yii::$app->db->createCommand("SHOW TABLES LIKE :table", [':table' => $tableName]);

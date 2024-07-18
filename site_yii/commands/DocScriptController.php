@@ -31,7 +31,9 @@ class DocScriptController extends Controller
     }
     public function actionDocInScript()
     {
+
         try {
+            $this->docScriptService->compareTables('document_in');
             $tableNameFirst = 'files_tmp';
             $tableNameSecond = 'files_tmp_2';
             $tableNameThird = 'files_tmp_3';
@@ -70,6 +72,7 @@ class DocScriptController extends Controller
     public function actionDocOutScript()
     {
         try {
+            $this->docScriptService->compareTables('document_out');
             $tableNameFirst = 'files_tmp';
             $tableNameSecond = 'files_tmp_2';
             $tableNameThird = 'files_tmp_3';
@@ -92,6 +95,16 @@ class DocScriptController extends Controller
     }
     public function actionCache() {
         $this->docScriptService->addPath();
+    }
+    public function actionTest()
+    {
+        try {
+            $this->docScriptService->compareTables('document_out');
+        }
+        catch (Exception $e){
+            echo $e->getMessage().'\n';
+        }
+
     }
 }
 

@@ -18,6 +18,12 @@ class DocScriptService
     {
         $this->docScriptRepository = $docScriptRepository;
     }
+    public function compareTables($tablename)
+    {
+        if(!$this->docScriptRepository->countCompareTable($tablename)){
+            throw new Exception("Таблицы ".$tablename." в двух базах данных не совпадают");
+        }
+    }
     public function createTemporaryTables()
     {
         $tableNameFirst = 'files_tmp';
